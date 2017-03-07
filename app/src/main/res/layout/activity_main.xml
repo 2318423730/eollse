@@ -59,7 +59,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingBottom="5dp"
-                android:paddingTop="5dp">
+                android:paddingTop="10dp">
 
                 <TextView
                     android:id="@+id/Address"
@@ -418,8 +418,8 @@
                         android:src="@drawable/search" />
 
                     <com.eollse.ui.MyPmdTextView
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
                         android:id="@+id/tv_pmd"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
