@@ -10,11 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:background="@drawable/main_background"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -418,6 +418,8 @@
                         android:src="@drawable/search" />
 
                     <com.eollse.ui.MyPmdTextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:id="@+id/tv_pmd"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -430,7 +432,8 @@
                         android:textSize="@dimen/test_size"
                         android:ellipsize="marquee"
                         android:marqueeRepeatLimit="marquee_forever"
-                        android:singleLine="true"/>
+                        android:singleLine="true"
+                        android:background="@color/gray"/>
                 </RelativeLayout>
 
             </LinearLayout>
