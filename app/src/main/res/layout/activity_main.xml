@@ -22,8 +22,8 @@
             android:background="@drawable/head_bar"
             android:gravity="center"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp">
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,10 +40,12 @@
 
             <ImageView
                 android:id="@+id/iv_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/setting" />
+                android:src="@drawable/setting"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"/>
 
             <LinearLayout
                 android:id="@+id/ll_top2"
@@ -109,39 +111,40 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginRight="10.0dip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="30dp"
                     android:layout_weight="1.0"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/aaa"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.0"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
                         android:gravity="center"
                         android:text="视频模块" />
 
                     <ListView
                         android:id="@+id/lv_listview"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.0"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
 
                         android:cacheColorHint="@android:color/transparent"
                         android:divider="@color/transparent"
-                        android:dividerHeight="0.0dip"
+                        android:dividerHeight="0dp"
                         android:scrollbars="none" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="30dp"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
@@ -337,7 +340,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="10dp">
+                android:paddingBottom="5dp">
 
 
                 <RelativeLayout
@@ -358,7 +361,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="苹果版" />
+                            android:text="苹果版"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -378,7 +383,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="苹果版" />
+                            android:text="安卓版"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"/>
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -395,16 +402,16 @@
 
                     <ImageView
                         android:id="@+id/iv_add"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/add" />
 
                     <ImageView
                         android:id="@+id/iv_search"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="30dp"
                         android:layout_toLeftOf="@+id/iv_add"
