@@ -2,6 +2,7 @@ package com.eollse.activity;
 
 
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -33,7 +34,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import io.vov.vitamio.MediaPlayer;
+//import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
 
@@ -231,9 +232,9 @@ public class MainActivity extends BaseActivity {
         videoView.setVideoPath(videoUrl);
         videoView.requestFocus();
         //准备好的监听
-        videoView.setOnPreparedListener(new io.vov.vitamio.MediaPlayer.OnPreparedListener() {
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
-            public void onPrepared(io.vov.vitamio.MediaPlayer mp) {
+            public void onPrepared(MediaPlayer mp) {
                 videoView.start();//开始播放
             }
         });

@@ -2,22 +2,24 @@ package com.eollse.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.VideoView;
+
+import io.vov.vitamio.widget.VideoView;
+
 
 /**
  * Created by miliang on 2017/3/8/0008.
  */
 
-public class MySystemVideoView extends VideoView{
-    public MySystemVideoView(Context context) {
+public class MyVitamioVideoView extends VideoView {
+    public MyVitamioVideoView(Context context) {
         super(context,null);
     }
 
-    public MySystemVideoView(Context context, AttributeSet attrs) {
+    public MyVitamioVideoView(Context context, AttributeSet attrs) {
         super(context, attrs,0);
     }
 
-    public MySystemVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public MyVitamioVideoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -26,4 +28,11 @@ public class MySystemVideoView extends VideoView{
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(widthMeasureSpec,heightMeasureSpec);
     }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+
+    }
+
+
 }
