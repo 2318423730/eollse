@@ -40,8 +40,8 @@
 
             <ImageView
                 android:id="@+id/iv_setting"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/px_50"
+                android:layout_height="@dimen/px_50"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/setting"
                 android:layout_centerVertical="true"
