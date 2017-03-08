@@ -1,7 +1,7 @@
 package com.eollse.activity;
 
 
-import android.media.MediaPlayer;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
+
 
 import com.alibaba.fastjson.JSON;
 import com.eollse.R;
@@ -23,6 +23,7 @@ import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
 import com.eollse.entity.Video;
 import com.eollse.ui.MyPmdTextView;
+import com.eollse.ui.MySystemVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 
@@ -31,6 +32,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import io.vov.vitamio.MediaPlayer;
+import io.vov.vitamio.Vitamio;
+
 
 public class MainActivity extends BaseActivity {
 
@@ -50,7 +55,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rl_top2)
     RelativeLayout rlTop2;
     @BindView(R.id.videoView)
-    VideoView videoView;
+    MySystemVideoView videoView;
     @BindView(R.id.lv_listview)
     ListView lvListview;
     @BindView(R.id.ll_middle_left)
@@ -100,6 +105,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Vitamio.isInitialized(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -190,8 +196,7 @@ public class MainActivity extends BaseActivity {
                 video= JSON.parseObject(jsonStr,Video.class);
                 videosList=video.getTrailers();
                 handler.sendEmptyMessage(Constants.VIDEO_RECEIVE);
-
-
+                Log.e("MyTAG","size="+videosList.size());
             }
 
             @Override
@@ -206,7 +211,7 @@ public class MainActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case Constants.VIDEO_RECEIVE:
-                    Log.e("MyTAG","控制视频播放");
+                    //Log.e("MyTAG","控制视频播放");
                     playVideo();
                     break;
             }
@@ -222,21 +227,54 @@ public class MainActivity extends BaseActivity {
      */
     private void playVideo(){
         videoUrl=videosList.get(0).getHightUrl();
+
         videoView.setVideoPath(videoUrl);
+        videoView.requestFocus();
         //准备好的监听
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        videoView.setOnPreparedListener(new io.vov.vitamio.MediaPlayer.OnPreparedListener() {
             @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
+            public void onPrepared(io.vov.vitamio.MediaPlayer mp) {
                 videoView.start();//开始播放
             }
         });
+
+
+        //播放出错
+        videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                return false;
+            }
+        });
+
         //播放完成的监听
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-
+            public void onCompletion(MediaPlayer mp) {
+                //置空
+                mp.setDisplay(null);
+                mp.reset();
+                //播放下一个视频(暂时重复播放第一个)
+                playNext();
             }
         });
+
+
+    }
+
+    /**
+     * 播放的视频索引
+     */
+    private int videoPosition;
+    /**
+     * 播放下一个视频
+     */
+    private void playNext() {
+        videoPosition++;
+        if(videoPosition==videosList.size()){
+            videoPosition=0;
+        }
+        videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
     }
 
     @Override
