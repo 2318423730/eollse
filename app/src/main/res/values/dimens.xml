@@ -5,6 +5,7 @@
 
     <!-- 标题 -->
     <dimen name="title_size">@dimen/px_40</dimen>
+
     <dimen name="top2_size">@dimen/px_25</dimen>
     <dimen name="kuaijie_size">@dimen/px_30</dimen>
     <dimen name="pmd_size">@dimen/px_30</dimen>

@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/ll_top1"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/px_100"
             android:background="@drawable/head_bar"
             android:gravity="center"
             android:orientation="vertical">
@@ -50,16 +50,15 @@
             <LinearLayout
                 android:id="@+id/ll_top2"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="100dp"
-                android:layout_marginRight="100dp"
-
+                android:layout_height="@dimen/px_70"
+                android:layout_marginLeft="@dimen/px_150"
+                android:layout_marginRight="@dimen/px_150"
+                android:layout_marginTop="@dimen/px_10"
                 android:background="@drawable/sq_info_bg"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingBottom="5dp"
-                android:paddingTop="10dp">
+                android:paddingTop="5dp">
 
                 <TextView
                     android:id="@+id/Address"
@@ -123,13 +122,11 @@
                     android:layout_weight="1.2"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/aaa"
+                    <VideoView
+                        android:id="@+id/videoView"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="视频模块" />
+                        android:layout_weight="1" />
 
                     <ListView
                         android:id="@+id/lv_listview"

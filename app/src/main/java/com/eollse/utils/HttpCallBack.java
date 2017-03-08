@@ -8,7 +8,7 @@ import okhttp3.Response;
 
 public interface HttpCallBack {
 
-    void OnSuccess(String json);
+    void OnSuccess(String jsonStr);
 
-    void OnError(String json);
+    void OnError(String jsonStr);
 }

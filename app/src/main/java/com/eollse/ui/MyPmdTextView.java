@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 /**
  * Created by miliang on 2017/3/7/0007.
+ * 自定义跑马灯
  */
 
 public class MyPmdTextView extends TextView {
