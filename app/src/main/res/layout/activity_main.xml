@@ -17,13 +17,12 @@
         android:layout_alignParentStart="true">
 
         <LinearLayout
+            android:id="@+id/ll_top1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:background="@drawable/head_bar"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,6 +34,7 @@
 
 
         <RelativeLayout
+            android:id="@+id/rl_top2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -69,7 +69,7 @@
                     android:gravity="center"
                     android:text="地址:重庆市渝北区鲁能五街区3栋"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/test_size" />
+                    android:textSize="@dimen/top2_size" />
 
                 <TextView
                     android:id="@+id/RealName"
@@ -80,7 +80,7 @@
                     android:gravity="center"
                     android:text="网格长:罗丽娜"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/test_size" />
+                    android:textSize="@dimen/top2_size" />
 
                 <TextView
                     android:id="@+id/Mobile"
@@ -91,7 +91,7 @@
                     android:gravity="center"
                     android:text="联系电话:023-68629315"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/test_size" />
+                    android:textSize="@dimen/top2_size" />
 
 
             </LinearLayout>
@@ -107,6 +107,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/ll_middle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="20dp"
@@ -115,9 +116,10 @@
                 android:layout_marginBottom="10dp">
 
                 <LinearLayout
+                    android:id="@+id/ll_middle_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginRight="50dp"
                     android:layout_weight="1.0"
                     android:orientation="vertical">
 
@@ -142,6 +144,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_middle_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="30dp"
@@ -168,15 +171,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/wyhs" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="我有话说" />
+                                android:text="我有话说"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -189,15 +196,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/zzcx" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="政策查询" />
+                                android:text="政策查询"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -210,15 +221,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/cxgs" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="查询公示" />
+                                android:text="查询公示"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -231,15 +246,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/pasq" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="平安社区" />
+                                android:text="平安社区"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -252,15 +271,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/wyfw" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="物业服务" />
+                                android:text="物业服务"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -273,15 +296,19 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
                                 android:src="@drawable/hrhs" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="好人好事" />
+                                android:text="好人好事"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -294,15 +321,20 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:layout_width="20dp"
-                                android:layout_height="20dp"
-                                android:src="@drawable/wybs" />
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/hrhs"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="我要办事" />
+                                android:text="我要办事"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
 
@@ -429,7 +461,7 @@
                         android:textColor="@color/red"
                         android:lines="1"
                         android:text=""
-                        android:textSize="@dimen/test_size"
+                        android:textSize="@dimen/pmd_size"
                         android:ellipsize="marquee"
                         android:marqueeRepeatLimit="marquee_forever"
                         android:singleLine="true"
