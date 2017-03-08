@@ -108,7 +108,7 @@
             <LinearLayout
                 android:id="@+id/ll_middle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:orientation="horizontal"
@@ -116,24 +116,33 @@
 
                 <LinearLayout
                     android:id="@+id/ll_middle_left"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="50dp"
-                    android:layout_weight="1.2"
+                    android:layout_marginRight="@dimen/px_100"
+                    android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <com.eollse.ui.MyVitamioVideoView
-                        android:id="@+id/videoView"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_gravity="center"
-                        android:layout_weight="1" />
+                        android:layout_weight="1.2">
+                        <com.eollse.ui.MySystemVideoView
+                            android:id="@+id/videoView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center" />
+                        <!--<fm.jiecao.jcvideoplayer_lib.JCVideoPlayer-->
+                        <!--android:id="@+id/videoView"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="0dp"-->
+                        <!--android:layout_weight="1"/>-->
+                    </RelativeLayout>
 
                     <ListView
                         android:id="@+id/lv_listview"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="0.8"
+                        android:layout_weight="1"
                         android:layout_marginTop="@dimen/px_10"
                         android:cacheColorHint="@android:color/transparent"
                         android:divider="@color/transparent"
@@ -143,9 +152,9 @@
 
                 <LinearLayout
                     android:id="@+id/ll_middle_right"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="@dimen/px_100"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 

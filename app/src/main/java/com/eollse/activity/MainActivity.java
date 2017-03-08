@@ -25,6 +25,7 @@ import com.eollse.entity.MainNew;
 import com.eollse.entity.Video;
 import com.eollse.ui.MyPmdTextView;
 import com.eollse.ui.MySystemVideoView;
+import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 
@@ -34,6 +35,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 //import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
@@ -235,6 +237,7 @@ public class MainActivity extends BaseActivity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+               // videoView.setNewSize();
                 videoView.start();//开始播放
             }
         });
@@ -260,6 +263,13 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+//        videoView.setUp(videoUrl,"",null);
+//        videoView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(),"dian",Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 
