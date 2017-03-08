@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginRight="50dp"
-                    android:layout_weight="1.0"
+                    android:layout_weight="1.2"
                     android:orientation="vertical">
 
                     <TextView
@@ -135,7 +135,7 @@
                         android:id="@+id/lv_listview"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
+                        android:layout_weight="0.8"
 
                         android:cacheColorHint="@android:color/transparent"
                         android:divider="@color/transparent"

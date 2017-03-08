@@ -6,9 +6,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.eollse.R;
+import com.eollse.adapter.MainNewsAdapter;
+import com.eollse.entity.MainNew;
 import com.eollse.ui.MyPmdTextView;
 
 import java.util.ArrayList;
@@ -65,6 +68,22 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.tv_pmd)
     MyPmdTextView tvPmd;
 
+    /**
+     * 轮播文字
+     */
+    private String str = "";
+    /**
+     * 轮播数据集合
+     */
+    private List<String> pmdList;
+    /**
+     *新闻集合
+     */
+    private List<MainNew> mainNewList;
+    /**
+     * 主页新闻的适配器
+     */
+    private MainNewsAdapter adapter;
 
 
     @Override
@@ -73,21 +92,47 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        tvPmd = (MyPmdTextView) findViewById(R.id.tv_pmd);
 
+        //设置轮播数据
         setPmdData();
-
-
         for (int i = 0; i < pmdList.size(); i++) {
             str += (pmdList.get(i) + "\t\t\t\t\t\t\t\t\t\t");
         }
         tvPmd.setText(str);
 
+        //设置新闻数据
+        setNews();
+        //设置新闻适配器
+        setAdapter();
+
+    }
+    /**
+     * 设置新闻数据
+     */
+    private void setNews() {
+        if(mainNewList==null){
+            mainNewList=new ArrayList<>();
+        }
+        for(int i=0;i<10;i++){
+            MainNew mainNew=new MainNew();
+            mainNew.setTitle("新闻标题"+i);
+            mainNew.setEditDate("2017-3-8");
+            mainNew.setDeptName("区域");
+            mainNewList.add(mainNew);
+        }
     }
 
-    private String str = "";
-    private List<String> pmdList;
+    /**
+     * 设置新闻适配器
+     */
+    private void setAdapter() {
+        adapter=new MainNewsAdapter(getApplicationContext(),mainNewList);
+        lvListview.setAdapter(adapter);
+    }
 
+    /**
+     *轮播数据
+     */
     private void setPmdData() {
         pmdList = new ArrayList<>();
         pmdList.add("第一组aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
