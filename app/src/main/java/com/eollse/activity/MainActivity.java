@@ -2,7 +2,7 @@ package com.eollse.activity;
 
 
 
-import android.media.MediaPlayer;
+//import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -36,7 +36,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-//import io.vov.vitamio.MediaPlayer;
+import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
 
@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.rl_top2)
     RelativeLayout rlTop2;
     @BindView(R.id.videoView)
-    MySystemVideoView videoView;
+    MyVitamioVideoView videoView;
     @BindView(R.id.lv_listview)
     ListView lvListview;
     @BindView(R.id.ll_middle_left)
