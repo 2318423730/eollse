@@ -173,7 +173,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="wrap_content"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/wyhs" />
 
@@ -195,12 +195,13 @@
                             android:background="@drawable/main_kuaijie_shape_zccx"
                             android:gravity="center">
 
+
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/zzcx" />
+                                android:src="@drawable/zccx" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -218,12 +219,13 @@
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/main_kuaijie_shape_cxgs"
-                            android:gravity="center">
+                            android:gravity="center"
+                            >
 
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/cxgs" />
 
@@ -248,7 +250,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/pasq" />
 
@@ -273,7 +275,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="40dp"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/wyfw" />
 
