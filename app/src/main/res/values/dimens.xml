@@ -3,8 +3,12 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="title_size">16sp</dimen>
-    <dimen name="top2_size">12sp</dimen>
-    <dimen name="kuaijie_size">14sp</dimen>
-    <dimen name="pmd_size">12sp</dimen>
+    <!-- 标题 -->
+    <dimen name="title_size">@dimen/px_40</dimen>
+    <dimen name="top2_size">@dimen/px_25</dimen>
+    <dimen name="kuaijie_size">@dimen/px_30</dimen>
+    <dimen name="pmd_size">@dimen/px_30</dimen>
+    <dimen name="kuaijie_img_width">@dimen/px_80</dimen>
+
+
 </resources>

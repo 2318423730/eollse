@@ -173,7 +173,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="40dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/wyhs" />
 
@@ -195,11 +195,10 @@
                             android:background="@drawable/main_kuaijie_shape_zccx"
                             android:gravity="center">
 
-
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="40dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/zccx" />
 
@@ -225,7 +224,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="40dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/cxgs" />
 
@@ -250,7 +249,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="40dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/pasq" />
 
@@ -275,7 +274,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="40dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/wyfw" />
 
@@ -300,7 +299,7 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/hrhs" />
 
@@ -325,10 +324,9 @@
                             <ImageView
                                 android:paddingBottom="5dp"
                                 android:paddingTop="5dp"
-                                android:layout_width="30dp"
+                                android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/hrhs"
-                                />
+                                android:src="@drawable/hrhs" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -396,7 +394,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="苹果版"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/px_25"
                             android:textColor="@color/black"/>
 
                         <ImageView
@@ -418,7 +416,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="安卓版"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/px_25"
                             android:textColor="@color/black"/>
 
                         <ImageView
@@ -436,16 +434,16 @@
 
                     <ImageView
                         android:id="@+id/iv_add"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/px_40"
+                        android:layout_height="@dimen/px_40"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/add" />
 
                     <ImageView
                         android:id="@+id/iv_search"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/px_40"
+                        android:layout_height="@dimen/px_40"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="30dp"
                         android:layout_toLeftOf="@+id/iv_add"
