@@ -196,7 +196,7 @@ public class MainActivity extends BaseActivity {
                 //Log.e("MyTAG","获取到的json:"+jsonStr);
                 video= JSON.parseObject(jsonStr,Video.class);
                 videosList=video.getTrailers();
-                handler.sendEmptyMessage(Constants.VIDEO_RECEIVE);
+                handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RECEIVE);
 
             }
 
@@ -211,7 +211,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what){
-                case Constants.VIDEO_RECEIVE:
+                case Constants.HANDLER_VIDEO_RECEIVE:
                     //Log.e("MyTAG","控制视频播放");
                     playVideo();
                     break;
