@@ -20,6 +20,21 @@ import okhttp3.OkHttpClient;
  */
 
 public class MyApplication extends Application {
+    /**
+     * 跳转到其他页面时，当前视频播放到的进度
+     */
+    public static long lastPosition;
+    /**
+     * 是否是Restart重新进入界面
+     */
+    public static boolean isRestart;
+    /**
+     * 跳转到其他页面时，当前视频路径
+     */
+    public static String lastUrl;
+    /**
+     * 联网工具类
+     */
     public static OkHttpUtil okHttpUtil;
     @Override
     public void onCreate() {

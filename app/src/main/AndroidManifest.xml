@@ -13,9 +13,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:launchMode="singleInstance"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:process=":vitamio">
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +27,13 @@
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:launchMode="singleTop"
-
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
+        <service
+            android:name=".service.VideoService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

@@ -31,7 +31,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
@@ -85,6 +84,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     MyPmdTextView tvPmd;
     @BindView(R.id.rl_videoView)
     RelativeLayout rlVideoView;
+    @BindView(R.id.tv_loadingText)
+    TextView tvLoadingText;
+    @BindView(R.id.ll_loading)
+    LinearLayout llLoading;
 
     /**
      * 轮播文字
@@ -111,6 +114,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        MyApplication.isRestart=false;
         //设置监听器
         setListeners();
         //设置轮播数据
@@ -260,6 +264,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
+
+
                 videoWidth = mp.getVideoWidth();
                 videoHeight = mp.getVideoHeight();
                 int mVideoWidth = videoWidth;
@@ -281,6 +287,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 //Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
                 //Log.e("MyTAG","新width="+width+"   新height="+height);
                 videoView.start();//开始播放
+
+                llLoading.setVisibility(View.GONE);
+                handler.postDelayed(runnable, 0);
             }
         });
 
@@ -292,11 +301,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 return false;
             }
         });
+        videoView.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+            @Override
+            public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
+            }
+        });
         //播放完成的监听
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
+                llLoading.setVisibility(View.VISIBLE);
                 //置空
                 mp.setDisplay(null);
                 mp.reset();
@@ -305,11 +320,40 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             }
         });
 
-
     }
 
+
+
+    private static long old_duration;
+    Runnable runnable = new Runnable() {
+        public void run() {
+            long duration = videoView.getCurrentPosition();
+//            if (old_duration == duration && videoView.isPlaying()) {
+//                llLoading.setVisibility(View.VISIBLE);
+//            } else {
+//                llLoading.setVisibility(View.GONE);
+//            }
+//            old_duration = duration;
+
+            if(videoView.isPlaying()){
+                long buffer=duration-old_duration;
+                if(buffer < 500){//卡了
+                    llLoading.setVisibility(View.INVISIBLE);
+                }else{
+                    //不卡了
+                    llLoading.setVisibility(View.GONE);
+                }
+            }else{
+                llLoading.setVisibility(View.GONE);
+            }
+            old_duration = duration;
+            handler.postDelayed(runnable, 500);
+        }
+    };
+
+
     /**
-     * 播放的视频索引
+     * 当前播放的视频索引
      */
     private int videoPosition;
 
@@ -324,11 +368,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
     }
 
-    @Override
-    protected void onDestroy() {
-        handler.removeCallbacksAndMessages(null);
-        super.onDestroy();
-    }
+
 
     /**
      * 页面点击事件
@@ -382,6 +422,39 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
         }
     }
+    @Override
+    protected void onResume() {
+       super.onResume();
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+//        old_duration=MyApplication.lastPosition;
+//        videoView.setVideoPath(MyApplication.lastUrl);
+        videoView.resume();
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        videoView.pause();
+//        MyApplication.lastPosition=old_duration;
+//        MyApplication.lastUrl=videosList.get(videoPosition).getHightUrl();
+//        MyApplication.isRestart=true;
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+    }
 }
