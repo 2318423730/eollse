@@ -31,5 +31,4 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.alibaba:fastjson:1.2.24'
     compile project(':vitamio')
-    compile project(':jcvideoplayer-lib')
 }

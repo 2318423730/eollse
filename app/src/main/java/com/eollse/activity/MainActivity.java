@@ -1,8 +1,6 @@
 package com.eollse.activity;
 
 
-
-//import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -35,7 +33,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
@@ -154,7 +152,7 @@ public class MainActivity extends BaseActivity {
             MainNew mainNew=new MainNew();
             mainNew.setTitle("新闻标题aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+i);
             mainNew.setEditDate("2017-3-8");
-            mainNew.setDeptName("区域");
+            mainNew.setDeptName("类型");
             mainNewList.add(mainNew);
         }
     }
@@ -258,18 +256,12 @@ public class MainActivity extends BaseActivity {
                 //置空
                 mp.setDisplay(null);
                 mp.reset();
-                //播放下一个视频(暂时重复播放第一个)
+                //播放下一个视频
                 playNext();
             }
         });
 
-//        videoView.setUp(videoUrl,"",null);
-//        videoView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(getApplicationContext(),"dian",Toast.LENGTH_SHORT).show();
-//            }
-//        });
+
 
     }
 

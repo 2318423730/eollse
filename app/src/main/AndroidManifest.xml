@@ -19,7 +19,8 @@
         <activity
             android:name=".activity.MainActivity"
             android:launchMode="singleInstance"
-            android:configChanges="keyboardHidden|screenSize|orientation">
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:process=":vitamio">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

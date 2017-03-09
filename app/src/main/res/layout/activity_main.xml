@@ -333,7 +333,8 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/hrhs" />
+                                android:src="@drawable/wybs"
+                                android:scaleType="fitStart"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
