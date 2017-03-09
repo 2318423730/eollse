@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,6 +27,7 @@ import com.eollse.ui.MySystemVideoView;
 import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.MyToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +40,7 @@ import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnClickListener{
 
 
     @BindView(R.id.ll_top1)
@@ -63,8 +65,8 @@ public class MainActivity extends BaseActivity {
     LinearLayout llMiddleLeft;
     @BindView(R.id.ll_wyhs)
     LinearLayout llWyhs;
-    @BindView(R.id.ll_zxcc)
-    LinearLayout llZxcc;
+    @BindView(R.id.ll_zccx)
+    LinearLayout ll_zccx;
     @BindView(R.id.ll_cxgs)
     LinearLayout llCxgs;
     @BindView(R.id.ll_pasq)
@@ -311,5 +313,48 @@ public class MainActivity extends BaseActivity {
     protected void onDestroy() {
         handler.removeCallbacksAndMessages(null);
         super.onDestroy();
+    }
+
+    /**
+     * 页面点击事件
+     * @param view
+     */
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.videoView://视频被点击
+                MyToast.showToast(getApplicationContext(),"视频被点击");
+                break;
+            case R.id.iv_setting://设置被点击
+                MyToast.showToast(getApplicationContext(),"设置被点击");
+                break;
+            case R.id.ll_wyhs://我有话说被点击
+                MyToast.showToast(getApplicationContext(),"我有话说被点击");
+                break;
+            case R.id.ll_zccx://政策查询被点击
+                MyToast.showToast(getApplicationContext(),"政策查询被点击");
+                break;
+            case R.id.ll_cxgs://查询公示被点击
+                MyToast.showToast(getApplicationContext(),"查询公示被点击");
+                break;
+            case R.id.ll_pasq://平安社区被点击
+                MyToast.showToast(getApplicationContext(),"平安社区被点击");
+                break;
+            case R.id.ll_wyfw://物业服务被点击
+                MyToast.showToast(getApplicationContext(),"物业服务被点击");
+                break;
+            case R.id.ll_hrhs://好人好事被点击
+                MyToast.showToast(getApplicationContext(),"好人好事被点击");
+                break;
+            case R.id.ll_wybs://我要办事被点击
+                MyToast.showToast(getApplicationContext(),"我要办事被点击");
+                break;
+            case R.id.iv_zwfu://政务服务被点击
+                MyToast.showToast(getApplicationContext(),"政务服务被点击");
+                break;
+            case R.id.iv_shfw://社会服务被点击
+                MyToast.showToast(getApplicationContext(),"社会服务被点击");
+                break;
+        }
     }
 }
