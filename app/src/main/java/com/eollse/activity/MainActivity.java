@@ -4,7 +4,6 @@ package com.eollse.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -15,7 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.alibaba.fastjson.JSON;
 import com.eollse.R;
 import com.eollse.adapter.MainNewsAdapter;
@@ -23,7 +21,6 @@ import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
 import com.eollse.entity.Video;
 import com.eollse.ui.MyPmdTextView;
-import com.eollse.ui.MySystemVideoView;
 import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
@@ -35,12 +32,11 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
 
-public class MainActivity extends BaseActivity implements OnClickListener{
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 
     @BindView(R.id.ll_top1)
@@ -66,7 +62,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
     @BindView(R.id.ll_wyhs)
     LinearLayout llWyhs;
     @BindView(R.id.ll_zccx)
-    LinearLayout ll_zccx;
+    LinearLayout llzccx;
     @BindView(R.id.ll_cxgs)
     LinearLayout llCxgs;
     @BindView(R.id.ll_pasq)
@@ -87,6 +83,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
     ImageView ivSearch;
     @BindView(R.id.tv_pmd)
     MyPmdTextView tvPmd;
+    @BindView(R.id.rl_videoView)
+    RelativeLayout rlVideoView;
 
     /**
      * 轮播文字
@@ -97,7 +95,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      */
     private List<String> pmdList;
     /**
-     *新闻集合
+     * 新闻集合
      */
     private List<MainNew> mainNewList;
     /**
@@ -112,6 +110,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
         //设置监听器
         setListeners();
         //设置轮播数据
@@ -134,11 +133,26 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      * 设置控件监听
      */
     private void setListeners() {
+        ivSetting.setOnClickListener(this);
+        rlVideoView.setOnClickListener(this);
+        llWyhs.setOnClickListener(this);
+        llzccx.setOnClickListener(this);
+        llCxgs.setOnClickListener(this);
+        llPasq.setOnClickListener(this);
+        llWyfw.setOnClickListener(this);
+        llHrhs.setOnClickListener(this);
+        llWybs.setOnClickListener(this);
+        ivZwfu.setOnClickListener(this);
+        ivShfw.setOnClickListener(this);
+        tvPmd.setOnClickListener(this);
+        ivSearch.setOnClickListener(this);
+        ivAdd.setOnClickListener(this);
+
         //新闻item监听
         lvListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(),"点击了第"+0+"条",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -147,12 +161,12 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      * 设置新闻数据
      */
     private void setNews() {
-        if(mainNewList==null){
-            mainNewList=new ArrayList<>();
+        if (mainNewList == null) {
+            mainNewList = new ArrayList<>();
         }
-        for(int i=0;i<10;i++){
-            MainNew mainNew=new MainNew();
-            mainNew.setTitle("新闻标题aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+i);
+        for (int i = 0; i < 10; i++) {
+            MainNew mainNew = new MainNew();
+            mainNew.setTitle("新闻标题aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + i);
             mainNew.setEditDate("2017-3-8");
             mainNew.setDeptName("类型");
             mainNewList.add(mainNew);
@@ -163,12 +177,12 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      * 设置新闻适配器
      */
     private void setAdapter() {
-        adapter=new MainNewsAdapter(getApplicationContext(),mainNewList);
+        adapter = new MainNewsAdapter(getApplicationContext(), mainNewList);
         lvListview.setAdapter(adapter);
     }
 
     /**
-     *轮播数据
+     * 轮播数据
      */
     private void setPmdData() {
         pmdList = new ArrayList<>();
@@ -188,16 +202,17 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      * 视频列表集合
      */
     private List<Video.TrailersBean> videosList;
+
     /**
      * 获取网络视频
      */
-    private void getVideos(){
+    private void getVideos() {
         MyApplication.okHttpUtil.get(Constants.NET_VIDEO_URL, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
                 //Log.e("MyTAG","获取到的json:"+jsonStr);
-                video= JSON.parseObject(jsonStr,Video.class);
-                videosList=video.getTrailers();
+                video = JSON.parseObject(jsonStr, Video.class);
+                videosList = video.getTrailers();
                 handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RECEIVE);
 
             }
@@ -209,10 +224,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         });
     }
 
-    private Handler handler=new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case Constants.HANDLER_VIDEO_RECEIVE:
                     //Log.e("MyTAG","控制视频播放");
                     playVideo();
@@ -232,28 +247,28 @@ public class MainActivity extends BaseActivity implements OnClickListener{
      * 视频真实的高
      */
     private int videoHeight;
+
     /**
      * 播放视频
      */
-    private void playVideo(){
-
-        videoUrl=videosList.get(0).getHightUrl();
-
+    private void playVideo() {
+        //设置视频播放地址
+        videoUrl = videosList.get(0).getHightUrl();
         videoView.setVideoPath(videoUrl);
         videoView.requestFocus();
         //准备好的监听
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                videoWidth=mp.getVideoWidth();
-                videoHeight= mp.getVideoHeight();
+                videoWidth = mp.getVideoWidth();
+                videoHeight = mp.getVideoHeight();
                 int mVideoWidth = videoWidth;
                 int mVideoHeight = videoHeight;
 
                 //控件宽高
                 int width = videoView.getMeasuredWidth();
-                int height= videoView.getMeasuredHeight();
-                Log.e("MyTAG","width="+width+"   height="+height);
+                int height = videoView.getMeasuredHeight();
+                // Log.e("MyTAG","width="+width+"   height="+height);
                 if (mVideoWidth * height < width * mVideoHeight) {
                     //Log.i("@@@", "image too wide, correcting");
                     width = height * mVideoWidth / mVideoHeight;
@@ -262,9 +277,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
                     height = width * mVideoHeight / mVideoWidth;
                 }
 
-                videoView.setVideoViewSize(width,height);
-                Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
-                Log.e("MyTAG","新width="+width+"   新height="+height);
+                videoView.setVideoViewSize(width, height);
+                //Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
+                //Log.e("MyTAG","新width="+width+"   新height="+height);
                 videoView.start();//开始播放
             }
         });
@@ -291,20 +306,20 @@ public class MainActivity extends BaseActivity implements OnClickListener{
         });
 
 
-
     }
 
     /**
      * 播放的视频索引
      */
     private int videoPosition;
+
     /**
      * 播放下一个视频
      */
     private void playNext() {
         videoPosition++;
-        if(videoPosition==videosList.size()){
-            videoPosition=0;
+        if (videoPosition == videosList.size()) {
+            videoPosition = 0;
         }
         videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
     }
@@ -317,44 +332,56 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 
     /**
      * 页面点击事件
+     *
      * @param view
      */
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.videoView://视频被点击
-                MyToast.showToast(getApplicationContext(),"视频被点击");
+        switch (view.getId()) {
+            case R.id.rl_videoView://视频被点击
+                MyToast.showToast(getApplicationContext(), "视频被点击");
                 break;
             case R.id.iv_setting://设置被点击
-                MyToast.showToast(getApplicationContext(),"设置被点击");
+                MyToast.showToast(getApplicationContext(), "设置被点击");
                 break;
             case R.id.ll_wyhs://我有话说被点击
-                MyToast.showToast(getApplicationContext(),"我有话说被点击");
+                MyToast.showToast(getApplicationContext(), "我有话说被点击");
                 break;
             case R.id.ll_zccx://政策查询被点击
-                MyToast.showToast(getApplicationContext(),"政策查询被点击");
+                MyToast.showToast(getApplicationContext(), "政策查询被点击");
                 break;
             case R.id.ll_cxgs://查询公示被点击
-                MyToast.showToast(getApplicationContext(),"查询公示被点击");
+                MyToast.showToast(getApplicationContext(), "查询公示被点击");
                 break;
             case R.id.ll_pasq://平安社区被点击
-                MyToast.showToast(getApplicationContext(),"平安社区被点击");
+                MyToast.showToast(getApplicationContext(), "平安社区被点击");
                 break;
             case R.id.ll_wyfw://物业服务被点击
-                MyToast.showToast(getApplicationContext(),"物业服务被点击");
+                MyToast.showToast(getApplicationContext(), "物业服务被点击");
                 break;
             case R.id.ll_hrhs://好人好事被点击
-                MyToast.showToast(getApplicationContext(),"好人好事被点击");
+                MyToast.showToast(getApplicationContext(), "好人好事被点击");
                 break;
             case R.id.ll_wybs://我要办事被点击
-                MyToast.showToast(getApplicationContext(),"我要办事被点击");
+                MyToast.showToast(getApplicationContext(), "我要办事被点击");
                 break;
             case R.id.iv_zwfu://政务服务被点击
-                MyToast.showToast(getApplicationContext(),"政务服务被点击");
+                MyToast.showToast(getApplicationContext(), "政务服务被点击");
                 break;
             case R.id.iv_shfw://社会服务被点击
-                MyToast.showToast(getApplicationContext(),"社会服务被点击");
+                MyToast.showToast(getApplicationContext(), "社会服务被点击");
+                break;
+            case R.id.tv_pmd://跑马灯文字被点击
+                MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");
+                break;
+            case R.id.iv_search://搜索被点击
+                MyToast.showToast(getApplicationContext(), "搜索被点击");
+                break;
+            case R.id.iv_add://增加被点击
+                MyToast.showToast(getApplicationContext(), "增加被点击");
                 break;
         }
     }
+
+
 }
