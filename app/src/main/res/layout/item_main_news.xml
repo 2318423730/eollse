@@ -27,7 +27,8 @@
             android:id="@+id/tv_editDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/px_10"
+            android:layout_marginRight="@dimen/px_5"
             android:text="2017-03-08" />
     </LinearLayout>
 </RelativeLayout>
