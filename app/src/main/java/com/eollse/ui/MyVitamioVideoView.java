@@ -2,7 +2,7 @@ package com.eollse.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
+
 import android.view.ViewGroup;
 
 import io.vov.vitamio.widget.VideoView;
@@ -13,8 +13,7 @@ import io.vov.vitamio.widget.VideoView;
  */
 
 public class MyVitamioVideoView extends VideoView {
-    private int videoWidth;
-    private int videoHeight;
+
     public MyVitamioVideoView(Context context) {
         super(context,null);
     }
@@ -30,25 +29,18 @@ public class MyVitamioVideoView extends VideoView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.e("MyTAG","onMeasure");
-        //if(videoWidth==0||videoHeight==0){
-            setMeasuredDimension(widthMeasureSpec,heightMeasureSpec);
-       // }else
-       // setMeasuredDimension(videoWidth,videoWidth);
+        setMeasuredDimension(widthMeasureSpec,heightMeasureSpec);
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        Log.e("MyTAG","w="+w+"   h="+h+"   oldw="+oldh+"   oldh="+oldh);
 
-        videoWidth=w;
-        videoHeight=h;
-    }
 
-    public void setNewSize(){
+    /**
+     * 重新设定宽高
+     */
+    public void setVideoViewSize(int width,int height){
         ViewGroup.LayoutParams params=getLayoutParams();
-        params.width=videoWidth;
-        params.height=videoHeight;
+        params.width=width;
+        params.height=height;
         setLayoutParams(params);
     }
 }

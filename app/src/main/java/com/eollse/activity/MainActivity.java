@@ -197,7 +197,7 @@ public class MainActivity extends BaseActivity {
                 video= JSON.parseObject(jsonStr,Video.class);
                 videosList=video.getTrailers();
                 handler.sendEmptyMessage(Constants.VIDEO_RECEIVE);
-                Log.e("MyTAG","size="+videosList.size());
+
             }
 
             @Override
@@ -222,11 +222,19 @@ public class MainActivity extends BaseActivity {
      * 播放视频的地址
      */
     private String videoUrl;
-
+    /**
+     * 视频真实的宽
+     */
+    private int videoWidth;
+    /**
+     * 视频真实的高
+     */
+    private int videoHeight;
     /**
      * 播放视频
      */
     private void playVideo(){
+
         videoUrl=videosList.get(0).getHightUrl();
 
         videoView.setVideoPath(videoUrl);
@@ -235,7 +243,26 @@ public class MainActivity extends BaseActivity {
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-               // videoView.setNewSize();
+                videoWidth=mp.getVideoWidth();
+                videoHeight= mp.getVideoHeight();
+                int mVideoWidth = videoWidth;
+                int mVideoHeight = videoHeight;
+
+                //控件宽高
+                int width = videoView.getMeasuredWidth();
+                int height= videoView.getMeasuredHeight();
+                Log.e("MyTAG","width="+width+"   height="+height);
+                if (mVideoWidth * height < width * mVideoHeight) {
+                    //Log.i("@@@", "image too wide, correcting");
+                    width = height * mVideoWidth / mVideoHeight;
+                } else if (mVideoWidth * height > width * mVideoHeight) {
+                    //Log.i("@@@", "image too tall, correcting");
+                    height = width * mVideoHeight / mVideoWidth;
+                }
+
+                videoView.setVideoViewSize(width,height);
+                Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
+                Log.e("MyTAG","新width="+width+"   新height="+height);
                 videoView.start();//开始播放
             }
         });

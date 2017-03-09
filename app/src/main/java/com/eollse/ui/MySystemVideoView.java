@@ -2,6 +2,7 @@ package com.eollse.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.VideoView;
 
 /**
@@ -25,5 +26,15 @@ public class MySystemVideoView extends VideoView{
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(widthMeasureSpec,heightMeasureSpec);
+    }
+
+    /**
+     * 重新设定宽高
+     */
+    public void setVideoViewSize(int width,int height){
+        ViewGroup.LayoutParams params=getLayoutParams();
+        params.width=width;
+        params.height=height;
+        setLayoutParams(params);
     }
 }
