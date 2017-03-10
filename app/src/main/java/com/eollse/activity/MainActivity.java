@@ -127,7 +127,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 当前播放的视频索引
      */
     private int videoPosition;
-    
+
     /**
      * 主页新闻的适配器
      */
@@ -316,7 +316,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     }
 
-    
+
 
     /**
      * 获取网络视频
@@ -383,7 +383,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      */
     private void playNext() {
         videoPosition++;
-        
+
         if (videoPosition == videosList.size()) {
             videoPosition = 0;
         }

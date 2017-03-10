@@ -5,8 +5,16 @@ package com.eollse.utils;
  */
 
 public interface Constants {
+
      int HANDLER_VIDEO_RECEIVE=1;
+    /**
+     * 视频继续上次播放
+     */
      int HANDLER_VIDEO_RESUME=2;
+    /**
+     * 视频是否卡顿
+     */
+     int HANDLER_VIDEO_BUFFERING=3;
 
     /**
      * 网络视频的联网地址
