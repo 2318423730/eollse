@@ -40,18 +40,18 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.ll_top1)
     LinearLayout llTop1;
-    @BindView(R.id.iv_setting)
-    ImageView ivSetting;
-    @BindView(R.id.Address)
-    TextView Address;
-    @BindView(R.id.RealName)
-    TextView RealName;
-    @BindView(R.id.Mobile)
-    TextView Mobile;
-    @BindView(R.id.ll_top2)
-    LinearLayout llTop2;
-    @BindView(R.id.rl_top2)
-    RelativeLayout rlTop2;
+//    @BindView(R.id.iv_setting)
+//    ImageView ivSetting;
+//    @BindView(R.id.Address)
+//    TextView Address;
+//    @BindView(R.id.RealName)
+//    TextView RealName;
+//    @BindView(R.id.Mobile)
+//    TextView Mobile;
+//    @BindView(R.id.ll_top2)
+//    LinearLayout llTop2;
+//    @BindView(R.id.rl_top2)
+//    RelativeLayout rlTop2;
     @BindView(R.id.videoView)
     MyVitamioVideoView videoView;
     @BindView(R.id.lv_listview)
@@ -63,10 +63,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     ImageView ivZwfu;
     @BindView(R.id.iv_shfw)
     ImageView ivShfw;
-    @BindView(R.id.iv_add)
-    ImageView ivAdd;
-    @BindView(R.id.iv_search)
-    ImageView ivSearch;
+//    @BindView(R.id.iv_add)
+//    ImageView ivAdd;
+//    @BindView(R.id.iv_search)
+//    ImageView ivSearch;
     @BindView(R.id.tv_pmd)
     MyPmdTextView tvPmd;
     @BindView(R.id.rl_videoView)
@@ -136,7 +136,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             switch (msg.what) {
                 case Constants.HANDLER_VIDEO_RECEIVE://获取到视频播放列表
                     //播放视频
-                    playVideo();
+                    if(videosList!=null && videosList.size()>0){
+                        playVideo();
+                    }
+
                     break;
                 case Constants.HANDLER_VIDEO_RESUME://继续上次播放
                     if (videoView.isPlaying()) {
@@ -181,7 +184,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 设置控件监听
      */
     private void setListeners() {
-        ivSetting.setOnClickListener(this);
+        //ivSetting.setOnClickListener(this);
         rlVideoView.setOnClickListener(this);
         llSqtj.setOnClickListener(this);
         llZcxx.setOnClickListener(this);
@@ -192,14 +195,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         ivZwfu.setOnClickListener(this);
         ivShfw.setOnClickListener(this);
         tvPmd.setOnClickListener(this);
-        ivSearch.setOnClickListener(this);
-        ivAdd.setOnClickListener(this);
+       // ivSearch.setOnClickListener(this);
+        //ivAdd.setOnClickListener(this);
 
         //新闻item监听
         lvListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(), "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
             }
         });
         //准备好的监听
@@ -281,11 +284,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         if (mainNewList == null) {
             mainNewList = new ArrayList<>();
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             MainNew mainNew = new MainNew();
-            mainNew.setTitle("新闻标题aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" + i);
-            mainNew.setEditDate("2017-3-8");
-            mainNew.setDeptName("类型");
+            mainNew.setTitle("区工商联专题学习区纪委二十四届二次全会精神");
+            mainNew.setEditDate("");
+            mainNew.setDeptName("公告");
             mainNewList.add(mainNew);
         }
     }
@@ -303,11 +306,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      */
     private void setPmdData() {
         pmdList = new ArrayList<>();
-        pmdList.add("第一组aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        pmdList.add("第二组bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-        pmdList.add("第三组cccccccccccccccccccccccccccccccccccccccccccccccc");
-        pmdList.add("第四组ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd");
-        pmdList.add("第五组eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+        pmdList.add("党政主要负责同志要亲力亲为抓改革扑下身子抓落实,坚持不懈求生存,加大力度发展科技事业,为共产主义事业奋斗");
+
 
     }
 
@@ -395,9 +395,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             case R.id.rl_videoView://视频被点击
                 //MyToast.showToast(getApplicationContext(), "视频被点击");
                 break;
-            case R.id.iv_setting://设置被点击
-                //MyToast.showToast(getApplicationContext(), "设置被点击");
-                break;
+//            case R.id.iv_setting://设置被点击
+//                //MyToast.showToast(getApplicationContext(), "设置被点击");
+//                break;
             case R.id.ll_sqtj://诉求提交
                // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
                 break;
@@ -425,12 +425,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             case R.id.tv_pmd://跑马灯文字被点击
                 //MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");
                 break;
-            case R.id.iv_search://搜索被点击
-                //MyToast.showToast(getApplicationContext(), "搜索被点击");
-                break;
-            case R.id.iv_add://增加被点击
-                //MyToast.showToast(getApplicationContext(), "增加被点击");
-                break;
+//            case R.id.iv_search://搜索被点击
+//                //MyToast.showToast(getApplicationContext(), "搜索被点击");
+//                break;
+//            case R.id.iv_add://增加被点击
+//                //MyToast.showToast(getApplicationContext(), "增加被点击");
+//                break;
         }
     }
 
@@ -456,9 +456,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onRestart() {
-        videoPosition = MyApplication.lastPosition;
-        videoUrl = videosList.get(MyApplication.lastPosition).getHightUrl();
-        old_duration = MyApplication.lastPlayPosition;
+        if(videosList!=null && videosList.size()>0){
+            videoPosition = MyApplication.lastPosition;
+            videoUrl = videosList.get(MyApplication.lastPosition).getHightUrl();
+            old_duration = MyApplication.lastPlayPosition;
+        }
+
         super.onRestart();
 
     }
