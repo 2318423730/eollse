@@ -88,12 +88,12 @@
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
-        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",

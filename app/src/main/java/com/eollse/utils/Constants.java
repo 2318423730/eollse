@@ -5,7 +5,8 @@ package com.eollse.utils;
  */
 
 public interface Constants {
-    static int HANDLER_VIDEO_RECEIVE=1;
+     int HANDLER_VIDEO_RECEIVE=1;
+     int HANDLER_VIDEO_RESUME=2;
 
     /**
      * 网络视频的联网地址

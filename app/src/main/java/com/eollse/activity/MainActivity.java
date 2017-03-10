@@ -4,6 +4,7 @@ package com.eollse.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -101,11 +102,38 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 新闻集合
      */
     private List<MainNew> mainNewList;
+    
+    
     /**
      * 主页新闻的适配器
      */
     private MainNewsAdapter adapter;
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case Constants.HANDLER_VIDEO_RECEIVE://获取到视频播放列表
+                    //播放视频
+                    playVideo();
+                    break;
+                case Constants.HANDLER_VIDEO_RESUME://继续上次播放
+                    if(videoView.isPlaying()){
+                        handler.removeMessages(Constants.HANDLER_VIDEO_RESUME);
+                        long jindu = MyApplication.lastPlayPosition;
+                        videoView.seekTo(jindu);
+                    }else{
+                        handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RESUME);
+                    }
 
+
+
+
+                    break;
+            }
+        }
+    };
+    private List<Video.TrailersBean> videosList;
+    private Video video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +142,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        MyApplication.isRestart = false;
+
         //设置监听器
         setListeners();
         //设置轮播数据
@@ -159,6 +187,78 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 Toast.makeText(getApplicationContext(), "点击了第" + position + "条", Toast.LENGTH_SHORT).show();
             }
         });
+        //准备好的监听
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                //此处设置播放速度为正常速度1
+                mp.setPlaybackSpeed(1.0f);
+
+                videoWidth = mp.getVideoWidth();
+                videoHeight = mp.getVideoHeight();
+                int mVideoWidth = videoWidth;
+                int mVideoHeight = videoHeight;
+
+                //控件宽高
+                int width = videoView.getMeasuredWidth();
+                int height = videoView.getMeasuredHeight();
+                // Log.e("MyTAG","width="+width+"   height="+height);
+                if (mVideoWidth * height < width * mVideoHeight) {
+                    //Log.i("@@@", "image too wide, correcting");
+                    width = height * mVideoWidth / mVideoHeight;
+                } else if (mVideoWidth * height > width * mVideoHeight) {
+                    //Log.i("@@@", "image too tall, correcting");
+                    height = width * mVideoHeight / mVideoWidth;
+                }
+
+                videoView.setVideoViewSize(width, height);
+                //Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
+                //Log.e("MyTAG","新width="+width+"   新height="+height);
+
+
+                llLoading.setVisibility(View.GONE);
+                handler.postDelayed(runnable, 0);
+                handler.sendEmptyMessageDelayed(Constants.HANDLER_VIDEO_RESUME,500);
+
+
+
+
+            }
+        });
+
+
+        //播放出错
+        videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                return false;
+            }
+        });
+        videoView.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+            @Override
+            public void onBufferingUpdate(MediaPlayer mp, int percent) {
+
+            }
+        });
+        //播放完成的监听
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                llLoading.setVisibility(View.VISIBLE);
+                //置空
+                mp.setDisplay(null);
+                mp.reset();
+                //播放下一个视频
+                playNext();
+            }
+        });
+        videoView.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
+            @Override
+            public void onSeekComplete(MediaPlayer mp) {
+                // mp.seekTo(MyApplication.lastPlayPosition);
+            }
+        });
+
     }
 
     /**
@@ -198,14 +298,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     }
 
-    /**
-     * 视频类
-     */
-    private Video video;
-    /**
-     * 视频列表集合
-     */
-    private List<Video.TrailersBean> videosList;
+    
 
     /**
      * 获取网络视频
@@ -228,17 +321,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         });
     }
 
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case Constants.HANDLER_VIDEO_RECEIVE:
-                    //Log.e("MyTAG","控制视频播放");
-                    playVideo();
-                    break;
-            }
-        }
-    };
+
     /**
      * 播放视频的地址
      */
@@ -260,72 +343,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         videoUrl = videosList.get(0).getHightUrl();
         videoView.setVideoPath(videoUrl);
         videoView.requestFocus();
-        //准备好的监听
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-
-
-                videoWidth = mp.getVideoWidth();
-                videoHeight = mp.getVideoHeight();
-                int mVideoWidth = videoWidth;
-                int mVideoHeight = videoHeight;
-
-                //控件宽高
-                int width = videoView.getMeasuredWidth();
-                int height = videoView.getMeasuredHeight();
-                // Log.e("MyTAG","width="+width+"   height="+height);
-                if (mVideoWidth * height < width * mVideoHeight) {
-                    //Log.i("@@@", "image too wide, correcting");
-                    width = height * mVideoWidth / mVideoHeight;
-                } else if (mVideoWidth * height > width * mVideoHeight) {
-                    //Log.i("@@@", "image too tall, correcting");
-                    height = width * mVideoHeight / mVideoWidth;
-                }
-
-                videoView.setVideoViewSize(width, height);
-                //Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
-                //Log.e("MyTAG","新width="+width+"   新height="+height);
-                if(MyApplication.isRestart){
-                    videoView.seekTo(old_duration);
-                }else{
-                    videoView.start();//开始播放
-                }
-
-
-                llLoading.setVisibility(View.GONE);
-                handler.postDelayed(runnable, 0);
-
-            }
-        });
-
-
-        //播放出错
-        videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-            @Override
-            public boolean onError(MediaPlayer mp, int what, int extra) {
-                return false;
-            }
-        });
-        videoView.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
-            @Override
-            public void onBufferingUpdate(MediaPlayer mp, int percent) {
-
-            }
-        });
-        //播放完成的监听
-        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mp) {
-                llLoading.setVisibility(View.VISIBLE);
-                //置空
-                mp.setDisplay(null);
-                mp.reset();
-                //播放下一个视频
-                playNext();
-            }
-        });
-
+        videoView.start();//开始播放
     }
 
 
@@ -368,10 +386,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      */
     private void playNext() {
         videoPosition++;
+        
         if (videoPosition == videosList.size()) {
             videoPosition = 0;
         }
         videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
+        videoView.start();
     }
 
 
@@ -429,42 +449,34 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        old_duration=MyApplication.lastPosition;
-        videoView.setVideoPath(MyApplication.lastUrl);
-        videoView.seekTo(old_duration);
-    }
-
-    @Override
     protected void onPause() {
-        videoView.pause();
+
+        MyApplication.lastPosition=videoPosition;
+        MyApplication.lastPlayPosition = old_duration;
+        MyApplication.isRestart=true;
+        //videoView.pause();
         super.onPause();
     }
 
     @Override
-    protected void onStop() {
-
-        MyApplication.lastPosition=old_duration;
-        MyApplication.lastUrl=videosList.get(videoPosition).getHightUrl();
-        MyApplication.isRestart=true;
-        super.onStop();
-
+    protected void onResume() {
+        super.onResume();
+        //videoView.resume();
+        videoView.seekTo(old_duration);
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
+    protected void onRestart() {
+        videoPosition=MyApplication.lastPosition;
+        videoUrl=videosList.get(MyApplication.lastPosition).getHightUrl();
+        old_duration=MyApplication.lastPlayPosition;
+        super.onRestart();
+
     }
 
     @Override
     protected void onDestroy() {
-
+        videoView.stopPlayback();
         handler.removeCallbacksAndMessages(null);
         super.onDestroy();
     }
