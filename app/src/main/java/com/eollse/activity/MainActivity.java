@@ -4,7 +4,6 @@ package com.eollse.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -59,20 +58,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     ListView lvListview;
     @BindView(R.id.ll_middle_left)
     LinearLayout llMiddleLeft;
-    @BindView(R.id.ll_wyhs)
-    LinearLayout llWyhs;
-    @BindView(R.id.ll_zccx)
-    LinearLayout llzccx;
-    @BindView(R.id.ll_cxgs)
-    LinearLayout llCxgs;
-    @BindView(R.id.ll_pasq)
-    LinearLayout llPasq;
-    @BindView(R.id.ll_wyfw)
-    LinearLayout llWyfw;
-    @BindView(R.id.ll_hrhs)
-    LinearLayout llHrhs;
-    @BindView(R.id.ll_wybs)
-    LinearLayout llWybs;
+
     @BindView(R.id.iv_zwfu)
     ImageView ivZwfu;
     @BindView(R.id.iv_shfw)
@@ -89,6 +75,18 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     TextView tvLoadingText;
     @BindView(R.id.ll_loading)
     LinearLayout llLoading;
+    @BindView(R.id.ll_sqtj)
+    LinearLayout llSqtj;
+    @BindView(R.id.ll_zcxx)
+    LinearLayout llZcxx;
+    @BindView(R.id.ll_jgcx)
+    LinearLayout llJgcx;
+    @BindView(R.id.ll_dqfc)
+    LinearLayout llDqfc;
+    @BindView(R.id.ll_wyfw)
+    LinearLayout llWyfw;
+    @BindView(R.id.ll_bszn)
+    LinearLayout llBszn;
 
     /**
      * 轮播文字
@@ -141,11 +139,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                     playVideo();
                     break;
                 case Constants.HANDLER_VIDEO_RESUME://继续上次播放
-                    if(videoView.isPlaying()){
+                    if (videoView.isPlaying()) {
                         handler.removeMessages(Constants.HANDLER_VIDEO_RESUME);
                         long jindu = MyApplication.lastPlayPosition;
                         videoView.seekTo(jindu);
-                    }else{
+                    } else {
                         handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RESUME);
                     }
                     break;
@@ -185,13 +183,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     private void setListeners() {
         ivSetting.setOnClickListener(this);
         rlVideoView.setOnClickListener(this);
-        llWyhs.setOnClickListener(this);
-        llzccx.setOnClickListener(this);
-        llCxgs.setOnClickListener(this);
-        llPasq.setOnClickListener(this);
+        llSqtj.setOnClickListener(this);
+        llZcxx.setOnClickListener(this);
+        llJgcx.setOnClickListener(this);
+        llDqfc.setOnClickListener(this);
         llWyfw.setOnClickListener(this);
-        llHrhs.setOnClickListener(this);
-        llWybs.setOnClickListener(this);
+        llBszn.setOnClickListener(this);
         ivZwfu.setOnClickListener(this);
         ivShfw.setOnClickListener(this);
         tvPmd.setOnClickListener(this);
@@ -236,9 +233,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
                 llLoading.setVisibility(View.GONE);
                 handler.postDelayed(runnable, 0);
-                handler.sendEmptyMessageDelayed(Constants.HANDLER_VIDEO_RESUME,500);
-
-
+                handler.sendEmptyMessageDelayed(Constants.HANDLER_VIDEO_RESUME, 500);
 
 
             }
@@ -317,7 +312,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     }
 
 
-
     /**
      * 获取网络视频
      */
@@ -338,7 +332,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             }
         });
     }
-
 
 
     /**
@@ -376,8 +369,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     };
 
 
-
-
     /**
      * 播放下一个视频
      */
@@ -402,46 +393,43 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.rl_videoView://视频被点击
-                MyToast.showToast(getApplicationContext(), "视频被点击");
+                //MyToast.showToast(getApplicationContext(), "视频被点击");
                 break;
             case R.id.iv_setting://设置被点击
-                MyToast.showToast(getApplicationContext(), "设置被点击");
+                //MyToast.showToast(getApplicationContext(), "设置被点击");
                 break;
-            case R.id.ll_wyhs://我有话说被点击
-                MyToast.showToast(getApplicationContext(), "我有话说被点击");
+            case R.id.ll_sqtj://诉求提交
+               // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
                 break;
-            case R.id.ll_zccx://政策查询被点击
-                MyToast.showToast(getApplicationContext(), "政策查询被点击");
+            case R.id.ll_zcxx://政策信息被点击
+               // MyToast.showToast(getApplicationContext(), "政策信息被点击");
                 break;
-            case R.id.ll_cxgs://查询公示被点击
-                MyToast.showToast(getApplicationContext(), "查询公示被点击");
+            case R.id.ll_jgcx://结果查询被点击
+                //MyToast.showToast(getApplicationContext(), "结果查询被点击");
                 break;
-            case R.id.ll_pasq://平安社区被点击
-                MyToast.showToast(getApplicationContext(), "平安社区被点击");
+            case R.id.ll_dqfc://党群风采被点击
+                //MyToast.showToast(getApplicationContext(), "党群风采被点击");
                 break;
             case R.id.ll_wyfw://物业服务被点击
-                MyToast.showToast(getApplicationContext(), "物业服务被点击");
+                //MyToast.showToast(getApplicationContext(), "物业服务被点击");
                 break;
-            case R.id.ll_hrhs://好人好事被点击
-                MyToast.showToast(getApplicationContext(), "好人好事被点击");
-                break;
-            case R.id.ll_wybs://我要办事被点击
-                MyToast.showToast(getApplicationContext(), "我要办事被点击");
+            case R.id.ll_bszn://办事指南被点击
+                //MyToast.showToast(getApplicationContext(), "办事指南被点击");
                 break;
             case R.id.iv_zwfu://政务服务被点击
-                MyToast.showToast(getApplicationContext(), "政务服务被点击");
+                //MyToast.showToast(getApplicationContext(), "政务服务被点击");
                 break;
             case R.id.iv_shfw://社会服务被点击
-                MyToast.showToast(getApplicationContext(), "社会服务被点击");
+                //MyToast.showToast(getApplicationContext(), "社会服务被点击");
                 break;
             case R.id.tv_pmd://跑马灯文字被点击
-                MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");
+                //MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");
                 break;
             case R.id.iv_search://搜索被点击
-                MyToast.showToast(getApplicationContext(), "搜索被点击");
+                //MyToast.showToast(getApplicationContext(), "搜索被点击");
                 break;
             case R.id.iv_add://增加被点击
-                MyToast.showToast(getApplicationContext(), "增加被点击");
+                //MyToast.showToast(getApplicationContext(), "增加被点击");
                 break;
         }
     }
@@ -449,9 +437,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     @Override
     protected void onPause() {
 
-        MyApplication.lastPosition=videoPosition;
+        MyApplication.lastPosition = videoPosition;
         MyApplication.lastPlayPosition = old_duration;
-        MyApplication.isRestart=true;
+        MyApplication.isRestart = true;
         //videoView.pause();
         super.onPause();
     }
@@ -460,7 +448,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     protected void onResume() {
         super.onResume();
         //videoView.resume();
-        if(videosList!=null&&videosList.size()>0){
+        if (videosList != null && videosList.size() > 0) {
             videoView.setVideoPath(videosList.get(MyApplication.lastPosition).getHightUrl());
         }
         videoView.seekTo(old_duration);
@@ -468,9 +456,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onRestart() {
-        videoPosition=MyApplication.lastPosition;
-        videoUrl=videosList.get(MyApplication.lastPosition).getHightUrl();
-        old_duration=MyApplication.lastPlayPosition;
+        videoPosition = MyApplication.lastPosition;
+        videoUrl = videosList.get(MyApplication.lastPosition).getHightUrl();
+        old_duration = MyApplication.lastPlayPosition;
         super.onRestart();
 
     }

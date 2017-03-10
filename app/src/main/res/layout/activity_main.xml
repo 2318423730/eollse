@@ -203,7 +203,7 @@
 
 
                         <LinearLayout
-                            android:id="@+id/ll_wyhs"
+                            android:id="@+id/ll_sqtj"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -215,19 +215,19 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/wyhs" />
+                                android:src="@drawable/sqtj" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="我有话说"
+                                android:text="诉求提交"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/ll_zccx"
+                            android:id="@+id/ll_zcxx"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginTop="3dp"
@@ -240,19 +240,19 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/zccx" />
+                                android:src="@drawable/zcxx" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="政策查询"
+                                android:text="政策信息"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/ll_cxgs"
+                            android:id="@+id/ll_jgcx"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginTop="3dp"
@@ -266,24 +266,23 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/cxgs" />
+                                android:src="@drawable/jgcx" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="查询公示"
+                                android:text="结果查询"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
-
                         <LinearLayout
-                            android:id="@+id/ll_pasq"
+                            android:id="@+id/ll_dqfc"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
-                            android:background="@drawable/main_kuaijie_shape_pasq"
+                            android:background="@drawable/main_kuaijie_shape_hrhs"
                             android:gravity="center">
 
                             <ImageView
@@ -291,13 +290,13 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/pasq" />
+                                android:src="@drawable/dqfc" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="平安社区"
+                                android:text="党群风采"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
@@ -327,33 +326,10 @@
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/ll_hrhs"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/main_kuaijie_shape_hrhs"
-                            android:gravity="center">
 
-                            <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
-                                android:layout_width="@dimen/kuaijie_img_width"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/hrhs" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:text="好人好事"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
-                        </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/ll_wybs"
+                            android:id="@+id/ll_bszn"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_marginTop="3dp"
@@ -366,14 +342,13 @@
                                 android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/wybs"
-                                android:scaleType="fitStart"/>
+                                android:src="@drawable/bszn" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
-                                android:text="我要办事"
+                                android:text="办事指南"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/kuaijie_size"/>
                         </LinearLayout>
