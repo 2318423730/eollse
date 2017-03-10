@@ -7,62 +7,37 @@
     android:background="@drawable/bszn_background"
     tools:context="com.eollse.activity.BsznActivity"
     android:paddingLeft="@dimen/px_30"
-    android:paddingRight="@dimen/px_30">
+    android:paddingRight="@dimen/px_30"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_150">
 
-    <LinearLayout
-
-        android:layout_width="@dimen/px_250"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingLeft="@dimen/px_10"
-        android:paddingRight="@dimen/px_10">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"/>
-
-        <LinearLayout
-            android:id="@+id/ll_bszn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:background="@drawable/shape_main_kuaijie_bszn"
-            android:gravity="center">
-
-            <ImageView
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
-                android:layout_width="@dimen/kuaijie_img_width"
-                android:layout_height="wrap_content"
-                android:src="@drawable/bszn" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="办事指南"
-                android:textColor="@color/white"
-                android:textSize="@dimen/kuaijie_size"/>
-        </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/px_25"
-            android:textColor="@color/black"
-            android:layout_marginTop="@dimen/px_20"
-            android:text="办事指南"/>
-    </LinearLayout>
-
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/px_150"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/px_150"
-                android:orientation="horizontal">
+                android:layout_height="@dimen/px_100"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+
                 <TextView
                     android:id="@+id/tv_geren"
                     android:layout_width="0dp"
@@ -75,8 +50,8 @@
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:gravity="center"
-                    android:enabled="true"/>
-
+                    android:duplicateParentState="true"
+                    />
 
 
                 <TextView
@@ -91,14 +66,21 @@
                     android:textSize="20sp"
                     android:minWidth="50dp"
                     android:elevation="0dp"
-                    android:gravity="center"/>
+                    android:gravity="center"
+                    android:clickable="false"/>
             </LinearLayout>
 
-        <GridView
-            android:id="@+id/gv_bszn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:numColumns="4"></GridView>
+
+            <GridView
+                android:id="@+id/gv_bszn"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:numColumns="4"></GridView>
+        </LinearLayout>
     </LinearLayout>
+
+
+
+
 </LinearLayout>

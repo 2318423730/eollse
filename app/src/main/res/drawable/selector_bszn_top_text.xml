@@ -11,7 +11,7 @@
         </shape>
     </item>
 
-    <item android:state_enabled="true">
+    <item android:state_focused="true">
         <shape android:shape="rectangle">
 
             <solid android:color="#0000FF" />
@@ -19,7 +19,7 @@
         </shape>
     </item>
 
-    <item android:state_enabled="false">
+    <item android:state_focused="false">
         <shape android:shape="rectangle">
             <!-- 圆角 -->
 
