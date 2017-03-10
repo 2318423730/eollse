@@ -114,7 +114,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        MyApplication.isRestart=false;
+        MyApplication.isRestart = false;
         //设置监听器
         setListeners();
         //设置轮播数据
@@ -286,10 +286,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 videoView.setVideoViewSize(width, height);
                 //Log.e("MyTAG","视频videoWidth="+videoWidth+"   视频videoHeight="+videoHeight);
                 //Log.e("MyTAG","新width="+width+"   新height="+height);
-                videoView.start();//开始播放
+                if(MyApplication.isRestart){
+                    videoView.seekTo(old_duration);
+                }else{
+                    videoView.start();//开始播放
+                }
+
 
                 llLoading.setVisibility(View.GONE);
                 handler.postDelayed(runnable, 0);
+
             }
         });
 
@@ -323,7 +329,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     }
 
 
-
     private static long old_duration;
     Runnable runnable = new Runnable() {
         public void run() {
@@ -335,19 +340,20 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 //            }
 //            old_duration = duration;
 
-            if(videoView.isPlaying()){
-                long buffer=duration-old_duration;
-                if(buffer < 500){//卡了
+            if (videoView.isPlaying()) {
+                long buffer = duration - old_duration;
+                if (buffer < 500) {//卡了
                     llLoading.setVisibility(View.INVISIBLE);
-                }else{
+                } else {
                     //不卡了
                     llLoading.setVisibility(View.GONE);
                 }
-            }else{
+            } else {
                 llLoading.setVisibility(View.GONE);
             }
             old_duration = duration;
             handler.postDelayed(runnable, 500);
+
         }
     };
 
@@ -367,7 +373,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         }
         videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
     }
-
 
 
     /**
@@ -422,33 +427,39 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
         }
     }
+
     @Override
     protected void onResume() {
-       super.onResume();
+        super.onResume();
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-//        old_duration=MyApplication.lastPosition;
-//        videoView.setVideoPath(MyApplication.lastUrl);
-        videoView.resume();
-
+        old_duration=MyApplication.lastPosition;
+        videoView.setVideoPath(MyApplication.lastUrl);
+        videoView.seekTo(old_duration);
     }
 
     @Override
     protected void onPause() {
+        videoView.pause();
         super.onPause();
     }
 
     @Override
     protected void onStop() {
-        videoView.pause();
-//        MyApplication.lastPosition=old_duration;
-//        MyApplication.lastUrl=videosList.get(videoPosition).getHightUrl();
-//        MyApplication.isRestart=true;
+
+        MyApplication.lastPosition=old_duration;
+        MyApplication.lastUrl=videosList.get(videoPosition).getHightUrl();
+        MyApplication.isRestart=true;
         super.onStop();
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
     }
 
     @Override
