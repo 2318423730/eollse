@@ -1,6 +1,7 @@
 package com.eollse.activity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -415,6 +416,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.ll_bszn://办事指南被点击
                 //MyToast.showToast(getApplicationContext(), "办事指南被点击");
+                Intent intent=new Intent(MainActivity.this,BsznActivity.class);
+                startActivity(intent);
                 break;
             case R.id.iv_zwfu://政务服务被点击
                 //MyToast.showToast(getApplicationContext(), "政务服务被点击");

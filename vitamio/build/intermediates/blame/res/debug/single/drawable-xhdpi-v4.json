@@ -96,12 +96,12 @@
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\res\\drawable-xhdpi\\mediacontroller_play.png"
     },
     {
-        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
-        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xhdpi\\abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\drawable-xhdpi\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\scrubber_track_holo_dark.9.png",
