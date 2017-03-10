@@ -102,7 +102,31 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 新闻集合
      */
     private List<MainNew> mainNewList;
-    
+    /**
+     * 视频列表集合
+     */
+    private List<Video.TrailersBean> videosList;
+    /**
+     * 视频类
+     */
+    private Video video;
+
+    /**
+     * 播放视频的地址
+     */
+    private String videoUrl;
+    /**
+     * 视频真实的宽
+     */
+    private int videoWidth;
+    /**
+     * 视频真实的高
+     */
+    private int videoHeight;
+    /**
+     * 当前播放的视频索引
+     */
+    private int videoPosition;
     
     /**
      * 主页新闻的适配器
@@ -124,16 +148,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                     }else{
                         handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RESUME);
                     }
-
-
-
-
                     break;
             }
         }
     };
-    private List<Video.TrailersBean> videosList;
-    private Video video;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -322,18 +340,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     }
 
 
-    /**
-     * 播放视频的地址
-     */
-    private String videoUrl;
-    /**
-     * 视频真实的宽
-     */
-    private int videoWidth;
-    /**
-     * 视频真实的高
-     */
-    private int videoHeight;
 
     /**
      * 播放视频
@@ -351,12 +357,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     Runnable runnable = new Runnable() {
         public void run() {
             long duration = videoView.getCurrentPosition();
-//            if (old_duration == duration && videoView.isPlaying()) {
-//                llLoading.setVisibility(View.VISIBLE);
-//            } else {
-//                llLoading.setVisibility(View.GONE);
-//            }
-//            old_duration = duration;
 
             if (videoView.isPlaying()) {
                 long buffer = duration - old_duration;
@@ -376,10 +376,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     };
 
 
-    /**
-     * 当前播放的视频索引
-     */
-    private int videoPosition;
+
 
     /**
      * 播放下一个视频
@@ -392,6 +389,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         }
         videoView.setVideoPath(videosList.get(videoPosition).getHightUrl());
         videoView.start();
+        llLoading.setVisibility(View.VISIBLE);
     }
 
 
@@ -462,6 +460,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     protected void onResume() {
         super.onResume();
         //videoView.resume();
+        if(videosList!=null&&videosList.size()>0){
+            videoView.setVideoPath(videosList.get(MyApplication.lastPosition).getHightUrl());
+        }
         videoView.seekTo(old_duration);
     }
 
