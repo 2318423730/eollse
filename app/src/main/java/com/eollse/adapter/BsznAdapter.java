@@ -26,22 +26,26 @@ public class BsznAdapter extends MyBaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         Bszn bszn=list.get(position);
-        ViewHolder viewHolder=null;
+        ViewHolder viewHolder;
         if(convertView==null){
             convertView=getLayoutInflater().inflate(R.layout.item_bszn,null);
             viewHolder=new ViewHolder();
+
             viewHolder.iv= (ImageView) convertView.findViewById(R.id.iv_icon);
             viewHolder.title= (TextView) convertView.findViewById(R.id.tv_title);
-            convertView.setTag(convertView);
+            convertView.setTag(viewHolder);
+
         }
-        viewHolder= (ViewHolder) convertView.getTag();
+        viewHolder= (BsznAdapter.ViewHolder) convertView.getTag();
+
+        String title=bszn.getTitle();
         viewHolder.iv.setImageResource(bszn.getIconId());
-        viewHolder.title.setText(bszn.getTitle());
+        viewHolder.title.setText(title);
         return convertView;
     }
 
     class ViewHolder{
-        ImageView iv;
-        TextView title;
+        private ImageView iv;
+        private TextView title;
     }
 }

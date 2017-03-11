@@ -6,14 +6,15 @@
     android:gravity="center">
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/px_50"
-        android:layout_height="@dimen/px_50"
+        android:layout_width="@dimen/px_200"
+        android:layout_height="@dimen/px_200"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="aaaa"
-        android:textSize="@dimen/px_30"/>
+        android:textSize="@dimen/px_35"
+        android:textColor="@color/black"/>
 </LinearLayout>
