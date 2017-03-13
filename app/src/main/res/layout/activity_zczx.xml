@@ -31,8 +31,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="@dimen/px_20">
+            android:layout_marginBottom="@dimen/px_20"
+            android:orientation="vertical">
 
             <include layout="@layout/top"></include>
 
@@ -51,17 +51,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px_100"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="水平导航栏"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/px_40" />
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbars="none">
 
+                        <LinearLayout
+                            android:id="@+id/ll_topMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"></LinearLayout>
+                    </HorizontalScrollView>
 
 
                 </LinearLayout>
@@ -72,6 +75,7 @@
                     android:layout_marginLeft="@dimen/px_50"
                     android:layout_marginRight="@dimen/px_50"
                     android:layout_weight="1">
+
                     <ListView
                         android:id="@+id/lv_info"
                         android:layout_width="match_parent"
@@ -95,75 +99,84 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_prev"
+                    android:gravity="center"
                     android:text="上一页"
-                    android:textSize="@dimen/px_40"
                     android:textColor="@color/white"
-                    android:gravity="center"/>
+                    android:textSize="@dimen/px_40" />
+
                 <LinearLayout
-                    android:layout_toLeftOf="@+id/tv_next"
-                    android:layout_toRightOf="@+id/tv_previous"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_toLeftOf="@+id/tv_next"
+                    android:layout_toRightOf="@+id/tv_previous"
                     android:gravity="center">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="第"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="第"/>
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
-                    android:id="@+id/tv_currentPage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/px_40"
-                    android:text="1"/>
+                        android:id="@+id/tv_currentPage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
                         android:id="@+id/tv_totalPage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="页/共"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="页/共"/>
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="10"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="10"/>
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="页(共"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="页(共"/>
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
                         android:id="@+id/totalSize"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="n"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="n"/>
+                        android:textSize="@dimen/px_40" />
+
                     <TextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="条)"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:text="条)"/>
+                        android:textSize="@dimen/px_40" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/tv_next"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/btn_next"
                     android:layout_alignParentRight="true"
+                    android:background="@drawable/btn_next"
+                    android:gravity="center"
                     android:text="下一页"
-                    android:textSize="@dimen/px_40"
                     android:textColor="@color/white"
-                    android:gravity="center"/>
+                    android:textSize="@dimen/px_40" />
             </RelativeLayout>
         </LinearLayout>
 
