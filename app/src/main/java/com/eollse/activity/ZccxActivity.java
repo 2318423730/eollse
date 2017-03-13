@@ -1,23 +1,16 @@
 package com.eollse.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.app.MyApplication;
-import com.eollse.fragment.TabFragnemt;
-import com.viewpagerindicator.TabPageIndicator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,8 +38,9 @@ public class ZccxActivity extends BaseActivity {
     TextView totalSize;
     @BindView(R.id.tv_next)
     TextView tvNext;
-    @BindView(R.id.ll_topMenu)
-    LinearLayout llTopMenu;
+    @BindView(R.id.rg_top)
+    RadioGroup rgTop;
+
 
     //    @BindView(R.id.indicator)
 //    TabPageIndicator indicator;
@@ -73,13 +67,20 @@ public class ZccxActivity extends BaseActivity {
                         LinearLayout.LayoutParams.WRAP_CONTENT,
                         1);
         for (int i = 0; i < 20; i++) {
-            TextView tvMenu = new TextView(this);
-            tvMenu.setLayoutParams(new ViewGroup.LayoutParams(30, 30));
-            tvMenu.setPadding(30, 14, 30, 10);
-            tvMenu.setText("标题" + i);
-            tvMenu.setTextColor(Color.WHITE);
-            tvMenu.setGravity(Gravity.CENTER_HORIZONTAL);
-            llTopMenu.addView(tvMenu, menuLinerLayoutParames);
+//            TextView tvMenu = new TextView(this);
+//            tvMenu.setLayoutParams(new ViewGroup.LayoutParams(30, 30));
+//            tvMenu.setPadding(30, 14, 30, 10);
+//            tvMenu.setText("标题" + i);
+//            tvMenu.setTextColor(Color.WHITE);
+//            tvMenu.setGravity(Gravity.CENTER_HORIZONTAL);
+//            llTopMenu.addView(tvMenu, menuLinerLayoutParames);
+
+            RadioButton tempButton = new RadioButton(this);
+           //tempButton.setBackgroundResource(R.drawable.xxx);   // 设置RadioButton的背景图片
+            tempButton.setButtonDrawable(null);          // 设置按钮的样式
+            tempButton.setPadding(0, 0, 0, 0);                 // 设置文字距离按钮四周的距离
+            tempButton.setText("标题 " + i);
+            rgTop.addView(tempButton, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         }
 
 
