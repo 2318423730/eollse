@@ -434,6 +434,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.ll_zcxx://政策信息被点击
                // MyToast.showToast(getApplicationContext(), "政策信息被点击");
+                intent.setClass(MainActivity.this,ZccxActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_jgcx://结果查询被点击
                 //MyToast.showToast(getApplicationContext(), "结果查询被点击");

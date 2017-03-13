@@ -37,7 +37,8 @@
 
         <activity android:name=".activity.BsznActivity" />
         <activity android:name=".activity.YjtjActivity" />
-        <activity android:name=".activity.YjtjContentActivity"></activity>
+        <activity android:name=".activity.YjtjContentActivity" />
+        <activity android:name=".activity.ZccxActivity"></activity>
     </application>
 
 </manifest>

@@ -28,7 +28,7 @@ public class YjtjTypeAdapter extends MyBaseAdapter {
         if(convertView == null){
             convertView=getLayoutInflater().inflate(R.layout.item_popup_yjtjcontent_type,null);
             viewHolder=new ViewHolder();
-            viewHolder.tv_type= (TextView) convertView.findViewById(R.id.tv_type);
+            //viewHolder.tv_type= (TextView) convertView.findViewById(R.id.tv_type);
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();

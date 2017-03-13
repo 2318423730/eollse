@@ -84,10 +84,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/px_100"
+                android:layout_height="@dimen/px_60"
                 android:layout_marginLeft="@dimen/px_40"
                 android:layout_marginRight="@dimen/px_40"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/px_200"
+                android:paddingRight="@dimen/px_200">
 
                 <Button
                     android:id="@+id/btn_tongyi"
