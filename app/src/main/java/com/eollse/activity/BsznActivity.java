@@ -57,7 +57,6 @@ public class BsznActivity extends BaseActivity {
                 switch (checkId) {
                     case R.id.rb_geren:
                         rgTop.check(R.id.rb_geren);
-
                         list.clear();
                         list.addAll(bsznGerenList);
                         bsznAdapter.notifyDataSetChanged();

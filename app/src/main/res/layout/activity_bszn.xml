@@ -84,10 +84,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="个人"
-                    android:background="@drawable/selector_bszn_top_text"
+                    android:background="@drawable/selector_bszn_top_textbackground"
                     android:textSize="@dimen/px_50"
                     android:checked="true"
                     android:button="@null"
+                    android:textColor="@drawable/selector_bxzn_top_text"
                     android:gravity="center"/>
                 <RadioButton
                     android:id="@+id/rb_qiye"
@@ -96,8 +97,10 @@
                     android:layout_weight="1"
                     android:text="企业"
                     android:textSize="@dimen/px_50"
-                    android:background="@drawable/selector_bszn_top_text"
+                    android:background="@drawable/selector_bszn_top_textbackground"
                     android:button="@null"
+                    android:textColor="@drawable/selector_bxzn_top_text"
+
                     android:gravity="center"/>
             </RadioGroup>
 
