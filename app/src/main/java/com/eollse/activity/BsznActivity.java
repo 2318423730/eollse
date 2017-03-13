@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.adapter.BsznAdapter;
+import com.eollse.app.MyApplication;
 import com.eollse.entity.Bszn;
 
 import java.util.ArrayList;
@@ -94,6 +95,7 @@ public class BsznActivity extends BaseActivity {
                 Intent intent = new Intent(BsznActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+                MyApplication.clearAllActivitiesWithOutMainActivity();
             }
         });
         //返回

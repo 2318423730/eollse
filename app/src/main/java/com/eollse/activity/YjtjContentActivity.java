@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.eollse.R;
+import com.eollse.app.MyApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,6 +51,7 @@ public class YjtjContentActivity extends BaseActivity {
                 Intent intent = new Intent(YjtjContentActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+                MyApplication.clearAllActivitiesWithOutMainActivity();
             }
         });
         //返回

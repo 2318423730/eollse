@@ -1,5 +1,6 @@
 package com.eollse.app;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
@@ -8,10 +9,13 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Environment;
 
+import com.eollse.activity.MainActivity;
 import com.eollse.utils.OkHttpUtil;
 
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.OkHttpClient;
 
@@ -44,5 +48,13 @@ public class MyApplication extends Application {
 
     }
 
+    public static List<Activity> activityList=new ArrayList<Activity>();
+    public static void clearAllActivitiesWithOutMainActivity(){
+        for(Activity activity:activityList){
+            if(!(activity instanceof MainActivity)){
+                activity.finish();
+            }
 
+        }
+    }
 }
