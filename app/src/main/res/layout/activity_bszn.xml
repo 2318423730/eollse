@@ -4,8 +4,8 @@
     android:id="@+id/activity_bszn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.eollse.activity.BsznActivity"
-    android:background="@drawable/bszn_background">
+    android:background="@drawable/bszn_background"
+    tools:context="com.eollse.activity.BsznActivity">
 
     <LinearLayout
         android:layout_width="@dimen/px_150"
@@ -15,10 +15,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="政务服务"
-            android:textSize="@dimen/px_80"
             android:gravity="center"
-            android:textColor="@color/white"/>
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
     </LinearLayout>
 
     <LinearLayout
@@ -26,82 +26,50 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
 
-        android:orientation="vertical"
+        android:background="@drawable/info_bg"
 
-        android:background="@drawable/bszn_background_right">
+        android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px_150"
-            android:paddingLeft="@dimen/px_50"
-            android:paddingRight="@dimen/px_50">
-                <TextView
-                    android:id="@+id/tv_backHome"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="首页"
-                    android:drawableLeft="@drawable/home"
-                    android:textSize="@dimen/px_40"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/white"
-                    android:gravity="center_vertical"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="办事指南"
-                        android:layout_centerInParent="true"
-                        android:textSize="@dimen/px_80"/>
-
-            <TextView
-                android:id="@+id/tv_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="返回"
-                android:drawableLeft="@drawable/back"
-                android:textSize="@dimen/px_40"
-                android:layout_centerVertical="true"
-                android:textColor="@color/white"
-                android:gravity="center_vertical"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
+        <include layout="@layout/top"></include>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            android:layout_marginBottom="@dimen/px_40">
+            android:orientation="vertical">
+
             <RadioGroup
                 android:id="@+id/rg_top"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px_100"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/rb_geren"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="个人"
                     android:background="@drawable/selector_bszn_top_textbackground"
-                    android:textSize="@dimen/px_50"
-                    android:checked="true"
                     android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="个人"
                     android:textColor="@drawable/selector_bxzn_top_text"
-                    android:gravity="center"/>
+                    android:textSize="@dimen/px_50" />
+
                 <RadioButton
                     android:id="@+id/rb_qiye"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="企业"
-                    android:textSize="@dimen/px_50"
                     android:background="@drawable/selector_bszn_top_textbackground"
                     android:button="@null"
+                    android:gravity="center"
+                    android:text="企业"
                     android:textColor="@drawable/selector_bxzn_top_text"
 
-                    android:gravity="center"/>
+                    android:textSize="@dimen/px_50" />
             </RadioGroup>
 
             <GridView
@@ -109,8 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:numColumns="4"
                 android:background="@color/white"
+                android:numColumns="4"
                 android:scrollbars="none">
 
             </GridView>

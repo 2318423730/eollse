@@ -1,6 +1,8 @@
 package com.eollse.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -16,6 +18,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 办事指南(办事指南)
+ */
 public class BsznActivity extends BaseActivity {
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
@@ -29,17 +34,28 @@ public class BsznActivity extends BaseActivity {
     RadioButton rbGeren;
     @BindView(R.id.rb_qiye)
     RadioButton rbQiye;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
+    /**
+     * 个人数据集合
+     */
     private List<Bszn> bsznGerenList;
+    /**
+     * 企业数据集合
+     */
     private List<Bszn> bsznQiyeList;
     private BsznAdapter bsznAdapter;
-    private List<Bszn> list=new ArrayList<>();
+    /**
+     * 用于设置adapeter的集合
+     */
+    private List<Bszn> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bszn);
         ButterKnife.bind(this);
-
+        tvTitle.setText("办事指南");
         //组装数据
         getData();
         //设置Adapter
@@ -51,6 +67,7 @@ public class BsznActivity extends BaseActivity {
     }
 
     private void setListeners() {
+        //个人企业切换的监听
         rgTop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkId) {
@@ -68,6 +85,22 @@ public class BsznActivity extends BaseActivity {
                         bsznAdapter.notifyDataSetChanged();
                         break;
                 }
+            }
+        });
+        //回首页
+        tvBackHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BsznActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        //返回
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

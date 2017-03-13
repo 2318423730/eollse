@@ -392,15 +392,19 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      */
     @Override
     public void onClick(View view) {
+        Intent intent=new Intent();
         switch (view.getId()) {
             case R.id.rl_videoView://视频被点击
                 //MyToast.showToast(getApplicationContext(), "视频被点击");
+
                 break;
 //            case R.id.iv_setting://设置被点击
 //                //MyToast.showToast(getApplicationContext(), "设置被点击");
 //                break;
             case R.id.ll_sqtj://诉求提交
                // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
+                intent.setClass(MainActivity.this,YjtjActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_zcxx://政策信息被点击
                // MyToast.showToast(getApplicationContext(), "政策信息被点击");
@@ -416,7 +420,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.ll_bszn://办事指南被点击
                 //MyToast.showToast(getApplicationContext(), "办事指南被点击");
-                Intent intent=new Intent(MainActivity.this,BsznActivity.class);
+                intent.setClass(MainActivity.this,BsznActivity.class);
                 startActivity(intent);
                 break;
             case R.id.iv_zwfu://政务服务被点击
