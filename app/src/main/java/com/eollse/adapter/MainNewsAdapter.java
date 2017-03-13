@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 public class MainNewsAdapter extends MyBaseAdapter {
-    private List<MainNew> mainNewList;
+    private List<MainNew.DataBean> mainNewList;
     public MainNewsAdapter( Context context,List list) {
         super(context,list);
         mainNewList=list;
@@ -24,7 +24,7 @@ public class MainNewsAdapter extends MyBaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        MainNew mainNew=mainNewList.get(position);
+        MainNew.DataBean dataBean=mainNewList.get(position);
         ViewHolder viewHolder;
         if(view==null){
             view=getLayoutInflater().inflate(R.layout.item_main_news,null);
@@ -35,8 +35,8 @@ public class MainNewsAdapter extends MyBaseAdapter {
         }
         viewHolder= (ViewHolder) view.getTag();
 
-        viewHolder.tv_title.setText("["+mainNew.getDeptName()+"]"+mainNew.getTitle());
-        viewHolder.tv_editDate.setText(mainNew.getEditDate());
+        viewHolder.tv_title.setText("["+dataBean.getDeptName()+"]"+dataBean.getTitle());
+        viewHolder.tv_editDate.setText(dataBean.getEditDate());
         return view;
     }
 

@@ -6,7 +6,7 @@ package com.eollse.utils;
 
 public interface Constants {
 
-     int HANDLER_VIDEO_RECEIVE=1;
+     int HANDLER_VIDEO_RECEIVEED=1;
     /**
      * 视频继续上次播放
      */
@@ -15,6 +15,10 @@ public interface Constants {
      * 视频是否卡顿
      */
      int HANDLER_VIDEO_BUFFERING=3;
+    /**
+     * 获取到主页新闻
+     */
+     int HANDLER_MAINNEWS_RECEIVED=4;
 
     /**
      * 网络视频的联网地址
@@ -24,5 +28,7 @@ public interface Constants {
      * 网络地址
      */
     String BASE_URL="http://oa.ybqtw.org.cn/api/APP1.0.aspx?";
+
+
 
 }

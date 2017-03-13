@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -28,7 +29,9 @@ import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,10 +100,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 轮播数据集合
      */
     private List<String> pmdList;
-    /**
-     * 新闻集合
-     */
-    private List<MainNew> mainNewList;
+
     /**
      * 视频列表集合
      */
@@ -135,7 +135,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case Constants.HANDLER_VIDEO_RECEIVE://获取到视频播放列表
+                case Constants.HANDLER_VIDEO_RECEIVEED://获取到视频播放列表
                     //播放视频
                     if(videosList!=null && videosList.size()>0){
                         playVideo();
@@ -151,6 +151,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                         handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RESUME);
                     }
                     break;
+                case Constants.HANDLER_MAINNEWS_RECEIVED:
+                    //设置新闻适配器
+                    setAdapter();
+                    break;
+
             }
         }
     };
@@ -174,8 +179,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
         //设置新闻数据
         setNews();
-        //设置新闻适配器
-        setAdapter();
+
 
 
         getVideos();
@@ -277,28 +281,50 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         });
 
     }
-
+    private List<MainNew.DataBean> dataBeanList;
     /**
      * 设置新闻数据
      */
     private void setNews() {
-        if (mainNewList == null) {
-            mainNewList = new ArrayList<>();
+        if (dataBeanList == null) {
+            dataBeanList = new ArrayList<>();
         }
-        for (int i = 0; i < 5; i++) {
-            MainNew mainNew = new MainNew();
-            mainNew.setTitle("区工商联专题学习区纪委二十四届二次全会精神");
-            mainNew.setEditDate("");
-            mainNew.setDeptName("公告");
-            mainNewList.add(mainNew);
-        }
+        Map map=new HashMap();//method=IndexNews&Page=1&PageSize=6&TVInfoId=1&Key=21218CCA77804D2BA1922C33E0151105
+        map.put("method","IndexNews");
+        map.put("Page","1");
+        map.put("PageSize","6");
+        map.put("TVInfoId","1");
+        map.put("Key","21218CCA77804D2BA1922C33E0151105");
+        //获取数据
+        MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
+            @Override
+            public void OnSuccess(String jsonStr) {
+                Log.e("MyTAG","主页新闻:"+jsonStr);
+                MainNew mainNew=JSON.parseObject(jsonStr,MainNew.class);
+                dataBeanList=mainNew.getData();
+                handler.sendEmptyMessage(Constants.HANDLER_MAINNEWS_RECEIVED);
+
+            }
+
+            @Override
+            public void OnError(String jsonStr) {
+
+            }
+        });
+//        for (int i = 0; i < 5; i++) {
+//            MainNew mainNew = new MainNew();
+//            mainNew.setTitle("区工商联专题学习区纪委二十四届二次全会精神");
+//            mainNew.setEditDate("");
+//            mainNew.setDeptName("公告");
+//            mainNewList.add(mainNew);
+//        }
     }
 
     /**
      * 设置新闻适配器
      */
     private void setAdapter() {
-        adapter = new MainNewsAdapter(getApplicationContext(), mainNewList);
+        adapter = new MainNewsAdapter(getApplicationContext(), dataBeanList);
         lvListview.setAdapter(adapter);
     }
 
@@ -323,7 +349,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 //Log.e("MyTAG","获取到的json:"+jsonStr);
                 video = JSON.parseObject(jsonStr, Video.class);
                 videosList = video.getTrailers();
-                handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RECEIVE);
+                handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RECEIVEED);
 
             }
 
