@@ -53,14 +53,15 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px_100"
+                    android:layout_marginTop="@dimen/px_20"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/px_50"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:layout_marginRight="@dimen/px_50">
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -76,15 +77,17 @@
                             android:layout_marginLeft="@dimen/px_30"
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:hint="请输入姓名"
-                            android:textColorHint="@color/white"/>
+                            android:textColorHint="@color/white"
+                            android:paddingLeft="@dimen/px_30"
+                            android:paddingRight="@dimen/px_30"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/px_50"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/px_50">
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -100,21 +103,24 @@
                             android:layout_marginLeft="@dimen/px_30"
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:hint="请输入电话"
-                            android:textColorHint="@color/white"/>
+                            android:textColorHint="@color/white"
+                            android:paddingLeft="@dimen/px_30"
+                            android:paddingRight="@dimen/px_30"/>
                     </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px_100"
+                    android:layout_marginTop="@dimen/px_20"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/px_50"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:layout_marginRight="@dimen/px_50">
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -128,18 +134,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/px_30"
-                            android:gravity="center_vertical"
+                            android:background="@drawable/shape_yjtjcontent_input_background"
                             android:drawableRight="@drawable/to_bottom"
-                            android:paddingRight="@dimen/px_10"
-                            android:background="@drawable/shape_yjtjcontent_input_background" />
+                            android:gravity="center_vertical"
+                            android:paddingLeft="@dimen/px_30"
+                            android:paddingRight="@dimen/px_30" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/px_50"
                         android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/px_50">
+                        android:gravity="center_vertical">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -153,9 +160,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="@dimen/px_30"
+                            android:background="@drawable/shape_yjtjcontent_input_background"
                             android:drawableRight="@drawable/to_bottom"
-                            android:paddingRight="@dimen/px_10"
-                            android:background="@drawable/shape_yjtjcontent_input_background" />
+                            android:paddingLeft="@dimen/px_30"
+                            android:paddingRight="@dimen/px_30"/>
                     </LinearLayout>
 
                 </LinearLayout>
@@ -163,6 +171,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px_100"
+                    android:layout_marginTop="@dimen/px_20"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -180,41 +189,48 @@
                         android:layout_marginLeft="@dimen/px_30"
                         android:background="@drawable/shape_yjtjcontent_input_background"
                         android:hint="请输入意见标题"
-                        android:textColorHint="@color/white"/>
+                        android:textColorHint="@color/white"
+                        android:paddingLeft="@dimen/px_30"
+                        android:paddingRight="@dimen/px_30"/>
                 </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                        <TextView
-                            android:id="@+id/tv_content"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="内  容:"
-                            android:layout_marginTop="@dimen/px_40"
-                            android:textSize="@dimen/px_40"
-                            android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/tv_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:text="内  容:"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px_40" />
 
                     <EditText
-                        android:layout_marginTop="@dimen/px_40"
-                        android:layout_toRightOf="@+id/tv_content"
                         android:id="@+id/et_content"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:maxLines="20"
-                        android:inputType="textMultiLine"
                         android:layout_marginLeft="@dimen/px_30"
-                        android:textColorHint="@color/white"
+                        android:layout_marginTop="@dimen/px_20"
+                        android:layout_marginBottom="@dimen/px_20"
+                        android:layout_toRightOf="@+id/tv_content"
+                        android:background="@drawable/shape_yjtjcontent_input_background"
                         android:gravity="clip_horizontal"
                         android:hint="请输入要提交的内容"
+                        android:inputType="textMultiLine"
+                        android:maxLines="20"
                         android:text=""
-                        android:background="@drawable/shape_yjtjcontent_input_background"/>
+                        android:textColorHint="@color/white"
+                        android:paddingLeft="@dimen/px_30"
+                        android:paddingRight="@dimen/px_30"/>
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px_120"
+            android:layout_height="@dimen/px_100"
             android:layout_marginBottom="@dimen/px_30"
             android:layout_marginLeft="@dimen/px_200"
             android:layout_marginRight="@dimen/px_200"

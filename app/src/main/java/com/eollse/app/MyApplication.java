@@ -49,6 +49,10 @@ public class MyApplication extends Application {
     }
 
     public static List<Activity> activityList=new ArrayList<Activity>();
+
+    /**
+     * 清除MainActivity以外的Activity
+     */
     public static void clearAllActivitiesWithOutMainActivity(){
         for(Activity activity:activityList){
             if(!(activity instanceof MainActivity)){
@@ -57,4 +61,17 @@ public class MyApplication extends Application {
 
         }
     }
+    /**
+     * 清除所有的Activity
+     */
+    public void exit(){
+        //Log.d("MyTAG", "listsize="+activityList.size());
+        for(Activity activity:activityList){
+            activity.finish();
+        }
+        //myPid返回的是进程id
+        android.os.Process.killProcess(android.os.Process.myPid());
+
+    }
+
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/px_10"
+    android:paddingBottom="@dimen/px_10"
+    android:paddingLeft="@dimen/px_20"
+    android:paddingRight="@dimen/px_20">
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_50"
+        android:text="类型"
+        android:textSize="@dimen/px_30"
+        android:gravity="center"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:background="#FFFFFF"></View>
+</LinearLayout>
