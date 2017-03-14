@@ -23,6 +23,10 @@ public interface Constants {
      * 获取到类型
      */
     int HANDLER_TYPE_RECEIVED=5;
+    /**
+     * 获取到部门
+     */
+    int HANDLER_DEPT_RECEIVED=5;
 
     /**
      * 网络视频的联网地址

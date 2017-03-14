@@ -73,9 +73,27 @@ public class ZccxActivity extends BaseActivity {
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
-
+            switch (msg.what){
+                case Constants.HANDLER_DEPT_RECEIVED:
+                    setAdapter();
+                    break;
+            }
         }
     };
+
+    private void setAdapter() {
+        horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);
+        myHorizontalListView.setAdapter(horizontalListViewAdapter);
+        horizontalListViewAdapter.setSelectIndex(0);
+        horizontalListViewAdapter.notifyDataSetChanged();
+        myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                horizontalListViewAdapter.setSelectIndex(position);
+                horizontalListViewAdapter.notifyDataSetChanged();
+            }
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +142,7 @@ public class ZccxActivity extends BaseActivity {
             public void OnSuccess(String jsonStr) {
                 Dept dept= JSON.parseObject(jsonStr,Dept.class);
                 tab=dept.getData();
-
+                handler.sendEmptyMessage(Constants.HANDLER_DEPT_RECEIVED);
             }
 
             @Override
@@ -132,17 +150,7 @@ public class ZccxActivity extends BaseActivity {
 
             }
         });
-        horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);
-        myHorizontalListView.setAdapter(horizontalListViewAdapter);
-        horizontalListViewAdapter.setSelectIndex(0);
-        horizontalListViewAdapter.notifyDataSetChanged();
-        myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                horizontalListViewAdapter.setSelectIndex(position);
-                horizontalListViewAdapter.notifyDataSetChanged();
-            }
-        });
+
     }
 
     private HorizontalListViewAdapter horizontalListViewAdapter;
