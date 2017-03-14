@@ -40,12 +40,12 @@
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_simple_dropdown_hint.xml"
     },
     {
-        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple.xml",
-        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple_overlay_action_mode.xml",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\release\\layout\\abc_screen_simple.xml",
+        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_screen_simple.xml"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\release\\layout\\abc_list_menu_item_checkbox.xml",

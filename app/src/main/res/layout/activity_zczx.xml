@@ -59,40 +59,51 @@
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@drawable/news_list_head_bg" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
                         <ImageView
                             android:id="@+id/iv_left"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/news_list_left"/>
+                            android:src="@drawable/news_list_left" />
+
                         <ImageView
                             android:id="@+id/iv_right"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/news_list_right"
-                            android:layout_alignParentRight="true"/>
-                        <HorizontalScrollView
-                            android:id="@+id/horizontalScrollView"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/news_list_right" />
+                        <!--<HorizontalScrollView-->
+                        <!--android:id="@+id/horizontalScrollView"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:paddingLeft="@dimen/px_20"-->
+                        <!--android:paddingRight="@dimen/px_20"-->
+                        <!--android:scrollbars="none"-->
+                        <!--android:layout_toLeftOf="@+id/iv_right"-->
+                        <!--android:layout_toRightOf="@+id/iv_left">-->
+
+                        <!--<RadioGroup-->
+                        <!--android:id="@+id/rg_top"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--</RadioGroup>-->
+                        <!--</HorizontalScrollView>-->
+
+                        <com.eollse.ui.MyHorizontalListView
+                            android:id="@+id/myHorizontalListView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:paddingLeft="@dimen/px_20"
-                            android:paddingRight="@dimen/px_20"
-                            android:scrollbars="none"
                             android:layout_toLeftOf="@+id/iv_right"
                             android:layout_toRightOf="@+id/iv_left">
 
-                            <RadioGroup
-                                android:id="@+id/rg_top"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                            </RadioGroup>
-                        </HorizontalScrollView>
+                        </com.eollse.ui.MyHorizontalListView>
                     </RelativeLayout>
-
 
 
                 </RelativeLayout>
@@ -100,13 +111,14 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/ll_toptitle"
->
+                    android:layout_below="@+id/ll_toptitle">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/news_list_con_bg"
-                        android:scaleType="fitXY"/>
+                        android:scaleType="fitXY"
+                        android:src="@drawable/news_list_con_bg" />
+
                     <ListView
                         android:id="@+id/lv_info"
                         android:layout_width="match_parent"
