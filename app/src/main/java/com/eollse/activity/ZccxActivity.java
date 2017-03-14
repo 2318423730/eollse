@@ -1,6 +1,8 @@
 package com.eollse.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -11,6 +13,8 @@ import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.app.MyApplication;
+
+import org.xmlpull.v1.XmlPullParser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -76,11 +80,16 @@ public class ZccxActivity extends BaseActivity {
 //            llTopMenu.addView(tvMenu, menuLinerLayoutParames);
 
             RadioButton tempButton = new RadioButton(this);
-           //tempButton.setBackgroundResource(R.drawable.xxx);   // 设置RadioButton的背景图片
-            tempButton.setButtonDrawable(null);          // 设置按钮的样式
-            tempButton.setPadding(0, 0, 0, 0);                 // 设置文字距离按钮四周的距离
+            //tempButton.setBackgroundResource(R.drawable.selector_top_title_background);// 设置RadioButton的背景图片
+            tempButton.setButtonDrawable(android.R.color.transparent); // 设置按钮的样式
+            tempButton.setPadding(20, 0, 20, 0);// 设置文字距离按钮四周的距离
             tempButton.setText("标题 " + i);
-            rgTop.addView(tempButton, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+            //tempButton.setTextColor(R.drawable.selector_top_title_text);
+           // int a=R.drawable.selector_top_title_text;
+            tempButton.setTextColor(this.getResources().getColorStateList(R.color.selector_top_title_text));
+            rgTop.addView(tempButton, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         }
 
 
@@ -131,6 +140,13 @@ public class ZccxActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        rgTop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkId) {
+
             }
         });
 

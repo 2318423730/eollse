@@ -14,7 +14,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:launchMode="singleInstance">
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,8 +37,8 @@
 
         <activity android:name=".activity.BsznActivity" />
         <activity android:name=".activity.YjtjActivity" />
-        <activity android:name=".activity.YjtjContentActivity" />
-        <activity android:name=".activity.ZccxActivity"></activity>
+        <activity android:name=".activity.YjtjContentActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <activity android:name=".activity.ZccxActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
     </application>
 
 </manifest>
