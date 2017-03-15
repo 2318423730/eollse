@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_bszn"
     android:layout_width="match_parent"
@@ -25,35 +26,26 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
         android:background="@drawable/info_bg"
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="@dimen/px_40"
-            android:layout_marginRight="@dimen/px_40"
-            android:orientation="vertical"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/shape_info_background">
-
-
-
-            <GridView
-                android:padding="@dimen/px_20"
-                android:id="@+id/gv_qtfw"
+            <WebView
+                android:id="@+id/webView"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_info_background">
 
-                android:numColumns="4"
-                android:scrollbars="none">
-
-            </GridView>
+            </WebView>
         </LinearLayout>
+
+
 
     </LinearLayout>
 </LinearLayout>

@@ -76,6 +76,9 @@ public class ZccxActivity extends BaseActivity {
 
     private int page = 1;
     private String Deptid = "";
+    private int countNum;//总共条数
+    private int currentPage;//当前页
+    private int totalPage;//总共页
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -89,7 +92,7 @@ public class ZccxActivity extends BaseActivity {
                     setNewsAdapter();
 
                     break;
-                case Constants.HANDLER_ZCXX_NEWS_REFRESHED:
+                case Constants.HANDLER_INFO_REFRESHED:
                     if (newsList.size() > 0) {
                         lvNews.setSelection(0);
                     }
@@ -121,7 +124,7 @@ public class ZccxActivity extends BaseActivity {
     }
 
     private boolean isRefresh;
-
+    private Zcxx zcxx;
     private void getIndexData(String Deptid) {
         //url = http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=IndexNews&PageSizepage=10&Page=1&ClassId=1&Deptid=&Key=21218CCA77804D2BA1922C33E0151105
 
@@ -129,14 +132,21 @@ public class ZccxActivity extends BaseActivity {
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                Zcxx zcxx = JSON.parseObject(jsonStr, Zcxx.class);
+                 zcxx = JSON.parseObject(jsonStr, Zcxx.class);
                 if (newsList == null) {
                     newsList = new ArrayList<Zcxx.DataBean>();
                 }
                 newsList = zcxx.getData();
+
+                countNum=Integer.parseInt(zcxx.getCountNum());
+                totalPage=countNum/10;
+                if(countNum%10!=0){
+                    totalPage+=1;
+                }
+
                 handler.sendEmptyMessage(Constants.HANDLER_ZCXX_RECEIVED);
                 if (isRefresh) {
-                    handler.sendEmptyMessage(Constants.HANDLER_ZCXX_NEWS_REFRESHED);
+                    handler.sendEmptyMessage(Constants.HANDLER_INFO_REFRESHED);
                 }
 
 
@@ -145,7 +155,7 @@ public class ZccxActivity extends BaseActivity {
             @Override
             public void OnError(String jsonStr) {
                 handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);
-                handler.sendEmptyMessage(Constants.HANDLER_ZCXX_NEWS_REFRESHED);
+                handler.sendEmptyMessage(Constants.HANDLER_INFO_REFRESHED);
             }
         });
     }
@@ -261,6 +271,37 @@ public class ZccxActivity extends BaseActivity {
 
             }
         });
+
+        tvNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(page<totalPage){
+                    page++;
+                    newsList.clear();
+                    if (zcxxNewsAdapter == null) {
+                        zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
+                    }
+                    zcxxNewsAdapter.notifyDataSetChanged();
+                    getIndexData(Deptid);
+                }
+                setPageInfo();
+            }
+        });
+        tvPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(page>1){
+                    page--;
+                    newsList.clear();
+                    if (zcxxNewsAdapter == null) {
+                        zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
+                    }
+                    zcxxNewsAdapter.notifyDataSetChanged();
+                    getIndexData(Deptid);
+                }
+                setPageInfo();
+            }
+        });
     }
 
     private void setAdapter() {
@@ -271,6 +312,10 @@ public class ZccxActivity extends BaseActivity {
         myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Deptid=""+tab.get(position).getDeptid();
+                if(position==0){
+                    Deptid="";
+                }
                 materialRefreshLayout.finishRefresh();
                 isRefresh = false;
                 horizontalListViewAdapter.setSelectIndex(position);
@@ -298,7 +343,9 @@ public class ZccxActivity extends BaseActivity {
     }
 
     private void setPageInfo() {
-        tvTotalSize.setText("" + newsList.size());
+        tvCurrentPage.setText(""+page);
+        tvTotalSize.setText("" + countNum);
+        tvTotalPage.setText(""+totalPage);
     }
 
 

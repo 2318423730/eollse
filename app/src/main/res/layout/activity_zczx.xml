@@ -186,7 +186,7 @@
                         android:textSize="@dimen/px_40" />
 
                     <TextView
-                        android:id="@+id/tv_totalPage"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="页/共"
@@ -194,7 +194,7 @@
                         android:textSize="@dimen/px_40" />
 
                     <TextView
-
+                        android:id="@+id/tv_totalPage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10"
