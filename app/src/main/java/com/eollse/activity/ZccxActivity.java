@@ -93,6 +93,7 @@ public class ZccxActivity extends BaseActivity {
                     if (newsList.size() > 0) {
                         lvNews.setSelection(0);
                     }
+                    materialRefreshLayout.finishRefresh();
                     break;
                 case Constants.HANDLER_NET_ERROR:
                     MyToast.showToast(getApplicationContext(),"网络不给力");
