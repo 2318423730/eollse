@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bszn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bszn_background"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/rg_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_100"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb_wyfw"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:background="@drawable/shape_shfw_wyfu"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="物业服务"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_50" />
+
+                <RadioButton
+                    android:id="@+id/rb_bmfw"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_shfw_bmfw"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="便民服务"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_50" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <GridView
+                    android:id="@+id/gv_wyfw"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:padding="@dimen/px_10">
+
+                </GridView>
+
+                <GridView
+                    android:id="@+id/gv_bmfw"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#8a8dfa"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:padding="@dimen/px_10">
+
+                </GridView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

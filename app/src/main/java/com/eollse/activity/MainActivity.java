@@ -38,7 +38,9 @@ import butterknife.ButterKnife;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
-
+/**
+ * 首页
+ */
 public class MainActivity extends BaseActivity implements OnClickListener {
 
 
@@ -456,6 +458,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.iv_shfw://社会服务被点击
                 //MyToast.showToast(getApplicationContext(), "社会服务被点击");
+                intent.setClass(MainActivity.this,ShfwActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tv_pmd://跑马灯文字被点击
                 //MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");

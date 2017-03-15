@@ -30,18 +30,13 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
-        <service
-            android:name=".service.VideoService"
-            android:enabled="true"
-            android:exported="true" />
-
         <activity android:name=".activity.BsznActivity" />
         <activity
             android:name=".activity.ZccxActivity"
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
-        <activity android:name=".activity.ShfuActivity" />
         <activity android:name=".activity.SqtjActivity" />
-        <activity android:name=".activity.SqtjContentActivity"></activity>
+        <activity android:name=".activity.SqtjContentActivity" />
+        <activity android:name=".activity.ShfwActivity"></activity>
     </application>
 
 </manifest>
