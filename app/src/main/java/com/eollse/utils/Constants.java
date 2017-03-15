@@ -5,7 +5,13 @@ package com.eollse.utils;
  */
 
 public interface Constants {
-
+    /**
+     * 获取到视频资源
+     */
+    int HANDLER_NET_ERROR=0;
+    /**
+     * 获取到视频资源
+     */
      int HANDLER_VIDEO_RECEIVEED=1;
     /**
      * 视频继续上次播放
@@ -27,6 +33,16 @@ public interface Constants {
      * 获取到部门
      */
     int HANDLER_DEPT_RECEIVED=5;
+    /**
+     * 获取到政策信息
+     */
+    int HANDLER_ZCXX_RECEIVED=6;
+    /**
+     * 刷新政策信息新闻完成
+     */
+    int HANDLER_ZCXX_NEWS_REFRESHED=7;
+
+
 
     /**
      * 网络视频的联网地址

@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/eollse.iml" filepath="$PROJECT_DIR$/eollse.iml" />
       <module fileurl="file://$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" filepath="$PROJECT_DIR$/jcvideoplayer-lib/jcvideoplayer-lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_MaterialRefreshLayout/library_MaterialRefreshLayout.iml" filepath="$PROJECT_DIR$/library_MaterialRefreshLayout/library_MaterialRefreshLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_pullToRefresh/library_pullToRefresh.iml" filepath="$PROJECT_DIR$/library_pullToRefresh/library_pullToRefresh.iml" />
       <module fileurl="file://$PROJECT_DIR$/vitamio/vitamio.iml" filepath="$PROJECT_DIR$/vitamio/vitamio.iml" />
     </modules>
   </component>

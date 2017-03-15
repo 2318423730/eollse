@@ -12,13 +12,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.eollse.R;
 import com.eollse.adapter.HorizontalListViewAdapter;
+import com.eollse.adapter.ZcxxNewsAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Dept;
+import com.eollse.entity.Zcxx;
 import com.eollse.ui.MyHorizontalListView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.MyToast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,67 +38,70 @@ import butterknife.ButterKnife;
  */
 public class ZccxActivity extends BaseActivity {
 
+
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
     @BindView(R.id.tv_title)
     TextView tvTitle;
     @BindView(R.id.tv_back)
     TextView tvBack;
-    @BindView(R.id.lv_info)
-    ListView lvInfo;
+    @BindView(R.id.iv_left)
+    ImageView ivLeft;
+    @BindView(R.id.iv_right)
+    ImageView ivRight;
+    @BindView(R.id.myHorizontalListView)
+    MyHorizontalListView myHorizontalListView;
+
+    @BindView(R.id.materialRefreshLayout)
+    MaterialRefreshLayout materialRefreshLayout;
     @BindView(R.id.tv_previous)
     TextView tvPrevious;
     @BindView(R.id.tv_currentPage)
     TextView tvCurrentPage;
     @BindView(R.id.tv_totalPage)
     TextView tvTotalPage;
-    @BindView(R.id.totalSize)
-    TextView totalSize;
+    @BindView(R.id.tv_totalSize)
+    TextView tvTotalSize;
     @BindView(R.id.tv_next)
     TextView tvNext;
-    //    @BindView(R.id.rg_top)
-//    RadioGroup rgTop;
-//    @BindView(R.id.horizontalScrollView)
-//    HorizontalScrollView horizontalScrollView;
 
-
-    @BindView(R.id.iv_right)
-    ImageView ivRight;
-
-
-    //    @BindView(R.id.indicator)
-//    TabPageIndicator indicator;
-//    @BindView(R.id.viewPager)
-//    ViewPager viewPager;
     List<Dept.DataBean> tab;
-    @BindView(R.id.iv_left)
-    ImageView ivLeft;
-    @BindView(R.id.myHorizontalListView)
-    MyHorizontalListView myHorizontalListView;
-    private Handler handler=new Handler(){
+    @BindView(R.id.lv_news)
+    ListView lvNews;
+    /**
+     * 新闻集合
+     */
+    private List<Zcxx.DataBean> newsList = new ArrayList<>();
+    private ZcxxNewsAdapter zcxxNewsAdapter;
+
+    private int page = 1;
+    private String Deptid = "";
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case Constants.HANDLER_DEPT_RECEIVED:
                     setAdapter();
+                    break;
+                case Constants.HANDLER_ZCXX_RECEIVED:
+
+                    setPageInfo();
+                    setNewsAdapter();
+
+                    break;
+                case Constants.HANDLER_ZCXX_NEWS_REFRESHED:
+                    if (newsList.size() > 0) {
+                        lvNews.setSelection(0);
+                    }
+                    break;
+                case Constants.HANDLER_NET_ERROR:
+                    MyToast.showToast(getApplicationContext(),"网络不给力");
+                    //Log.e("MyTAG","网络不给力");
                     break;
             }
         }
     };
 
-    private void setAdapter() {
-        horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);
-        myHorizontalListView.setAdapter(horizontalListViewAdapter);
-        horizontalListViewAdapter.setSelectIndex(0);
-        horizontalListViewAdapter.notifyDataSetChanged();
-        myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                horizontalListViewAdapter.setSelectIndex(position);
-                horizontalListViewAdapter.notifyDataSetChanged();
-            }
-        });
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,9 +109,44 @@ public class ZccxActivity extends BaseActivity {
         setContentView(R.layout.activity_zczx);
         ButterKnife.bind(this);
         tvTitle.setText("政策信息");
+        //pullRefreshList.setMode(PullToRefreshBase.Mode.BOTH);
+
+
         setTopMenu();
         //设置监听器
         setListeners();
+        getIndexData(Deptid);//默认进入时的信息
+
+    }
+
+    private boolean isRefresh;
+
+    private void getIndexData(String Deptid) {
+        //url = http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=IndexNews&PageSizepage=10&Page=1&ClassId=1&Deptid=&Key=21218CCA77804D2BA1922C33E0151105
+
+        String url = Constants.BASE_URL + "?&TVInfoId=19&method=IndexNews&PageSize=10&Page=" + page + "&ClassId=1&Deptid=" + Deptid + "&Key=21218CCA77804D2BA1922C33E0151105";
+        MyApplication.okHttpUtil.get(url, new HttpCallBack() {
+            @Override
+            public void OnSuccess(String jsonStr) {
+                Zcxx zcxx = JSON.parseObject(jsonStr, Zcxx.class);
+                if (newsList == null) {
+                    newsList = new ArrayList<Zcxx.DataBean>();
+                }
+                newsList = zcxx.getData();
+                handler.sendEmptyMessage(Constants.HANDLER_ZCXX_RECEIVED);
+                if (isRefresh) {
+                    handler.sendEmptyMessage(Constants.HANDLER_ZCXX_NEWS_REFRESHED);
+                }
+
+
+            }
+
+            @Override
+            public void OnError(String jsonStr) {
+                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);
+                handler.sendEmptyMessage(Constants.HANDLER_ZCXX_NEWS_REFRESHED);
+            }
+        });
     }
 
     private void setTopMenu() {
@@ -129,24 +172,28 @@ public class ZccxActivity extends BaseActivity {
 //        }
 
         tab = new ArrayList();
-//        for (int i = 0; i < 33; i++) {
-//            tab.add("标题" + i);
-//        }
+
         //TVInfoId=19&method=DeptList&Key=21218CCA77804D2BA1922C33E0151105
-        Map<String,String> map=new HashMap<>();
-        map.put("TVInfoId","19");
-        map.put("method","DeptList");
-        map.put("Key","21218CCA77804D2BA1922C33E0151105");
+        Map<String, String> map = new HashMap<>();
+        map.put("TVInfoId", "19");
+        map.put("method", "DeptNewsTab");
+        map.put("Key", "21218CCA77804D2BA1922C33E0151105");
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                Dept dept= JSON.parseObject(jsonStr,Dept.class);
-                tab=dept.getData();
+                tab.clear();
+                Dept dept = JSON.parseObject(jsonStr, Dept.class);
+
+                tab = dept.getData();
+                Dept.DataBean dataBean = new Dept.DataBean();
+                dataBean.setDeptName("所有部门");
+                tab.add(0, dataBean);
                 handler.sendEmptyMessage(Constants.HANDLER_DEPT_RECEIVED);
             }
 
             @Override
             public void OnError(String jsonStr) {
+                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);
 
             }
         });
@@ -190,20 +237,68 @@ public class ZccxActivity extends BaseActivity {
                 myHorizontalListView.scrollTo(1000);
 
 
-
             }
         });
         ivLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                myHorizontalListView.scrollTo(0);
+            }
+        });
 
-                    myHorizontalListView.scrollTo(0);
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                isRefresh = true;
+                newsList.clear();
+                if (zcxxNewsAdapter == null) {
+                    zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
+                }
+                zcxxNewsAdapter.notifyDataSetChanged();
+                getIndexData(Deptid);
 
 
             }
         });
-
     }
 
-    int a=0;
+    private void setAdapter() {
+        horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);
+        myHorizontalListView.setAdapter(horizontalListViewAdapter);
+        horizontalListViewAdapter.setSelectIndex(0);
+        horizontalListViewAdapter.notifyDataSetChanged();
+        myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                materialRefreshLayout.finishRefresh();
+                isRefresh = false;
+                horizontalListViewAdapter.setSelectIndex(position);
+                horizontalListViewAdapter.notifyDataSetChanged();
+                page = 1; // 页数
+                newsList.clear();
+                zcxxNewsAdapter.notifyDataSetChanged();
+
+                if (position == 0) {
+                    getIndexData("");
+                } else {
+                    Deptid = "" + tab.get(position).getDeptid();
+                    getIndexData(Deptid);
+                }
+
+
+            }
+        });
+    }
+
+
+    private void setNewsAdapter() {
+        zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
+        lvNews.setAdapter(zcxxNewsAdapter);
+    }
+
+    private void setPageInfo() {
+        tvTotalSize.setText("" + newsList.size());
+    }
+
+
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_bszn"
     android:layout_width="match_parent"
@@ -119,15 +120,28 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/news_list_con_bg" />
 
-                    <ListView
-                        android:id="@+id/lv_info"
+                    <com.cjj.MaterialRefreshLayout
+
+                        android:id="@+id/materialRefreshLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/px_50"
-                        android:layout_marginRight="@dimen/px_50"
-                        android:scrollbars="none">
 
-                    </ListView>
+                        android:paddingLeft="@dimen/px_20"
+                        android:paddingRight="@dimen/px_20"
+
+                        app:isLoadMore="false"
+                        app:overlay="false"
+                        app:wave_show="false">
+
+                        <ListView
+                            android:id="@+id/lv_news"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scrollbars="none">
+
+                        </ListView>
+
+                    </com.cjj.MaterialRefreshLayout>
                 </RelativeLayout>
 
             </RelativeLayout>
@@ -196,7 +210,7 @@
                         android:textSize="@dimen/px_40" />
 
                     <TextView
-                        android:id="@+id/totalSize"
+                        android:id="@+id/tv_totalSize"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="n"

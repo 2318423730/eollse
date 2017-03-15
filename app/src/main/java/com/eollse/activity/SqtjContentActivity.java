@@ -3,7 +3,6 @@ package com.eollse.activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -174,7 +173,7 @@ public class SqtjContentActivity extends BaseActivity {
         popupWindow.showAtLocation(activityBszn, Gravity.CENTER, 0, 0);
 
         ListView listView = (ListView) myView.findViewById(R.id.lv_type);
-        listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.item_popup_yjtjcontent_type, typeList));
+        listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.item_popup_sqtjcontent_type, typeList));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
