@@ -10,5 +10,7 @@
     <color name="black">#000000</color>
     <color name="gray">#D5D5D5</color>
     <color name="red">#FF0000</color>
+    <color name="bule">#0000FF</color>
+
     <color name="main_news_text">#FF555555</color>
 </resources>

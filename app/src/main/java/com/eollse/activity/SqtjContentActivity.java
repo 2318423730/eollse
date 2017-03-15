@@ -1,9 +1,10 @@
 package com.eollse.activity;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -31,9 +32,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 意见提交内容
+ * 诉求提交
  */
-public class YjtjContentActivity extends BaseActivity {
+public class SqtjContentActivity extends BaseActivity {
 
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
@@ -51,14 +52,15 @@ public class YjtjContentActivity extends BaseActivity {
     EditText etContent;
     @BindView(R.id.btn_tongyi)
     Button btnTongyi;
-    @BindView(R.id.et_type)
-    EditText etType;
-    @BindView(R.id.et_dept)
-    EditText etDept;
+
     @BindView(R.id.tv_content)
     TextView tvContent;
     @BindView(R.id.activity_bszn)
     LinearLayout activityBszn;
+    @BindView(R.id.tv_type)
+    TextView tvType;
+    @BindView(R.id.tv_dept)
+    TextView tvDept;
 
 
     private PopupWindow popupWindow;
@@ -76,9 +78,9 @@ public class YjtjContentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yjtj_content);
+        setContentView(R.layout.activity_sqtj_content);
         ButterKnife.bind(this);
-        tvTitle.setText("意见提交");
+        tvTitle.setText("诉求提交");
 
 
         //设置监听器
@@ -122,7 +124,7 @@ public class YjtjContentActivity extends BaseActivity {
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(YjtjContentActivity.this, MainActivity.class);
+                Intent intent = new Intent(SqtjContentActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 MyApplication.clearAllActivitiesWithOutMainActivity();
@@ -144,7 +146,7 @@ public class YjtjContentActivity extends BaseActivity {
         });
 
         //类型选择
-        etType.setOnClickListener(new View.OnClickListener() {
+        tvType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getType();//查询类型
@@ -168,8 +170,8 @@ public class YjtjContentActivity extends BaseActivity {
         //设置焦点为可点击
         //popupWindow.setFocusable(true);//可以试试设为false的结果
         //将window视图显示在etType下面
-       // popupWindow.showAsDropDown(etType);
-        popupWindow.showAtLocation(activityBszn, Gravity.CENTER,0,0);
+        // popupWindow.showAsDropDown(etType);
+        popupWindow.showAtLocation(activityBszn, Gravity.CENTER, 0, 0);
 
         ListView listView = (ListView) myView.findViewById(R.id.lv_type);
         listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.item_popup_yjtjcontent_type, typeList));
@@ -177,7 +179,7 @@ public class YjtjContentActivity extends BaseActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                etType.setText(typeList.get(position));
+                tvType.setText(typeList.get(position));
                 popupWindow.dismiss();
             }
         });

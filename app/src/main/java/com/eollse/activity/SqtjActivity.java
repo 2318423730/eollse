@@ -15,7 +15,7 @@ import butterknife.ButterKnife;
 /**
  * 意见提交(三级页面)
  */
-public class YjtjActivity extends BaseActivity {
+public class SqtjActivity extends BaseActivity {
 
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
@@ -31,9 +31,9 @@ public class YjtjActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yjtj);
+        setContentView(R.layout.activity_sqtj);
         ButterKnife.bind(this);
-        tvTitle.setText("意见提交");
+        tvTitle.setText("诉求提交");
 
         //设置监听器
         setListeners();
@@ -44,7 +44,7 @@ public class YjtjActivity extends BaseActivity {
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(YjtjActivity.this, MainActivity.class);
+                Intent intent = new Intent(SqtjActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 MyApplication.clearAllActivitiesWithOutMainActivity();
@@ -60,7 +60,7 @@ public class YjtjActivity extends BaseActivity {
         btnTongyi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(YjtjActivity.this, YjtjContentActivity.class);
+                Intent intent = new Intent(SqtjActivity.this, SqtjContentActivity.class);
                 startActivity(intent);
             }
         });

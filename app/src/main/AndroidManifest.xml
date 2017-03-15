@@ -36,9 +36,12 @@
             android:exported="true" />
 
         <activity android:name=".activity.BsznActivity" />
-        <activity android:name=".activity.YjtjActivity" />
-        <activity android:name=".activity.YjtjContentActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
-        <activity android:name=".activity.ZccxActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden"></activity>
+        <activity
+            android:name=".activity.ZccxActivity"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
+        <activity android:name=".activity.ShfuActivity" />
+        <activity android:name=".activity.SqtjActivity" />
+        <activity android:name=".activity.SqtjContentActivity"></activity>
     </application>
 
 </manifest>

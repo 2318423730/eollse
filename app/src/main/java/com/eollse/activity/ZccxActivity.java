@@ -29,7 +29,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 政策咨询
+ * 政策信息
  */
 public class ZccxActivity extends BaseActivity {
 
@@ -100,7 +100,7 @@ public class ZccxActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zczx);
         ButterKnife.bind(this);
-        tvTitle.setText("政策资讯");
+        tvTitle.setText("政策信息");
         setTopMenu();
         //设置监听器
         setListeners();
