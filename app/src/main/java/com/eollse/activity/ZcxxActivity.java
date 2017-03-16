@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ import com.eollse.ui.MyHorizontalListView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
+import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -290,8 +292,18 @@ public class ZcxxActivity extends BaseActivity {
                 setPageInfo();
             }
         });
-    }
 
+        lvNews.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                String url=Constants.BASE_URL+"TVInfoId="+ SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
+                        +"&Key="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
+                Log.e("MyTAG","url="+url);
+            }
+        });
+    }
+    String newsUrl;
     private void setAdapter() {
 
         horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);

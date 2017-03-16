@@ -15,7 +15,7 @@
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
 
         <!-- Don't forgot InitActivity -->
         <activity
@@ -62,7 +62,8 @@
         </activity>
         <activity
             android:name=".activity.SqtjSuccessActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.ZcxxDetailActivity"></activity>
     </application>
 
 </manifest>
