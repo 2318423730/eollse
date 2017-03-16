@@ -36,7 +36,8 @@
         <activity android:name=".activity.SqtjActivity" />
         <activity android:name=".activity.SqtjContentActivity" />
         <activity android:name=".activity.ShfwActivity" />
-        <activity android:name=".activity.QtfwActivity"></activity>
+        <activity android:name=".activity.QtfwActivity" />
+        <activity android:name=".activity.ZwfwActivity"></activity>
     </application>
 
 </manifest>

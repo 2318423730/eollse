@@ -43,6 +43,9 @@ public class QtfwActivity extends BaseActivity {
         settings.setSupportZoom(false);
         settings.setJavaScriptEnabled(true);
         settings.setDisplayZoomControls(false);
+        webView.setBackgroundColor(0);
+        //webView.setBackgroundResource(R.drawable.shape_info_background);
+        //webView.loadUrl("http://www.baidu.com");
         webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?&TVInfoId=19&Key=21218CCA77804D2BA1922C33E0151105&ClassId=3");
         webView.setWebViewClient(new WebViewClient(){
 

@@ -5,7 +5,7 @@
     android:id="@+id/activity_bszn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bszn_background"
+    android:background="@drawable/right_background"
     tools:context="com.eollse.activity.QtfwActivity">
 
     <LinearLayout
@@ -31,19 +31,23 @@
 
         <include layout="@layout/top"></include>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/shape_info_background">
+            android:layout_weight="1">
             <WebView
                 android:id="@+id/webView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/shape_info_background">
+                android:layout_centerInParent="true"
+                android:scrollbars="none"
+                android:layout_marginTop="@dimen/px_30"
+                android:layout_marginBottom="@dimen/px_30"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginRight="@dimen/px_30">
 
             </WebView>
-        </LinearLayout>
+        </RelativeLayout>
 
 
 

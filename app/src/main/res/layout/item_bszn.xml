@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:padding="@dimen/px_50"
     android:gravity="center">
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/px_200"
-        android:layout_height="@dimen/px_200"
+        android:layout_width="@dimen/px_120"
+        android:layout_height="@dimen/px_120"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView
