@@ -45,6 +45,12 @@ public interface Constants {
      * 诉求提交失败
      */
     int HANDLER_SQTJ_FAIL=8;
+    /**
+     * 登录成功
+     */
+    int HANDLER_LOGIN_SUCCESS=9;
+
+
 
 
     /**

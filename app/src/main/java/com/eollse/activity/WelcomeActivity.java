@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.eollse.R;
+import com.eollse.utils.SharedPreUtil;
 
 public class WelcomeActivity extends Activity{
 
@@ -23,8 +24,14 @@ public class WelcomeActivity extends Activity{
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 0:
-                    Intent intent=new Intent(WelcomeActivity.this,MainActivity.class);
-                    startActivity(intent);
+                    if("".equals(SharedPreUtil.getValue(WelcomeActivity.this, "userinfo", "Key", ""))) {
+
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    } else {
+
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    }
+
                     finish();
                     break;
             }

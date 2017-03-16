@@ -51,7 +51,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.LoginActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,7 +60,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SqtjSuccessActivity"></activity>
+        <activity
+            android:name=".activity.SqtjSuccessActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
