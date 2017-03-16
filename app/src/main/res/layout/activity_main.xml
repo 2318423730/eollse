@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -10,11 +11,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/main_background"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/main_background"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/ll_top1"
@@ -33,7 +34,6 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,10 +45,10 @@
                 android:id="@+id/ll_middle"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/ll_middle_left"
@@ -62,20 +62,21 @@
                         android:id="@+id/rl_videoView"
                         android:layout_width="@dimen/px_750"
                         android:layout_height="@dimen/px_422">
+
                         <com.eollse.ui.MyVitamioVideoView
                             android:id="@+id/videoView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:layout_gravity="center"
+                            android:layout_alignParentEnd="true"
                             android:layout_alignParentRight="true"
-                            android:layout_alignParentEnd="true" />
+                            android:layout_gravity="center" />
 
                         <LinearLayout
                             android:id="@+id/ll_loading"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/loading_bg"
                             android:layout_centerInParent="true"
+                            android:background="@drawable/loading_bg"
                             android:gravity="center"
                             android:orientation="vertical"
                             android:paddingBottom="@dimen/px_40"
@@ -107,21 +108,34 @@
                         <!--android:layout_height="0dp"-->
                         <!--android:layout_weight="1"/>-->
                     </RelativeLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/px_10"
                         android:layout_weight="1"
-                        android:background="#FFFFFF"
-                        android:layout_marginTop="@dimen/px_10">
-                        <ListView
-                            android:id="@+id/lv_listview"
+                        android:background="#FFFFFF">
+
+                        <com.cjj.MaterialRefreshLayout
+
+                            android:id="@+id/materialRefreshLayout"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            app:isLoadMore="false"
+                            app:overlay="false"
+                            app:wave_show="false">
 
-                            android:cacheColorHint="@android:color/transparent"
-                            android:divider="@color/transparent"
-                            android:dividerHeight="0dp"
-                            android:scrollbars="none" />
+                            <ListView
+                                android:id="@+id/lv_listview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:cacheColorHint="@android:color/transparent"
+                                android:divider="@color/transparent"
+                                android:dividerHeight="0dp"
+                                android:scrollbars="none" />
+
+                        </com.cjj.MaterialRefreshLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -129,9 +143,9 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_marginLeft="@dimen/px_1"
                     android:layout_marginRight="@dimen/px_1"
-                    android:layout_marginLeft="@dimen/px_1">
+                    android:layout_weight="2">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -153,10 +167,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/sqtj" />
 
                             <TextView
@@ -165,7 +179,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="诉求提交"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -178,10 +192,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/zcxx" />
 
                             <TextView
@@ -190,7 +204,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="政策信息"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -200,14 +214,13 @@
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/shape_main_kuaijie_jgcx"
-                            android:gravity="center"
-                            >
+                            android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/jgcx" />
 
                             <TextView
@@ -216,7 +229,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="结果查询"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -229,10 +242,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/dqfc" />
 
                             <TextView
@@ -241,7 +254,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="党群风采"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -254,10 +267,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/wyfw" />
 
                             <TextView
@@ -266,9 +279,8 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="物业服务"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
-
 
 
                         <LinearLayout
@@ -281,10 +293,10 @@
                             android:gravity="center">
 
                             <ImageView
-                                android:paddingBottom="5dp"
-                                android:paddingTop="5dp"
                                 android:layout_width="@dimen/kuaijie_img_width"
                                 android:layout_height="wrap_content"
+                                android:paddingBottom="5dp"
+                                android:paddingTop="5dp"
                                 android:src="@drawable/bszn" />
 
                             <TextView
@@ -293,7 +305,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:text="办事指南"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/kuaijie_size"/>
+                                android:textSize="@dimen/kuaijie_size" />
                         </LinearLayout>
 
 
@@ -316,36 +328,36 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
                         <!--<LinearLayout-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:gravity="center_vertical"-->
-                            <!--android:orientation="vertical">-->
-                            <!--<TextView-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="地址:重庆市渝北区鲁能五街区3栋"-->
-                                <!--android:textSize="@dimen/px_30"-->
-                                <!--/>-->
-                            <!--<TextView-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="网格长:罗丽娜"-->
-                                <!--android:textSize="@dimen/px_30"-->
-                                <!--/>-->
-                            <!--<TextView-->
-                                <!--android:layout_width="wrap_content"-->
-                                <!--android:layout_height="wrap_content"-->
-                                <!--android:text="联系电话:023-68629135"-->
-                                <!--android:textSize="@dimen/px_30"-->
-                                <!--/>-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:orientation="vertical">-->
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="地址:重庆市渝北区鲁能五街区3栋"-->
+                        <!--android:textSize="@dimen/px_30"-->
+                        <!--/>-->
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="网格长:罗丽娜"-->
+                        <!--android:textSize="@dimen/px_30"-->
+                        <!--/>-->
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="联系电话:023-68629135"-->
+                        <!--android:textSize="@dimen/px_30"-->
+                        <!--/>-->
                         <!--</LinearLayout>-->
 
 
                         <ImageView
-                            android:layout_marginTop="@dimen/px_2"
                             android:id="@+id/iv_zwfu"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/px_2"
                             android:layout_weight="1"
                             android:scaleType="centerCrop"
                             android:src="@drawable/zwfu" />
@@ -390,8 +402,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="苹果版"
-                            android:textSize="@dimen/px_25"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_25" />
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -412,8 +424,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="安卓版"
-                            android:textSize="@dimen/px_25"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_25" />
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -429,39 +441,39 @@
                     android:layout_marginLeft="40dp">
 
                     <!--<ImageView-->
-                        <!--android:id="@+id/iv_add"-->
-                        <!--android:layout_width="@dimen/px_40"-->
-                        <!--android:layout_height="@dimen/px_40"-->
-                        <!--android:layout_alignParentRight="true"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:src="@drawable/add" />-->
+                    <!--android:id="@+id/iv_add"-->
+                    <!--android:layout_width="@dimen/px_40"-->
+                    <!--android:layout_height="@dimen/px_40"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:src="@drawable/add" />-->
 
                     <!--<ImageView-->
-                        <!--android:id="@+id/iv_search"-->
-                        <!--android:layout_width="@dimen/px_40"-->
-                        <!--android:layout_height="@dimen/px_40"-->
-                        <!--android:layout_centerVertical="true"-->
-                        <!--android:layout_marginRight="30dp"-->
-                        <!--android:layout_toLeftOf="@+id/iv_add"-->
-                        <!--android:src="@drawable/search" />-->
+                    <!--android:id="@+id/iv_search"-->
+                    <!--android:layout_width="@dimen/px_40"-->
+                    <!--android:layout_height="@dimen/px_40"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:layout_marginRight="30dp"-->
+                    <!--android:layout_toLeftOf="@+id/iv_add"-->
+                    <!--android:src="@drawable/search" />-->
 
                     <com.eollse.ui.MyPmdTextView
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
                         android:id="@+id/tv_pmd"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_toLeftOf="@+id/iv_search"
+                        android:layout_marginBottom="20dp"
                         android:layout_marginRight="40dp"
-                        android:gravity="center"
-                        android:textColor="@color/red"
-                        android:lines="1"
-                        android:text=""
-                        android:textSize="@dimen/pmd_size"
+
+                        android:layout_marginTop="20dp"
+                        android:background="@color/gray"
                         android:ellipsize="marquee"
+                        android:gravity="center"
+                        android:lines="1"
                         android:marqueeRepeatLimit="marquee_forever"
                         android:singleLine="true"
-                        android:background="@color/gray"/>
+                        android:text=""
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/pmd_size" />
                 </RelativeLayout>
 
             </LinearLayout>

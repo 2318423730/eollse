@@ -14,9 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.eollse.R;
 import com.eollse.adapter.MainNewsAdapter;
 import com.eollse.app.MyApplication;
@@ -46,18 +47,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @BindView(R.id.ll_top1)
     LinearLayout llTop1;
-//    @BindView(R.id.iv_setting)
-//    ImageView ivSetting;
-//    @BindView(R.id.Address)
-//    TextView Address;
-//    @BindView(R.id.RealName)
-//    TextView RealName;
-//    @BindView(R.id.Mobile)
-//    TextView Mobile;
-//    @BindView(R.id.ll_top2)
-//    LinearLayout llTop2;
-//    @BindView(R.id.rl_top2)
-//    RelativeLayout rlTop2;
+
     @BindView(R.id.videoView)
     MyVitamioVideoView videoView;
     @BindView(R.id.lv_listview)
@@ -69,10 +59,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     ImageView ivZwfu;
     @BindView(R.id.iv_shfw)
     ImageView ivShfw;
-//    @BindView(R.id.iv_add)
-//    ImageView ivAdd;
-//    @BindView(R.id.iv_search)
-//    ImageView ivSearch;
+
     @BindView(R.id.tv_pmd)
     MyPmdTextView tvPmd;
     @BindView(R.id.rl_videoView)
@@ -93,6 +80,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     LinearLayout llWyfw;
     @BindView(R.id.ll_bszn)
     LinearLayout llBszn;
+    @BindView(R.id.materialRefreshLayout)
+    MaterialRefreshLayout materialRefreshLayout;
+    @BindView(R.id.ll_middle_right)
+    LinearLayout llMiddleRight;
 
     /**
      * 轮播文字
@@ -139,7 +130,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             switch (msg.what) {
                 case Constants.HANDLER_VIDEO_RECEIVEED://获取到视频播放列表
                     //播放视频
-                    if(videosList!=null && videosList.size()>0){
+                    if (videosList != null && videosList.size() > 0) {
                         playVideo();
                     }
 
@@ -157,7 +148,10 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                     //设置新闻适配器
                     setAdapter();
                     break;
-
+                case Constants.HANDLER_NET_ERROR:
+                    MyToast.showToast(getApplicationContext(), "网络不给力");
+                    //Log.e("MyTAG","网络不给力");
+                    break;
             }
         }
     };
@@ -183,7 +177,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         setNews();
 
 
-
         getVideos();
     }
 
@@ -202,7 +195,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         ivZwfu.setOnClickListener(this);
         ivShfw.setOnClickListener(this);
         tvPmd.setOnClickListener(this);
-       // ivSearch.setOnClickListener(this);
+        // ivSearch.setOnClickListener(this);
         //ivAdd.setOnClickListener(this);
 
         //新闻item监听
@@ -282,35 +275,47 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             }
         });
 
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+
+                newsList.clear();
+                setNews();
+            }
+        });
     }
-    private List<MainNew.DataBean> dataBeanList;
+
+    private List<MainNew.DataBean> newsList;
+
     /**
      * 设置新闻数据
      */
     private void setNews() {
-        if (dataBeanList == null) {
-            dataBeanList = new ArrayList<>();
+        if (newsList == null) {
+            newsList = new ArrayList<>();
         }
-        Map map=new HashMap();//method=IndexNews&Page=1&PageSize=6&TVInfoId=1&Key=21218CCA77804D2BA1922C33E0151105
-        map.put("method","IndexNews");
-        map.put("Page","1");
-        map.put("PageSize","6");
-        map.put("TVInfoId","1");
-        map.put("Key","21218CCA77804D2BA1922C33E0151105");
+        Map map = new HashMap();//method=IndexNews&Page=1&PageSize=6&TVInfoId=1&Key=21218CCA77804D2BA1922C33E0151105
+        map.put("method", "IndexNews");
+        map.put("Page", "1");
+        map.put("PageSize", "6");
+        map.put("TVInfoId", "1");
+        map.put("Key", "21218CCA77804D2BA1922C33E0151105");
         //获取数据
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                Log.e("MyTAG","主页新闻:"+jsonStr);
-                MainNew mainNew=JSON.parseObject(jsonStr,MainNew.class);
-                dataBeanList=mainNew.getData();
+                Log.e("MyTAG", "主页新闻:" + jsonStr);
+                MainNew mainNew = JSON.parseObject(jsonStr, MainNew.class);
+                // newsList = mainNew.getData();
+                newsList.addAll(mainNew.getData());
                 handler.sendEmptyMessage(Constants.HANDLER_MAINNEWS_RECEIVED);
 
             }
 
             @Override
             public void OnError(String jsonStr) {
-
+                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);//没有网络
+                materialRefreshLayout.finishRefresh();//用于关闭刷新
             }
         });
 //        for (int i = 0; i < 5; i++) {
@@ -326,8 +331,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 设置新闻适配器
      */
     private void setAdapter() {
-        adapter = new MainNewsAdapter(getApplicationContext(), dataBeanList);
-        lvListview.setAdapter(adapter);
+        if (adapter == null) {//第一次加载
+            adapter = new MainNewsAdapter(getApplicationContext(), newsList);
+            lvListview.setAdapter(adapter);
+        } else {//刷新
+            adapter.notifyDataSetChanged();
+            materialRefreshLayout.finishRefresh();
+            if (newsList.size() > 0) {
+                lvListview.setSelection(0);
+            }
+
+        }
     }
 
     /**
@@ -420,7 +434,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      */
     @Override
     public void onClick(View view) {
-        Intent intent=new Intent();
+        Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.rl_videoView://视频被点击
                 //MyToast.showToast(getApplicationContext(), "视频被点击");
@@ -430,24 +444,24 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 //                //MyToast.showToast(getApplicationContext(), "设置被点击");
 //                break;
             case R.id.ll_sqtj://诉求提交
-               // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
-                intent.setClass(MainActivity.this,SqtjActivity.class);
+                // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
+                intent.setClass(MainActivity.this, SqtjActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_zcxx://政策信息被点击
-               // MyToast.showToast(getApplicationContext(), "政策信息被点击");
-                intent.setClass(MainActivity.this,ZccxActivity.class);
+                // MyToast.showToast(getApplicationContext(), "政策信息被点击");
+                intent.setClass(MainActivity.this, ZcxxActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_jgcx://结果查询被点击
                 //MyToast.showToast(getApplicationContext(), "结果查询被点击");
                 //暂时跳到群团服务
-                intent.setClass(MainActivity.this,QtfwActivity.class);
+                intent.setClass(MainActivity.this, QtfwActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_dqfc://党群风采被点击
                 //MyToast.showToast(getApplicationContext(), "党群风采被点击");
-                intent.setClass(MainActivity.this,DqfcActivity.class);
+                intent.setClass(MainActivity.this, DqfcActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_wyfw://物业服务被点击
@@ -456,17 +470,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 break;
             case R.id.ll_bszn://办事指南被点击
                 //MyToast.showToast(getApplicationContext(), "办事指南被点击");
-                intent.setClass(MainActivity.this,BsznActivity.class);
+                intent.setClass(MainActivity.this, BsznActivity.class);
                 startActivity(intent);
                 break;
             case R.id.iv_zwfu://政务服务被点击
                 //MyToast.showToast(getApplicationContext(), "政务服务被点击");
-                intent.setClass(MainActivity.this,ZwfwActivity.class);
+                intent.setClass(MainActivity.this, ZwfwActivity.class);
                 startActivity(intent);
                 break;
             case R.id.iv_shfw://社会服务被点击
                 //MyToast.showToast(getApplicationContext(), "社会服务被点击");
-                intent.setClass(MainActivity.this,ShfwActivity.class);
+                intent.setClass(MainActivity.this, ShfwActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_pmd://跑马灯文字被点击
@@ -503,7 +517,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onRestart() {
-        if(videosList!=null && videosList.size()>0){
+        if (videosList != null && videosList.size() > 0) {
             videoPosition = MyApplication.lastPosition;
             videoUrl = videosList.get(MyApplication.lastPosition).getHightUrl();
             old_duration = MyApplication.lastPlayPosition;

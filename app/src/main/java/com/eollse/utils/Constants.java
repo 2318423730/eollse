@@ -37,15 +37,7 @@ public interface Constants {
      * 获取到政策信息
      */
     int HANDLER_ZCXX_RECEIVED=6;
-    /**
-     * 刷新政策信息新闻完成
-     */
-    int HANDLER_INFO_REFRESHED=7;
 
-    /**
-     * 群团服务数据获取
-     */
-    int HANDLER_QTFW_DATA_RECEIVED=8;
 
 
     /**

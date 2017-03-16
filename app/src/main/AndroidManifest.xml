@@ -30,13 +30,11 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activity.BsznActivity" />
-        <activity
-            android:name=".activity.ZccxActivity"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity android:name=".activity.SqtjActivity" />
         <activity android:name=".activity.SqtjContentActivity" />
         <activity android:name=".activity.ShfwActivity" />
         <activity android:name=".activity.QtfwActivity" />
+        <activity android:name=".activity.ZcxxActivity"></activity>
         <activity android:name=".activity.ZwfwActivity" />
         <activity android:name=".activity.DqfcActivity"></activity>
     </application>

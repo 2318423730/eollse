@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -36,7 +35,7 @@ import butterknife.ButterKnife;
 /**
  * 政策信息
  */
-public class ZccxActivity extends BaseActivity {
+public class ZcxxActivity extends BaseActivity {
 
 
     @BindView(R.id.tv_backHome)
@@ -92,14 +91,8 @@ public class ZccxActivity extends BaseActivity {
                     setNewsAdapter();
 
                     break;
-                case Constants.HANDLER_INFO_REFRESHED:
-                    if (newsList.size() > 0) {
-                        lvNews.setSelection(0);
-                    }
-                    materialRefreshLayout.finishRefresh();
-                    break;
-                case Constants.HANDLER_NET_ERROR:
-                    MyToast.showToast(getApplicationContext(),"网络不给力");
+               case Constants.HANDLER_NET_ERROR:
+                    MyToast.showToast(getApplicationContext(), "网络不给力");
                     //Log.e("MyTAG","网络不给力");
                     break;
             }
@@ -110,7 +103,7 @@ public class ZccxActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zczx);
+        setContentView(R.layout.activity_zcxx);
         ButterKnife.bind(this);
         tvTitle.setText("政策信息");
         //pullRefreshList.setMode(PullToRefreshBase.Mode.BOTH);
@@ -123,8 +116,9 @@ public class ZccxActivity extends BaseActivity {
 
     }
 
-    private boolean isRefresh;
+
     private Zcxx zcxx;
+
     private void getIndexData(String Deptid) {
         //url = http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=IndexNews&PageSizepage=10&Page=1&ClassId=1&Deptid=&Key=21218CCA77804D2BA1922C33E0151105
 
@@ -132,30 +126,26 @@ public class ZccxActivity extends BaseActivity {
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                 zcxx = JSON.parseObject(jsonStr, Zcxx.class);
+                zcxx = JSON.parseObject(jsonStr, Zcxx.class);
                 if (newsList == null) {
                     newsList = new ArrayList<Zcxx.DataBean>();
                 }
-                newsList = zcxx.getData();
+                newsList.addAll( zcxx.getData());
 
-                countNum=Integer.parseInt(zcxx.getCountNum());
-                totalPage=countNum/10;
-                if(countNum%10!=0){
-                    totalPage+=1;
+                countNum = Integer.parseInt(zcxx.getCountNum());
+                totalPage = countNum / 10;
+                if (countNum % 10 != 0) {
+                    totalPage += 1;
                 }
 
                 handler.sendEmptyMessage(Constants.HANDLER_ZCXX_RECEIVED);
-                if (isRefresh) {
-                    handler.sendEmptyMessage(Constants.HANDLER_INFO_REFRESHED);
-                }
-
 
             }
 
             @Override
             public void OnError(String jsonStr) {
-                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);
-                handler.sendEmptyMessage(Constants.HANDLER_INFO_REFRESHED);
+                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);//没有网络
+                materialRefreshLayout.finishRefresh();//用于关闭刷新
             }
         });
     }
@@ -218,7 +208,7 @@ public class ZccxActivity extends BaseActivity {
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ZccxActivity.this, MainActivity.class);
+                Intent intent = new Intent(ZcxxActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 MyApplication.clearAllActivitiesWithOutMainActivity();
@@ -260,13 +250,11 @@ public class ZccxActivity extends BaseActivity {
         materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
-                isRefresh = true;
-                newsList.clear();
-                if (zcxxNewsAdapter == null) {
-                    zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
-                }
-                zcxxNewsAdapter.notifyDataSetChanged();
-                getIndexData(Deptid);
+
+                    newsList.clear();
+                    getIndexData(Deptid);
+
+
 
 
             }
@@ -275,7 +263,7 @@ public class ZccxActivity extends BaseActivity {
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(page<totalPage){
+                if (page < totalPage) {
                     page++;
                     newsList.clear();
                     if (zcxxNewsAdapter == null) {
@@ -290,7 +278,7 @@ public class ZccxActivity extends BaseActivity {
         tvPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(page>1){
+                if (page > 1) {
                     page--;
                     newsList.clear();
                     if (zcxxNewsAdapter == null) {
@@ -305,6 +293,7 @@ public class ZccxActivity extends BaseActivity {
     }
 
     private void setAdapter() {
+
         horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);
         myHorizontalListView.setAdapter(horizontalListViewAdapter);
         horizontalListViewAdapter.setSelectIndex(0);
@@ -312,18 +301,17 @@ public class ZccxActivity extends BaseActivity {
         myHorizontalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Deptid=""+tab.get(position).getDeptid();
-                if(position==0){
-                    Deptid="";
+                Deptid = "" + tab.get(position).getDeptid();
+                if (position == 0) {
+                    Deptid = "";
                 }
                 materialRefreshLayout.finishRefresh();
-                isRefresh = false;
+                //标题栏选中切换
                 horizontalListViewAdapter.setSelectIndex(position);
                 horizontalListViewAdapter.notifyDataSetChanged();
+
                 page = 1; // 页数
                 newsList.clear();
-                zcxxNewsAdapter.notifyDataSetChanged();
-
                 if (position == 0) {
                     getIndexData("");
                 } else {
@@ -338,14 +326,24 @@ public class ZccxActivity extends BaseActivity {
 
 
     private void setNewsAdapter() {
-        zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
-        lvNews.setAdapter(zcxxNewsAdapter);
+        if (zcxxNewsAdapter == null) {
+            zcxxNewsAdapter = new ZcxxNewsAdapter(getApplicationContext(), newsList);
+            lvNews.setAdapter(zcxxNewsAdapter);
+        } else {
+            zcxxNewsAdapter.notifyDataSetChanged();
+            materialRefreshLayout.finishRefresh();
+            if (newsList.size() > 0) {
+                lvNews.setSelection(0);
+            }
+
+        }
+
     }
 
     private void setPageInfo() {
-        tvCurrentPage.setText(""+page);
+        tvCurrentPage.setText("" + page);
         tvTotalSize.setText("" + countNum);
-        tvTotalPage.setText(""+totalPage);
+        tvTotalPage.setText("" + totalPage);
     }
 
 
