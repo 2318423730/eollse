@@ -236,8 +236,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
                 llLoading.setVisibility(View.GONE);
                 handler.postDelayed(runnable, 0);
-                handler.sendEmptyMessageDelayed(Constants.HANDLER_VIDEO_RESUME, 500);
-
+                //handler.sendEmptyMessageDelayed(Constants.HANDLER_VIDEO_RESUME, 500);
+                handler.sendEmptyMessage(Constants.HANDLER_VIDEO_RESUME);
 
             }
         });
