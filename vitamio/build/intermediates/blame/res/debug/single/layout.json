@@ -16,12 +16,12 @@
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_item_layout.xml"
     },
     {
-        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\22.2.1\\res\\layout\\abc_action_menu_layout.xml"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
