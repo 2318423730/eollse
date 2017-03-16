@@ -79,9 +79,9 @@
                             android:hint="请输入姓名"
                             android:paddingLeft="@dimen/px_30"
                             android:paddingRight="@dimen/px_30"
-                            android:textColorHint="@color/white"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/px_40" />
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/px_30" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -107,9 +107,9 @@
                             android:hint="请输入电话"
                             android:paddingLeft="@dimen/px_30"
                             android:paddingRight="@dimen/px_30"
-                            android:textColorHint="@color/white"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/px_40"/>
+                            android:textColorHint="@color/white"
+                            android:textSize="@dimen/px_30" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -144,7 +144,7 @@
                             android:paddingLeft="@dimen/px_30"
                             android:paddingRight="@dimen/px_30"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/px_40"/>
+                            android:textSize="@dimen/px_30" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -168,10 +168,11 @@
                             android:layout_marginLeft="@dimen/px_30"
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:drawableRight="@drawable/to_bottom"
+                            android:gravity="center_vertical"
                             android:paddingLeft="@dimen/px_30"
                             android:paddingRight="@dimen/px_30"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/px_40" />
+                            android:textSize="@dimen/px_30" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -200,8 +201,8 @@
                         android:paddingLeft="@dimen/px_30"
                         android:paddingRight="@dimen/px_30"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"
-                        android:textColorHint="@color/white" />
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/px_30" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -233,9 +234,9 @@
                         android:paddingLeft="@dimen/px_30"
                         android:paddingRight="@dimen/px_30"
                         android:text=""
-                        android:textColorHint="@color/white"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40"/>
+                        android:textColorHint="@color/white"
+                        android:textSize="@dimen/px_30" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>

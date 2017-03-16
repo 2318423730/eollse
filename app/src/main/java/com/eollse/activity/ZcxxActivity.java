@@ -346,5 +346,9 @@ public class ZcxxActivity extends BaseActivity {
         tvTotalPage.setText("" + totalPage);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+    }
 }

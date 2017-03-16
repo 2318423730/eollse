@@ -2,6 +2,8 @@ package com.eollse.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.RadioButton;
@@ -50,7 +52,12 @@ public class BsznActivity extends BaseActivity {
      * 用于设置adapeter的集合
      */
     private List<Bszn> list = new ArrayList<>();
+    private Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
 
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,5 +131,11 @@ public class BsznActivity extends BaseActivity {
             bsznQiyeList.add(bszn);
         }
         list.addAll(bsznGerenList);
+    }
+
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 }

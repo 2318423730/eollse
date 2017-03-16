@@ -6,6 +6,10 @@ package com.eollse.utils;
 
 public interface Constants {
     /**
+     * 获取到信息
+     */
+    int HANDLER_INFO_RECEIVED=-1;
+    /**
      * 获取到视频资源
      */
     int HANDLER_NET_ERROR=0;
@@ -32,12 +36,15 @@ public interface Constants {
     /**
      * 获取到部门
      */
-    int HANDLER_DEPT_RECEIVED=5;
+    int HANDLER_DEPT_RECEIVED=6;
     /**
      * 获取到政策信息
      */
-    int HANDLER_ZCXX_RECEIVED=6;
-
+    int HANDLER_ZCXX_RECEIVED=7;
+    /**
+     * 诉求提交失败
+     */
+    int HANDLER_SQTJ_FAIL=8;
 
 
     /**

@@ -15,9 +15,7 @@
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:launchMode="singleTask"
-            android:screenOrientation="landscape">
-
-        </activity>
+            android:screenOrientation="landscape"></activity>
 
         <!-- Don't forgot InitActivity -->
         <activity
@@ -61,6 +59,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SqtjSuccessActivity"></activity>
     </application>
 
 </manifest>

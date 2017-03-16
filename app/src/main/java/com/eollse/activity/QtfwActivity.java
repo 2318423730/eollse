@@ -102,4 +102,6 @@ public class QtfwActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+
 }

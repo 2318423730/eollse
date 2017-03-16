@@ -36,7 +36,7 @@ public class ZcxxNewsAdapter extends MyBaseAdapter {
         viewHolder= (ViewHolder) view.getTag();
 
         viewHolder.tv_title.setText("["+dataBean.getDeptName()+"]"+dataBean.getTitle());
-        viewHolder.tv_editDate.setText(dataBean.getEditDate());
+        viewHolder.tv_editDate.setText("["+dataBean.getEditDate()+"]");
         return view;
     }
 

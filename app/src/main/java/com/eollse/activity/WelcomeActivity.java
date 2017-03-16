@@ -30,4 +30,10 @@ public class WelcomeActivity extends Activity{
             }
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+    }
 }
