@@ -14,7 +14,8 @@
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,17 +30,31 @@
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".activity.BsznActivity" />
         <activity
-            android:name=".activity.SqtjActivity" />
+            android:name=".activity.BsznActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.SqtjActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".activity.SqtjContentActivity"
+            android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".activity.ShfwActivity" />
-        <activity android:name=".activity.QtfwActivity" />
-        <activity android:name=".activity.ZcxxActivity"></activity>
-        <activity android:name=".activity.ZwfwActivity" />
-        <activity android:name=".activity.DqfcActivity"></activity>
+        <activity
+            android:name=".activity.ShfwActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.QtfwActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ZcxxActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".activity.ZwfwActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.DqfcActivity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
