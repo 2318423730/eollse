@@ -77,9 +77,9 @@
                             android:layout_marginLeft="@dimen/px_30"
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:hint="请输入姓名"
-                            android:textColorHint="@color/white"
                             android:paddingLeft="@dimen/px_30"
-                            android:paddingRight="@dimen/px_30"/>
+                            android:paddingRight="@dimen/px_30"
+                            android:textColorHint="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -103,9 +103,9 @@
                             android:layout_marginLeft="@dimen/px_30"
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:hint="请输入电话"
-                            android:textColorHint="@color/white"
                             android:paddingLeft="@dimen/px_30"
-                            android:paddingRight="@dimen/px_30"/>
+                            android:paddingRight="@dimen/px_30"
+                            android:textColorHint="@color/white" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -138,7 +138,8 @@
                             android:drawableRight="@drawable/to_bottom"
                             android:gravity="center_vertical"
                             android:paddingLeft="@dimen/px_30"
-                            android:paddingRight="@dimen/px_30" />
+                            android:paddingRight="@dimen/px_30"
+                            android:textColor="@color/white" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -163,7 +164,8 @@
                             android:background="@drawable/shape_yjtjcontent_input_background"
                             android:drawableRight="@drawable/to_bottom"
                             android:paddingLeft="@dimen/px_30"
-                            android:paddingRight="@dimen/px_30"/>
+                            android:paddingRight="@dimen/px_30"
+                            android:textColor="@color/white" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -189,9 +191,9 @@
                         android:layout_marginLeft="@dimen/px_30"
                         android:background="@drawable/shape_yjtjcontent_input_background"
                         android:hint="请输入意见标题"
-                        android:textColorHint="@color/white"
                         android:paddingLeft="@dimen/px_30"
-                        android:paddingRight="@dimen/px_30"/>
+                        android:paddingRight="@dimen/px_30"
+                        android:textColorHint="@color/white" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -211,19 +213,19 @@
                         android:id="@+id/et_content"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/px_20"
                         android:layout_marginLeft="@dimen/px_30"
                         android:layout_marginTop="@dimen/px_20"
-                        android:layout_marginBottom="@dimen/px_20"
                         android:layout_toRightOf="@+id/tv_content"
                         android:background="@drawable/shape_yjtjcontent_input_background"
                         android:gravity="clip_horizontal"
                         android:hint="请输入要提交的内容"
                         android:inputType="textMultiLine"
                         android:maxLines="20"
-                        android:text=""
-                        android:textColorHint="@color/white"
                         android:paddingLeft="@dimen/px_30"
-                        android:paddingRight="@dimen/px_30"/>
+                        android:paddingRight="@dimen/px_30"
+                        android:text=""
+                        android:textColorHint="@color/white" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
@@ -232,9 +234,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/px_60"
             android:layout_marginBottom="@dimen/px_30"
-            android:paddingRight="@dimen/px_400"
+            android:gravity="center_vertical"
             android:paddingLeft="@dimen/px_400"
-            android:gravity="center_vertical">
+            android:paddingRight="@dimen/px_400">
 
             <Button
                 android:id="@+id/btn_tongyi"
