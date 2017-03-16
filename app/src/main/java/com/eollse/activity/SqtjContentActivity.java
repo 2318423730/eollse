@@ -205,7 +205,7 @@ public class SqtjContentActivity extends BaseActivity {
 
             @Override
             public void OnError(String jsonStr) {
-
+                MyToast.showToast(getApplicationContext(),"提交失败!!!");
             }
         });
     }
