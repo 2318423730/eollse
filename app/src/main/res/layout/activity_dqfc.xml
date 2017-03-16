@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bszn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.DqfcActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/shape_dqfc"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:layout_marginTop="@dimen/px_20"
+            android:layout_marginBottom="@dimen/px_60">
+
+
+            <GridView
+                android:id="@+id/gv_dqfc"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:numColumns="3"
+                android:scrollbars="none">
+
+            </GridView>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
