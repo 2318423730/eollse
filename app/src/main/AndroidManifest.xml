@@ -63,7 +63,9 @@
         <activity
             android:name=".activity.SqtjSuccessActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.ZcxxDetailActivity"></activity>
+        <activity android:name=".activity.ZcxxDetailActivity" />
+        <activity android:name=".activity.SqgkActivity" />
+        <activity android:name=".activity.WgglActivity"></activity>
     </application>
 
 </manifest>

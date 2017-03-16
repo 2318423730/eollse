@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bszn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.WgglActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:background="#c6d8f6">
+
+            <LinearLayout
+                android:id="@+id/ll_top2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_80"
+                android:layout_centerVertical="true"
+                android:background="@drawable/sq_info_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_Address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="地址:重庆市渝北区鲁能五街区3栋"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/px_30" />
+
+                <TextView
+                    android:id="@+id/tv_RealName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="网格长:罗丽娜"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/px_30" />
+
+                <TextView
+                    android:id="@+id/tv_Mobile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40.0dip"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="联系电话:023-68629315"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/px_30" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_wggl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:layout_marginTop="@dimen/px_10"
+            android:background="@drawable/shape_white_corners"
+            android:numColumns="3">
+
+        </GridView>
+    </LinearLayout>
+</LinearLayout>
