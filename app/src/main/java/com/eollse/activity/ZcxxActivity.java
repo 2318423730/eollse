@@ -93,7 +93,7 @@ public class ZcxxActivity extends BaseActivity {
                     setNewsAdapter();
 
                     break;
-               case Constants.HANDLER_NET_ERROR:
+                case Constants.HANDLER_NET_ERROR:
                     MyToast.showToast(getApplicationContext(), "网络不给力");
                     //Log.e("MyTAG","网络不给力");
                     break;
@@ -132,7 +132,7 @@ public class ZcxxActivity extends BaseActivity {
                 if (newsList == null) {
                     newsList = new ArrayList<Zcxx.DataBean>();
                 }
-                newsList.addAll( zcxx.getData());
+                newsList.addAll(zcxx.getData());
 
                 countNum = Integer.parseInt(zcxx.getCountNum());
                 totalPage = countNum / 10;
@@ -253,10 +253,8 @@ public class ZcxxActivity extends BaseActivity {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
 
-                    newsList.clear();
-                    getIndexData(Deptid);
-
-
+                newsList.clear();
+                getIndexData(Deptid);
 
 
             }
@@ -297,13 +295,18 @@ public class ZcxxActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                String url=Constants.BASE_URL+"TVInfoId="+ SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
+
+                String url = Constants.BASE_NEWS_URL+"TVInfoId="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
                         +"&Key="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
-                Log.e("MyTAG","url="+url);
+                Log.e("MyTAG", "url=" + url);
+                Intent intent=new Intent(ZcxxActivity.this,ZcxxDetailActivity.class);
+                intent.putExtra("url",url);
+                startActivity(intent);
             }
         });
     }
-    String newsUrl;
+
+
     private void setAdapter() {
 
         horizontalListViewAdapter = new HorizontalListViewAdapter(getApplicationContext(), tab);

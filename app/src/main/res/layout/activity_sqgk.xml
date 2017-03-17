@@ -34,7 +34,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/px_250"
+            android:layout_height="@dimen/px_200"
             android:background="#FFFFFF"
             android:orientation="horizontal">
 
@@ -46,8 +46,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/px_150"
-                    android:layout_height="@dimen/px_150"
+                    android:layout_width="@dimen/px_100"
+                    android:layout_height="@dimen/px_100"
                     android:src="@drawable/jieshao" />
 
                 <TextView
@@ -66,8 +66,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/px_150"
-                    android:layout_height="@dimen/px_150"
+                    android:layout_width="@dimen/px_100"
+                    android:layout_height="@dimen/px_100"
                     android:src="@drawable/jieshao" />
 
                 <TextView
@@ -86,8 +86,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/px_150"
-                    android:layout_height="@dimen/px_150"
+                    android:layout_width="@dimen/px_100"
+                    android:layout_height="@dimen/px_100"
                     android:src="@drawable/jieshao" />
 
                 <TextView
@@ -106,16 +106,116 @@
             android:paddingLeft="@dimen/px_40"
             android:paddingRight="@dimen/px_40">
 
-
-            <ListView
-                android:id="@+id/lv_sqgk"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/px_40"
                 android:layout_marginTop="@dimen/px_40"
                 android:background="@drawable/shape_sqgk_info"
                 android:paddingTop="@dimen/px_40"
-                android:scrollbars="none"></ListView>
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/lv_sqgk"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="@dimen/px_10"
+                    android:scrollbars="none"></ListView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_100"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/lv_sqgk"
+                    android:layout_marginLeft="@dimen/px_40"
+                    android:layout_marginRight="@dimen/px_40"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tv_previous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/btn_prev"
+                        android:gravity="center"
+                        android:text="上一页"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px_40" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toLeftOf="@+id/tv_next"
+                        android:layout_toRightOf="@+id/tv_previous"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="第"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+                            android:id="@+id/tv_currentPage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="页/共"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+                            android:id="@+id/tv_totalPage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="页(共"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+                            android:id="@+id/tv_totalSize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="n"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="条)"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_40" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_next"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/btn_next"
+                        android:gravity="center"
+                        android:text="下一页"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/px_40" />
+                </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -132,6 +232,7 @@
                     android:text="社区新闻"
                     android:textSize="@dimen/px_60" />
             </LinearLayout>
+
 
 
         </RelativeLayout>

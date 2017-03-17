@@ -58,6 +58,10 @@ public interface Constants {
      */
     public static  final  String NET_VIDEO_URL = "http://api.m.mtime.cn/PageSubArea/TrailerList.api";
     /**
+     * 新闻链接
+     */
+    String BASE_NEWS_URL="http://oa.ybqtw.org.cn/api/Html/news_show.html?";
+    /**
      * 网络地址
      */
     String BASE_URL="http://oa.ybqtw.org.cn/api/APP1.0.aspx?";

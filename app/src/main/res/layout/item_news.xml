@@ -13,7 +13,17 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="10dp">
+        <TextView
+            android:id="@+id/tv_dept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:ellipsize="end"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="部门"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -22,7 +32,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:singleLine="true"
-            android:text="请款申请单"
+            android:text="新闻标题"
             android:textColor="@color/white"
             android:textSize="@dimen/px_30" />
 
