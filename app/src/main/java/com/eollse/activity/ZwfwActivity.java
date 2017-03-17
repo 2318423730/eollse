@@ -3,6 +3,7 @@ package com.eollse.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -54,7 +55,24 @@ public class ZwfwActivity extends BaseActivity {
         for (int i=0;i<20;i++){
             Zwfw zwfw=new Zwfw();
             zwfw.setIconId(R.drawable.zwfw_zcxx);
-            zwfw.setTitle("政策信息");
+            if(i==0){
+                zwfw.setTitle("政策信息");
+            }else if(i==1){
+                zwfw.setTitle("诉求提交");
+            }else if(i==2){
+                zwfw.setTitle("结果查询");
+            }else if(i==5){
+                zwfw.setTitle("党群风采");
+            }else if(i==6){
+                zwfw.setTitle("群团服务");
+            }else if(i==7){
+                zwfw.setTitle("网格管理");
+            }else if(i==11){
+                zwfw.setTitle("社区概况");
+            }else{
+                zwfw.setTitle("政策信息");
+            }
+
             zwfwList.add(zwfw);
         }
     }
@@ -75,6 +93,36 @@ public class ZwfwActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        gvZwfw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent=new Intent();
+                if(i==0){
+                    //跳转到政策资讯
+                    intent.setClass(ZwfwActivity.this,ZcxxActivity.class);
+                 }else if(i==1){
+                    //跳转到诉求提交
+                    intent.setClass(ZwfwActivity.this,SqtjActivity.class);
+                }else if(i==2){
+                    ////跳转到结果查询
+
+                }else if(i==5){
+                    //跳转到党群风采
+                    intent.setClass(ZwfwActivity.this,DqfcActivity.class);
+                }else if(i==6){
+                    //跳转到群团服务
+                    intent.setClass(ZwfwActivity.this,QtfwActivity.class);
+                }else if(i==7){
+                    //跳转到网格管理
+                    intent.setClass(ZwfwActivity.this,WgglActivity.class);
+                }else if(i==11){
+                    //跳转到社区概况
+                    intent.setClass(ZwfwActivity.this,SqgkActivity.class);
+                }
+                startActivity(intent);
             }
         });
     }

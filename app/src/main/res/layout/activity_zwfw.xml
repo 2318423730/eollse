@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.eollse.activity.ZwfwActivity"
-    android:orientation="vertical"
-    android:background="@drawable/right_background">
-    <include layout="@layout/top"></include>
+    android:orientation="vertical">
+    <include layout="@layout/top2"></include>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/info_bg">
 
         <GridView
             android:id="@+id/gv_zwfw"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="4"
-
-            android:layout_marginBottom="@dimen/px_50"
+            android:layout_marginTop="@dimen/px_20"
+            android:layout_marginBottom="@dimen/px_20"
             android:layout_marginLeft="@dimen/px_80"
             android:layout_marginRight="@dimen/px_80"
-            android:background="@color/white">
+            android:background="@drawable/shape_white_corners">
 
         </GridView>
     </LinearLayout>
