@@ -63,10 +63,19 @@
         <activity
             android:name=".activity.SqtjSuccessActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.ZcxxDetailActivity" />
-        <activity android:name=".activity.SqgkActivity" />
-        <activity android:name=".activity.WgglActivity" />
-        <activity android:name=".activity.JgcxActivity"></activity>
+        <activity
+            android:name=".activity.ZcxxDetailActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.SqgkActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.WgglActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.JgcxActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden"></activity>
     </application>
 
 </manifest>

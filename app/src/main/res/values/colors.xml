@@ -15,4 +15,7 @@
     <color name="yellow">#FFFF00</color>
 
     <color name="main_news_text">#FF555555</color>
+
+
+    <color name="new_text_click">#4278ba</color>
 </resources>

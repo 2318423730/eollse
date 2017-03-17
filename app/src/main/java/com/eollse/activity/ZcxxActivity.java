@@ -78,8 +78,8 @@ public class ZcxxActivity extends BaseActivity {
     private int page = 1;
     private String Deptid = "";
     private int countNum;//总共条数
-    private int currentPage;//当前页
     private int totalPage;//总共页
+
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="13dp"
+        android:paddingTop="13dp">
+
+        <TextView
+            android:id="@+id/tv_hanleId"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="受理编号"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+        <TextView
+            android:id="@+id/tv_handleClassName"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="分类性质"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+        <TextView
+            android:id="@+id/tv_theme"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center|left"
+            android:singleLine="true"
+            android:text="主题"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+        <TextView
+            android:id="@+id/tv_sqDate"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="诉求时间"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+        <TextView
+            android:id="@+id/tv_bjDate"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="办结时间"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="办理状态"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_30" />
+
+    </LinearLayout>
+
+</RelativeLayout>
