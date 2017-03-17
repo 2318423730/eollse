@@ -67,6 +67,8 @@ public class ZwfwActivity extends BaseActivity {
                 zwfw.setTitle("群团服务");
             }else if(i==7){
                 zwfw.setTitle("网格管理");
+            }else if(i==8){
+                zwfw.setTitle("办事指南");
             }else if(i==11){
                 zwfw.setTitle("社区概况");
             }else{
@@ -118,6 +120,9 @@ public class ZwfwActivity extends BaseActivity {
                 }else if(i==7){
                     //跳转到网格管理
                     intent.setClass(ZwfwActivity.this,WgglActivity.class);
+                }else if(i==8){
+                    //跳转到办事指南
+                    intent.setClass(ZwfwActivity.this,BsznActivity.class);
                 }else if(i==11){
                     //跳转到社区概况
                     intent.setClass(ZwfwActivity.this,SqgkActivity.class);

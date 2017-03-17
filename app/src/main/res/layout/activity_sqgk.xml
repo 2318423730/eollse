@@ -105,28 +105,35 @@
             android:background="#FFFFFF"
             android:paddingLeft="@dimen/px_40"
             android:paddingRight="@dimen/px_40">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center">
-                <TextView
-                    android:id="@+id/tv_sencondTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="aaaa"
-                    android:textSize="@dimen/px_80"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/shape_sqgk_title"/>
-            </LinearLayout>
+
 
             <ListView
                 android:id="@+id/lv_sqgk"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_40"
+                android:layout_marginTop="@dimen/px_40"
+                android:background="@drawable/shape_sqgk_info"
+                android:paddingTop="@dimen/px_40"
+                android:scrollbars="none"></ListView>
 
-                android:layout_marginTop="40dp"
-                android:background="@drawable/shape_sqgk_info"></ListView>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/px_80"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/sqgk_secondetitle_bg"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_sencondTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="社区新闻"
+                    android:textSize="@dimen/px_60" />
+            </LinearLayout>
+
+
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

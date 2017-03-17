@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.eollse.R;
-import com.eollse.entity.MainNew;
 import com.eollse.entity.Zcxx;
 
 import java.util.List;
@@ -27,7 +26,7 @@ public class ZcxxNewsAdapter extends MyBaseAdapter {
         Zcxx.DataBean dataBean=mainNewList.get(position);
         ViewHolder viewHolder;
         if(view==null){
-            view=getLayoutInflater().inflate(R.layout.item_zcxx_news,null);
+            view=getLayoutInflater().inflate(R.layout.item_news,null);
             viewHolder=new ViewHolder();
             viewHolder.tv_title= (TextView) view.findViewById(R.id.tv_title);
             viewHolder.tv_editDate= (TextView) view.findViewById(R.id.tv_editDate);
