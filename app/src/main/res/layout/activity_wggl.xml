@@ -55,7 +55,7 @@
                     android:gravity="center"
                     android:text="地址:重庆市渝北区鲁能五街区3栋"
                     android:textColor="@color/yellow"
-                    android:textSize="@dimen/px_40" />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
                     android:id="@+id/tv_RealName"
@@ -66,7 +66,7 @@
                     android:gravity="center"
                     android:text="网格长:罗丽娜"
                     android:textColor="@color/yellow"
-                    android:textSize="@dimen/px_40" />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
                     android:id="@+id/tv_Mobile"
@@ -77,7 +77,7 @@
                     android:gravity="center"
                     android:text="联系电话:023-68629315"
                     android:textColor="@color/yellow"
-                    android:textSize="@dimen/px_40" />
+                    android:textSize="@dimen/px_30" />
 
 
             </LinearLayout>

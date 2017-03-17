@@ -5,9 +5,9 @@
             <!-- 圆角 -->
 
             <!-- 填充 (背景色)-->
-            <solid android:color="#ffffff"/>
+            <solid android:color="#FFFFFF"/>
             <!-- 描边 (边框)-->
-            <stroke android:width="0.1dp" android:color="#1c5cf7"/>
+            <stroke android:width="0.1dp" android:color="#FFFFFF"/>
         </shape>
     </item>
 

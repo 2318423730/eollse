@@ -437,12 +437,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.rl_videoView://视频被点击
-                //MyToast.showToast(getApplicationContext(), "视频被点击");
 
                 break;
-//            case R.id.iv_setting://设置被点击
-//                //MyToast.showToast(getApplicationContext(), "设置被点击");
-//                break;
+
             case R.id.ll_sqtj://诉求提交
                 // MyToast.showToast(getApplicationContext(), "诉求提交被点击");
                 intent.setClass(MainActivity.this, SqtjActivity.class);
@@ -454,44 +451,36 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.ll_jgcx://结果查询被点击
-                //MyToast.showToast(getApplicationContext(), "结果查询被点击");
-                //暂时跳到群团服务
-                intent.setClass(MainActivity.this, QtfwActivity.class);
+                intent.setClass(MainActivity.this, JgcxActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_dqfc://党群风采被点击
-                //MyToast.showToast(getApplicationContext(), "党群风采被点击");
+
                 intent.setClass(MainActivity.this, DqfcActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_wyfw://物业服务被点击
-                //MyToast.showToast(getApplicationContext(), "物业服务被点击");
 
                 break;
             case R.id.ll_bszn://办事指南被点击
-                //MyToast.showToast(getApplicationContext(), "办事指南被点击");
+
                 intent.setClass(MainActivity.this, BsznActivity.class);
                 startActivity(intent);
                 break;
             case R.id.iv_zwfu://政务服务被点击
-                //MyToast.showToast(getApplicationContext(), "政务服务被点击");
+
                 intent.setClass(MainActivity.this, ZwfwActivity.class);
                 startActivity(intent);
                 break;
             case R.id.iv_shfw://社会服务被点击
-                //MyToast.showToast(getApplicationContext(), "社会服务被点击");
+
                 intent.setClass(MainActivity.this, ShfwActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_pmd://跑马灯文字被点击
-                //MyToast.showToast(getApplicationContext(), "跑马灯文字被点击");
+                intent.setClass(MainActivity.this, WgglActivity.class);
+                startActivity(intent);
                 break;
-//            case R.id.iv_search://搜索被点击
-//                //MyToast.showToast(getApplicationContext(), "搜索被点击");
-//                break;
-//            case R.id.iv_add://增加被点击
-//                //MyToast.showToast(getApplicationContext(), "增加被点击");
-//                break;
         }
     }
 

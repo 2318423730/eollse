@@ -51,12 +51,28 @@ public class ShfwActivity extends BaseActivity {
     private List<Shfw> bmfwList;
     private ShfwAdapter wyfwAdapter;
     private ShfwAdapter bmfwAdapter;
+
+    private int imgWy[];
+    private String titleWy[];
+    private int imgBm[];
+    private String titleBm[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shfw);
         ButterKnife.bind(this);
         tvTitle.setText("社会服务");
+
+        imgWy = new int[]{R.drawable.shfw_wyxx, R.drawable.shfw_wygg, R.drawable.shfw_wyjf, R.drawable.shfw_gzbx,
+                R.drawable.shfw_fzdb, R.drawable.shfw_dtaq};
+        titleWy = new String[]{"物业信息", "物业公告", "物业缴费", "故障报修",
+                "房租代办", "电梯安全"};
+        imgBm = new int[]{R.drawable.shfw_sqds, R.drawable.shfw_sqhd, R.drawable.shfw_esjy, R.drawable.shfw_jtwx,
+                R.drawable.shfw_znjj, R.drawable.shfw_kdds,R.drawable.shfw_jjbj,R.drawable.shfw_jyfw,
+                R.drawable.shfw_jj,R.drawable.shfw_hfcx,R.drawable.shfw_gjxl,};
+        titleBm = new String[]{"社区电商", "社区活动", "二手交易", "家庭维修",
+                "智能家居", "快递代收", "家居保洁", "就业服务", "家教",
+                "话费查询", "公交线路"};
         setListeners();
         getWyfwData();
         getBmfwData();
@@ -90,11 +106,11 @@ public class ShfwActivity extends BaseActivity {
 
 
         bmfwList=new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Shfw shfw2 = new Shfw();
-            shfw2.setIconId(R.drawable.sqds);
-            shfw2.setTitle("社区电商");
-            bmfwList.add(shfw2);
+        for (int i = 0; i < imgBm.length-1; i++) {
+            Shfw shfw = new Shfw();
+            shfw.setIconId(imgBm[i]);
+            shfw.setTitle(titleBm[i]);
+            bmfwList.add(shfw);
         }
         setBmfwAdapter();
     }
@@ -103,11 +119,11 @@ public class ShfwActivity extends BaseActivity {
 
     private void getWyfwData() {
         wyfwList = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            Shfw shfw1 = new Shfw();
-            shfw1.setIconId(R.drawable.wyxx);
-            shfw1.setTitle("物业信息");
-            wyfwList.add(shfw1);
+        for (int i = 0; i < imgWy.length-1; i++) {
+            Shfw shfw = new Shfw();
+            shfw.setIconId(imgWy[i]);
+            shfw.setTitle(titleWy[i]);
+            wyfwList.add(shfw);
         }
         setWyfwAdapter();
     }

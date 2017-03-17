@@ -52,6 +52,11 @@ public class BsznActivity extends BaseActivity {
      * 用于设置adapeter的集合
      */
     private List<Bszn> list = new ArrayList<>();
+
+
+    private int img[];
+    private String title[];
+
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -64,6 +69,15 @@ public class BsznActivity extends BaseActivity {
         setContentView(R.layout.activity_bszn);
         ButterKnife.bind(this);
         tvTitle.setText("办事指南");
+
+
+        img = new int[]{R.drawable.bszn_aqsc, R.drawable.bszn_dwmy, R.drawable.bszn_gcjs, R.drawable.bszn_gysy,
+                R.drawable.bszn_hyzy, R.drawable.bszn_hb, R.drawable.bszn_hysy, R.drawable.bszn_jt,
+                R.drawable.bszn_jy, R.drawable.bszn_jyns, R.drawable.bszn_jy, R.drawable.bszn_mzzj,R.drawable.bszn_nsnj,R.drawable.bszn_qt};
+        title = new String[]{"安全生产", "对外贸易", "工程建设", "公用事业",
+                "行业准营", "环保", "婚育收养", "交通",
+                "教育", "经营纳税", "就业", "名族宗教","年审年检","其他"};
+
         //组装数据
         getData();
         //设置Adapter
@@ -117,17 +131,17 @@ public class BsznActivity extends BaseActivity {
     private void getData() {
         bsznGerenList = new ArrayList<>();
         bsznQiyeList = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < img.length-1; i++) {
             Bszn bszn = new Bszn();
-            bszn.setIconId(R.drawable.bszn_aqsc);
-            bszn.setTitle("安全生产");
+            bszn.setIconId(img[i]);
+            bszn.setTitle(title[i]);
             bsznGerenList.add(bszn);
 
         }
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < img.length-1; i++) {
             Bszn bszn = new Bszn();
-            bszn.setIconId(R.drawable.bszn_aqsc);
-            bszn.setTitle("安全生产1");
+            bszn.setIconId(img[i]);
+            bszn.setTitle(title[i]);
             bsznQiyeList.add(bszn);
         }
         list.addAll(bsznGerenList);

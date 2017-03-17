@@ -82,7 +82,7 @@
                         android:id="@+id/tv_content"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:padding="@dimen/px_10"
                         android:textSize="@dimen/px_30"/>
                 </LinearLayout>

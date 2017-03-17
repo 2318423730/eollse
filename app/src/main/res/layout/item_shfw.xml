@@ -6,8 +6,8 @@
     android:gravity="center">
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/px_200"
-        android:layout_height="@dimen/px_200"
+        android:layout_width="@dimen/px_150"
+        android:layout_height="@dimen/px_150"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView

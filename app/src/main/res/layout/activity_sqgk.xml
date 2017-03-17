@@ -120,11 +120,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:layout_marginBottom="@dimen/px_10"
+                    android:layout_marginBottom="@dimen/px_20"
                     android:scrollbars="none"></ListView>
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_100"
+                    android:layout_height="@dimen/px_80"
                     android:layout_alignParentBottom="true"
                     android:layout_below="@+id/lv_sqgk"
                     android:layout_marginLeft="@dimen/px_40"
