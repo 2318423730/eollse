@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_jgcx_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.eollse.activity.JgcxContentActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/info_bg"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+       <include layout="@layout/top"></include>
+
+        <ScrollView android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:layout_marginTop="@dimen/px_30"
+            android:layout_marginBottom="@dimen/px_30"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/news_list_head_bg"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="受理编号"
+                        android:textSize="@dimen/px_30"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:text="分类性质"
+                        android:textSize="@dimen/px_30"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+
+
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="诉求时间"
+                        android:textSize="@dimen/px_30"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="办结时间"
+                        android:textSize="@dimen/px_30"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+
+                    <TextView
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:text="办理状态"
+                        android:textSize="@dimen/px_30"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/news_list_con_bg"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_opinionId"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/new_text"
+                            />
+                        <TextView
+                            android:id="@+id/tv_opinionClassName"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/new_text"
+                            />
+
+
+
+                        <TextView
+                            android:id="@+id/tv_editDate"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/new_text"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_reDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/new_text"
+                            android:textSize="@dimen/px_30" />
+
+                        <TextView
+                            android:id="@+id/tv_auditState"
+                            android:layout_width="150dp"
+                            android:layout_height="match_parent"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/new_text"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:background="@color/new_text_click"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="诉求内容"
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/yellow"
+                            />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:textColor="@color/new_text"
+                            android:lineSpacingExtra="5dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:background="@color/new_text_click"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="办理跟踪信息"
+                            android:textSize="@dimen/px_30"
+                            android:gravity="center"
+                            android:textColor="@color/yellow"
+                            />
+
+                    </LinearLayout>
+
+                    <com.eollse.ui.MyListView
+                        android:id="@+id/lv_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:dividerHeight="0dp"
+                        android:scrollbars="none"
+                        android:divider="@color/transparent"
+                        android:cacheColorHint="@android:color/transparent"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tv_noText"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="left"
+                        android:layout_margin="20dp"
+                        android:text="暂无数据"
+                        android:textSize="@dimen/px_30"
+                        android:textColor="@color/new_text"
+                        android:lineSpacingExtra="5dp"
+                        />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:background="@color/new_text_click"
+                        android:orientation="horizontal" >
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="回复单位"
+                            android:textSize="@dimen/px_30"
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:textColor="@color/yellow"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="评价满意度：满意"
+                            android:layout_weight="1"
+                            android:textSize="@dimen/px_30"
+                            android:gravity="right"
+                            android:textColor="@color/yellow"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/tv_reContent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:text=""
+                            android:textSize="@dimen/px_30"
+                            android:textColor="@color/new_text"
+                            android:lineSpacingExtra="5dp"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/px_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/px_100"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            >
+
+
+            <TextView
+                android:id="@+id/btn1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="我要评价"
+                android:gravity="center"
+                android:background="@drawable/btn_agreed"
+                android:textSize="@dimen/px_30"
+                android:textColor="@color/white"
+
+                />
+
+            <TextView
+                android:id="@+id/btn2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="查看评价"
+                android:gravity="center"
+                android:background="@drawable/btn_agreed"
+                android:textSize="@dimen/px_30"
+                android:textColor="@color/white"
+
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

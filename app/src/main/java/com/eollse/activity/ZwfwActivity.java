@@ -99,7 +99,8 @@ public class ZwfwActivity extends BaseActivity {
                     intent.setClass(ZwfwActivity.this, SqtjActivity.class);
                 } else if (i == 2) {
                     //跳转到结果查询
-                    return;
+                    intent.setClass(ZwfwActivity.this,JgcxActivity.class);
+                   
                 }else if (i == 3) {
                     //跳转到网上办事
                     return;

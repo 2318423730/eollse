@@ -34,7 +34,7 @@ import butterknife.ButterKnife;
 /**
  * 结果查询
  */
-public class JgcxActivity extends BaseActivity implements View.OnClickListener{
+public class JgcxActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
@@ -67,7 +67,7 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener{
     private int page = 1;
     private int countNum;//总共条数
     private int totalPage;//总共页
-
+    private String Action = "";
     private List<Jgcx.DataBean> jgcxList = new ArrayList<>();
 
     private JgcxAdapter adapter;
@@ -103,6 +103,9 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener{
     }
 
     private void setListeners() {
+        tvPrevious.setOnClickListener(this);
+        tvNext.setOnClickListener(this);
+        tvSearch.setOnClickListener(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,17 +126,23 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener{
         lvInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(JgcxActivity.this, JgcxContentActivity.class);
 
+                intent.putExtra("OpinionId", ""+jgcxList.get(position).getOpinionId());//int变成String传值
+                intent.putExtra("AuditState", ""+jgcxList.get(position).getAuditState());//int变成String传值
+                intent.putExtra("Action", Action);//String
+                intent.putExtra("OpinionClassId", jgcxList.get(position).getOpinionClassId());//String
+
+                startActivity(intent);
             }
         });
     }
 
 
-
     private void getData() {
         url = Constants.BASE_URL + "method=OpinionList&TVInfoId=" + SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "") + "&key=" +
-                SharedPreUtil.getValue(this, "userinfo", "Key", "") + "&Page=" + page + "&PageSize=6&DeptId=" + SharedPreUtil.getValue(this, "userinfo", "DeptId", "")+
-                "&UserName="+etUserName.getText().toString()+"&MobileNo="+etMobile.getText().toString();
+                SharedPreUtil.getValue(this, "userinfo", "Key", "") + "&Page=" + page + "&PageSize=6&DeptId=" + SharedPreUtil.getValue(this, "userinfo", "DeptId", "") +
+                "&UserName=" + etUserName.getText().toString() + "&MobileNo=" + etMobile.getText().toString();
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
@@ -142,7 +151,7 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener{
                     jgcxList = new ArrayList<Jgcx.DataBean>();
                 }
                 jgcxList.addAll(jgcx.getData());
-
+                Action = ((String) JSON.parseObject(jsonStr).get("Action"));
                 countNum = Integer.parseInt((String) JSON.parseObject(jsonStr).get("CountNum"));
                 newsUrl = (String) JSON.parseObject(jsonStr).get("NewsShowUrl");
                 totalPage = countNum / 10;
@@ -178,7 +187,7 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.tv_previous:
                 if (page > 1) {
                     page--;
