@@ -26,14 +26,11 @@ public class WgglActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.tv_back)
     TextView tvBack;
-    @BindView(R.id.tv_Address)
-    TextView tvAddress;
-    @BindView(R.id.tv_RealName)
-    TextView tvRealName;
-    @BindView(R.id.tv_Mobile)
-    TextView tvMobile;
+
     @BindView(R.id.gv_wggl)
     GridView gvWggl;
+    @BindView(R.id.tv_top2)
+    TextView tvTop2;
 
     private List<Wggl> wgglList = new ArrayList<>();
     private WgglAdapter wgglAdapter;
@@ -56,9 +53,8 @@ public class WgglActivity extends BaseActivity {
         String address = SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Address", "");
         String realName = SharedPreUtil.getValue(getApplicationContext(), "userinfo", "RealName", "");
         String mobile = SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Mobile", "");
-        tvAddress.setText("地址:" + address);
-        tvRealName.setText("网格长:" + realName);
-        tvMobile.setText("联系电话:" + mobile);
+        tvTop2.setText("地址:" + address+"\t\t\t网格长:"+ realName+"\t\t\t联系电话:" + mobile);
+
 
         getData();
         setAdapter();

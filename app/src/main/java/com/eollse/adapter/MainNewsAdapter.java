@@ -35,7 +35,7 @@ public class MainNewsAdapter extends MyBaseAdapter {
         }
         viewHolder= (ViewHolder) view.getTag();
 
-        viewHolder.tv_title.setText("["+dataBean.getDeptName()+"]"+dataBean.getTitle());
+        viewHolder.tv_title.setText("["+dataBean.getDeptName()+"]\t"+dataBean.getTitle());
         viewHolder.tv_editDate.setText(dataBean.getEditDate());
         return view;
     }
