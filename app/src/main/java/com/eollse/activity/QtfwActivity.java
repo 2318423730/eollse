@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.SharedPreUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,7 +48,7 @@ public class QtfwActivity extends BaseActivity {
         webView.setBackgroundColor(0);
         //webView.setBackgroundResource(R.drawable.shape_info_background);
         //webView.loadUrl("http://www.baidu.com");
-        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?&TVInfoId=19&Key=21218CCA77804D2BA1922C33E0151105&ClassId=3");
+        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?&TVInfoId="+ SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "")+"&ClassId=3");
         webView.setWebViewClient(new WebViewClient(){
 
             @Override

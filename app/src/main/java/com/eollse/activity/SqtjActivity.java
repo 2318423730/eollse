@@ -14,6 +14,7 @@ import com.eollse.R;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.SharedPreUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,7 +61,8 @@ public class SqtjActivity extends BaseActivity {
     }
 
     private void getData() {
-        url = Constants.BASE_URL + "?&TVInfoId=19&method=OpinionAgreement&Key=21218CCA77804D2BA1922C33E0151105";
+
+        url = Constants.BASE_URL + "?TVInfoId="+SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&method=OpinionAgreement&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "");
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {

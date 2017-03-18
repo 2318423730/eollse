@@ -28,6 +28,7 @@ import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
+import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -298,8 +299,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         map.put("method", "IndexNews");
         map.put("Page", "1");
         map.put("PageSize", "6");
-        map.put("TVInfoId", "1");
-        map.put("Key", "21218CCA77804D2BA1922C33E0151105");
+        map.put("TVInfoId", SharedPreUtil.getValue(this, "userinfo", "TVInfoId", ""));
+        map.put("Key", SharedPreUtil.getValue(this, "userinfo", "Key", ""));
         //获取数据
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override

@@ -23,6 +23,7 @@ import com.eollse.entity.Type;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
+import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -185,8 +186,8 @@ public class SqtjContentActivity extends BaseActivity {
         //http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=Opinionclass&Key=21218CCA77804D2BA1922C33E0151105
         Map<String,String> params=new HashMap<>();
         params.put("method", "OpinionAdd");
-        params.put("TVInfoId", "19");
-        params.put("Key","21218CCA77804D2BA1922C33E0151105");
+        params.put("TVInfoId", SharedPreUtil.getValue(this, "userinfo", "TVInfoId", ""));
+        params.put("Key", SharedPreUtil.getValue(this, "userinfo", "Key", ""));
         params.put("UserName",etName.getText().toString());
         params.put("MobileNo",etPhone.getText().toString());
         params.put("OpinionClassId",tvTitle.getText().toString());
@@ -216,9 +217,9 @@ public class SqtjContentActivity extends BaseActivity {
     private void getType() {
         Map<String, String> map = new HashMap<>();
         //http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=Opinionclass&Key=21218CCA77804D2BA1922C33E0151105
-        map.put("TVInfoId", "19");
+        map.put("TVInfoId", SharedPreUtil.getValue(this, "userinfo", "TVInfoId", ""));
         map.put("method", "Opinionclass");
-        map.put("Key", "21218CCA77804D2BA1922C33E0151105");
+        map.put("Key", SharedPreUtil.getValue(this, "userinfo", "Key", ""));
 
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override
@@ -249,9 +250,9 @@ public class SqtjContentActivity extends BaseActivity {
     private void getDept() {
         Map<String, String> map = new HashMap<>();
         //http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=Opinionclass&Key=21218CCA77804D2BA1922C33E0151105
-        map.put("TVInfoId", "19");
+        map.put("TVInfoId", SharedPreUtil.getValue(this, "userinfo", "TVInfoId", ""));
         map.put("method", "DeptList");
-        map.put("Key", "21218CCA77804D2BA1922C33E0151105");
+        map.put("Key", SharedPreUtil.getValue(this, "userinfo", "Key", ""));
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
