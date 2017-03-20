@@ -76,7 +76,7 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="姓  名:"
                                     android:textColor="@color/white"
@@ -84,9 +84,10 @@
 
                                 <EditText
                                     android:id="@+id/et_name"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/px_30"
+                                    android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:hint="请输入姓名"
                                     android:paddingLeft="@dimen/px_30"
@@ -104,7 +105,7 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="电  话:"
                                     android:textColor="@color/white"
@@ -139,9 +140,9 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
-                                    android:text="姓  名:"
+                                    android:text="验证码:"
                                     android:textColor="@color/white"
                                     android:textSize="@dimen/px_40" />
 
@@ -151,7 +152,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
-                                    android:hint="请输入姓名"
+                                    android:hint="请输验证码"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
                                     android:textColor="@color/white"
@@ -159,28 +160,44 @@
                                     android:textSize="@dimen/px_30" />
                             </LinearLayout>
 
-                            <LinearLayout
+
+                            <RadioGroup
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_30"
+                                android:layout_marginLeft="@dimen/px_50"
                                 android:layout_weight="1"
+                                android:orientation="horizontal"
                                 android:paddingLeft="@dimen/px_20"
                                 android:paddingRight="@dimen/px_20">
 
-                                <Button
+                                <RadioButton
+                                    android:id="@+id/rb_code"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
-                                    android:text="短息验证" />
+                                    android:background="@drawable/selector_sqtjcontent_btn"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:gravity="center"
+                                    android:text="短息验证"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/px_30" />
 
-                                <Button
+                                <RadioButton
+                                    android:id="@+id/rb_noCode"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_marginLeft="@dimen/px_50"
                                     android:layout_weight="1"
-                                    android:text="不验证" />
+                                    android:background="@drawable/selector_sqtjcontent_btn"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:gravity="center"
+                                    android:text="不验证"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/px_30" />
+                            </RadioGroup>
 
-                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -199,7 +216,7 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="类  型:"
                                     android:textColor="@color/white"
@@ -227,7 +244,7 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="部  门:"
                                     android:textColor="@color/white"
@@ -257,7 +274,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/px_150"
                                 android:layout_height="wrap_content"
                                 android:text="标  题:"
                                 android:textColor="@color/white"
@@ -279,11 +296,11 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_400">
+                            android:layout_height="@dimen/px_600">
 
                             <TextView
                                 android:id="@+id/tv_content"
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/px_150"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/px_20"
                                 android:text="内  容:"
@@ -311,13 +328,49 @@
                                 android:textSize="@dimen/px_30" />
                         </RelativeLayout>
 
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_80"
+                            android:paddingLeft="@dimen/px_400"
+                            android:paddingRight="@dimen/px_400"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_dwgs"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_sqtjcontent_btn"
+                                android:button="@null"
+                                android:checked="false"
+                                android:gravity="center"
+                                android:text="对外公示"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/px_30" />
+
+                            <RadioButton
+                                android:id="@+id/rb_bdwgs"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_50"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_sqtjcontent_btn"
+                                android:button="@null"
+                                android:checked="false"
+                                android:gravity="center"
+                                android:text="不对外公示"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/px_30" />
+                        </RadioGroup>
+
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_60"
+                            android:layout_height="@dimen/px_80"
                             android:layout_marginBottom="@dimen/px_30"
                             android:gravity="center_vertical"
-                            android:paddingLeft="@dimen/px_400"
-                            android:paddingRight="@dimen/px_400">
+                            android:paddingLeft="@dimen/px_300"
+                            android:paddingRight="@dimen/px_300"
+                            android:layout_marginTop="@dimen/px_30">
 
                             <Button
                                 android:id="@+id/btn_tongyi"
@@ -326,7 +379,7 @@
                                 android:layout_marginRight="@dimen/px_50"
                                 android:layout_weight="1"
                                 android:background="@drawable/shape_yijt_button_tongyi_background"
-                                android:text="同意"
+                                android:text="提\t\t\t\t交"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/px_45" />
 

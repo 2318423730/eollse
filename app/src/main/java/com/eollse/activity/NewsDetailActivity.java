@@ -47,6 +47,8 @@ public class NewsDetailActivity extends BaseActivity {
             tvTitle.setText("政策资讯");
         }else if("mainNews".equals(from)){
             tvTitle.setText("标题");
+        }else if("sqgkNews".equals(from)){
+            tvTitle.setText("社区新闻");
         }
 
         setListeners();

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -138,6 +140,27 @@ public class SqgkActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
                 getData();
+            }
+        });
+
+        lvSqgk.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                String url = Constants.BASE_NEWS_URL+"method=newshtml"+"&userid="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
+//                        +"&Key="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "")+"&id="+list.get(position).getNewsId();
+//                Log.e("MyTAG", "url=" + url);
+//                Intent intent=new Intent(SqgkActivity.this,NewsDetailActivity.class);
+//                intent.putExtra("url",url);
+//                intent.putExtra("from","sqgkNews");
+//                startActivity(intent);
+                String url = Constants.BASE_NEWS_URL+"TVInfoId="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "TVInfoId", "")
+                        +"&Key="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "")+"&id="+list.get(position).getNewsId();
+                Log.e("MyTAG", "url=" + url);
+                Intent intent=new Intent(SqgkActivity.this,NewsDetailActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("from","sqgkNews");
+                startActivity(intent);
+
             }
         });
     }
