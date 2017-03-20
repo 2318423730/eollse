@@ -121,10 +121,10 @@ public class ZwfwActivity extends BaseActivity {
                     intent.setClass(ZwfwActivity.this, BsznActivity.class);
                 } else if (i == 9) {
                     //跳转到群工平台
-                    return;
+                    intent.setClass(ZwfwActivity.this, QgptActivity.class);
                 } else if (i == 10) {
                     //跳转到平安社区
-                    return;
+                    intent.setClass(ZwfwActivity.this, PasqActivity.class);
                 } else if (i == 11) {
                     //跳转到社区概况
                     intent.setClass(ZwfwActivity.this, SqgkActivity.class);

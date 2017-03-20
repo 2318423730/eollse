@@ -76,8 +76,16 @@
             android:name=".activity.JgcxActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".activity.JgcxContentActivity" />
-        <activity android:name=".activity.YybsActivity"></activity>
+        <activity
+            android:name=".activity.JgcxContentActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.YybsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.QgptActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.PasqActivity"></activity>
     </application>
 
 </manifest>
