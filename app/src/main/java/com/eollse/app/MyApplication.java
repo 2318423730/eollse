@@ -3,11 +3,7 @@ package com.eollse.app;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Environment;
+
 
 import com.eollse.activity.MainActivity;
 import com.eollse.utils.OkHttpUtil;
@@ -16,7 +12,9 @@ import com.eollse.utils.OkHttpUtil;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import okhttp3.CacheControl;
 import okhttp3.OkHttpClient;
 
 /**
@@ -40,11 +38,16 @@ public class MyApplication extends Application {
      * 联网工具类
      */
     public static OkHttpUtil okHttpUtil;
-
+    private  CacheControl.Builder builder;
+    //缓存
+    public static CacheControl cache;
     @Override
     public void onCreate() {
         super.onCreate();
         okHttpUtil = OkHttpUtil.getInstance();
+//        builder = new CacheControl.Builder();
+//        builder.maxAge(10, TimeUnit.MILLISECONDS);//指示客户机可以接收生存期不大于指定时间的响应。
+//        cache = builder.build();
 
     }
 

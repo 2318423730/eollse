@@ -23,7 +23,13 @@ public class OkHttpUtil {
 
     //设置私有的构造方法，不允许new
     private OkHttpUtil() {
-        okHttpClient=new OkHttpClient();
+        if (okHttpClient == null) {
+            synchronized (OkHttpUtil.class) {
+                if (okHttpClient == null) {
+                    okHttpClient = new OkHttpClient();
+                }
+            }
+        }
 
     }
 
@@ -47,7 +53,7 @@ public class OkHttpUtil {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                String str="";
+                String str = "";
                 if (response.isSuccessful()) {
                     if (null != response.cacheResponse()) {
                         str = response.cacheResponse().toString();
@@ -56,9 +62,9 @@ public class OkHttpUtil {
                         str = response.body().string();
                         Log.i("MyTAG", "network---" + str);
                     }
-                    if(!"".equals(str) && str != null){
+                    if (!"".equals(str) && str != null) {
                         httpCallBack.OnSuccess(str);
-                    }else{
+                    } else {
                         httpCallBack.OnError("空数据");
                     }
 

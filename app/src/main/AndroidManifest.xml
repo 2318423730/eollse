@@ -86,7 +86,8 @@
         <activity
             android:name=".activity.QgptActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.PasqActivity"></activity>
+        <activity android:name=".activity.PasqActivity" />
+        <activity android:name=".activity.MainNewsDetailActivity"></activity>
     </application>
 
 </manifest>

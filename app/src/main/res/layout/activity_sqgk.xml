@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_bszn"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
@@ -112,16 +113,28 @@
                 android:layout_marginBottom="@dimen/px_40"
                 android:layout_marginTop="@dimen/px_40"
                 android:background="@drawable/shape_sqgk_info"
-                android:paddingTop="@dimen/px_40"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/px_40">
 
-                <ListView
-                    android:id="@+id/lv_sqgk"
+                <com.cjj.MaterialRefreshLayout
+                    android:id="@+id/materialRefreshLayout"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1"
                     android:layout_marginBottom="@dimen/px_20"
-                    android:scrollbars="none"></ListView>
+                    android:layout_weight="1"
+                    app:isLoadMore="false"
+                    app:overlay="false"
+                    app:wave_show="false">
+
+                    <ListView
+                        android:id="@+id/lv_sqgk"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/px_10"
+                        android:paddingRight="@dimen/px_10"
+                        android:scrollbars="none"></ListView>
+                </com.cjj.MaterialRefreshLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/px_80"
@@ -232,7 +245,6 @@
                     android:text="社区新闻"
                     android:textSize="@dimen/px_60" />
             </LinearLayout>
-
 
 
         </RelativeLayout>

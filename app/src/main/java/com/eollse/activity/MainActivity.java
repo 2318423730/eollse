@@ -28,6 +28,7 @@ import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
+import com.eollse.utils.OkHttpUtil;
 import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
@@ -284,6 +285,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 setNews();
             }
         });
+
+        lvListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+            }
+        });
     }
 
     private List<MainNew.DataBean> newsList;
@@ -292,6 +300,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 设置新闻数据
      */
     private void setNews() {
+
         if (newsList == null) {
             newsList = new ArrayList<>();
         }
@@ -305,7 +314,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         MyApplication.okHttpUtil.post(Constants.BASE_URL, map, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                Log.e("MyTAG", "主页新闻:" + jsonStr);
+                //Log.e("MyTAG", "主页新闻:" + jsonStr);
                 MainNew mainNew = JSON.parseObject(jsonStr, MainNew.class);
                 // newsList = mainNew.getData();
                 newsList.clear();
