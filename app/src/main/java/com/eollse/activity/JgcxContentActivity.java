@@ -160,4 +160,9 @@ public class JgcxContentActivity extends BaseActivity {
             jgcxContentAdapter.notifyDataSetChanged();
         }
     }
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
+    }
 }

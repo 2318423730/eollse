@@ -62,7 +62,8 @@ public class SqtjActivity extends BaseActivity {
 
     private void getData() {
 
-        url = Constants.BASE_URL + "?TVInfoId="+SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&method=OpinionAgreement&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "");
+        url = Constants.BASE_URL + "TVInfoId="+SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&method=OpinionAgreement&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "");
+        Log.e("MyTAG",url);
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {

@@ -76,7 +76,8 @@ public class BsznActivity extends BaseActivity {
                 R.drawable.bszn_jy, R.drawable.bszn_jyns, R.drawable.bszn_jy, R.drawable.bszn_mzzj,R.drawable.bszn_nsnj,R.drawable.bszn_qt};
         title = new String[]{"安全生产", "对外贸易", "工程建设", "公用事业",
                 "行业准营", "环保", "婚育收养", "交通",
-                "教育", "经营纳税", "就业", "名族宗教","年审年检","其他"};
+                "教育", "经营纳税", "就业", "名族宗教","年审年检",
+                "其他"};
 
         //组装数据
         getData();
@@ -131,14 +132,14 @@ public class BsznActivity extends BaseActivity {
     private void getData() {
         bsznGerenList = new ArrayList<>();
         bsznQiyeList = new ArrayList<>();
-        for (int i = 0; i < img.length-1; i++) {
+        for (int i = 0; i < img.length; i++) {
             Bszn bszn = new Bszn();
             bszn.setIconId(img[i]);
             bszn.setTitle(title[i]);
             bsznGerenList.add(bszn);
 
         }
-        for (int i = 0; i < img.length-1; i++) {
+        for (int i = 0; i < img.length; i++) {
             Bszn bszn = new Bszn();
             bszn.setIconId(img[i]);
             bszn.setTitle(title[i]);

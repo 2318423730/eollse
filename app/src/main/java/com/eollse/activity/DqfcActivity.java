@@ -33,13 +33,21 @@ public class DqfcActivity extends BaseActivity {
 
     private List<Dqfc> dqfcList=new ArrayList<>();
     private DqfcAdapter dqfcAdapter;
+    private int img[];
+    private String title[];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dqfc);
         ButterKnife.bind(this);
         tvTitle.setText("党群风采");
-        
+
+        img = new int[]{R.drawable.dqfc_dqhd, R.drawable.dqfc_zyfw, R.drawable.dqfc_zsdx,
+                R.drawable.dqfc_sjxx, R.drawable.dqfc_sdxf, R.drawable.dqfc_ffcl};
+        title = new String[]{"党群活动", "志愿者服务", "掌上党校",
+                "书记信箱", "时代先锋", "反腐倡廉",};
+
         getData();
         setAdapter();
         setListeners();
@@ -51,10 +59,10 @@ public class DqfcActivity extends BaseActivity {
     }
 
     private void getData() {
-        for(int i=0;i<20;i++){
+        for(int i=0;i<img.length;i++){
             Dqfc dqfc=new Dqfc();
-            dqfc.setIconId(R.drawable.dqfc_dqhd);
-            dqfc.setTitle("党群活动");
+            dqfc.setIconId(img[i]);
+            dqfc.setTitle(title[i]);
             dqfcList.add(dqfc);
         }
     }

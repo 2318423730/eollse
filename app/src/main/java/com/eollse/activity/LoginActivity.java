@@ -8,9 +8,9 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.eollse.R;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
@@ -18,12 +18,8 @@ import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.SharedPreUtil;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,11 +36,13 @@ public class LoginActivity extends BaseActivity {
     EditText etPassword;
     @BindView(R.id.tv_login)
     TextView tvLogin;
+    @BindView(R.id.ll_login)
+    LinearLayout llLogin;
 
-    private Handler handler=new Handler(){
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case Constants.HANDLER_LOGIN_SUCCESS:
                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     finish();
@@ -60,14 +58,14 @@ public class LoginActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         initData();
-        tvLogin.setOnClickListener(new View.OnClickListener() {
+        llLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if ("".equals(etUserName.getText().toString())) {
-                    MyToast.showToast(getApplicationContext(),"用户名不能为空!");
+                    MyToast.showToast(getApplicationContext(), "用户名不能为空!");
                     return;
                 } else if ("".equals(etPassword.getText().toString())) {
-                    MyToast.showToast(getApplicationContext(),"密码不能为空!");
+                    MyToast.showToast(getApplicationContext(), "密码不能为空!");
                     return;
                 }
                 Login();
@@ -81,28 +79,28 @@ public class LoginActivity extends BaseActivity {
 //        params.put("username",etUserName.getText().toString());
 //        params.put("pwd",etPassword.getText().toString());
 
-        String url=Constants.BASE_URL+"method=login&"+"username="+etUserName.getText().toString()+"&pwd="+etPassword.getText().toString();
-        MyApplication.okHttpUtil.get(url,  new HttpCallBack() {
+        String url = Constants.BASE_URL + "method=login&" + "username=" + etUserName.getText().toString() + "&pwd=" + etPassword.getText().toString();
+        MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                Log.e("MyTAG",""+jsonStr);
+                Log.e("MyTAG", "" + jsonStr);
 
                 try {
-                    JSONObject object=new JSONObject(jsonStr);
-                    String a=object.getString("Status");
-                    Log.e("MyTAG","a="+a);
-                    if("0".equals(a)) {
+                    JSONObject object = new JSONObject(jsonStr);
+                    String a = object.getString("Status");
+                    Log.e("MyTAG", "a=" + a);
+                    if ("0".equals(a)) {
 
-                    }else if("1".equals(a)){
-                        editor.putString("userName",etUserName.getText().toString());
+                    } else if ("1".equals(a)) {
+                        editor.putString("userName", etUserName.getText().toString());
                         editor.putString("Key", object.getString("Key"));
-                        editor.putString("TVInfoId",object.getString("TVInfoId"));
-                        editor.putString("DeptId",object.getString("DeptId"));
-                        editor.putString("Address",object.getString("Address"));
-                        editor.putString("UserId",object.getString("UserId"));
-                        editor.putString("RealName",object.getString("RealName"));
-                        editor.putString("Mobile",object.getString("Mobile"));
-                        editor.putString("JobTel",object.getString("JobTel"));
+                        editor.putString("TVInfoId", object.getString("TVInfoId"));
+                        editor.putString("DeptId", object.getString("DeptId"));
+                        editor.putString("Address", object.getString("Address"));
+                        editor.putString("UserId", object.getString("UserId"));
+                        editor.putString("RealName", object.getString("RealName"));
+                        editor.putString("Mobile", object.getString("Mobile"));
+                        editor.putString("JobTel", object.getString("JobTel"));
                         editor.commit();
 
                         handler.sendEmptyMessage(Constants.HANDLER_LOGIN_SUCCESS);
@@ -111,8 +109,6 @@ public class LoginActivity extends BaseActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
 
 
             }
@@ -132,5 +128,11 @@ public class LoginActivity extends BaseActivity {
         } else {
             etUserName.setText("");
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 }
