@@ -300,8 +300,9 @@ public class ZcxxActivity extends BaseActivity {
                 String url = Constants.BASE_NEWS_URL+"TVInfoId="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
                         +"&Key="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent=new Intent(ZcxxActivity.this,ZcxxDetailActivity.class);
+                Intent intent=new Intent(ZcxxActivity.this,NewsDetailActivity.class);
                 intent.putExtra("url",url);
+                intent.putExtra("from","zcxxNews");
                 startActivity(intent);
             }
         });

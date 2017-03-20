@@ -289,7 +289,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         lvListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-
+                //http://oa.ybqtw.org.cn/api/Html/news_show.html?method=newshtml&userid=1&Key=21218CCA77804D2BA1922C33E0151105&typeVer=&id=1419
+                String url = Constants.BASE_NEWS_URL+"method=newshtml"+"&userid="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
+                        +"&Key="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
+                Log.e("MyTAG", "url=" + url);
+                Intent intent=new Intent(MainActivity.this,NewsDetailActivity.class);
+                intent.putExtra("url",url);
+                intent.putExtra("from","mainNews");
+                startActivity(intent);
             }
         });
     }

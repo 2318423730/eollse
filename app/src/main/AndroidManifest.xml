@@ -64,7 +64,7 @@
             android:name=".activity.SqtjSuccessActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".activity.ZcxxDetailActivity"
+            android:name=".activity.NewsDetailActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.SqgkActivity"
@@ -87,7 +87,6 @@
             android:name=".activity.QgptActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".activity.PasqActivity" />
-        <activity android:name=".activity.MainNewsDetailActivity"></activity>
     </application>
 
 </manifest>
