@@ -76,7 +76,8 @@
             android:name=".activity.JgcxActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".activity.JgcxContentActivity"></activity>
+        <activity android:name=".activity.JgcxContentActivity" />
+        <activity android:name=".activity.YybsActivity"></activity>
     </application>
 
 </manifest>

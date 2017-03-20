@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_jgcx"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/info_bg"
     tools:context="com.eollse.activity.JgcxActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/info_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-       <include layout="@layout/top2"></include>
-
+        <include layout="@layout/top2"></include>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:layout_margin="@dimen/px_40"
-            android:orientation="vertical" >
+            android:layout_weight="1"
+            android:orientation="vertical">
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px_120"
-                android:background="@drawable/jgcx_search_bg"
-                android:orientation="horizontal"
                 android:layout_marginBottom="20dp"
+                android:background="@drawable/jgcx_search_bg"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                >
+                android:paddingRight="20dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="姓名："
-                        android:textSize="@dimen/px_40"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_40" />
 
 
                     <EditText
@@ -56,59 +55,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/jgcx_input_search"
-                        android:textColor="@color/white"
                         android:hint="请输入姓名"
-                        android:singleLine="true"
                         android:paddingLeft="@dimen/px_30"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/transparent"
-                        android:textSize="@dimen/px_40"
-                        />
+                        android:textSize="@dimen/px_40" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="20dp"
-                    android:orientation="horizontal" >
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="手机号码："
-                        android:textSize="@dimen/px_40"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_40" />
 
                     <EditText
                         android:id="@+id/et_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/jgcx_input_search"
-                        android:textColor="@color/white"
                         android:hint="请输入手机号码"
-                        android:singleLine="true"
-                        android:paddingLeft="20dp"
-                        android:textSize="@dimen/px_40"
-                        android:numeric="integer"
-                        android:textColorHint="@color/transparent"
                         android:maxLength="11"
-                        />
+                        android:numeric="integer"
+                        android:paddingLeft="20dp"
+                        android:singleLine="true"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/transparent"
+                        android:textSize="@dimen/px_40" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_search"
-                    android:layout_marginLeft="@dimen/px_40"
                     android:layout_width="@dimen/px_300"
                     android:layout_height="@dimen/px_90"
-                    android:text="查	询"
-                    android:gravity="center"
-                    android:textSize="@dimen/px_40"
+                    android:layout_marginLeft="@dimen/px_40"
                     android:background="@drawable/jgcx_btn_search"
+                    android:gravity="center"
+                    android:text="查	询"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_40" />
 
             </LinearLayout>
 
@@ -117,62 +112,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@drawable/jgcx_head"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:text="受理编号"
-                    android:textSize="@dimen/px_30"
                     android:gravity="center"
+                    android:text="受理编号"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
+
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:text="分类性质"
-                    android:textSize="@dimen/px_30"
                     android:gravity="center"
+                    android:text="分类性质"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
 
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:gravity="center"
                     android:text="主题"
-                    android:textSize="@dimen/px_30"
-                    android:gravity="center"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:text="诉求时间"
-                    android:textSize="@dimen/px_30"
-                    android:gravity="center"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:text="办结时间"
-                    android:textSize="@dimen/px_30"
                     android:gravity="center"
+                    android:text="办结时间"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
-                    android:text="办理状态"
-                    android:textSize="@dimen/px_30"
                     android:gravity="center"
+                    android:text="办理状态"
                     android:textColor="@color/white"
-                    />
+                    android:textSize="@dimen/px_30" />
 
             </LinearLayout>
 
@@ -182,31 +172,40 @@
                 android:layout_weight="1"
                 android:background="@drawable/news_list_con_bg"
                 android:gravity="center"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
-                <ListView
-                    android:id="@+id/lv_info"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_weight="1"
-                    android:dividerHeight="0dp"
-                    android:scrollbars="none"
-                    android:divider="@color/transparent"
-                    android:cacheColorHint="@android:color/transparent"
-                    />
+                <com.cjj.MaterialRefreshLayout
+                    android:id="@+id/materialRefreshLayout"
+                    app:isLoadMore="false"
+                    app:overlay="false"
+                    app:wave_show="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingLeft="@dimen/px_20"
+                    android:paddingRight="@dimen/px_20">
+
+                    <ListView
+                        android:id="@+id/lv_info"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:cacheColorHint="@android:color/transparent"
+                        android:divider="@color/transparent"
+                        android:dividerHeight="0dp"
+                        android:scrollbars="none" />
+                </com.cjj.MaterialRefreshLayout>
 
                 <TextView
                     android:id="@+id/tv_noInfo"
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:gravity="left"
                     android:layout_margin="20dp"
-                    android:text="暂无数据,请输入姓名和手机号码查询信息"
-                    android:textSize="@dimen/px_40"
-                    android:textColor="@color/black"
+                    android:gravity="left"
                     android:lineSpacingExtra="5dp"
-                    />
+                    android:text="暂无数据,请输入姓名和手机号码查询信息"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_40"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -216,8 +215,8 @@
                 android:layout_height="@dimen/px_100"
                 android:layout_marginLeft="@dimen/px_40"
                 android:layout_marginRight="@dimen/px_40"
-                android:gravity="center_vertical"
-                android:layout_marginTop="@dimen/px_20">
+                android:layout_marginTop="@dimen/px_20"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/tv_previous"

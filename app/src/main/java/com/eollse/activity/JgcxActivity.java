@@ -1,32 +1,28 @@
 package com.eollse.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.eollse.R;
 import com.eollse.adapter.JgcxAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Jgcx;
-import com.eollse.entity.Zcxx;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,6 +58,8 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener {
     TextView tvTotalSize;
     @BindView(R.id.tv_next)
     TextView tvNext;
+    @BindView(R.id.materialRefreshLayout)
+    MaterialRefreshLayout materialRefreshLayout;
 
     private String url;
     private int page = 1;
@@ -128,12 +126,18 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(JgcxActivity.this, JgcxContentActivity.class);
 
-                intent.putExtra("OpinionId", ""+jgcxList.get(position).getOpinionId());//int变成String传值
-                intent.putExtra("AuditState", ""+jgcxList.get(position).getAuditState());//int变成String传值
+                intent.putExtra("OpinionId", "" + jgcxList.get(position).getOpinionId());//int变成String传值
+                intent.putExtra("AuditState", "" + jgcxList.get(position).getAuditState());//int变成String传值
                 intent.putExtra("Action", Action);//String
                 intent.putExtra("OpinionClassId", jgcxList.get(position).getOpinionClassId());//String
 
                 startActivity(intent);
+            }
+        });
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                getData();
             }
         });
     }
@@ -150,6 +154,7 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener {
                 if (jgcxList == null) {
                     jgcxList = new ArrayList<Jgcx.DataBean>();
                 }
+                jgcxList.clear();
                 jgcxList.addAll(jgcx.getData());
                 Action = ((String) JSON.parseObject(jsonStr).get("Action"));
                 countNum = Integer.parseInt((String) JSON.parseObject(jsonStr).get("CountNum"));
@@ -176,7 +181,13 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener {
             lvInfo.setAdapter(adapter);
         } else {
             adapter.notifyDataSetChanged();
+            //materialRefreshLayout.finishRefresh();
+            if (jgcxList.size() > 0) {
+                lvInfo.setSelection(0);
+            }
+
         }
+        materialRefreshLayout.finishRefresh();
     }
 
     private void setPageInfo() {

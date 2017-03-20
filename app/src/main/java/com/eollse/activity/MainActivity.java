@@ -308,6 +308,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 Log.e("MyTAG", "主页新闻:" + jsonStr);
                 MainNew mainNew = JSON.parseObject(jsonStr, MainNew.class);
                 // newsList = mainNew.getData();
+                newsList.clear();
                 newsList.addAll(mainNew.getData());
                 handler.sendEmptyMessage(Constants.HANDLER_MAINNEWS_RECEIVED);
 
@@ -332,17 +333,19 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 设置新闻适配器
      */
     private void setAdapter() {
+
         if (adapter == null) {//第一次加载
             adapter = new MainNewsAdapter(getApplicationContext(), newsList);
             lvListview.setAdapter(adapter);
         } else {//刷新
             adapter.notifyDataSetChanged();
-            materialRefreshLayout.finishRefresh();
+
             if (newsList.size() > 0) {
                 lvListview.setSelection(0);
             }
 
         }
+        materialRefreshLayout.finishRefresh();
     }
 
     /**

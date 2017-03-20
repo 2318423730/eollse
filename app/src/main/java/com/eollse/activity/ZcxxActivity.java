@@ -132,6 +132,7 @@ public class ZcxxActivity extends BaseActivity {
                 if (newsList == null) {
                     newsList = new ArrayList<Zcxx.DataBean>();
                 }
+                newsList.clear();
                 newsList.addAll(zcxx.getData());
 
                 countNum = Integer.parseInt(zcxx.getCountNum());
@@ -346,13 +347,13 @@ public class ZcxxActivity extends BaseActivity {
             lvNews.setAdapter(zcxxNewsAdapter);
         } else {
             zcxxNewsAdapter.notifyDataSetChanged();
-            materialRefreshLayout.finishRefresh();
+           // materialRefreshLayout.finishRefresh();
             if (newsList.size() > 0) {
                 lvNews.setSelection(0);
             }
 
         }
-
+        materialRefreshLayout.finishRefresh();
     }
 
     private void setPageInfo() {

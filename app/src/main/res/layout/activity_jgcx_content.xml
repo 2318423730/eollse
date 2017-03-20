@@ -11,132 +11,124 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/info_bg"
-        android:orientation="vertical"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/info_bg"
+        android:orientation="vertical">
 
-       <include layout="@layout/top"></include>
+        <include layout="@layout/top"></include>
 
-        <ScrollView android:layout_width="match_parent"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/px_30"
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
             android:layout_marginTop="@dimen/px_30"
-            android:layout_marginBottom="@dimen/px_30"
+            android:layout_weight="1"
             android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/news_list_head_bg"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="受理编号"
-                        android:textSize="@dimen/px_30"
-                        android:gravity="center"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_30" />
+
                     <TextView
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
+                        android:gravity="center"
                         android:text="分类性质"
-                        android:textSize="@dimen/px_30"
-                        android:gravity="center"
                         android:textColor="@color/white"
-                        />
-
+                        android:textSize="@dimen/px_30" />
 
 
                     <TextView
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:text="诉求时间"
-                        android:textSize="@dimen/px_30"
-                        android:gravity="center"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_30" />
 
                     <TextView
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="办结时间"
-                        android:textSize="@dimen/px_30"
+                        android:layout_weight="1"
                         android:gravity="center"
+                        android:text="办结时间"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_30" />
 
                     <TextView
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
-                        android:text="办理状态"
-                        android:textSize="@dimen/px_30"
                         android:gravity="center"
+                        android:text="办理状态"
                         android:textColor="@color/white"
-                        />
+                        android:textSize="@dimen/px_30" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
                     android:background="@drawable/news_list_con_bg"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="10dp"
+                        android:orientation="horizontal"
                         android:paddingBottom="20dp"
-                        android:orientation="horizontal" >
+                        android:paddingTop="10dp">
 
                         <TextView
                             android:id="@+id/tv_opinionId"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
                             android:gravity="center"
+                            android:text=""
                             android:textColor="@color/new_text"
-                            />
+                            android:textSize="@dimen/px_30" />
+
                         <TextView
                             android:id="@+id/tv_opinionClassName"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
                             android:gravity="center"
+                            android:text=""
                             android:textColor="@color/new_text"
-                            />
-
+                            android:textSize="@dimen/px_30" />
 
 
                         <TextView
                             android:id="@+id/tv_editDate"
-                            android:layout_weight="1"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
+                            android:layout_weight="1"
                             android:gravity="center"
+                            android:text=""
                             android:textColor="@color/new_text"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                         <TextView
                             android:id="@+id/tv_reDate"
@@ -152,31 +144,29 @@
                             android:id="@+id/tv_auditState"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
                             android:gravity="center"
+                            android:text=""
                             android:textColor="@color/new_text"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:background="@color/new_text_click"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
-                        android:orientation="horizontal" >
+                        android:background="@color/new_text_click"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="诉求内容"
-                            android:textSize="@dimen/px_30"
                             android:gravity="center"
+                            android:text="诉求内容"
                             android:textColor="@color/yellow"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
@@ -184,39 +174,37 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal"
+                        android:padding="20dp">
 
                         <TextView
                             android:id="@+id/tv_content"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="left"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
-                            android:textColor="@color/new_text"
                             android:lineSpacingExtra="5dp"
-                            />
+                            android:text=""
+                            android:textColor="@color/new_text"
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
                         android:background="@color/new_text_click"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="办理跟踪信息"
-                            android:textSize="@dimen/px_30"
                             android:gravity="center"
+                            android:text="办理跟踪信息"
                             android:textColor="@color/yellow"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
@@ -224,75 +212,70 @@
                         android:id="@+id/lv_info"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:dividerHeight="0dp"
-                        android:scrollbars="none"
-                        android:divider="@color/transparent"
                         android:cacheColorHint="@android:color/transparent"
-                        />
+                        android:divider="@color/transparent"
+                        android:dividerHeight="0dp"
+                        android:scrollbars="none" />
 
 
                     <TextView
                         android:id="@+id/tv_noText"
-                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:gravity="left"
                         android:layout_margin="20dp"
-                        android:text="暂无数据"
-                        android:textSize="@dimen/px_30"
-                        android:textColor="@color/new_text"
+                        android:gravity="left"
                         android:lineSpacingExtra="5dp"
-                        />
+                        android:text="暂无数据"
+                        android:textColor="@color/new_text"
+                        android:textSize="@dimen/px_30"
+                        android:visibility="gone" />
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
                         android:background="@color/new_text_click"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
                         <TextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="回复单位"
-                            android:textSize="@dimen/px_30"
                             android:layout_weight="1"
                             android:gravity="left"
+                            android:text="回复单位"
                             android:textColor="@color/yellow"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="评价满意度：满意"
                             android:layout_weight="1"
-                            android:textSize="@dimen/px_30"
                             android:gravity="right"
+                            android:text="评价满意度：满意"
                             android:textColor="@color/yellow"
-                            />
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:orientation="horizontal" >
+                        android:orientation="horizontal"
+                        android:padding="20dp">
 
                         <TextView
                             android:id="@+id/tv_reContent"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:gravity="left"
-                            android:text=""
-                            android:textSize="@dimen/px_30"
-                            android:textColor="@color/new_text"
                             android:lineSpacingExtra="5dp"
-                            />
+                            android:text=""
+                            android:textColor="@color/new_text"
+                            android:textSize="@dimen/px_30" />
 
                     </LinearLayout>
 
@@ -304,17 +287,16 @@
         </ScrollView>
 
         <LinearLayout
-            android:visibility="gone"
-            android:layout_marginBottom="@dimen/px_10"
             android:layout_width="match_parent"
             android:layout_height="@dimen/px_100"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
+            android:layout_marginBottom="@dimen/px_10"
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            >
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:visibility="gone">
 
 
             <TextView
@@ -322,11 +304,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="我要评价"
-                android:gravity="center"
                 android:background="@drawable/btn_agreed"
-                android:textSize="@dimen/px_30"
+                android:gravity="center"
+                android:text="我要评价"
                 android:textColor="@color/white"
+                android:textSize="@dimen/px_30"
 
                 />
 
@@ -336,11 +318,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_weight="1"
-                android:text="查看评价"
-                android:gravity="center"
                 android:background="@drawable/btn_agreed"
-                android:textSize="@dimen/px_30"
+                android:gravity="center"
+                android:text="查看评价"
                 android:textColor="@color/white"
+                android:textSize="@dimen/px_30"
 
                 />
 

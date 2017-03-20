@@ -121,14 +121,11 @@
                         android:src="@drawable/news_list_con_bg" />
 
                     <com.cjj.MaterialRefreshLayout
-
                         android:id="@+id/materialRefreshLayout"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
                         android:paddingLeft="@dimen/px_20"
                         android:paddingRight="@dimen/px_20"
-
                         app:isLoadMore="false"
                         app:overlay="false"
                         app:wave_show="false">

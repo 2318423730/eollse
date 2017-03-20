@@ -125,6 +125,16 @@ public class Jgcx {
         private int AuditState;
         private String AuditName;
 
+        private String HandleId;
+
+        public String getHandleId() {
+            return HandleId;
+        }
+
+        public void setHandleId(String handleId) {
+            HandleId = handleId;
+        }
+
         public int getOpinionId() {
             return OpinionId;
         }

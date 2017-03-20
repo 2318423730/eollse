@@ -99,14 +99,14 @@ public class ZwfwActivity extends BaseActivity {
                     intent.setClass(ZwfwActivity.this, SqtjActivity.class);
                 } else if (i == 2) {
                     //跳转到结果查询
-                    intent.setClass(ZwfwActivity.this,JgcxActivity.class);
-                   
-                }else if (i == 3) {
+                    intent.setClass(ZwfwActivity.this, JgcxActivity.class);
+
+                } else if (i == 3) {
                     //跳转到网上办事
                     return;
-                }else if (i == 4) {
+                } else if (i == 4) {
                     //跳转到预约办事
-                    return;
+                    intent.setClass(ZwfwActivity.this, YybsActivity.class);
                 } else if (i == 5) {
                     //跳转到党群风采
                     intent.setClass(ZwfwActivity.this, DqfcActivity.class);
@@ -122,10 +122,10 @@ public class ZwfwActivity extends BaseActivity {
                 } else if (i == 9) {
                     //跳转到群工平台
                     return;
-                }else if (i == 10) {
+                } else if (i == 10) {
                     //跳转到平安社区
                     return;
-                }else if (i == 11) {
+                } else if (i == 11) {
                     //跳转到社区概况
                     intent.setClass(ZwfwActivity.this, SqgkActivity.class);
                 }
