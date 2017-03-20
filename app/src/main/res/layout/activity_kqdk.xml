@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bszn"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.KqdkActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="网格管理"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/info_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_20"
+            android:orientation="vertical">
+
+            <include layout="@layout/top"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/px_20"
+                android:layout_marginLeft="@dimen/px_40"
+                android:layout_marginRight="@dimen/px_40"
+                android:layout_marginTop="@dimen/px_10"
+                android:layout_weight="1"
+                android:background="@drawable/shape_white_corners"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/left"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/shape_kqda_left"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal"
+                            android:text="考勤打卡栏"
+                            android:textColor="@color/bule"
+                            android:textSize="@dimen/px_50" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_200"></LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/right"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_kqda_right"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

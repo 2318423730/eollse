@@ -86,7 +86,11 @@
         <activity
             android:name=".activity.QgptActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.PasqActivity" />
+        <activity android:name=".activity.PasqActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.KqdkActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden"></activity>
     </application>
 
 </manifest>
