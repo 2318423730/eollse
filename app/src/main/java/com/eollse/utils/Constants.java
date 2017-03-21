@@ -50,7 +50,10 @@ public interface Constants {
      */
     int HANDLER_LOGIN_SUCCESS=9;
 
-
+    /**
+     * 更新时间
+     */
+    int HANDLER_REFRESH_TIME=10;
 
 
     /**

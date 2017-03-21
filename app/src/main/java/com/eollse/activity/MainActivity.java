@@ -2,6 +2,7 @@ package com.eollse.activity;
 
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,11 +25,11 @@ import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
 import com.eollse.entity.Video;
 import com.eollse.ui.MyPmdTextView;
+import com.eollse.ui.MyVideoView;
 import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyToast;
-import com.eollse.utils.OkHttpUtil;
 import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
 
@@ -50,8 +52,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     @BindView(R.id.ll_top1)
     LinearLayout llTop1;
 
-    @BindView(R.id.videoView)
-    MyVitamioVideoView videoView;
+
     @BindView(R.id.lv_listview)
     ListView lvListview;
     @BindView(R.id.ll_middle_left)
@@ -86,6 +87,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     MaterialRefreshLayout materialRefreshLayout;
     @BindView(R.id.ll_middle_right)
     LinearLayout llMiddleRight;
+    @BindView(R.id.videoView)
+    MyVitamioVideoView videoView;
 
     /**
      * 轮播文字
@@ -160,11 +163,11 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Vitamio.isInitialized(this);
+        Vitamio.isInitialized(MainActivity.this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+       // Vitamio.isInitialized(this);
 
         //设置监听器
         setListeners();
@@ -212,7 +215,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 //此处设置播放速度为正常速度1
-                mp.setPlaybackSpeed(1.0f);
+               // mp.setPlaybackSpeed(1.0f);
 
                 videoWidth = mp.getVideoWidth();
                 videoHeight = mp.getVideoHeight();
@@ -252,12 +255,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 return false;
             }
         });
-        videoView.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
-            @Override
-            public void onBufferingUpdate(MediaPlayer mp, int percent) {
 
-            }
-        });
         //播放完成的监听
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
@@ -270,12 +268,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 playNext();
             }
         });
-        videoView.setOnSeekCompleteListener(new MediaPlayer.OnSeekCompleteListener() {
-            @Override
-            public void onSeekComplete(MediaPlayer mp) {
-                // mp.seekTo(MyApplication.lastPlayPosition);
-            }
-        });
+
 
         materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
@@ -290,12 +283,12 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 //http://oa.ybqtw.org.cn/api/Html/news_show.html?method=newshtml&userid=1&Key=21218CCA77804D2BA1922C33E0151105&typeVer=&id=1419
-                String url = Constants.BASE_NEWS_URL+"method=newshtml"+"&userid="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
-                        +"&Key="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
+                String url = Constants.BASE_NEWS_URL + "method=newshtml" + "&userid=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
+                        + "&Key=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "") + "&id=" + newsList.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent=new Intent(MainActivity.this,NewsDetailActivity.class);
-                intent.putExtra("url",url);
-                intent.putExtra("from","mainNews");
+                Intent intent = new Intent(MainActivity.this, NewsDetailActivity.class);
+                intent.putExtra("url", url);
+                intent.putExtra("from", "mainNews");
                 startActivity(intent);
             }
         });
@@ -510,18 +503,20 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         MyApplication.lastPosition = videoPosition;
         MyApplication.lastPlayPosition = old_duration;
         MyApplication.isRestart = true;
-        //videoView.pause();
+        videoView.pause();
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        //videoView.resume();
+        videoView.resume();
         if (videosList != null && videosList.size() > 0) {
             videoView.setVideoPath(videosList.get(MyApplication.lastPosition).getHightUrl());
+            //videoView.start();
         }
-        videoView.seekTo(old_duration);
+       videoView.seekTo(MyApplication.lastPlayPosition);
+
     }
 
     @Override

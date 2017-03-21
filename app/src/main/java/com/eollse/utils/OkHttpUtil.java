@@ -2,12 +2,16 @@ package com.eollse.utils;
 
 import android.util.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -20,13 +24,19 @@ import okhttp3.Response;
 public class OkHttpUtil {
 
     private static OkHttpClient okHttpClient;
+    FormBody.Builder formBodyBuilder;
+    MultipartBody.Builder multipartBodybuilder;
+
+    private static final MediaType MEDIA_TYPE_PNG = MediaType.parse("image/*");
 
     //设置私有的构造方法，不允许new
     private OkHttpUtil() {
         if (okHttpClient == null) {
             synchronized (OkHttpUtil.class) {
                 if (okHttpClient == null) {
-                    okHttpClient = new OkHttpClient();
+                    okHttpClient = new OkHttpClient.Builder()
+                            .connectTimeout(10, TimeUnit.SECONDS)
+                            .build();
                 }
             }
         }
@@ -38,6 +48,68 @@ public class OkHttpUtil {
 
         return new OkHttpUtil();
     }
+
+
+    private Request buildRequest(String url, Map<String, String> params, HttpType type) {
+        Request.Builder builder = new Request.Builder();
+        builder.url(url);
+
+        if (type == HttpType.GET) {//get请求
+            builder.get();
+        } else if (type == HttpType.POST) {//post请求
+            RequestBody body = buildFormBodyData(params);
+            builder.post(body);
+        }
+
+        return builder.build();
+    }
+
+
+    private Request buildMultipartBodyRequest(String url, Map<String, Object> params) {
+        Request.Builder builder = new Request.Builder();
+        builder.url(url);
+
+        RequestBody body = buildMultipartBodyData(params);
+        builder.post(body);
+
+
+        return builder.build();
+    }
+
+
+    private RequestBody buildFormBodyData(Map<String, String> params) {
+
+        //把参数添加到builder
+        if (params != null) {
+            formBodyBuilder = new FormBody.Builder();
+            for (Map.Entry<String, String> entry : params.entrySet()) {
+                formBodyBuilder.add(entry.getKey(), entry.getValue().toString());
+            }
+        }
+        return formBodyBuilder.build();
+    }
+
+    private RequestBody buildMultipartBodyData(Map<String, Object> params) {
+        if (params != null) {
+            multipartBodybuilder = new MultipartBody.Builder().setType(MultipartBody.FORM);
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
+                if (entry.getValue() != null) {
+                    if (entry.getValue() instanceof File) {
+                        File file = (File) entry.getValue();
+                        if(file.exists()){
+                            multipartBodybuilder.addFormDataPart(entry.getKey(), file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file));
+                        }
+
+                    } else {
+                        multipartBodybuilder.addFormDataPart(entry.getKey(), entry.getValue().toString());
+                    }
+                }
+
+            }
+        }
+        return multipartBodybuilder.build();
+    }
+
 
     /**
      * 执行请求(异步)
@@ -75,12 +147,19 @@ public class OkHttpUtil {
         });
     }
 
+    enum HttpType {
+        GET,
+        POST
+    }
+
+
     /**
      * get方法
      *
      * @param url 请求路径
      */
     public void get(String url, HttpCallBack httpCallBack) {
+
         Request request = buildRequest(url, null, HttpType.GET);
         doRequest(request, httpCallBack);
     }
@@ -92,43 +171,17 @@ public class OkHttpUtil {
      * @param params 请求参数的集合
      */
     public void post(String url, Map<String, String> params, HttpCallBack httpCallBack) {
+
         Request request = buildRequest(url, params, HttpType.POST);
         doRequest(request, httpCallBack);
     }
 
-
-    private Request buildRequest(String url, Map<String, String> params, HttpType type) {
-        Request.Builder builder = new Request.Builder();
-        builder.url(url);
-
-        if (type == HttpType.GET) {//get请求
-            builder.get();
-        } else if (type == HttpType.POST) {//post请求
-            RequestBody body = buildFormatData(params);
-
-
-            //.build();
-            builder.post(body);
-        }
-
-        return builder.build();
-    }
-
-    private RequestBody buildFormatData(Map<String, String> params) {
-        FormBody.Builder builder = new FormBody.Builder();
-
-        if (params != null) {//把参数添加到builder
-            for (Map.Entry<String, String> en : params.entrySet()) {
-                builder.add(en.getKey(), en.getValue());
-            }
-        }
-
-        return builder.build();
-    }
-
-
-    enum HttpType {
-        GET,
-        POST
+    /**
+     * @param url    请求路径
+     * @param params 文件集合
+     */
+    public void uploadImgage(String url, Map<String, Object> params, HttpCallBack httpCallBack) {
+        Request request = buildMultipartBodyRequest(url, params);
+        doRequest(request, httpCallBack);
     }
 }

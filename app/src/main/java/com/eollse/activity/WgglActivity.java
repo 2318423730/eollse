@@ -1,11 +1,15 @@
 package com.eollse.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.adapter.WgglAdapter;
+import com.eollse.app.MyApplication;
 import com.eollse.entity.Wggl;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.SharedPreUtil;
@@ -46,10 +50,10 @@ public class WgglActivity extends BaseActivity {
 
         img = new int[]{R.drawable.wggl_ltjd, R.drawable.wggl_jcsj, R.drawable.wggl_tjfx,
                 R.drawable.wggl_gzgl, R.drawable.wggl_rkgl, R.drawable.wggl_txl,
-                R.drawable.wggl_wgryxx,R.drawable.wggl_jzbf,R.drawable.wggl_kqdk};
+                R.drawable.wggl_wgryxx,R.drawable.wggl_kqdk};
         title = new String[]{"龙塔街道", "基础数据", "统计分析",
                 "工作管理", "人口管理", "通讯录",
-                "网格人员信息","精准帮扶","考勤打卡"};
+                "网格人员信息","考勤打卡"};
 
 
         tvTitle.setText("网格管理");
@@ -58,9 +62,40 @@ public class WgglActivity extends BaseActivity {
         String mobile = SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Mobile", "");
         tvTop2.setText("地址:" + address + "\t\t\t网格长:" + realName + "\t\t\t联系电话:" + mobile);
 
-
+        setListeners();
         getData();
         setAdapter();
+    }
+
+    private void setListeners() {
+        //回首页
+        tvBackHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WgglActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                MyApplication.clearAllActivitiesWithOutMainActivity();
+            }
+        });
+        //返回
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        gvWggl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent=new Intent();
+                if(position==img.length-1){
+                    intent.setClass(WgglActivity.this,KqdkActivity.class);
+                }
+                startActivity(intent);
+            }
+        });
     }
 
     private void setAdapter() {

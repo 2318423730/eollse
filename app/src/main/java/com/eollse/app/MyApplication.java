@@ -22,6 +22,10 @@ import okhttp3.OkHttpClient;
  */
 
 public class MyApplication extends Application {
+    static{
+        System.loadLibrary("stlport_shared");
+
+    }
     /**
      * 跳转到其他页面时，上次视频播放到的进度
      */

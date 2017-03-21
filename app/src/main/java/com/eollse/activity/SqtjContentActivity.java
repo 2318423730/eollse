@@ -75,6 +75,7 @@ public class SqtjContentActivity extends BaseActivity {
                     break;
                 case Constants.HANDLER_DEPT_RECEIVED:
                     showPopup(myView,"dept");
+                    break;
                 case Constants.HANDLER_SQTJ_FAIL:
                     MyToast.showToast(getApplicationContext(),"诉求提交失败");
                     break;
@@ -206,7 +207,7 @@ public class SqtjContentActivity extends BaseActivity {
 
             @Override
             public void OnError(String jsonStr) {
-                MyToast.showToast(getApplicationContext(),"提交失败!!!");
+               handler.sendEmptyMessage(Constants.HANDLER_SQTJ_FAIL);
             }
         });
     }

@@ -176,11 +176,11 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
 
+                                    android:background="@drawable/selector_sqtjcontent_btn_bg"
                                     android:button="@null"
                                     android:checked="true"
                                     android:gravity="center"
                                     android:text="短信验证"
-                                    android:background="@drawable/selector_sqtjcontent_btn_bg"
                                     android:textColor="@drawable/selector_sqtjcontent_btn_text"
                                     android:textSize="@dimen/px_30" />
 
@@ -204,7 +204,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
+                            android:layout_height="@dimen/px_120"
                             android:layout_marginTop="@dimen/px_20"
                             android:orientation="horizontal">
 
@@ -368,11 +368,11 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:background="@drawable/selector_sqtjcontent_btn_bg"
                                 android:button="@null"
-                                android:checked="false"
+                                android:checked="true"
                                 android:gravity="center"
                                 android:text="对外公示"
-                                android:background="@drawable/selector_sqtjcontent_btn_bg"
                                 android:textColor="@drawable/selector_sqtjcontent_btn_text"
                                 android:textSize="@dimen/px_30" />
 
@@ -387,7 +387,7 @@
                                 android:checked="false"
                                 android:gravity="center"
                                 android:text="不对外公示"
-                                android:textColor="@color/white"
+                                android:textColor="@drawable/selector_sqtjcontent_btn_text"
                                 android:textSize="@dimen/px_30" />
                         </RadioGroup>
 
@@ -406,9 +406,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_marginRight="@dimen/px_50"
                                 android:layout_weight="1"
+                                android:background="@drawable/shape_yijt_button_tongyi_background"
                                 android:text="提\t\t\t\t交"
-                                android:background="@drawable/selector_sqtjcontent_btn_bg"
-                                android:textColor="@drawable/selector_sqtjcontent_btn_text"
+                                android:textColor="@color/white"
                                 android:textSize="@dimen/px_30" />
 
                         </LinearLayout>
