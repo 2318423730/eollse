@@ -16,6 +16,9 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
     }
     buildTypes {
         release {
@@ -45,6 +48,6 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.alibaba:fastjson:1.2.24'
     compile project(':library_MaterialRefreshLayout')
-    compile project(':vitamio')
     compile files('libs/BaiduLBS_Android.jar')
+    compile project(':vitamio')
 }

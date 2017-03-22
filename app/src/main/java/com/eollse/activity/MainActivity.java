@@ -39,6 +39,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.Vitamio;
@@ -167,6 +168,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if (!LibsChecker.checkVitamioLibs(this))
+            return;
        // Vitamio.isInitialized(this);
 
         //设置监听器

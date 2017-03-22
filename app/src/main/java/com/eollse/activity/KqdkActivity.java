@@ -197,7 +197,7 @@ public class KqdkActivity extends BaseActivity {
                     Log.e("MyTAG", "城市=" + address.city);
                     Log.e("MyTAG", "精度=" + a + "  纬度=" + b);
 
-                    tvAddress.setText(s2);
+                    tvAddress.setText("AddrStr=" + s2+"  LocationDescribe=" + s);
 
                     mLocationClient.stop();
                 }

@@ -1,1 +1,1 @@
-include ':app', ':vitamio', ':library_MaterialRefreshLayout'
+include ':app', ':library_MaterialRefreshLayout', ':vitamio'
