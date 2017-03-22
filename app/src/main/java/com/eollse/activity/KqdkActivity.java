@@ -1,7 +1,11 @@
 package com.eollse.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,8 +13,10 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
@@ -19,9 +25,12 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.eollse.R;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.BitmapUtil;
 import com.eollse.utils.Constants;
 import com.eollse.utils.MyToast;
+import com.eollse.utils.UploadPicHelper;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,7 +40,7 @@ import butterknife.ButterKnife;
 /**
  * 考勤打卡
  */
-public class KqdkActivity extends BaseActivity {
+public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.tv_backHome)
     TextView tvBackHome;
@@ -49,6 +58,28 @@ public class KqdkActivity extends BaseActivity {
     TextView tvDate;
     @BindView(R.id.tv_address)
     TextView tvAddress;
+    @BindView(R.id.tv_getLoction)
+    TextView tvGetLoction;
+    @BindView(R.id.et_userName)
+    EditText etUserName;
+    @BindView(R.id.et_usrNum)
+    EditText etUsrNum;
+    @BindView(R.id.btn_login)
+    Button btnLogin;
+    @BindView(R.id.et_kq_content)
+    EditText etKqContent;
+    @BindView(R.id.btn_kq_commit)
+    Button btnKqCommit;
+    @BindView(R.id.et_qj_content)
+    EditText etQjContent;
+    @BindView(R.id.btn_qj_commit)
+    Button btnQjCommit;
+    @BindView(R.id.iv_choose)
+    ImageView ivChoose;
+    @BindView(R.id.iv_info)
+    ImageView ivInfo;
+    @BindView(R.id.tv_addressNotice)
+    TextView tvAddressNotice;
 
     private int mYear;
     private int mMonth;
@@ -60,7 +91,8 @@ public class KqdkActivity extends BaseActivity {
     private SimpleDateFormat dfTime;
     private SimpleDateFormat dfDate;
 
-    private static final int BAIDU_PERMESSION =100;
+    private static final int BAIDU_PERMESSION = 100;
+    private static final int CAMERA = 101;
     public LocationClient mLocationClient = null;
     private LocationClientOption option;
     public BDLocationListener myListener;
@@ -138,9 +170,12 @@ public class KqdkActivity extends BaseActivity {
                 finish();
             }
         });
+        tvGetLoction.setOnClickListener(this);
+        ivChoose.setOnClickListener(this);
     }
 
-    private class MyLocationListener implements BDLocationListener{
+
+    private class MyLocationListener implements BDLocationListener {
 
         @Override
         public void onReceiveLocation(BDLocation location) {
@@ -155,7 +190,7 @@ public class KqdkActivity extends BaseActivity {
                 //服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因
             } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
                 //网络不同导致定位失败，请检查网络是否通畅
-
+                MyToast.showToast(getApplicationContext(), "请检查网络");
             } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
                 //无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机
             }
@@ -187,17 +222,21 @@ public class KqdkActivity extends BaseActivity {
 
                     double a = location.getLongitude();//精度
                     double b = location.getLatitude();//纬度
-                    String s = location.getLocationDescribe();
-                    String s2=location.getAddrStr();
+                    //String s = location.getLocationDescribe();
+                    String dizhi = location.getAddrStr();
                     Address address = location.getAddress();
 
                     //Toast.makeText(LocationActivity.this, "精度="+a+"  纬度="+b, Toast.LENGTH_SHORT).show();
-                    Log.e("MyTAG", "AddrStr=" + s2);
-                    Log.e("MyTAG", "LocationDescribe=" + s);
-                    Log.e("MyTAG", "城市=" + address.city);
-                    Log.e("MyTAG", "精度=" + a + "  纬度=" + b);
+                    //Log.e("MyTAG", "AddrStr=" + dizhi);
+                    // Log.e("MyTAG", "LocationDescribe=" + s);
+                    // Log.e("MyTAG", "城市=" + address.city);
+                    //Log.e("MyTAG", "经度=" + a + "  纬度=" + b);
+                    if (!(dizhi == null)) {
+                        tvAddress.setText(dizhi);
+                    } else {
+                        tvAddress.setText("定位失败!!!");
+                    }
 
-                    tvAddress.setText("AddrStr=" + s2+"  LocationDescribe=" + s);
 
                     mLocationClient.stop();
                 }
@@ -215,13 +254,12 @@ public class KqdkActivity extends BaseActivity {
     private void getMyLocation() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//6.0以上
-            if(this.checkSelfPermission("android.permission.ACCESS_COARSE_LOCATION") != PackageManager.PERMISSION_GRANTED)
-            {
+            if (this.checkSelfPermission("android.permission.ACCESS_COARSE_LOCATION") != PackageManager.PERMISSION_GRANTED) {
                 // 申请一个（或多个）权限，并提供用于回调返回的获取码（用户定义)
-                requestPermissions( new String[]{"android.permission.ACCESS_COARSE_LOCATION","android.permission.ACCESS_FINE_LOCATION","android.permission.READ_PHONE_STATE"},BAIDU_PERMESSION);
+                requestPermissions(new String[]{"android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION", "android.permission.READ_PHONE_STATE"}, BAIDU_PERMESSION);
 
                 return;
-            }else{
+            } else {
                 //   开始定位
                 mLocationClient.start();
 
@@ -253,7 +291,7 @@ public class KqdkActivity extends BaseActivity {
 
         date = new Date();
         String time = dfTime.format(date);
-        // 截取字符串(传入的格式 ：   01:02:10)
+        // 截取字符串(传入的格式 ：   01:02:1)
         mHour = Integer.parseInt(time.split(":")[0]);//小时
         mMinuts = Integer.parseInt(time.split(":")[1]);//分钟
         mSecond = Integer.parseInt(time.split(":")[2]);//秒
@@ -279,9 +317,6 @@ public class KqdkActivity extends BaseActivity {
 
 
     }
-
-
-
 
 
     @Override
@@ -310,9 +345,193 @@ public class KqdkActivity extends BaseActivity {
                     MyToast.showToast(getApplicationContext(), "没有获得READ_PHONE_STATE");
                 }
                 break;
+            case CAMERA:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    //获取到摄像机权限
+                    Log.e("MyTAG", "获取到摄像机权限");
+                } else {
+                    //没有获取到权限
+                    MyToast.showToast(getApplicationContext(), "没有获得摄像机权限");
+                }
 
+                if (grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    //获取到摄像机权限
+                    Log.e("MyTAG", "获取到SD卡读权限");
+                } else {
+                    //没有获取到权限
+                    MyToast.showToast(getApplicationContext(), "没有获取到SD卡读权限");
+                }
+
+                if (grantResults[2] == PackageManager.PERMISSION_GRANTED) {
+                    //获取到摄像机权限
+                    Log.e("MyTAG", "获取到SD卡写权限");
+                } else {
+                    //没有获取到权限
+                    MyToast.showToast(getApplicationContext(), "没有获取到SD卡写权限");
+                }
+                break;
 
         }
         mLocationClient.start();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_getLoction://手动重新定位:
+                tvAddress.setText("定位中...");
+                getMyLocation();
+                break;
+            case R.id.btn_login://登录
+                login();
+                break;
+            case R.id.btn_kq_commit://考勤提交
+                kaoqiCommit();
+                break;
+            case R.id.btn_qj_commit://请假提交
+                qingjiaCommit();
+                break;
+            case R.id.iv_choose:
+                openCamera();
+
+                break;
+
+        }
+    }
+
+    private void openCamera() {
+        //获取权限
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {//6.0以上
+            requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, CAMERA);
+        }
+
+        UploadPicHelper.showPicDialog(KqdkActivity.this);
+
+
+    }
+
+
+    private void login() {
+        if ("".equals(etUserName.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "姓名不能为空");
+            return;
+        }
+        if ("".equals(etUsrNum.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "工号不能为空");
+            return;
+        }
+        MyToast.showToast(getApplicationContext(), "暂未连通后台");
+    }
+
+    /**
+     * 考勤提交
+     */
+    private void kaoqiCommit() {
+        MyToast.showToast(getApplicationContext(), "未知提交哪些数据");
+    }
+
+    /**
+     * 请假提交
+     */
+    private void qingjiaCommit() {
+        MyToast.showToast(getApplicationContext(), "未知提交哪些数据");
+    }
+
+    private Uri imgUri;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case UploadPicHelper.TAKEPHOTO_REQUESTCODE:
+
+                if (resultCode == -1) {
+                    File file1 = new File(UploadPicHelper.takePicturePath);
+                    //UploadPicHelper.startPhotoZoom(Uri.fromFile(file1), this);
+
+
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    int size = BitmapUtil.calculateInSampleSize(options, 200, 200);
+                    options.inSampleSize = size;
+                    options.inJustDecodeBounds = false;
+                    Log.e("MyTAG", "" + size);
+                    Bitmap b = null;
+                    try {
+
+                        b = BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
+                        ivInfo.setImageBitmap(b);
+                        tvAddressNotice.setVisibility(View.GONE);
+                        Log.e("MyTAG", "" + ivInfo.getMeasuredWidth());
+                        Log.e("MyTAG", "" + ivInfo.getMeasuredHeight());
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+//                    BitmapFactory.Options options = new BitmapFactory.Options();
+//                    Bitmap b = null;
+//                    b = BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
+//                    //压缩
+//                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                    b.compress(Bitmap.CompressFormat.JPEG, 50, stream);//10 是压缩率，表示压缩90%; 如果不压缩是100，表示压缩率为0
+//                    byte[] bytes = stream.toByteArray();
+//                    try {
+//                        stream.flush();
+//                        stream.close();
+//                    } catch (IOException e) {
+//
+//
+//                    }
+//                    Glide.with(this).load(bytes).into(ivInfo);
+//                    Log.e("MyTAG",""+ivInfo.getMeasuredWidth());
+//                    Log.e("MyTAG",""+ivInfo.getMeasuredHeight());
+//                }
+
+                break;
+//            case UploadPicHelper.CROP:
+//                Bundle bundle = data.getExtras();
+//                if (data != null) {
+//
+//                    Bitmap bitmap = null;
+//                    if (bundle != null) {
+//                        bitmap = bundle.getParcelable("data");
+//                        //将Uri图片转换为Bitmap
+//                           /* try {
+//                                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(imgUri));
+//                            } catch (FileNotFoundException e) {
+//                                e.printStackTrace();
+//                            }*/
+//
+//                        //圆形图片
+//                        //bitmap = BitmapUtil.toRoundBitmap(bitmap);
+//                        //压缩
+//                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//                        bitmap.compress(Bitmap.CompressFormat.JPEG, 10, stream);//10 是压缩率，表示压缩90%; 如果不压缩是100，表示压缩率为0
+//                        byte[] bytes = stream.toByteArray();
+//                        try {
+//                            stream.flush();
+//                            stream.close();
+//                        } catch (IOException e) {
+//
+//                        }
+//                        //转换图片
+//                        String s = Base64.encodeToString(bytes, Base64.NO_WRAP);
+//                        // ivInfo.setImageBitmap(bitmap);
+//                        Glide.with(this).load(bitmap).into(ivInfo);
+//                    }
+//
+//                }
+//                break;
+        }
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        handler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 }

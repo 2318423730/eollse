@@ -88,8 +88,8 @@
                                 android:background="@drawable/kqdk_time_bg"
                                 android:gravity="center"
                                 android:text="小时"
-                                android:textSize="@dimen/px_50"
-                                android:textColor="@color/red" />
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/px_50" />
 
                             <TextView
 
@@ -108,8 +108,8 @@
                                 android:background="@drawable/kqdk_time_bg"
                                 android:gravity="center"
                                 android:text="分钟"
-                                android:textSize="@dimen/px_50"
-                                android:textColor="@color/red" />
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/px_50" />
 
                             <TextView
 
@@ -128,8 +128,8 @@
                                 android:background="@drawable/kqdk_time_bg"
                                 android:gravity="center"
                                 android:text="秒"
-                                android:textSize="@dimen/px_50"
-                                android:textColor="@color/red" />
+                                android:textColor="@color/red"
+                                android:textSize="@dimen/px_50" />
                         </LinearLayout>
 
                         <TextView
@@ -142,6 +142,7 @@
                             android:textSize="@dimen/px_40" />
 
                         <TextView
+                            android:id="@+id/tv_getLoction"
                             android:layout_width="@dimen/px_150"
                             android:layout_height="@dimen/px_70"
                             android:background="@drawable/kqdk_btn_bg"
@@ -153,9 +154,10 @@
                         <TextView
                             android:id="@+id/tv_address"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_150"
+                            android:layout_height="@dimen/px_100"
                             android:gravity="center_vertical"
-                            android:text="定位地址" />
+                            android:text="定位中..."
+                            android:textSize="@dimen/px_35" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -180,9 +182,10 @@
                                     android:textSize="@dimen/px_40" />
 
                                 <EditText
+
                                     android:id="@+id/et_userName"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_weight="1"
                                     android:background="@drawable/shape_white_corners"
                                     android:gravity="center_vertical"
@@ -206,7 +209,7 @@
                                 <EditText
                                     android:id="@+id/et_usrNum"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_weight="1"
                                     android:background="@drawable/shape_white_corners"
                                     android:gravity="center_vertical"
@@ -256,6 +259,7 @@
                             android:layout_height="@dimen/px_100">
 
                             <ImageView
+                                android:id="@+id/iv_choose"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerInParent="true"
@@ -266,15 +270,32 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
+                            android:gravity="center"
                             android:orientation="vertical">
 
-                            <ListView
-                                android:id="@+id/lv_img"
+                            <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
-                                android:layout_weight="1">
+                                android:layout_weight="1"
+                                android:padding="@dimen/px_10">
 
-                            </ListView>
+                                <ImageView
+                                    android:id="@+id/iv_info"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_centerInParent="true">
+
+                                </ImageView>
+                                <TextView
+                                    android:id="@+id/tv_addressNotice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:layout_centerInParent="true"
+                                    android:text="位置图片"
+                                    android:textSize="@dimen/px_30"/>
+                            </RelativeLayout>
+
 
                             <EditText
                                 android:id="@+id/et_kq_content"
@@ -295,6 +316,7 @@
                             android:orientation="vertical">
 
                             <Button
+                                android:id="@+id/btn_kq_commit"
                                 android:layout_width="wrap_content"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"

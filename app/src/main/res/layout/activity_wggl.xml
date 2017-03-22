@@ -52,10 +52,10 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"
+                    android:gravity="center"
                     android:text="地址 姓名   电话"
-                    android:textColor="@color/yellow"
-                    android:textSize="@dimen/px_30" />
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/px_35" />
 
 
             </LinearLayout>

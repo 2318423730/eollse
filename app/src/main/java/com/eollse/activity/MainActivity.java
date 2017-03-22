@@ -170,7 +170,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         ButterKnife.bind(this);
         if (!LibsChecker.checkVitamioLibs(this))
             return;
-       // Vitamio.isInitialized(this);
 
         //设置监听器
         setListeners();
