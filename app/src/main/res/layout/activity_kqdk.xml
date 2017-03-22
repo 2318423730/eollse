@@ -365,8 +365,135 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="@dimen/px_10"
                             android:layout_marginTop="@dimen/px_10"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="@dimen/px_130"
+                                    android:layout_height="match_parent"
+                                    android:text="请假类型:"
+                                    android:textSize="@dimen/px_30"
+                                    android:gravity="center"/>
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:hint="选择请假类型"
+                                        android:textSize="@dimen/px_30"
 
+                                        android:gravity="center"/>
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:src="@drawable/kqdk_to_right"/>
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="@dimen/px_130"
+                                    android:layout_height="match_parent"
+                                    android:text="审批领导:"
+                                    android:textSize="@dimen/px_30"
+                                    android:gravity="center"/>
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:hint="选择审批领导"
+                                        android:textSize="@dimen/px_30"
+
+                                        android:gravity="center"/>
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:src="@drawable/kqdk_to_right"/>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="@dimen/px_130"
+                                    android:layout_height="match_parent"
+                                    android:text="开始时间:"
+                                    android:textSize="@dimen/px_30"
+                                    android:gravity="center"/>
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:hint="选择开始时间"
+                                        android:textSize="@dimen/px_30"
+
+                                        android:gravity="center"/>
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:src="@drawable/kqdk_to_right"/>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+                                <TextView
+                                    android:layout_width="@dimen/px_130"
+                                    android:layout_height="match_parent"
+                                    android:text="结束时间:"
+                                    android:textSize="@dimen/px_30"
+                                    android:gravity="center"/>
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <EditText
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:hint="选择结束时间"
+                                        android:textSize="@dimen/px_30"
+
+                                        android:gravity="center"/>
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_alignParentRight="true"
+                                        android:src="@drawable/kqdk_to_right"/>
+                                </RelativeLayout>
+                            </LinearLayout>
                         </LinearLayout>
 
                     </LinearLayout>
