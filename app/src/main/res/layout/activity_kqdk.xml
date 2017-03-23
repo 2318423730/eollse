@@ -383,6 +383,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
                                     <EditText
+                                        android:id="@+id/et_qj_type"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:hint="选择请假类型"
@@ -416,6 +417,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
                                     <EditText
+                                        android:id="@+id/et_qj_leader"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:hint="选择审批领导"
@@ -448,6 +450,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
                                     <EditText
+                                        android:id="@+id/et_qj_startTime"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:hint="选择开始时间"
@@ -480,6 +483,7 @@
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
                                     <EditText
+                                        android:id="@+id/et_qj_endTime"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:hint="选择结束时间"

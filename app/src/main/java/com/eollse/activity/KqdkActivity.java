@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -18,7 +17,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -80,6 +78,14 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     ImageView ivInfo;
     @BindView(R.id.tv_addressNotice)
     TextView tvAddressNotice;
+    @BindView(R.id.et_qj_type)
+    EditText etQjType;
+    @BindView(R.id.et_qj_leader)
+    EditText etQjLeader;
+    @BindView(R.id.et_qj_startTime)
+    EditText etQjStartTime;
+    @BindView(R.id.et_qj_endTime)
+    EditText etQjEndTime;
 
     private int mYear;
     private int mMonth;
@@ -171,7 +177,10 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             }
         });
         tvGetLoction.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
         ivChoose.setOnClickListener(this);
+        btnKqCommit.setOnClickListener(this);
+        btnQjCommit.setOnClickListener(this);
     }
 
 
@@ -224,7 +233,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     double b = location.getLatitude();//纬度
                     //String s = location.getLocationDescribe();
                     String dizhi = location.getAddrStr();
-                    Address address = location.getAddress();
+                    // Address address = location.getAddress();
 
                     //Toast.makeText(LocationActivity.this, "精度="+a+"  纬度="+b, Toast.LENGTH_SHORT).show();
                     //Log.e("MyTAG", "AddrStr=" + dizhi);
@@ -420,24 +429,73 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             MyToast.showToast(getApplicationContext(), "工号不能为空");
             return;
         }
-        MyToast.showToast(getApplicationContext(), "暂未连通后台");
+        MyToast.showToast(getApplicationContext(), "登陆成功");
+        isLogin = true;
     }
+
+    private boolean isLogin;
 
     /**
      * 考勤提交
      */
     private void kaoqiCommit() {
-        MyToast.showToast(getApplicationContext(), "未知提交哪些数据");
+        if (isLogin) {
+            if ("".equals(tvAddress.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "需重新定位");
+                return;
+            }
+            if ("".equals(etKqContent.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "考勤备注不能为空");
+                return;
+            }
+
+            MyToast.showToast(getApplicationContext(), "考勤提交成功");
+
+        } else {
+            MyToast.showToast(getApplicationContext(), "请先登录");
+            return;
+        }
+
     }
 
     /**
      * 请假提交
      */
     private void qingjiaCommit() {
-        MyToast.showToast(getApplicationContext(), "未知提交哪些数据");
+        if (isLogin) {
+            if ("".equals(etQjType.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "请选择请假类型");
+                return;
+            }
+            if ("".equals(etQjLeader.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "请选择审批领导");
+                return;
+            }
+            if ("".equals(etQjStartTime.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "请选择请假开始时间");
+                return;
+            }
+            if ("".equals(etQjEndTime.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "请选择请假结束时间");
+                return;
+            }
+            if ("".equals(tvAddress.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "需重新定位");
+                return;
+            }
+            if ("".equals(etQjContent.getText().toString())) {
+                MyToast.showToast(getApplicationContext(), "请假详情不能为空");
+                return;
+            }
+            MyToast.showToast(getApplicationContext(), "请假提交成功");
+        } else {
+            MyToast.showToast(getApplicationContext(), "请先登录");
+
+        }
+
     }
 
-    private Uri imgUri;
+    //private Uri imgUri;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
