@@ -99,10 +99,12 @@
                 </LinearLayout>
 
                 <ScrollView
+                    android:id="@+id/scrollView"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@color/white">
+                    android:background="#8a8dfa"
+                    android:scrollbars="none">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,123 +116,133 @@
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
-                            android:layout_marginBottom="@dimen/px_10">
+                            android:layout_height="@dimen/px_60"
+                            android:layout_margin="@dimen/px_10">
 
+                            <ImageView
+                                android:id="@+id/iv_previousMonth"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/yybs_previous" />
+
+                            <ImageView
+                                android:id="@+id/iv_pnextMonth"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/yybs_next" />
 
                             <TextView
                                 android:id="@+id/popupwindow_calendar_month"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
                                 android:layout_centerInParent="true"
                                 android:gravity="center"
                                 android:text="年月"
                                 android:textColor="#aa564b4b"
-                                android:textSize="25sp" />
+                                android:textSize="20sp" />
 
                         </RelativeLayout>
 
                         <com.eollse.utils.KCalendar
                             android:id="@+id/popupwindow_calendar"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_500"
+                            android:layout_height="@dimen/px_550"
+                            android:layout_margin="@dimen/px_20"
                             android:layout_weight="1">
 
                         </com.eollse.utils.KCalendar>
 
-                        <RadioGroup
-                            android:id="@+id/rg_time1"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_80"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="@dimen/px_10">
 
-                            <RadioButton
-                                android:id="@+id/rb_time1"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:checked="true"
-                                android:gravity="center"
-                                android:text="9:00-10:30"
-                                android:textSize="18sp" />
 
-                            <RadioButton
-                                android:id="@+id/rb_time2"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:gravity="center"
-                                android:text="10:30-12:00"
-                                android:textSize="18sp" />
+                            <RadioGroup
+                                android:id="@+id/rg_time1"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/px_80"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="@dimen/px_20">
 
-                            <RadioButton
-                                android:id="@+id/rb_time3"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:gravity="center"
-                                android:text="13:00-14:30"
-                                android:textSize="18sp" />
-                        </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/rb_time1_1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:gravity="center"
+                                    android:button="@null"
+                                    android:text="9:00-10:30" />
 
-                        <RadioGroup
-                            android:id="@+id/rg_time2"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_80"
-                            android:orientation="horizontal"
-                            android:layout_marginTop="@dimen/px_10">
+                                <RadioButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="9:00-10:30" />
 
-                            <RadioButton
-                                android:id="@+id/rb_time4"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:checked="false"
-                                android:gravity="center"
-                                android:text="14:30-16:00"
-                                android:textSize="18sp" />
+                                <RadioButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_marginRight="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:button="@null"
+                                    android:text="9:00-10:30" />
+                            </RadioGroup>
 
-                            <RadioButton
-                                android:id="@+id/rb_time5"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:gravity="center"
-                                android:text="16:00-17:00"
-                                android:textSize="18sp" />
+                            <RadioGroup
+                                android:id="@+id/rg_time2"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/px_80"
+                                android:orientation="horizontal"
+                                android:layout_marginTop="@dimen/px_20">
 
-                            <RadioButton
-                                android:id="@+id/rb_time6"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_20"
-                                android:layout_weight="1"
-                                android:background="@drawable/shape_yybs_radiobutton"
-                                android:button="@null"
-                                android:gravity="center"
-                                android:text="18:00-20:00"
-                                android:textSize="18sp" />
-                        </RadioGroup>
+                                <RadioButton
+                                    android:id="@+id/rb_time2_1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:button="@null"
+                                    android:text="9:00-10:30" />
+
+                                <RadioButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="9:00-10:30" />
+
+                                <RadioButton
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_20"
+                                    android:layout_marginRight="@dimen/px_20"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/selector_yybs_btn_time"
+                                    android:button="@null"
+                                    android:gravity="center"
+                                    android:text="9:00-10:30" />
+                            </RadioGroup>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_80">
+                            android:layout_height="@dimen/px_80"
+                            android:layout_marginTop="@dimen/px_20">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -242,18 +254,18 @@
                                 <TextView
                                     android:layout_width="@dimen/px_80"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/px_10"
                                     android:text="姓名:"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                    android:layout_marginLeft="@dimen/px_10"/>
+                                    android:textSize="15sp" />
 
                                 <EditText
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:background="@drawable/shape_white_solid_corners"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                    android:background="@drawable/shape_white_solid_corners"/>
+                                    android:textSize="15sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -274,10 +286,10 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1"
+                                    android:background="@drawable/shape_white_solid_corners"
                                     android:inputType="number"
                                     android:textColor="@color/black"
-                                    android:textSize="15sp"
-                                    android:background="@drawable/shape_white_solid_corners"/>
+                                    android:textSize="15sp" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -285,41 +297,46 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/px_80"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:layout_marginTop="@dimen/px_20"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
+                                android:layout_marginLeft="@dimen/px_10"
                                 android:gravity="center"
                                 android:text="请输入短信验证码:"
-                                android:layout_marginLeft="@dimen/px_10"/>
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
+
                             <EditText
                                 android:id="@+id/et_code"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:layout_marginLeft="@dimen/px_10"
-                                android:background="@drawable/shape_white_solid_corners"/>
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_white_solid_corners" />
+
                             <Button
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/px_80"
+                                android:layout_marginLeft="@dimen/px_10"
+                                android:background="@drawable/shape_yybs_commit"
                                 android:gravity="center"
                                 android:text="获取短信验证码"
-                                android:background="@drawable/shape_yybs_commit"
-                                android:layout_marginLeft="@dimen/px_10"
-                                android:textColor="@color/red"/>
+                                android:textColor="@color/red" />
                         </LinearLayout>
 
                         <Button
                             android:layout_width="@dimen/px_300"
                             android:layout_height="@dimen/px_80"
-                            android:text="确认"
+                            android:layout_marginTop="@dimen/px_20"
+                            android:background="@drawable/btn_agreed"
                             android:gravity="center"
+                            android:text="确认"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:background="@drawable/btn_agreed"/>
+                            android:textSize="20sp" />
                     </LinearLayout>
                 </ScrollView>
 

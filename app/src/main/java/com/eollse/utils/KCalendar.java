@@ -31,8 +31,7 @@ import com.eollse.R;
  * @author huangyin
  */
 @SuppressWarnings("deprecation")
-public class KCalendar extends ViewFlipper implements
-        GestureDetector.OnGestureListener {
+public class KCalendar extends ViewFlipper implements GestureDetector.OnGestureListener {
     public static final int COLOR_BG_WEEK_TITLE = Color.parseColor("#ffeeeeee"); // 星期标题背景颜色
     public static final int COLOR_TX_WEEK_TITLE = Color.parseColor("#ffcc3333"); // 星期标题文字颜色
     public static final int COLOR_TX_THIS_MONTH_DAY = Color
@@ -534,7 +533,7 @@ public class KCalendar extends ViewFlipper implements
      * @param date
      * @param color
      */
-    void setCalendarDayBgColor(String date, int color) {
+    public void setCalendarDayBgColor(String date, int color) {
         dayBgColorMap.put(date, color);
         setCalendarDate();
     }
@@ -736,18 +735,22 @@ public class KCalendar extends ViewFlipper implements
     }
 
     @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-                           float velocityY) {
-        // 向左/上滑动
-        if (e1.getX() - e2.getX() > 20) {
-            nextMonth();
-        }
-        // 向右/下滑动
-        else if (e1.getX() - e2.getX() < -20) {
-            lastMonth();
-        }
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent1, float v, float v1) {
         return false;
     }
+//
+//    @Override
+//    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+//        // 向左/上滑动
+//        if (e1.getX() - e2.getX() > 20) {
+//            nextMonth();
+//        }
+//        // 向右/下滑动
+//        else if (e1.getX() - e2.getX() < -20) {
+//            lastMonth();
+//        }
+//        return true;
+//    }
 
     /***********************************************
      * get/set methods

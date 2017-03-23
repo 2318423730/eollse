@@ -90,6 +90,9 @@ public class WgglActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent=new Intent();
+                if(position!=img.length-1){
+                    return;
+                }
                 if(position==img.length-1){
                     intent.setClass(WgglActivity.this,KqdkActivity.class);
                 }
