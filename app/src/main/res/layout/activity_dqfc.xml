@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/shape_white_corners"
+            android:background="@drawable/shape_white_solid"
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
             android:layout_marginTop="@dimen/px_20"

@@ -23,7 +23,7 @@
             android:layout_marginBottom="@dimen/px_20"
             android:layout_marginLeft="@dimen/px_80"
             android:layout_marginRight="@dimen/px_80"
-            android:background="@drawable/shape_white_corners">
+            android:background="@drawable/shape_white_solid">
 
         </GridView>
     </LinearLayout>

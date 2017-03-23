@@ -71,7 +71,7 @@
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
             android:layout_marginTop="@dimen/px_10"
-            android:background="@drawable/shape_white_corners"
+            android:background="@drawable/shape_white_solid"
             android:numColumns="3">
 
         </GridView>

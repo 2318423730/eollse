@@ -1,10 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_yybs"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/right_background"
     tools:context="com.eollse.activity.YybsActivity">
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/px_100"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_yybs_type"
+                    android:gravity="center"
+                    android:text="办件类型"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_50" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_yybs_time"
+                    android:gravity="center"
+                    android:text="办件预约"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/px_50" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/px_10">
+
+                    <ListView
+                        android:id="@+id/lv_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scrollbars="none">
+
+                    </ListView>
+
+                    <ImageView
+                        android:id="@+id/iv_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/px_10"
+                        android:src="@drawable/yybs_more" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/px_10">
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_100"
+                            android:layout_marginBottom="@dimen/px_10">
+
+
+                            <TextView
+                                android:id="@+id/popupwindow_calendar_month"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:gravity="center"
+                                android:text="年月"
+                                android:textColor="#aa564b4b"
+                                android:textSize="25sp" />
+
+                        </RelativeLayout>
+
+                        <com.eollse.utils.KCalendar
+                            android:id="@+id/popupwindow_calendar"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_500"
+                            android:layout_weight="1">
+
+                        </com.eollse.utils.KCalendar>
+
+                        <RadioGroup
+                            android:id="@+id/rg_time1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_80"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/px_10">
+
+                            <RadioButton
+                                android:id="@+id/rb_time1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="9:00-10:30"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_time2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="10:30-12:00"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_time3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="13:00-14:30"
+                                android:textSize="18sp" />
+                        </RadioGroup>
+
+                        <RadioGroup
+                            android:id="@+id/rg_time2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_80"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/px_10">
+
+                            <RadioButton
+                                android:id="@+id/rb_time4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:checked="false"
+                                android:gravity="center"
+                                android:text="14:30-16:00"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_time5"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="16:00-17:00"
+                                android:textSize="18sp" />
+
+                            <RadioButton
+                                android:id="@+id/rb_time6"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/shape_yybs_radiobutton"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="18:00-20:00"
+                                android:textSize="18sp" />
+                        </RadioGroup>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_80">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="@dimen/px_80"
+                                    android:layout_height="wrap_content"
+                                    android:text="姓名:"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:layout_marginLeft="@dimen/px_10"/>
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:background="@drawable/shape_white_solid_corners"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="@dimen/px_80"
+                                    android:layout_height="wrap_content"
+                                    android:text="电话:"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:background="@drawable/shape_white_solid_corners"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/px_80"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:gravity="center"
+                                android:text="请输入短信验证码:"
+                                android:layout_marginLeft="@dimen/px_10"/>
+                            <EditText
+                                android:id="@+id/et_code"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="@dimen/px_10"
+                                android:background="@drawable/shape_white_solid_corners"/>
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/px_80"
+                                android:gravity="center"
+                                android:text="获取短信验证码"
+                                android:background="@drawable/shape_yybs_commit"
+                                android:layout_marginLeft="@dimen/px_10"
+                                android:textColor="@color/red"/>
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="@dimen/px_300"
+                            android:layout_height="@dimen/px_80"
+                            android:text="确认"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:background="@drawable/btn_agreed"/>
+                    </LinearLayout>
+                </ScrollView>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

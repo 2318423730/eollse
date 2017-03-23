@@ -44,7 +44,7 @@
                 android:layout_marginRight="@dimen/px_40"
                 android:layout_marginTop="@dimen/px_10"
                 android:layout_weight="1"
-                android:background="@drawable/shape_white_corners"
+                android:background="@drawable/shape_white_solid"
                 android:orientation="vertical">
 
                 <LinearLayout

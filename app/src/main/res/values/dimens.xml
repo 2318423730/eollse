@@ -10,4 +10,6 @@
     <dimen name="kuaijie_size">@dimen/px_30</dimen>
     <dimen name="pmd_size">@dimen/px_30</dimen>
     <dimen name="kuaijie_img_width">@dimen/px_80</dimen>
+
+    <dimen name="historyscore_tb">10dp</dimen>
 </resources>

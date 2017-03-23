@@ -16,16 +16,16 @@
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\scrubber_track_holo_dark.9.png"
     },
     {
-        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\scrubber_secondary_holo.9.png",
-        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\scrubber_secondary_holo.9.png"
-    },
-    {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\mediacontroller_play.png",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\mediacontroller_play.png"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\scrubber_control_pressed_holo.png",
         "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\scrubber_control_pressed_holo.png"
+    },
+    {
+        "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\scrubber_secondary_holo.9.png",
+        "source": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\scrubber_secondary_holo.9.png"
     },
     {
         "merged": "G:\\AndroidStudio_WorkSpace\\eollse\\vitamio\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\mediacontroller_pause.png",
