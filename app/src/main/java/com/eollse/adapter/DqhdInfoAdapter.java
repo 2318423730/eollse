@@ -41,7 +41,7 @@ public class DqhdInfoAdapter extends MyBaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder viewHolder;
+        ViewHolder viewHolder=null;
         if (view == null) {
             view = getLayoutInflater().inflate(R.layout.item_dqhd_info, null);
             viewHolder = new ViewHolder();
@@ -60,6 +60,14 @@ public class DqhdInfoAdapter extends MyBaseAdapter {
         Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), list.get(i).getIconId(), options);
         viewHolder.iv_icon.setImageBitmap(bitmap);
 
+//        final ViewHolder finalViewHolder = viewHolder;
+//        SimpleTarget<Bitmap> target=new SimpleTarget<Bitmap>() {
+//            @Override
+//            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+//                finalViewHolder.iv_icon.setImageBitmap(resource);
+//            }
+//        };
+//        Glide.with(getContext()).load(list.get(i).getIconId()).asBitmap().into(viewHolder.iv_icon);
         return view;
     }
 
