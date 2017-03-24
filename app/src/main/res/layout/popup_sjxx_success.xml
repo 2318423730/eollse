@@ -4,8 +4,8 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="@dimen/px_600"
-        android:layout_height="@dimen/px_800"
+        android:layout_width="@dimen/px_500"
+        android:layout_height="@dimen/px_700"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:gravity="center">
@@ -21,7 +21,7 @@
                 android:layout_width="@dimen/px_300"
                 android:layout_height="@dimen/px_300"
                 android:src="@drawable/sjxx_success"
-                android:layout_marginTop="@dimen/px_100"
+                android:layout_marginTop="@dimen/px_60"
                 android:layout_centerHorizontal="true"/>
             <TextView
                 android:id="@+id/tv1"
@@ -30,7 +30,7 @@
                 android:text="您已成功提交信息"
                 android:layout_below="@+id/iv_success"
                 android:layout_marginTop="@dimen/px_40"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:layout_centerHorizontal="true"/>
 
             <TextView
@@ -39,7 +39,7 @@
                 android:text="我们将在2-5个工作日内给您回复"
                 android:layout_below="@+id/tv1"
                 android:layout_marginTop="@dimen/px_40"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_centerHorizontal="true"/>
         </RelativeLayout>

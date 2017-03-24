@@ -30,13 +30,17 @@
 
         <include layout="@layout/top"></include>
 
-        <View
+        <LinearLayout
             android:id="@+id/view_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/shape_poup_sjxx_solid_stroke"
             android:layout_below="@+id/rl_top"
-            android:visibility="gone"></View>
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <include layout="@layout/popup_sjxx_success"></include>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_right"
             android:layout_below="@+id/rl_top"
