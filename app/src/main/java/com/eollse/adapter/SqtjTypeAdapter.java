@@ -25,7 +25,7 @@ public class SqtjTypeAdapter extends MyBaseAdapter {
         String s=list.get(positon);
         SqtjTypeAdapter.ViewHolder viewHolder;
         if(convertView == null){
-            convertView=getLayoutInflater().inflate(R.layout.item_popup_sqtjcontent_type,null);
+            convertView=getLayoutInflater().inflate(R.layout.popup_sqtjcontent_type,null);
             viewHolder=new ViewHolder();
             //viewHolder.tv_type= (TextView) convertView.findViewById(R.id.tv_type);
             convertView.setTag(viewHolder);

@@ -302,7 +302,7 @@ public class SqtjContentActivity extends BaseActivity {
 
     private void setPopupAdapter(ListView listView, List<String> list) {
         if (adapter == null) {
-            listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.item_popup_sqtjcontent_type, list));
+            listView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), R.layout.popup_sqtjcontent_type, list));
         } else {
             adapter.notifyDataSetChanged();
             listView.smoothScrollToPosition(0);

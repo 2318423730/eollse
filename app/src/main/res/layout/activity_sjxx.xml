@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:id="@+id/activitySjxx"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
     tools:context="com.eollse.activity.BsznActivity">
 
     <LinearLayout
+        android:id="@+id/ll_left"
         android:layout_width="@dimen/px_150"
         android:layout_height="match_parent"
         android:gravity="center">
@@ -21,211 +22,224 @@
             android:textSize="@dimen/px_80" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-        android:background="@drawable/info_bg"
-
-        android:orientation="vertical">
+        android:background="@drawable/info_bg">
 
         <include layout="@layout/top"></include>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px_100"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="@dimen/px_1200"
-                android:layout_height="@dimen/px_100"
-                android:gravity="center"
-                android:text="请把你想对书记反映的情况描述清楚，我们会尽快解决"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:background="#78a0f0"/>
-        </LinearLayout>
-
-        <LinearLayout
+        <View
+            android:id="@+id/view_bg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/px_20"
-            android:layout_marginLeft="@dimen/px_40"
-            android:layout_marginBottom="@dimen/px_40"
-            android:layout_marginRight="@dimen/px_40"
-            android:background="@drawable/sjxx_bg"
-            android:gravity="center_horizontal"
+            android:background="@drawable/shape_poup_sjxx_solid_stroke"
+            android:layout_below="@+id/rl_top"
+            android:visibility="gone"></View>
+        <LinearLayout
+            android:id="@+id/ll_right"
+            android:layout_below="@+id/rl_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="4"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/px_10"
-                    android:paddingRight="@dimen/px_20">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="@dimen/px_800"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/sjxx_1"
-                                android:drawablePadding="@dimen/px_10"
-                                android:gravity="center"
-                                android:text="请输入事件发生地点"
-                                android:textColor="@color/black"
-                                android:textSize="20sp" />
-
-                            <EditText
-                                android:id="@+id/et_address"
-                                android:layout_width="@dimen/px_600"
-                                android:layout_height="@dimen/px_80"
-                                android:layout_marginTop="@dimen/px_15"
-                                android:background="@drawable/shape_white_solid_stroke" />
-                        </LinearLayout>
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="@dimen/px_20"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="@dimen/px_600"
-                            android:layout_height="match_parent"
-                            android:layout_alignParentRight="true"
-
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/sjxx_2"
-                                android:drawablePadding="@dimen/px_10"
-                                android:gravity="left"
-                                android:text="请输入事件发生时间"
-                                android:textColor="@color/black"
-                                android:textSize="20sp" />
-
-                            <EditText
-                                android:id="@+id/et_time"
-                                android:layout_width="@dimen/px_600"
-                                android:layout_height="@dimen/px_80"
-                                android:layout_marginTop="@dimen/px_15"
-                                android:background="@drawable/shape_white_solid_stroke" />
-                        </LinearLayout>
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1">
-
-                        <LinearLayout
-                            android:layout_width="@dimen/px_800"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/sjxx_3"
-                                android:drawablePadding="@dimen/px_10"
-                                android:text="请输入事件参与人员"
-                                android:textColor="@color/black"
-                                android:textSize="20sp" />
-
-                            <EditText
-                                android:id="@+id/et_people"
-                                android:layout_width="@dimen/px_600"
-                                android:layout_height="@dimen/px_80"
-                                android:layout_marginTop="@dimen/px_15"
-                                android:background="@drawable/shape_white_solid_stroke" />
-                        </LinearLayout>
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="3">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:paddingLeft="@dimen/px_10"
-                        android:paddingRight="@dimen/px_10">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:drawableLeft="@drawable/sjxx_4"
-                            android:drawablePadding="@dimen/px_10"
-                            android:text="请输入事件描述"
-                            android:textColor="@color/black"
-                            android:textSize="20sp" />
-
-                        <EditText
-                            android:id="@+id/et_content"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="@dimen/px_15"
-                            android:background="@drawable/shape_white_solid_stroke" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px_100"
-                android:layout_marginBottom="@dimen/px_20"
-                android:layout_marginTop="@dimen/px_10"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/btn_commit"
-                    android:layout_width="@dimen/px_300"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/shape_sjxx_btn_commit"
-                    android:text="提交"
+                <TextView
+                    android:layout_width="@dimen/px_1200"
+                    android:layout_height="@dimen/px_100"
+                    android:background="#78a0f0"
+                    android:gravity="center"
+                    android:text="请把你想对书记反映的情况描述清楚，我们会尽快解决"
                     android:textColor="@color/black"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
+            </LinearLayout>
 
-                <Button
-                    android:id="@+id/btn_reset"
-                    android:layout_width="@dimen/px_300"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/px_40"
-                    android:background="@drawable/shape_sjxx_btn_reset"
-                    android:text="重置"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_40"
+                android:layout_marginLeft="@dimen/px_40"
+                android:layout_marginRight="@dimen/px_40"
+                android:layout_marginTop="@dimen/px_20"
+                android:background="@drawable/sjxx_bg"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/px_10"
+                        android:paddingRight="@dimen/px_20">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/px_800"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/sjxx_1"
+                                    android:drawablePadding="@dimen/px_10"
+                                    android:gravity="center"
+                                    android:text="请输入事件发生地点"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp" />
+
+                                <EditText
+                                    android:id="@+id/et_address"
+                                    android:layout_width="@dimen/px_600"
+                                    android:layout_height="@dimen/px_80"
+                                    android:layout_marginTop="@dimen/px_15"
+                                    android:background="@drawable/shape_white_solid_stroke" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="@dimen/px_20"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/px_600"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/sjxx_2"
+                                    android:drawablePadding="@dimen/px_10"
+                                    android:gravity="left"
+                                    android:text="请输入事件发生时间"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp" />
+
+                                <EditText
+                                    android:id="@+id/et_time"
+                                    android:layout_width="@dimen/px_600"
+                                    android:layout_height="@dimen/px_80"
+                                    android:layout_marginTop="@dimen/px_15"
+                                    android:background="@drawable/shape_white_solid_stroke" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/px_800"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:drawableLeft="@drawable/sjxx_3"
+                                    android:drawablePadding="@dimen/px_10"
+                                    android:text="请输入事件参与人员"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp" />
+
+                                <EditText
+                                    android:id="@+id/et_people"
+                                    android:layout_width="@dimen/px_600"
+                                    android:layout_height="@dimen/px_80"
+                                    android:layout_marginTop="@dimen/px_15"
+                                    android:background="@drawable/shape_white_solid_stroke" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/px_10"
+                            android:paddingRight="@dimen/px_10">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableLeft="@drawable/sjxx_4"
+                                android:drawablePadding="@dimen/px_10"
+                                android:text="请输入事件描述"
+                                android:textColor="@color/black"
+                                android:textSize="20sp" />
+
+                            <EditText
+                                android:id="@+id/et_content"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/px_15"
+                                android:background="@drawable/shape_white_solid_stroke" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_100"
+                    android:layout_marginBottom="@dimen/px_20"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_commit"
+                        android:layout_width="@dimen/px_300"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_sjxx_btn_commit"
+                        android:text="提交"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/btn_reset"
+                        android:layout_width="@dimen/px_300"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/px_40"
+                        android:background="@drawable/shape_sjxx_btn_reset"
+                        android:text="重置"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
