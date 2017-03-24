@@ -93,6 +93,8 @@ public class DqfcActivity extends BaseActivity {
                 Intent intent=new Intent();
                 if(position==0){
                     intent.setClass(DqfcActivity.this,DqhdActivity.class);
+                }if(position==3){
+                    intent.setClass(DqfcActivity.this,SjxxActivity.class);
                 }else{
                     return;
                 }

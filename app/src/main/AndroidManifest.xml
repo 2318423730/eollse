@@ -127,7 +127,10 @@
         </service>
 
         <activity android:name=".activity.DqhdActivity" />
-        <activity android:name=".activity.UrlActivity"></activity>
+        <activity android:name=".activity.UrlActivity" />
+        <activity android:name=".activity.SjxxActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

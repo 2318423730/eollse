@@ -91,6 +91,15 @@ public class DqhdActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        lvHref.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(DqhdActivity.this, UrlActivity.class);
+                intent.putExtra("url", "http://www.baidu.com");
+                startActivity(intent);
+            }
+        });
     }
 
     private void setInfoAdapter() {
