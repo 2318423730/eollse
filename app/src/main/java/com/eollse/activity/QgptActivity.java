@@ -2,6 +2,7 @@ package com.eollse.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -46,8 +47,8 @@ public class QgptActivity extends BaseActivity {
         webView.setBackgroundColor(0);
         //webView.setBackgroundResource(R.drawable.shape_info_background);
         //webView.loadUrl("http://www.baidu.com");
-        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?TVInfoId="+ SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "")+"&ClassId=2");
-        webView.setWebViewClient(new WebViewClient(){
+        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?TVInfoId=" + SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "") + "&Key=" + SharedPreUtil.getValue(this, "userinfo", "Key", "") + "&ClassId=2");
+        webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -62,6 +63,7 @@ public class QgptActivity extends BaseActivity {
             }
         });
     }
+
     private void setListeners() {
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
@@ -78,13 +80,27 @@ public class QgptActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                if(webView.canGoBack()) {
+                if (webView.canGoBack()) {
                     webView.goBack();
-                }else {
+                } else {
                     finish();
                 }
             }
         });
+
+
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (webView.canGoBack()) {
+                webView.goBack();
+                return true;
+            } else {
+                finish();
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

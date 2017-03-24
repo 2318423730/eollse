@@ -509,6 +509,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
 
                     BitmapFactory.Options options = new BitmapFactory.Options();
+                    BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
                     options.inJustDecodeBounds = true;
                     int size = BitmapUtil.calculateInSampleSize(options, 200, 200);
                     options.inSampleSize = size;
@@ -520,8 +521,8 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                         b = BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
                         ivInfo.setImageBitmap(b);
                         tvAddressNotice.setVisibility(View.GONE);
-                        Log.e("MyTAG", "" + ivInfo.getMeasuredWidth());
-                        Log.e("MyTAG", "" + ivInfo.getMeasuredHeight());
+                        //Log.e("MyTAG", "" + ivInfo.getMeasuredWidth());
+                        //Log.e("MyTAG", "" + ivInfo.getMeasuredHeight());
 
                     } catch (Exception e) {
                         e.printStackTrace();
