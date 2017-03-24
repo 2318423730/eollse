@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -26,7 +27,7 @@ import butterknife.OnClick;
 /**
  * 预约办事
  */
-public class YybsActivity extends BaseActivity {
+public class YybsActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener {
 
 
     @BindView(R.id.tv_backHome)
@@ -52,6 +53,14 @@ public class YybsActivity extends BaseActivity {
     RadioButton rbTime11;
     @BindView(R.id.rb_time2_1)
     RadioButton rbTime21;
+    @BindView(R.id.rb_time1_2)
+    RadioButton rbTime12;
+    @BindView(R.id.rb_time1_3)
+    RadioButton rbTime13;
+    @BindView(R.id.rb_time2_2)
+    RadioButton rbTime22;
+    @BindView(R.id.rb_time2_3)
+    RadioButton rbTime23;
 
 
     private String date = null;// 设置默认选中的日期  格式为 “2014-04-05” 标准DATE格式
@@ -159,21 +168,12 @@ public class YybsActivity extends BaseActivity {
             }
         });
 
-        rgTime1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                rgTime2.check(R.id.rb_time2_1);
-                rbTime21.setChecked(false);
-            }
-        });
-        rgTime2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-                rgTime1.check(R.id.rb_time1_1);
-                rbTime11.setChecked(false);
-            }
-        });
+        rbTime11.setOnCheckedChangeListener(this);
+        rbTime12.setOnCheckedChangeListener(this);
+        rbTime13.setOnCheckedChangeListener(this);
+        rbTime21.setOnCheckedChangeListener(this);
+        rbTime22.setOnCheckedChangeListener(this);
+        rbTime23.setOnCheckedChangeListener(this);
     }
 
     private void getData() {
@@ -191,6 +191,30 @@ public class YybsActivity extends BaseActivity {
             case R.id.iv_pnextMonth://下个月
                 popupwindowCalendar.nextMonth();
 
+                break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        switch (compoundButton.getId()) {
+            case R.id.rb_time1_1:
+                rgTime2.clearCheck();
+                break;
+            case R.id.rb_time1_2:
+                rgTime2.clearCheck();
+                break;
+            case R.id.rb_time1_3:
+                rgTime2.clearCheck();
+                break;
+            case R.id.rb_time2_1:
+                rgTime1.clearCheck();
+                break;
+            case R.id.rb_time2_2:
+                rgTime1.clearCheck();
+                break;
+            case R.id.rb_time2_3:
+                rgTime1.clearCheck();
                 break;
         }
     }
