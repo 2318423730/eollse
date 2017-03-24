@@ -34,11 +34,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/px_40"
+            android:layout_height="@dimen/px_100"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:background="@drawable/sjxx_bg">
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="@dimen/px_1200"
@@ -46,7 +44,21 @@
                 android:gravity="center"
                 android:text="请把你想对书记反映的情况描述清楚，我们会尽快解决"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:background="#78a0f0"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/px_20"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:background="@drawable/sjxx_bg"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,8 +71,8 @@
                     android:layout_height="match_parent"
                     android:layout_weight="4"
                     android:orientation="vertical"
-                    android:paddingRight="@dimen/px_20"
-                    android:paddingLeft="@dimen/px_10">
+                    android:paddingLeft="@dimen/px_10"
+                    android:paddingRight="@dimen/px_20">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -95,8 +107,8 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="@dimen/px_20">
+                        android:layout_marginTop="@dimen/px_20"
+                        android:layout_weight="1">
 
                         <LinearLayout
                             android:layout_width="@dimen/px_600"
@@ -188,8 +200,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/px_100"
-                android:layout_marginTop="@dimen/px_10"
                 android:layout_marginBottom="@dimen/px_20"
+                android:layout_marginTop="@dimen/px_10"
                 android:gravity="center"
                 android:orientation="horizontal">
 
