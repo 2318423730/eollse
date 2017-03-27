@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.ZsdxActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/lv_left"
+                android:layout_width="@dimen/px_500"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/px_10"
+                android:background="@color/bule"
+                android:padding="@dimen/px_10"
+                android:scrollbars="none">
+
+            </ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/px_10"
+                android:background="@color/bule"
+                android:padding="@dimen/px_30">
+
+                <GridView
+                    android:id="@+id/gv_right"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="2"
+                    android:scrollbars="none">
+
+                </GridView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

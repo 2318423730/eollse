@@ -98,9 +98,7 @@ public class DqfcActivity extends BaseActivity {
                     intent.putExtra("url","http://www.baidu.com");
                     intent.putExtra("title","志愿者服务");
                 }else if(position==2){
-                    intent.setClass(DqfcActivity.this,UrlActivity.class);
-                    intent.putExtra("url","http://www.baidu.com");
-                    intent.putExtra("title","掌上党校");
+                    intent.setClass(DqfcActivity.this,DqhdActivity.class);
                 }else if(position==3){
                     intent.setClass(DqfcActivity.this,SjxxActivity.class);
                 }else if(position==4){
