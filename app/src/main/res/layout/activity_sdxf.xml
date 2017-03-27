@@ -37,27 +37,35 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:layout_marginBottom="@dimen/px_20"
+                android:layout_marginLeft="@dimen/px_20"
+                android:layout_weight="3"
+                android:background="@drawable/shape_sdxf_left">
 
                 <ListView
                     android:id="@+id/lv_left"
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="none">
+                    android:scrollbars="none"
+                    android:drawSelectorOnTop="true">
 
                 </ListView>
             </LinearLayout>
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="@dimen/px_100"
+                android:layout_width="@dimen/px_80"
+                android:layout_height="@dimen/px_80"
+                android:layout_marginTop="@dimen/px_85"
                 android:src="@drawable/sdxf_toright" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5">
+                android:layout_marginBottom="@dimen/px_20"
+                android:layout_weight="5"
+                android:background="@drawable/shape_sdxf_right"
+                android:layout_marginRight="@dimen/px_20">
 
             </LinearLayout>
         </LinearLayout>

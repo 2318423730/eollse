@@ -7,6 +7,7 @@ package com.eollse.entity;
 public class Sdxf {
     private int iconId;
     private String title;
+    private String des;
 
     public int getIconId() {
         return iconId;
@@ -22,5 +23,13 @@ public class Sdxf {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }
