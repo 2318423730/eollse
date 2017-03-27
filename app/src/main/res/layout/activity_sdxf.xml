@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/rg_top2"
+            android:layout_below="@+id/rg_top"
             android:layout_marginTop="@dimen/px_10"
             android:orientation="horizontal">
 
@@ -45,11 +45,35 @@
                 </ListView>
             </LinearLayout>
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="@dimen/px_80"
-                android:layout_height="@dimen/px_80"
-                android:layout_marginTop="@dimen/px_85"
-                android:src="@drawable/sdxf_toright" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_20">
+
+                <ImageView
+                    android:id="@+id/iv_indictor1"
+                    android:layout_width="@dimen/px_80"
+                    android:layout_height="@dimen/px_80"
+                    android:layout_marginTop="@dimen/px_85"
+                    android:src="@drawable/sdxf_toright" />
+
+                <ImageView
+                    android:id="@+id/iv_indictor2"
+                    android:layout_width="@dimen/px_80"
+                    android:layout_height="@dimen/px_80"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/sdxf_toright"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_indictor3"
+                    android:layout_width="@dimen/px_80"
+                    android:layout_height="@dimen/px_80"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/px_85"
+                    android:src="@drawable/sdxf_toright"
+                    android:visibility="gone" />
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -63,7 +87,7 @@
         </LinearLayout>
 
         <RadioGroup
-            android:id="@+id/rg_top2"
+            android:id="@+id/rg_top"
             android:layout_width="@dimen/px_900"
             android:layout_height="@dimen/px_100"
             android:layout_marginLeft="@dimen/px_20"
@@ -74,15 +98,16 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_new"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
+
                 android:gravity="center"
                 android:text="最新"
-                android:textColor="@drawable/selector_sdxf_top2_text"
-                android:textSize="20sp"
-                android:checked="true"/>
+                android:textColor="@drawable/selector_sdxf_top_text"
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="1dp"
@@ -93,13 +118,14 @@
                 android:background="@color/white" />
 
             <RadioButton
+                android:id="@+id/recent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center"
                 android:text="往期"
-                android:textColor="@drawable/selector_sdxf_top2_text"
+                android:textColor="@drawable/selector_sdxf_top_text"
                 android:textSize="20sp" />
 
             <View
@@ -112,13 +138,14 @@
 
 
             <RadioButton
+                android:id="@+id/rb_attention"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:button="@null"
                 android:gravity="center_horizontal"
                 android:text="关注度"
-                android:textColor="@drawable/selector_sdxf_top2_text"
+                android:textColor="@drawable/selector_sdxf_top_text"
                 android:textSize="20sp" />
 
             <View
