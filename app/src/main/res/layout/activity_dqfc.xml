@@ -40,7 +40,7 @@
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
             android:layout_marginTop="@dimen/px_20"
-            android:layout_marginBottom="@dimen/px_60">
+            android:layout_marginBottom="@dimen/px_40">
 
 
             <GridView

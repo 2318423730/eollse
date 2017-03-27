@@ -126,11 +126,17 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activity.DqhdActivity" />
-        <activity android:name=".activity.UrlActivity" />
-        <activity android:name=".activity.SjxxActivity"
+        <activity
+            android:name=".activity.DqhdActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.UrlActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.SjxxActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.SdxfActivity"></activity>
     </application>
 
 </manifest>

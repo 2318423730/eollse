@@ -21,6 +21,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.bumptech.glide.Glide;
 import com.eollse.R;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.BitmapUtil;
@@ -505,29 +506,30 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
                 if (resultCode == -1) {
                     File file1 = new File(UploadPicHelper.takePicturePath);
+                    tvAddressNotice.setVisibility(View.GONE);
                     //UploadPicHelper.startPhotoZoom(Uri.fromFile(file1), this);
 
-
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
-                    options.inJustDecodeBounds = true;
-                    int size = BitmapUtil.calculateInSampleSize(options, 200, 200);
-                    options.inSampleSize = size;
-                    options.inJustDecodeBounds = false;
-                    Log.e("MyTAG", "" + size);
-                    Bitmap b = null;
-                    try {
-
-                        b = BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
-                        ivInfo.setImageBitmap(b);
-                        tvAddressNotice.setVisibility(View.GONE);
-                        //Log.e("MyTAG", "" + ivInfo.getMeasuredWidth());
-                        //Log.e("MyTAG", "" + ivInfo.getMeasuredHeight());
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
+                    Glide.with(KqdkActivity.this).load(file1).override(200,200).into(ivInfo);
+//                    BitmapFactory.Options options = new BitmapFactory.Options();
+//                    BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
+//                    options.inJustDecodeBounds = true;
+//                    int size = BitmapUtil.calculateInSampleSize(options, 200, 200);
+//                    options.inSampleSize = size;
+//                    options.inJustDecodeBounds = false;
+//                    Log.e("MyTAG", "" + size);
+//                    Bitmap b = null;
+//                    try {
+//
+//                        b = BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
+//                        ivInfo.setImageBitmap(b);
+//                        tvAddressNotice.setVisibility(View.GONE);
+//                        //Log.e("MyTAG", "" + ivInfo.getMeasuredWidth());
+//                        //Log.e("MyTAG", "" + ivInfo.getMeasuredHeight());
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
 
 //                    BitmapFactory.Options options = new BitmapFactory.Options();
 //                    Bitmap b = null;
@@ -546,7 +548,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 //                    Glide.with(this).load(bytes).into(ivInfo);
 //                    Log.e("MyTAG",""+ivInfo.getMeasuredWidth());
 //                    Log.e("MyTAG",""+ivInfo.getMeasuredHeight());
-//                }
+                }
 
                 break;
 //            case UploadPicHelper.CROP:

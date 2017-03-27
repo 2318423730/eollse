@@ -3,6 +3,7 @@ package com.eollse.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,22 +53,24 @@ public class DqhdInfoAdapter extends MyBaseAdapter {
         viewHolder = (ViewHolder) view.getTag();
         viewHolder.tv_title.setText(list.get(i).getTitle());
 
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeResource(getContext().getResources(), list.get(i).getIconId(), options);
-        size = BitmapUtil.calculateInSampleSize(options, 380, 380);
-        options.inSampleSize = size;
-        options.inJustDecodeBounds = false;
-        Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), list.get(i).getIconId(), options);
-        viewHolder.iv_icon.setImageBitmap(bitmap);
+//        options.inJustDecodeBounds = true;
+//        BitmapFactory.decodeResource(getContext().getResources(), list.get(i).getIconId(), options);
+//        size = BitmapUtil.calculateInSampleSize(options, 380, 380);
+//        options.inSampleSize = size;
+//        options.inJustDecodeBounds = false;
+//        Bitmap bitmap = BitmapFactory.decodeResource(getContext().getResources(), list.get(i).getIconId(), options);
+//        viewHolder.iv_icon.setImageBitmap(bitmap);
 
-//        final ViewHolder finalViewHolder = viewHolder;
-//        SimpleTarget<Bitmap> target=new SimpleTarget<Bitmap>() {
-//            @Override
-//            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-//                finalViewHolder.iv_icon.setImageBitmap(resource);
-//            }
-//        };
-//        Glide.with(getContext()).load(list.get(i).getIconId()).asBitmap().into(viewHolder.iv_icon);
+        final ViewHolder finalViewHolder = viewHolder;
+        SimpleTarget<Bitmap> target=new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
+                finalViewHolder.iv_icon.setImageBitmap(resource);
+            }
+        };
+        Glide.with(getContext()).load(list.get(i).getIconId()).asBitmap().override(380,380).into(target);
+
+
         return view;
     }
 

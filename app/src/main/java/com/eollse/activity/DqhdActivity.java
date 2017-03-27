@@ -66,7 +66,7 @@ public class DqhdActivity extends BaseActivity {
         for (int i = 0; i < 20; i++) {
             DqhdHref dqhdHref = new DqhdHref();
             dqhdHref.setTitle("链接地址");
-            dqhdHref.setUrl("链接地址");
+            dqhdHref.setUrl("http://www.baidu.com");
             dqhdHrefsList.add(dqhdHref);
         }
 
@@ -96,7 +96,8 @@ public class DqhdActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(DqhdActivity.this, UrlActivity.class);
-                intent.putExtra("url", "http://www.baidu.com");
+                intent.putExtra("url", dqhdHrefsList.get(position).getUrl());
+                intent.putExtra("title", "党群活动");
                 startActivity(intent);
             }
         });
