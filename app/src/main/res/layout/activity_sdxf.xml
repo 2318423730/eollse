@@ -20,17 +20,9 @@
         android:background="@drawable/sdxf_bg">
 
         <LinearLayout
-            android:id="@+id/ll_top2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/px_120"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/ll_top2"
+            android:layout_below="@+id/rg_top2"
             android:layout_marginTop="@dimen/px_10"
             android:orientation="horizontal">
 
@@ -47,8 +39,8 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="none"
-                    android:drawSelectorOnTop="true">
+                    android:drawSelectorOnTop="true"
+                    android:scrollbars="none">
 
                 </ListView>
             </LinearLayout>
@@ -63,11 +55,76 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="@dimen/px_20"
+                android:layout_marginRight="@dimen/px_20"
                 android:layout_weight="5"
-                android:background="@drawable/shape_sdxf_right"
-                android:layout_marginRight="@dimen/px_20">
+                android:background="@drawable/shape_sdxf_right">
 
             </LinearLayout>
         </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_top2"
+            android:layout_width="@dimen/px_900"
+            android:layout_height="@dimen/px_100"
+            android:layout_marginLeft="@dimen/px_20"
+            android:layout_marginRight="@dimen/px_40"
+            android:layout_marginTop="@dimen/px_10"
+            android:background="@drawable/sdxf_top2"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="最新"
+                android:textColor="@drawable/selector_sdxf_top2_text"
+                android:textSize="20sp"
+                android:checked="true"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_10"
+                android:layout_marginRight="@dimen/px_5"
+                android:layout_marginTop="@dimen/px_10"
+                android:background="@color/white" />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="往期"
+                android:textColor="@drawable/selector_sdxf_top2_text"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_10"
+                android:layout_marginRight="@dimen/px_5"
+                android:layout_marginTop="@dimen/px_10"
+                android:background="@color/white" />
+
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center_horizontal"
+                android:text="关注度"
+                android:textColor="@drawable/selector_sdxf_top2_text"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </RadioGroup>
     </RelativeLayout>
 </LinearLayout>
