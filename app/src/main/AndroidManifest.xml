@@ -48,29 +48,7 @@
             android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".activity.BsznActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.SqtjActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.SqtjContentActivity"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name=".activity.ShfwActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.QtfwActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.ZcxxActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.ZwfwActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.DqfcActivity"
+            android:name=".activity.zwfw.SqtjActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.LoginActivity"
@@ -85,39 +63,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.SqtjSuccessActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.NewsDetailActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.SqgkActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.WgglActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.JgcxActivity"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name=".activity.JgcxContentActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.YybsActivity"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity
-            android:name=".activity.QgptActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.PasqActivity"
-            android:screenOrientation="landscape" />
-        <activity
-            android:name=".activity.KqdkActivity"
-            android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
 
         <service
             android:name="com.baidu.location.f"
@@ -129,18 +74,78 @@
         </service>
 
         <activity
-            android:name=".activity.DqhdActivity"
-            android:screenOrientation="landscape" />
-        <activity
             android:name=".activity.UrlActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".activity.SjxxActivity"
+            android:name=".activity.zwfw.BsznActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.SqtjContentActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
-        <activity android:name=".activity.SdxfActivity" />
-        <activity android:name=".activity.ZsdxActivity" />
-        <activity android:name=".activity.ZyzfwActivity"></activity>
+        <activity
+            android:name=".activity.zwfw.SqtjSuccessActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.JgcxActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.zwfw.YybsActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.zwfw.DqfcActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.QtfwActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.WgglActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.QgptActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.PasqActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.SqgkActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.dqfc.DqhdActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.dqfc.ZyzfwActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.zwfw.dqfc.ZsdxActivity" />
+        <activity
+            android:name=".activity.zwfw.dqfc.SjxxActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.zwfw.dqfc.SdxfActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.wggl.KqdkActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".activity.shfw.ShfwActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.zcxx.ZcxxActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.jgcx.JgcxContentActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.zcxx.ZcxxNewsDetailActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.ZwfwActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.zwfw.dqfc.FfclActivity"></activity>
     </application>
 
 </manifest>

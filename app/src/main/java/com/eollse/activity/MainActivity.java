@@ -20,6 +20,15 @@ import com.alibaba.fastjson.JSON;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.eollse.R;
+import com.eollse.activity.shfw.ShfwActivity;
+import com.eollse.activity.zwfw.BsznActivity;
+import com.eollse.activity.zwfw.DqfcActivity;
+import com.eollse.activity.zwfw.JgcxActivity;
+import com.eollse.activity.zwfw.SqtjActivity;
+import com.eollse.activity.zwfw.WgglActivity;
+import com.eollse.activity.zwfw.ZwfwActivity;
+import com.eollse.activity.zwfw.zcxx.ZcxxActivity;
+import com.eollse.activity.zwfw.zcxx.ZcxxNewsDetailActivity_ViewBinding;
 import com.eollse.adapter.MainNewsAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
@@ -296,7 +305,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 String url = Constants.BASE_NEWS_URL + "method=newshtml" + "&userid=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
                         + "&Key=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "") + "&id=" + newsList.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent = new Intent(MainActivity.this, NewsDetailActivity.class);
+                Intent intent = new Intent(MainActivity.this, ZcxxNewsDetailActivity_ViewBinding.class);
                 intent.putExtra("url", url);
                 intent.putExtra("from", "mainNews");
                 startActivity(intent);
