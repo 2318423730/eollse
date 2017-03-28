@@ -49,7 +49,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_120"
+                    android:layout_height="@dimen/px_80"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/px_10"
                     android:paddingLeft="@dimen/px_40"
@@ -67,7 +67,7 @@
                             android:background="@drawable/shape_zyzfw"
                             android:gravity="center"
                             android:text="志愿资讯"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tv_more1"
@@ -78,14 +78,14 @@
                             android:gravity="center"
                             android:text=">>更多"
                             android:textColor="#83f7f8"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
                     </RelativeLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
 
-                        android:layout_marginRight="@dimen/px_40"
+                        android:layout_marginRight="@dimen/px_50"
                         android:background="#83f7f8"></View>
                 </LinearLayout>
 
@@ -106,7 +106,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_120"
+                    android:layout_height="@dimen/px_80"
                     android:orientation="vertical"
                     android:paddingBottom="@dimen/px_10"
                     android:paddingLeft="@dimen/px_40"
@@ -124,7 +124,7 @@
                             android:background="@drawable/shape_zyzfw"
                             android:gravity="center"
                             android:text="志愿活动"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/tv_more2"
@@ -135,7 +135,7 @@
                             android:gravity="center"
                             android:text=">>更多"
                             android:textColor="#83f7f8"
-                            android:textSize="20sp" />
+                            android:textSize="18sp" />
                     </RelativeLayout>
 
                     <View
