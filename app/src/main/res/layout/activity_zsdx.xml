@@ -38,24 +38,74 @@
             android:layout_marginBottom="@dimen/px_40"
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="#4056f8">
 
-            <ListView
-                android:id="@+id/lv_left"
+            <LinearLayout
+                android:id="@+id/ll_left"
                 android:layout_width="@dimen/px_500"
                 android:layout_height="match_parent"
                 android:layout_marginRight="@dimen/px_10"
-                android:background="@color/bule"
-                android:padding="@dimen/px_10"
-                android:scrollbars="none">
+                android:background="#1c5cf7"
+                android:orientation="vertical"
+                android:padding="@dimen/px_10">
 
-            </ListView>
+                <TextView
+                    android:id="@+id/tv_dxdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="党校动态"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_pxxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="培训系统"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_kczx"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="课程中心"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_llxx"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="理论学习"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/tv_jczs"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="基础知识"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/px_10"
-                android:background="@color/bule"
+                android:background="#4056f8"
                 android:padding="@dimen/px_30">
 
                 <GridView
@@ -63,7 +113,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:numColumns="2"
-                    android:scrollbars="none">
+                    android:scrollbars="none"
+                    android:verticalSpacing="@dimen/px_80"
+                    android:paddingTop="@dimen/px_20"
+                    android:paddingBottom="@dimen/px_20"
+                    android:gravity="center">
 
                 </GridView>
             </LinearLayout>

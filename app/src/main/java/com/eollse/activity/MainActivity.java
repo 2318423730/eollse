@@ -130,6 +130,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
      * 主页新闻的适配器
      */
     private MainNewsAdapter adapter;
+
+    private boolean hasError;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -254,7 +256,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         videoView.setOnErrorListener(new MediaPlayer.OnErrorListener() {
             @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
-                return false;
+                if(!hasError){
+                    hasError=true;
+                    return false;
+                }else{
+                    return true;
+                }
+
             }
         });
 

@@ -37,7 +37,7 @@ public class DqhdUrlAdapter extends MyBaseAdapter {
 //        viewHolder.tv_title.getPaint().setFlags(Paint. UNDERLINE_TEXT_FLAG ); //下划线
 //        viewHolder.tv_title.getPaint().setAntiAlias(true);//抗锯齿
 //        viewHolder.tv_title.setText(Html.fromHtml("*\t"+list.get(i).getUrl()));
-        viewHolder.tv_title.setText(Html.fromHtml("<u>*" + list.get(i).getUrl() + "</u>"));
+        viewHolder.tv_title.setText(Html.fromHtml("<u>*" + list.get(i).getTitle() + "</u>"));
         return view;
     }
 
