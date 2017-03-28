@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
-    tools:context="com.eollse.activity.NewsDetailActivity">
+    tools:context="com.eollse.activity.zwfw.zcxx.ZcxxNewsDetailActivity">
 
     <LinearLayout
         android:layout_width="@dimen/px_150"

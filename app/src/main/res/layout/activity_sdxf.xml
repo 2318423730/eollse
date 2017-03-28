@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
     android:orientation="vertical"
-    tools:context="com.eollse.activity.SdxfActivity">
+    tools:context="com.eollse.activity.zwfw.dqfc.SdxfActivity">
 
     <include layout="@layout/top"></include>
 

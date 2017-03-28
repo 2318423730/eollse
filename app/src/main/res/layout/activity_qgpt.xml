@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
-    tools:context="com.eollse.activity.QgptActivity">
+    tools:context="com.eollse.activity.zwfw.QgptActivity">
 
 
     <LinearLayout

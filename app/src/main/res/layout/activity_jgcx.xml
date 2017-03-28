@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/info_bg"
-    tools:context="com.eollse.activity.JgcxActivity">
+    tools:context="com.eollse.activity.zwfw.JgcxActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

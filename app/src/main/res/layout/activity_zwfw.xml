@@ -4,7 +4,7 @@
     android:id="@+id/activity_zwfw"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.eollse.activity.ZwfwActivity"
+    tools:context="com.eollse.activity.zwfw.ZwfwActivity"
     android:orientation="vertical">
     <include layout="@layout/top2"></include>
     <LinearLayout
