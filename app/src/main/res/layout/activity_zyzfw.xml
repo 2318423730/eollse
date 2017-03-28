@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.ZyzfwActivity">
+
+    <LinearLayout
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="政务服务"
+            android:textColor="@color/white"
+            android:textSize="@dimen/px_80" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+
+        android:background="@drawable/info_bg"
+
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_40"
+            android:layout_marginLeft="@dimen/px_40"
+            android:layout_marginRight="@dimen/px_40"
+            android:background="#4056f8"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_120"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/px_10"
+                    android:paddingLeft="@dimen/px_40"
+                    android:paddingTop="@dimen/px_10">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_title1"
+                            android:layout_width="@dimen/px_200"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_zyzfw"
+                            android:gravity="center"
+                            android:text="志愿资讯"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_more1"
+                            android:layout_width="@dimen/px_200"
+                            android:layout_height="match_parent"
+
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:text=">>更多"
+                            android:textColor="#83f7f8"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginRight="@dimen/px_40"
+                        android:background="#83f7f8"></View>
+                </LinearLayout>
+
+                <com.eollse.ui.MyHorizontalListView
+                    android:id="@+id/lv_zyzx"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                </com.eollse.ui.MyHorizontalListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_120"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/px_10"
+                    android:paddingLeft="@dimen/px_40"
+                    android:paddingTop="@dimen/px_10">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_title2"
+                            android:layout_width="@dimen/px_200"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/shape_zyzfw"
+                            android:gravity="center"
+                            android:text="志愿活动"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/tv_more2"
+                            android:layout_width="@dimen/px_200"
+                            android:layout_height="match_parent"
+
+                            android:layout_alignParentRight="true"
+                            android:gravity="center"
+                            android:text=">>更多"
+                            android:textColor="#83f7f8"
+                            android:textSize="20sp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+
+                        android:layout_marginRight="@dimen/px_40"
+                        android:background="#83f7f8"></View>
+                </LinearLayout>
+
+                <com.eollse.ui.MyHorizontalListView
+                    android:id="@+id/lv_zyhd"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                </com.eollse.ui.MyHorizontalListView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

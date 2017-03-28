@@ -139,7 +139,8 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activity.SdxfActivity" />
-        <activity android:name=".activity.ZsdxActivity"></activity>
+        <activity android:name=".activity.ZsdxActivity" />
+        <activity android:name=".activity.ZyzfwActivity"></activity>
     </application>
 
 </manifest>

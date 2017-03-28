@@ -39,7 +39,7 @@
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
             android:orientation="horizontal"
-            android:background="#4056f8">
+            android:background="#6f9de3">
 
             <LinearLayout
                 android:id="@+id/ll_left"
@@ -105,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/px_10"
-                android:background="#4056f8"
+
                 android:padding="@dimen/px_30">
 
                 <GridView
