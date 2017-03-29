@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
-    tools:context="com.eollse.activity.zwfw.KqdkActivity">
+    tools:context="com.eollse.activity.zwfw.wggl.KqdkActivity">
 
     <LinearLayout
         android:layout_width="@dimen/px_150"
@@ -385,22 +385,34 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
-                                    <EditText
-                                        android:id="@+id/et_qj_type"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:hint="选择请假类型"
-                                        android:textSize="@dimen/px_30"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:id="@+id/tv_qj_type"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:hint="选择请假类型"
+                                            android:textSize="14sp"
 
-                                        android:gravity="center"/>
+                                            android:gravity="center"/>
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.1dp"
+                                            android:background="@color/black"
+                                            android:layout_below="@+id/tv_qj_endTime"></View>
+                                    </LinearLayout>
+
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentRight="true"
                                         android:src="@drawable/kqdk_to_right"/>
-                                </RelativeLayout>
 
+                                </RelativeLayout>
                             </LinearLayout>
 
                             <LinearLayout
@@ -419,20 +431,33 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
-                                    <EditText
-                                        android:id="@+id/et_qj_leader"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:hint="选择审批领导"
-                                        android:textSize="@dimen/px_30"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:id="@+id/tv_qj_leader"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:hint="选择审批领导"
+                                            android:textSize="14sp"
 
-                                        android:gravity="center"/>
+                                            android:gravity="center"/>
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.1dp"
+                                            android:background="@color/black"
+                                            android:layout_below="@+id/tv_qj_endTime"></View>
+                                    </LinearLayout>
+
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentRight="true"
                                         android:src="@drawable/kqdk_to_right"/>
+
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -452,20 +477,33 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
-                                    <EditText
-                                        android:id="@+id/et_qj_startTime"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:hint="选择开始时间"
-                                        android:textSize="@dimen/px_30"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:id="@+id/tv_qj_startTime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:hint="选择开始时间"
+                                            android:textSize="14sp"
 
-                                        android:gravity="center"/>
+                                            android:gravity="center"/>
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.1dp"
+                                            android:background="@color/black"
+                                            android:layout_below="@+id/tv_qj_endTime"></View>
+                                    </LinearLayout>
+
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentRight="true"
                                         android:src="@drawable/kqdk_to_right"/>
+
                                 </RelativeLayout>
                             </LinearLayout>
 
@@ -485,20 +523,33 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
-                                    <EditText
-                                        android:id="@+id/et_qj_endTime"
+                                    <LinearLayout
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:hint="选择结束时间"
-                                        android:textSize="@dimen/px_30"
+                                        android:orientation="vertical">
+                                        <TextView
+                                            android:id="@+id/tv_qj_endTime"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:hint="选择结束时间"
+                                            android:textSize="14sp"
 
-                                        android:gravity="center"/>
+                                            android:gravity="center"/>
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0.1dp"
+                                            android:background="@color/black"
+                                            android:layout_below="@+id/tv_qj_endTime"></View>
+                                    </LinearLayout>
+
                                     <ImageView
                                         android:layout_width="20dp"
                                         android:layout_height="20dp"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentRight="true"
                                         android:src="@drawable/kqdk_to_right"/>
+
                                 </RelativeLayout>
                             </LinearLayout>
                         </LinearLayout>

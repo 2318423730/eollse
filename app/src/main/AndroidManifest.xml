@@ -129,7 +129,8 @@
         <activity
             android:name=".activity.zwfw.wggl.KqdkActivity"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden" />
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"/>
         <activity
             android:name=".activity.shfw.ShfwActivity"
             android:screenOrientation="landscape" />

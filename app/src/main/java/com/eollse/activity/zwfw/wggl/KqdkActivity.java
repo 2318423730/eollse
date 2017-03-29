@@ -4,10 +4,10 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +25,7 @@ import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
+import com.eollse.utils.DateTimePickDialogUtil;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.UploadPicHelper;
 
@@ -34,6 +35,7 @@ import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * 考勤打卡
  */
@@ -77,14 +79,15 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     ImageView ivInfo;
     @BindView(R.id.tv_addressNotice)
     TextView tvAddressNotice;
-    @BindView(R.id.et_qj_type)
-    EditText etQjType;
-    @BindView(R.id.et_qj_leader)
-    EditText etQjLeader;
-    @BindView(R.id.et_qj_startTime)
-    EditText etQjStartTime;
-    @BindView(R.id.et_qj_endTime)
-    EditText etQjEndTime;
+    @BindView(R.id.tv_qj_type)
+    TextView tvQjType;
+    @BindView(R.id.tv_qj_leader)
+    TextView tvQjLeader;
+    @BindView(R.id.tv_qj_startTime)
+    TextView tvQjStartTime;
+    @BindView(R.id.tv_qj_endTime)
+    TextView tvQjEndTime;
+
 
     private int mYear;
     private int mMonth;
@@ -180,7 +183,28 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
         ivChoose.setOnClickListener(this);
         btnKqCommit.setOnClickListener(this);
         btnQjCommit.setOnClickListener(this);
+
+        tvQjStartTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
+                        KqdkActivity.this, null);
+                date = new Date();
+                dateTimePicKDialog.dateTimePicKDialog(tvQjStartTime);
+            }
+        });
+        tvQjEndTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DateTimePickDialogUtil dateTimePicKDialog = new DateTimePickDialogUtil(
+                        KqdkActivity.this, null);
+
+                dateTimePicKDialog.dateTimePicKDialog(tvQjEndTime);
+            }
+        });
     }
+
+
 
 
     private class MyLocationListener implements BDLocationListener {
@@ -289,9 +313,9 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
         date = new Date();
         String d = dfDate.format(date);
         // 截取字符串(传入的格式 ：   2017-03-21)
-        mYear = Integer.parseInt(d.split("-")[0]);//小时
-        mMonth = Integer.parseInt(d.split("-")[1]);//分钟
-        mDay = Integer.parseInt(d.split("-")[2]);//秒
+        mYear = Integer.parseInt(d.split("-")[0]);//年
+        mMonth = Integer.parseInt(d.split("-")[1]);//月
+        mDay = Integer.parseInt(d.split("-")[2]);//日
         tvDate.setText(mYear + "年" + mMonth + "月" + mDay + "日");
     }
 
@@ -462,19 +486,19 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
      */
     private void qingjiaCommit() {
         if (isLogin) {
-            if ("".equals(etQjType.getText().toString())) {
+            if ("".equals(tvQjType.getText().toString())) {
                 MyToast.showToast(getApplicationContext(), "请选择请假类型");
                 return;
             }
-            if ("".equals(etQjLeader.getText().toString())) {
+            if ("".equals(tvQjLeader.getText().toString())) {
                 MyToast.showToast(getApplicationContext(), "请选择审批领导");
                 return;
             }
-            if ("".equals(etQjStartTime.getText().toString())) {
+            if ("".equals(tvQjStartTime.getText().toString())) {
                 MyToast.showToast(getApplicationContext(), "请选择请假开始时间");
                 return;
             }
-            if ("".equals(etQjEndTime.getText().toString())) {
+            if ("".equals(tvQjEndTime.getText().toString())) {
                 MyToast.showToast(getApplicationContext(), "请选择请假结束时间");
                 return;
             }
@@ -507,7 +531,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     tvAddressNotice.setVisibility(View.GONE);
                     //UploadPicHelper.startPhotoZoom(Uri.fromFile(file1), this);
 
-                    Glide.with(KqdkActivity.this).load(file1).override(200,200).into(ivInfo);
+                    Glide.with(KqdkActivity.this).load(file1).override(200, 200).into(ivInfo);
 //                    BitmapFactory.Options options = new BitmapFactory.Options();
 //                    BitmapFactory.decodeFile(file1.getAbsolutePath(), options);
 //                    options.inJustDecodeBounds = true;
