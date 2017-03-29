@@ -11,6 +11,7 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.zwfw.dqfc.DqhdActivity;
+import com.eollse.activity.zwfw.dqfc.FfclActivity;
 import com.eollse.activity.zwfw.dqfc.SdxfActivity;
 import com.eollse.activity.zwfw.dqfc.SjxxActivity;
 import com.eollse.activity.zwfw.dqfc.ZsdxActivity;
@@ -108,7 +109,7 @@ public class DqfcActivity extends BaseActivity {
                 }else if(position==4){
                     intent.setClass(DqfcActivity.this,SdxfActivity.class);
                 }else{
-                    return;
+                    intent.setClass(DqfcActivity.this,FfclActivity.class);
                 }
                 startActivity(intent);
             }

@@ -28,13 +28,14 @@ import com.eollse.activity.zwfw.SqtjActivity;
 import com.eollse.activity.zwfw.WgglActivity;
 import com.eollse.activity.zwfw.ZwfwActivity;
 import com.eollse.activity.zwfw.zcxx.ZcxxActivity;
-import com.eollse.activity.zwfw.zcxx.ZcxxNewsDetailActivity_ViewBinding;
+import com.eollse.activity.zwfw.zcxx.ZcxxNewsDetailActivity;
+
 import com.eollse.adapter.MainNewsAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
 import com.eollse.entity.Video;
 import com.eollse.ui.MyPmdTextView;
-import com.eollse.ui.MyVideoView;
+
 import com.eollse.ui.MyVitamioVideoView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
@@ -305,7 +306,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 String url = Constants.BASE_NEWS_URL + "method=newshtml" + "&userid=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "UserId", "")
                         + "&Key=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "") + "&id=" + newsList.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent = new Intent(MainActivity.this, ZcxxNewsDetailActivity_ViewBinding.class);
+                Intent intent = new Intent(MainActivity.this, ZcxxNewsDetailActivity.class);
                 intent.putExtra("url", url);
                 intent.putExtra("from", "mainNews");
                 startActivity(intent);
