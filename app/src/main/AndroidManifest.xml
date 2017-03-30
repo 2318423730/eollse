@@ -129,8 +129,8 @@
         <activity
             android:name=".activity.zwfw.wggl.KqdkActivity"
             android:screenOrientation="landscape"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"/>
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.shfw.ShfwActivity"
             android:screenOrientation="landscape" />
@@ -148,7 +148,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.zwfw.dqfc.FfclActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.zwfw.JzbfActivity"></activity>
     </application>
 
 </manifest>

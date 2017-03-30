@@ -530,13 +530,19 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        //videoView.resume();
+        videoView.resume();
         if (videosList != null && videosList.size() > 0) {
             videoView.setVideoPath(videosList.get(MyApplication.lastPosition).getHightUrl());
             //videoView.start();
         }
        videoView.seekTo(MyApplication.lastPlayPosition);
 
+    }
+
+    @Override
+    protected void onStop() {
+        videoView.pause();
+        super.onStop();
     }
 
     @Override

@@ -4,7 +4,7 @@
     android:layout_height="@dimen/px_150"
     android:paddingLeft="@dimen/px_50"
     android:paddingRight="@dimen/px_50"
-    android:background="#1c5cf7">
+    android:background="@drawable/top2_bg">
     <TextView
         android:id="@+id/tv_backHome"
         android:layout_width="wrap_content"

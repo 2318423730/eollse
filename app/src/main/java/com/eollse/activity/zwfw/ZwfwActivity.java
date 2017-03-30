@@ -45,10 +45,10 @@ public class ZwfwActivity extends BaseActivity {
         setContentView(R.layout.activity_zwfw);
         ButterKnife.bind(this);
         tvTitle.setText("政务服务");
-        img = new int[]{R.drawable.zwfw_zcxx, R.drawable.zwfw_sqtj, R.drawable.zwfw_jgcx, R.drawable.zwfw_wsbs,
+        img = new int[]{R.drawable.zwfw_zcxx, R.drawable.zwfw_sqtj, R.drawable.zwfw_jgcx, R.drawable.zwfw_jzbf,
                 R.drawable.zwfw_yybs, R.drawable.zwfw_dqfc, R.drawable.zwfw_qtfw, R.drawable.zwfw_wggl,
                 R.drawable.zwfw_bszn, R.drawable.zwfw_qgpt, R.drawable.zwfw_pasq, R.drawable.zwfw_sqgk};
-        title = new String[]{"政策信息", "诉求提交", "结果查询", "网上办事",
+        title = new String[]{"政策信息", "诉求提交", "结果查询", "精准帮扶",
                 "预约办事", "党群风采", "群团服务", "网格管理",
                 "办事指南", "群工平台", "平安社区", "社区概况",};
         setListeners();
@@ -104,8 +104,9 @@ public class ZwfwActivity extends BaseActivity {
                     intent.setClass(ZwfwActivity.this, JgcxActivity.class);
 
                 } else if (i == 3) {
-                    //跳转到网上办事
-                    return;
+                    //跳转到精准帮扶
+                    intent.setClass(ZwfwActivity.this, JzbfActivity.class);
+
                 } else if (i == 4) {
                     //跳转到预约办事
                     intent.setClass(ZwfwActivity.this, YybsActivity.class);
