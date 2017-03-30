@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.eollse.R;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.MyLeftLinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,9 +26,12 @@ public class UrlActivity extends BaseActivity {
     TextView tvTitle;
     @BindView(R.id.tv_back)
     TextView tvBack;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
     private String url;
     private String title;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +42,12 @@ public class UrlActivity extends BaseActivity {
         setListeners();
 
         url = getIntent().getStringExtra("url");
-        title=getIntent().getStringExtra("title");
-        if(!"".equals(title)){
+        title = getIntent().getStringExtra("title");
+        if (!"".equals(title)) {
             tvTitle.setText(title);
         }
 
-         WebSettings settings = webView.getSettings();
+        WebSettings settings = webView.getSettings();
         settings.setBuiltInZoomControls(true);
         settings.setSupportZoom(false);
         settings.setJavaScriptEnabled(true);
@@ -68,6 +72,7 @@ public class UrlActivity extends BaseActivity {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +88,9 @@ public class UrlActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                if(webView.canGoBack()) {
+                if (webView.canGoBack()) {
                     webView.goBack();
-                }else {
+                } else {
                     finish();
                 }
             }

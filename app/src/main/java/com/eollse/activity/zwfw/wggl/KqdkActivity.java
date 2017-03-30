@@ -26,6 +26,7 @@ import com.eollse.activity.MainActivity;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
 import com.eollse.utils.DateTimePickDialogUtil;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.UploadPicHelper;
 
@@ -87,6 +88,8 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     TextView tvQjStartTime;
     @BindView(R.id.tv_qj_endTime)
     TextView tvQjEndTime;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
 
     private int mYear;
@@ -161,6 +164,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,8 +207,6 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             }
         });
     }
-
-
 
 
     private class MyLocationListener implements BDLocationListener {

@@ -1,9 +1,9 @@
 package com.eollse.activity.zwfw;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +24,7 @@ import com.eollse.entity.Dept;
 import com.eollse.entity.Type;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.SharedPreUtil;
 
@@ -65,6 +66,8 @@ public class SqtjContentActivity extends BaseActivity {
     TextView tvType;
     @BindView(R.id.tv_dept)
     TextView tvDept;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
     private View myView;
     private PopupWindow popupWindow;
@@ -73,13 +76,13 @@ public class SqtjContentActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Constants.HANDLER_TYPE_RECEIVED:
-                    showPopup(myView,"type");
+                    showPopup(myView, "type");
                     break;
                 case Constants.HANDLER_DEPT_RECEIVED:
-                    showPopup(myView,"dept");
+                    showPopup(myView, "dept");
                     break;
                 case Constants.HANDLER_SQTJ_FAIL:
-                    MyToast.showToast(getApplicationContext(),"诉求提交失败");
+                    MyToast.showToast(getApplicationContext(), "诉求提交失败");
                     break;
             }
         }
@@ -116,6 +119,7 @@ public class SqtjContentActivity extends BaseActivity {
 
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,20 +191,20 @@ public class SqtjContentActivity extends BaseActivity {
      */
     private void commitData() {
         //http://oa.ybqtw.org.cn/api/APP1.0.aspx?&TVInfoId=19&method=Opinionclass&Key=21218CCA77804D2BA1922C33E0151105
-        Map<String,String> params=new HashMap<>();
+        Map<String, String> params = new HashMap<>();
         params.put("method", "OpinionAdd");
         params.put("TVInfoId", SharedPreUtil.getValue(this, "userinfo", "TVInfoId", ""));
         params.put("Key", SharedPreUtil.getValue(this, "userinfo", "Key", ""));
-        params.put("UserName",etName.getText().toString());
-        params.put("MobileNo",etPhone.getText().toString());
-        params.put("OpinionClassId",tvTitle.getText().toString());
-        params.put("deptId",tvDept.getText().toString());
-        params.put("Title",etTitle.getText().toString());
-        params.put("Content",etContent.getText().toString());
+        params.put("UserName", etName.getText().toString());
+        params.put("MobileNo", etPhone.getText().toString());
+        params.put("OpinionClassId", tvTitle.getText().toString());
+        params.put("deptId", tvDept.getText().toString());
+        params.put("Title", etTitle.getText().toString());
+        params.put("Content", etContent.getText().toString());
         MyApplication.okHttpUtil.post(Constants.BASE_URL, params, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
-                if(!"0".equals(JSON.parseObject(jsonStr).get("Status"))){
+                if (!"0".equals(JSON.parseObject(jsonStr).get("Status"))) {
                     startActivity(new Intent(getApplicationContext(), SqtjSuccessActivity.class));
                     finish();
                 }

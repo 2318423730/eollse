@@ -149,7 +149,9 @@
         <activity
             android:name=".activity.zwfw.dqfc.FfclActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.zwfw.JzbfActivity"></activity>
+        <activity
+            android:name=".activity.zwfw.JzbfActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

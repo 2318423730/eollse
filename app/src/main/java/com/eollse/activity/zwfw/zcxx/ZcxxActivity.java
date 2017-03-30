@@ -1,9 +1,9 @@
 package com.eollse.activity.zwfw.zcxx;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,6 +25,7 @@ import com.eollse.entity.Zcxx;
 import com.eollse.ui.MyHorizontalListView;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.MyToast;
 import com.eollse.utils.SharedPreUtil;
 
@@ -35,6 +36,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * 政策信息
  */
@@ -70,6 +72,8 @@ public class ZcxxActivity extends BaseActivity {
     List<Dept.DataBean> tab;
     @BindView(R.id.lv_news)
     ListView lvNews;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
     /**
      * 新闻集合
      */
@@ -208,6 +212,7 @@ public class ZcxxActivity extends BaseActivity {
     private HorizontalListViewAdapter horizontalListViewAdapter;
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -298,12 +303,12 @@ public class ZcxxActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
 
-                String url = Constants.BASE_NEWS_URL+"TVInfoId="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
-                        +"&Key="+SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "Key", "")+"&id="+newsList.get(position).getNewsId();
+                String url = Constants.BASE_NEWS_URL + "TVInfoId=" + SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "TVInfoId", "")
+                        + "&Key=" + SharedPreUtil.getValue(ZcxxActivity.this, "userinfo", "Key", "") + "&id=" + newsList.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent=new Intent(ZcxxActivity.this,ZcxxNewsDetailActivity.class);
-                intent.putExtra("url",url);
-                intent.putExtra("from","zcxxNews");
+                Intent intent = new Intent(ZcxxActivity.this, ZcxxNewsDetailActivity.class);
+                intent.putExtra("url", url);
+                intent.putExtra("from", "zcxxNews");
                 startActivity(intent);
             }
         });

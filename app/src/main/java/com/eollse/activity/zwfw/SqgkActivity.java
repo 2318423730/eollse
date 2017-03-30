@@ -1,9 +1,9 @@
 package com.eollse.activity.zwfw;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +22,7 @@ import com.eollse.app.MyApplication;
 import com.eollse.entity.MainNew;
 import com.eollse.utils.Constants;
 import com.eollse.utils.HttpCallBack;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
@@ -55,6 +56,8 @@ public class SqgkActivity extends BaseActivity implements View.OnClickListener {
     TextView tvNext;
     @BindView(R.id.materialRefreshLayout)
     MaterialRefreshLayout materialRefreshLayout;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
     private String url;
     private int page = 1;
     private int countNum;//总共条数
@@ -88,8 +91,8 @@ public class SqgkActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void getData() {
-        url = Constants.BASE_URL+"ClassId=3&TVInfoId="+ SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+
-                "&method=IndexNews&Page="+page+"&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "")+"&PageSize=10&Deptid=2";
+        url = Constants.BASE_URL + "ClassId=3&TVInfoId=" + SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "") +
+                "&method=IndexNews&Page=" + page + "&Key=" + SharedPreUtil.getValue(this, "userinfo", "Key", "") + "&PageSize=10&Deptid=2";
         MyApplication.okHttpUtil.get(url, new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
@@ -118,6 +121,7 @@ public class SqgkActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         tvPrevious.setOnClickListener(this);
         tvNext.setOnClickListener(this);
 
@@ -156,12 +160,12 @@ public class SqgkActivity extends BaseActivity implements View.OnClickListener {
 //                intent.putExtra("url",url);
 //                intent.putExtra("from","sqgkNews");
 //                startActivity(intent);
-                String url = Constants.BASE_NEWS_URL+"TVInfoId="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "TVInfoId", "")
-                        +"&Key="+SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "")+"&id="+list.get(position).getNewsId();
+                String url = Constants.BASE_NEWS_URL + "TVInfoId=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "TVInfoId", "")
+                        + "&Key=" + SharedPreUtil.getValue(getApplicationContext(), "userinfo", "Key", "") + "&id=" + list.get(position).getNewsId();
                 Log.e("MyTAG", "url=" + url);
-                Intent intent=new Intent(SqgkActivity.this,ZcxxNewsDetailActivity.class);
-                intent.putExtra("url",url);
-                intent.putExtra("from","sqgkNews");
+                Intent intent = new Intent(SqgkActivity.this, ZcxxNewsDetailActivity.class);
+                intent.putExtra("url", url);
+                intent.putExtra("from", "sqgkNews");
                 startActivity(intent);
 
             }

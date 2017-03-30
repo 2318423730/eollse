@@ -16,7 +16,7 @@
         android:background="@drawable/info_bg"
         android:orientation="vertical">
 
-        <include layout="@layout/top2"></include>
+        <include layout="@layout/top"></include>
 
         <RelativeLayout
             android:layout_width="match_parent"

@@ -12,11 +12,13 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.MyToast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 /**
  * 书记信箱
  */
@@ -48,6 +50,8 @@ public class SjxxActivity extends BaseActivity {
     LinearLayout llRight;
     @BindView(R.id.view_bg)
     View viewBg;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
 
     @Override
@@ -57,13 +61,17 @@ public class SjxxActivity extends BaseActivity {
         ButterKnife.bind(this);
         tvTitle.setText("书记信箱");
 
-
+        setListeners();
 //        myView = getLayoutInflater().inflate(R.layout.popup_sjxx_success, null);
 //        popupWindow = null;
 //        popupWindow = new PopupWindow(myView, 500, 800, true);
     }
 
-    @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.btn_commit, R.id.btn_reset,R.id.btn_yes})
+    private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
+    }
+
+    @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.btn_commit, R.id.btn_reset, R.id.btn_yes})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_backHome:
@@ -119,7 +127,6 @@ public class SjxxActivity extends BaseActivity {
         llRight.setVisibility(View.GONE);
 
     }
-
 
 
 }

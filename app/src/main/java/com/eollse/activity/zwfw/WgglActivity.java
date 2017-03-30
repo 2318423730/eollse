@@ -14,6 +14,7 @@ import com.eollse.activity.zwfw.wggl.KqdkActivity;
 import com.eollse.adapter.WgglAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Wggl;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.SharedPreUtil;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class WgglActivity extends BaseActivity {
     GridView gvWggl;
     @BindView(R.id.tv_top2)
     TextView tvTop2;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
     private List<Wggl> wgglList = new ArrayList<>();
     private WgglAdapter wgglAdapter;
@@ -52,10 +55,10 @@ public class WgglActivity extends BaseActivity {
 
         img = new int[]{R.drawable.wggl_ltjd, R.drawable.wggl_jcsj, R.drawable.wggl_tjfx,
                 R.drawable.wggl_gzgl, R.drawable.wggl_rkgl, R.drawable.wggl_txl,
-                R.drawable.wggl_wgryxx,R.drawable.wggl_kqdk};
+                R.drawable.wggl_wgryxx, R.drawable.wggl_kqdk};
         title = new String[]{"龙塔街道", "基础数据", "统计分析",
                 "工作管理", "人口管理", "通讯录",
-                "网格人员信息","考勤打卡"};
+                "网格人员信息", "考勤打卡"};
 
 
         tvTitle.setText("网格管理");
@@ -70,6 +73,7 @@ public class WgglActivity extends BaseActivity {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,12 +95,12 @@ public class WgglActivity extends BaseActivity {
         gvWggl.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent=new Intent();
-                if(position!=img.length-1){
+                Intent intent = new Intent();
+                if (position != img.length - 1) {
                     return;
                 }
-                if(position==img.length-1){
-                    intent.setClass(WgglActivity.this,KqdkActivity.class);
+                if (position == img.length - 1) {
+                    intent.setClass(WgglActivity.this, KqdkActivity.class);
                 }
                 startActivity(intent);
             }
@@ -110,7 +114,7 @@ public class WgglActivity extends BaseActivity {
 
     private void getData() {
 
-        for (int i = 0; i < img.length ; i++) {
+        for (int i = 0; i < img.length; i++) {
             Wggl wggl = new Wggl();
             wggl.setIconId(img[i]);
             wggl.setTitle(title[i]);

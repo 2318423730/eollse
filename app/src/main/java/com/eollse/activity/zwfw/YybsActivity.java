@@ -1,9 +1,9 @@
 package com.eollse.activity.zwfw;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -22,6 +22,7 @@ import com.eollse.adapter.YybsTypeAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
 import com.eollse.utils.KCalendar;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.MyToast;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 /**
  * 预约办事
  */
@@ -79,6 +81,8 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
     Button btnCommit;
     @BindView(R.id.iv_more)
     ImageView ivMore;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
 
     private String date = null;// 设置默认选中的日期  格式为 “2014-04-05” 标准DATE格式
@@ -153,7 +157,7 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
 
     private void setListeners() {
 
-
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,7 +265,7 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
 
     }
 
-    @OnClick({R.id.iv_previousMonth, R.id.iv_pnextMonth, R.id.iv_more, R.id.btn_commit,R.id.btn_code})
+    @OnClick({R.id.iv_previousMonth, R.id.iv_pnextMonth, R.id.iv_more, R.id.btn_commit, R.id.btn_code})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_previousMonth://上个月
@@ -283,36 +287,36 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
     }
 
     private void getCode() {
-        if("".equals(etPhone.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"电话不能为空");
+        if ("".equals(etPhone.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "电话不能为空");
             return;
-        }else{
-            MyToast.showToast(getApplicationContext(),"正在获取验证码");
+        } else {
+            MyToast.showToast(getApplicationContext(), "正在获取验证码");
         }
     }
 
     private void commit() {
-        if("".equals(date)||date==null){
-            MyToast.showToast(getApplicationContext(),"请选择日期");
+        if ("".equals(date) || date == null) {
+            MyToast.showToast(getApplicationContext(), "请选择日期");
             return;
         }
-        if("".equals(time)||time==null){
-            MyToast.showToast(getApplicationContext(),"请选择时间段");
+        if ("".equals(time) || time == null) {
+            MyToast.showToast(getApplicationContext(), "请选择时间段");
             return;
         }
-        if("".equals(etUserName.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"姓名不能为空");
+        if ("".equals(etUserName.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "姓名不能为空");
             return;
         }
-        if("".equals(etCode.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"验证码不能为空");
+        if ("".equals(etCode.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "验证码不能为空");
             return;
         }
-        if("".equals(etPhone.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"电话不能为空");
+        if ("".equals(etPhone.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "电话不能为空");
             return;
         }
-        MyToast.showToast(getApplicationContext(),"预约成功");
+        MyToast.showToast(getApplicationContext(), "预约成功");
     }
 
     private void moveListView() {

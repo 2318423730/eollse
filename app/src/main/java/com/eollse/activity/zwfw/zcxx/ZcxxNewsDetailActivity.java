@@ -14,9 +14,11 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.MyLeftLinearLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * 政策信息新闻详情
  */
@@ -29,8 +31,11 @@ public class ZcxxNewsDetailActivity extends BaseActivity {
     TextView tvBack;
     @BindView(R.id.webView)
     WebView webView;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
     private String url;
     private String from;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +46,12 @@ public class ZcxxNewsDetailActivity extends BaseActivity {
 
         Intent intent = getIntent();
         url = intent.getStringExtra("url");
-        from=intent.getStringExtra("from");
-        if("zcxxNews".equals(from)){
+        from = intent.getStringExtra("from");
+        if ("zcxxNews".equals(from)) {
             tvTitle.setText("政策资讯");
-        }else if("mainNews".equals(from)){
+        } else if ("mainNews".equals(from)) {
             tvTitle.setText("标题");
-        }else if("sqgkNews".equals(from)){
+        } else if ("sqgkNews".equals(from)) {
             tvTitle.setText("社区新闻");
         }
 
@@ -79,6 +84,7 @@ public class ZcxxNewsDetailActivity extends BaseActivity {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +121,6 @@ public class ZcxxNewsDetailActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 
 
 }

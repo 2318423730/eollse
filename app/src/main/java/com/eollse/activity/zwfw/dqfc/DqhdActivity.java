@@ -12,11 +12,13 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.UrlActivity;
+import com.eollse.activity.zwfw.DqfcActivity;
 import com.eollse.adapter.DqhdInfoAdapter;
 import com.eollse.adapter.DqhdUrlAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Dqhd;
 import com.eollse.entity.DqhdHref;
+import com.eollse.utils.MyLeftLinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,8 @@ public class DqhdActivity extends BaseActivity {
     GridView gvInfo;
     @BindView(R.id.lv_href)
     ListView lvHref;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
 
     private String[] title;
@@ -102,6 +106,24 @@ public class DqhdActivity extends BaseActivity {
                 intent.putExtra("url", dqhdHrefsList.get(position).getUrl());
                 intent.putExtra("title", "党群活动");
                 startActivity(intent);
+            }
+        });
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
+        //回首页
+        tvBackHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DqhdActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                MyApplication.clearAllActivitiesWithOutMainActivity();
+            }
+        });
+        //返回
+        tvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

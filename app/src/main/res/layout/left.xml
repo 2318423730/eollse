@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_left"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tv_leftTitle"
+        android:layout_width="@dimen/px_150"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="政务服务"
+        android:textColor="@color/white"
+        android:textSize="@dimen/px_80" />
+
+</LinearLayout>

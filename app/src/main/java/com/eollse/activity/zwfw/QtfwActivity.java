@@ -13,6 +13,7 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.app.MyApplication;
+import com.eollse.utils.MyLeftLinearLayout;
 import com.eollse.utils.SharedPreUtil;
 
 import butterknife.BindView;
@@ -31,6 +32,8 @@ public class QtfwActivity extends BaseActivity {
     TextView tvBack;
     @BindView(R.id.webView)
     WebView webView;
+    @BindView(R.id.ll_myLeftLinearLayout)
+    MyLeftLinearLayout llMyLeftLinearLayout;
 
 
     @Override
@@ -50,8 +53,8 @@ public class QtfwActivity extends BaseActivity {
         webView.setBackgroundColor(0);
         //webView.setBackgroundResource(R.drawable.shape_info_background);
         //webView.loadUrl("http://www.baidu.com");
-        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?&TVInfoId="+ SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "")+"&Key="+SharedPreUtil.getValue(this, "userinfo", "Key", "")+"&ClassId=3");
-        webView.setWebViewClient(new WebViewClient(){
+        webView.loadUrl("http://oa.ybqtw.org.cn/api/Html/ApiReso.aspx?&TVInfoId=" + SharedPreUtil.getValue(this, "userinfo", "TVInfoId", "") + "&Key=" + SharedPreUtil.getValue(this, "userinfo", "Key", "") + "&ClassId=3");
+        webView.setWebViewClient(new WebViewClient() {
 
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -69,6 +72,7 @@ public class QtfwActivity extends BaseActivity {
     }
 
     private void setListeners() {
+        llMyLeftLinearLayout.setBackZwfwActivity(this);
         //回首页
         tvBackHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +88,9 @@ public class QtfwActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                if(webView.canGoBack()) {
+                if (webView.canGoBack()) {
                     webView.goBack();
-                }else {
+                } else {
                     finish();
                 }
             }
