@@ -151,6 +151,9 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.zwfw.JzbfActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.zwfw.bszn.BsznItemActivity"
             android:screenOrientation="landscape"></activity>
     </application>
 

@@ -25,5 +25,6 @@
     <color name="sdxf_selected">#4278ba</color>
     <color name="sdxf_normal">#FFB5C5</color>
 
+    <color name="activity_bszn_item_selected">#D5D5D5</color>
 
 </resources>

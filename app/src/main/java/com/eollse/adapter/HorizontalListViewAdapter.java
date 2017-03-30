@@ -81,7 +81,6 @@ public class HorizontalListViewAdapter extends BaseAdapter {
 
     public void setSelectIndex(int i){
         selectIndex = i;
-
     }
 
 }

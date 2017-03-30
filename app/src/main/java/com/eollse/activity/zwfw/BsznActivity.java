@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
+import com.eollse.activity.zwfw.bszn.BsznItemActivity;
 import com.eollse.adapter.BsznAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Bszn;
@@ -60,9 +62,10 @@ public class BsznActivity extends BaseActivity {
     private List<Bszn> list = new ArrayList<>();
 
 
-    private int img[];
-    private String title[];
-
+    private int imgGr[];
+    private String titleGr[];
+    private int imgQy[];
+    private String titleQy[];
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -78,15 +81,19 @@ public class BsznActivity extends BaseActivity {
         tvTitle.setText("办事指南");
 
 
-
-        img = new int[]{R.drawable.bszn_aqsc, R.drawable.bszn_dwmy, R.drawable.bszn_gcjs, R.drawable.bszn_gysy,
+        imgGr = new int[]{R.drawable.bszn_aqsc, R.drawable.bszn_dwmy, R.drawable.bszn_gcjs, R.drawable.bszn_gysy,
                 R.drawable.bszn_hyzy, R.drawable.bszn_hb, R.drawable.bszn_hysy, R.drawable.bszn_jt,
                 R.drawable.bszn_jy, R.drawable.bszn_jyns, R.drawable.bszn_jy, R.drawable.bszn_mzzj, R.drawable.bszn_nsnj, R.drawable.bszn_qt};
-        title = new String[]{"安全生产", "对外贸易", "工程建设", "公用事业",
+        titleGr = new String[]{"安全生产", "对外贸易", "工程建设", "公用事业",
                 "行业准营", "环保", "婚育收养", "交通",
                 "教育", "经营纳税", "就业", "名族宗教", "年审年检",
                 "其他"};
-
+        imgQy = new int[]{R.drawable.bszn_aqsc, R.drawable.bszn_dwmy, R.drawable.bszn_gcjs, R.drawable.bszn_gysy,
+                R.drawable.bszn_hyzy, R.drawable.bszn_hb, R.drawable.bszn_hysy, R.drawable.bszn_jt,
+                R.drawable.bszn_jy, R.drawable.bszn_jyns, R.drawable.bszn_jy, R.drawable.bszn_mzzj};
+        titleQy = new String[]{"企业开办", "资质认定", "经营纳税", "招商引资",
+                "行业准营", "设立变更", "对外贸易", "质量检验",
+                "安全生产", "人力资源", "土地房产", "工程建设",};
         //组装数据
         getData();
         //设置Adapter
@@ -104,12 +111,14 @@ public class BsznActivity extends BaseActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkId) {
                 switch (checkId) {
                     case R.id.rb_geren:
+                        isQiye=false;
                         rgTop.check(R.id.rb_geren);
                         list.clear();
                         list.addAll(bsznGerenList);
                         bsznAdapter.notifyDataSetChanged();
                         break;
                     case R.id.rb_qiye:
+                        isQiye=true;
                         rgTop.check(R.id.rb_qiye);
                         list.clear();
                         list.addAll(bsznQiyeList);
@@ -138,22 +147,35 @@ public class BsznActivity extends BaseActivity {
             }
         });
 
+        gvBszn.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (isQiye) {
+                    if(position==0){
+                        Intent intent=new Intent(BsznActivity.this, BsznItemActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+        });
     }
+
+    private boolean isQiye;
 
     private void getData() {
         bsznGerenList = new ArrayList<>();
         bsznQiyeList = new ArrayList<>();
-        for (int i = 0; i < img.length; i++) {
+        for (int i = 0; i < imgGr.length; i++) {
             Bszn bszn = new Bszn();
-            bszn.setIconId(img[i]);
-            bszn.setTitle(title[i]);
+            bszn.setIconId(imgGr[i]);
+            bszn.setTitle(titleGr[i]);
             bsznGerenList.add(bszn);
 
         }
-        for (int i = 0; i < img.length; i++) {
+        for (int i = 0; i < imgQy.length; i++) {
             Bszn bszn = new Bszn();
-            bszn.setIconId(img[i]);
-            bszn.setTitle(title[i]);
+            bszn.setIconId(imgQy[i]);
+            bszn.setTitle(titleQy[i]);
             bsznQiyeList.add(bszn);
         }
         list.addAll(bsznGerenList);
