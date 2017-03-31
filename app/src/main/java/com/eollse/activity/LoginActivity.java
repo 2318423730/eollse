@@ -28,8 +28,8 @@ import butterknife.ButterKnife;
  * 登录
  */
 public class LoginActivity extends BaseActivity {
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
     @BindView(R.id.et_userName)
     EditText etUserName;
     @BindView(R.id.et_password)
