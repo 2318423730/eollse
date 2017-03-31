@@ -41,7 +41,7 @@ public class BaseActivity extends FragmentActivity {
     private void showDialog() {
         builder = new AlertDialog.Builder(this);
         builder.setTitle("提示");
-        builder.setMessage("亲，当前没有网络连接!!!");
+        builder.setMessage("当前没有网络连接!!!");
 
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
