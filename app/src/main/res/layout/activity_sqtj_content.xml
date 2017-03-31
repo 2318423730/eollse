@@ -78,7 +78,7 @@
                                 <EditText
                                     android:id="@+id/et_name"
                                     android:layout_width="0dp"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
@@ -107,7 +107,7 @@
                                 <EditText
                                     android:id="@+id/et_phone"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:hint="请输入电话"
@@ -142,7 +142,7 @@
                                 <EditText
                                     android:id="@+id/et_code"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:hint="请输验证码"
@@ -174,6 +174,8 @@
                                     android:checked="true"
                                     android:gravity="center"
                                     android:text="短信验证"
+                                    android:layout_marginTop="@dimen/px_10"
+                                    android:layout_marginBottom="@dimen/px_10"
                                     android:textColor="@drawable/selector_sqtjcontent_btn_text"
                                     android:textSize="@dimen/px_30" />
 
@@ -188,6 +190,8 @@
                                     android:checked="false"
                                     android:gravity="center"
                                     android:text="不验证"
+                                    android:layout_marginTop="@dimen/px_10"
+                                    android:layout_marginBottom="@dimen/px_10"
                                     android:textColor="@drawable/selector_sqtjcontent_btn_text"
                                     android:textSize="@dimen/px_30" />
                             </RadioGroup>
@@ -233,7 +237,7 @@
                                 <TextView
                                     android:id="@+id/tv_type"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:drawableRight="@drawable/to_bottom"
@@ -261,7 +265,7 @@
                                 <TextView
                                     android:id="@+id/tv_dept"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:drawableRight="@drawable/to_bottom"
@@ -291,7 +295,7 @@
                             <EditText
                                 android:id="@+id/et_title"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="@dimen/px_70"
                                 android:layout_marginLeft="@dimen/px_30"
                                 android:background="@drawable/shape_yjtjcontent_input_background"
                                 android:hint="请输入意见标题"
@@ -351,7 +355,7 @@
 
                         <RadioGroup
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_80"
+                            android:layout_height="@dimen/px_70"
                             android:orientation="horizontal"
                             android:paddingLeft="@dimen/px_400"
                             android:paddingRight="@dimen/px_400">
@@ -386,7 +390,7 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_80"
+                            android:layout_height="@dimen/px_70"
                             android:layout_marginBottom="@dimen/px_30"
                             android:layout_marginTop="@dimen/px_30"
                             android:gravity="center_vertical"
