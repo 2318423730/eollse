@@ -19,6 +19,17 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
 import com.bumptech.glide.Glide;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
@@ -60,12 +71,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     TextView tvAddress;
     @BindView(R.id.tv_getLoction)
     TextView tvGetLoction;
-    @BindView(R.id.et_userName)
-    EditText etUserName;
-    @BindView(R.id.et_usrNum)
-    EditText etUsrNum;
-    @BindView(R.id.btn_login)
-    Button btnLogin;
+
     @BindView(R.id.et_kq_content)
     EditText etKqContent;
     @BindView(R.id.btn_kq_commit)
@@ -90,6 +96,8 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     TextView tvQjEndTime;
     @BindView(R.id.ll_myLeftLinearLayout)
     MyLeftLinearLayout llMyLeftLinearLayout;
+    @BindView(R.id.mapView)
+    com.baidu.mapapi.map.MapView mapView;
 
 
     private int mYear;
@@ -107,6 +115,8 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     public LocationClient mLocationClient = null;
     private LocationClientOption option;
     public BDLocationListener myListener;
+    private BaiduMap baiduMap;
+
 
     private Handler handler = new Handler() {
         @Override
@@ -115,6 +125,17 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                 case Constants.HANDLER_REFRESH_TIME:
                     setTime();
                     handler.postDelayed(runnable, 998);
+                    break;
+                case Constants.HANDLER_LOCATION_GET:
+                    //接受msg传递过来的参数
+                    double longitude = msg.getData().getDouble("longitude");
+                    double latitude = msg.getData().getDouble("latitude");
+                    String dizhi = msg.getData().getString("dizhi");//接受msg传递过来的参数
+                    tvAddress.setText(dizhi);
+                    //移动地图到定位到的位置
+                    LatLng lng = new LatLng(latitude, longitude);
+                    goLocation(lng);
+
                     break;
             }
         }
@@ -129,6 +150,9 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //在使用SDK各组件之前初始化context信息，传入ApplicationContext
+        //注意该方法要再setContentView方法之前实现
+        SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_kqdk);
         ButterKnife.bind(this);
         tvTitle.setText("考勤打卡");
@@ -142,6 +166,19 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
         setListeners();
         handler.postDelayed(runnable, 998);
 
+        baiduMap = mapView.getMap();
+        // 开启定位图层
+        baiduMap.setMyLocationEnabled(true);
+        //baiduMap.setIndoorEnable(true); // 打开室内图
+        //普通地图
+        baiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+        //卫星地图
+        // baiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+        //开启交通图
+        //baiduMap.setTrafficEnabled(true);
+
+        // 开启定位图层
+        baiduMap.setMyLocationEnabled(true);
         myListener = new MyLocationListener();
         mLocationClient = new LocationClient(getApplicationContext());     //声明LocationClient类
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
@@ -183,7 +220,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             }
         });
         tvGetLoction.setOnClickListener(this);
-        btnLogin.setOnClickListener(this);
+
         ivChoose.setOnClickListener(this);
         btnKqCommit.setOnClickListener(this);
         btnQjCommit.setOnClickListener(this);
@@ -222,11 +259,13 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             } else if (location.getLocType() == BDLocation.TypeServerError) {
 
                 //服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因
+                MyToast.showToast(getApplicationContext(), "服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
             } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
                 //网络不同导致定位失败，请检查网络是否通畅
                 MyToast.showToast(getApplicationContext(), "请检查网络");
             } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
                 //无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机
+                MyToast.showToast(getApplicationContext(), "无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机");
             }
 
 
@@ -240,22 +279,20 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     //经度
                     double longitude = location.getLongitude();
                     //纬度
-                    double Latitude = location.getLatitude();
+                    double latitude = location.getLatitude();
 
 
                     if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
-                        Log.e("MyTAG", "GPS定位结果   经度:" + longitude + "  纬度:" + Latitude);
+                        Log.e("MyTAG", "GPS定位结果   经度:" + longitude + "  纬度:" + latitude);
                     } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
-                        Log.e("MyTAG", "网络定位结果   经度:" + longitude + "  纬度:" + Latitude);
+                        Log.e("MyTAG", "网络定位结果   经度:" + longitude + "  纬度:" + latitude);
                     } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
-                        Log.e("MyTAG", "离线定位结果   经度:" + longitude + "  纬度:" + Latitude);
+                        Log.e("MyTAG", "离线定位结果   经度:" + longitude + "  纬度:" + latitude);
                     } else if (location.getLocType() == BDLocation.TypeNetWorkException) {//网络不通导致定位失败，请检查网络是否通畅
                         Log.e("MyTAG", "网络不通导致定位失败，请检查网络是否通畅");
                     }
 
 
-                    double a = location.getLongitude();//精度
-                    double b = location.getLatitude();//纬度
                     //String s = location.getLocationDescribe();
                     String dizhi = location.getAddrStr();
                     // Address address = location.getAddress();
@@ -264,19 +301,39 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     //Log.e("MyTAG", "AddrStr=" + dizhi);
                     // Log.e("MyTAG", "LocationDescribe=" + s);
                     // Log.e("MyTAG", "城市=" + address.city);
-                    //Log.e("MyTAG", "经度=" + a + "  纬度=" + b);
-                    if (!(dizhi == null)) {
-                        tvAddress.setText(dizhi);
-                    } else {
-                        tvAddress.setText("定位失败!!!");
+                    Log.e("MyTAG", "经度=" + longitude + "  纬度=" + latitude);
+
+//                    if (!(dizhi == null)) {
+//                       // Log.e("MyTAG", "定位成功!!!");
+//                        tvAddress.setText(dizhi);
+//                    } else {
+//                       // Log.e("MyTAG", "定位失败!!!");
+//                        tvAddress.setText("定位失败!!!");
+//                    }
+                    if(dizhi==null){
+                        dizhi="定位失败!!!";
                     }
+                    Message message = Message.obtain();
+                    Bundle bundle = new Bundle();
+                    //往Bundle中存放数据
+                    bundle.putString("dizhi", dizhi);
+                    bundle.putDouble("longitude", longitude);
+                    bundle.putDouble("latitude", latitude);
+                    message.setData(bundle);
+                    message.what=Constants.HANDLER_LOCATION_GET;
+                    handler.sendMessage(message);
 
-
-                    mLocationClient.stop();
                 }
             } catch (Exception e) {
                 // TODO: handle exception
+                e.printStackTrace();
+                Log.e("MyTAG", "" + e);
             }
+        }
+
+        @Override
+        public void onConnectHotSpotMessage(String s, int i) {
+
         }
 
 
@@ -310,6 +367,23 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    //移动位置，并且添加marker
+    public void goLocation(LatLng lng) {
+        // TODO Auto-generated method stub
+        float zoom = 19;//值越大,地图范围越小
+        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLngZoom(lng, zoom);
+        baiduMap.animateMapStatus(mapStatusUpdate);
+
+        //在定位的位置添加marker
+        //先清除marker
+        baiduMap.clear();
+        MarkerOptions markerOptions = new MarkerOptions();
+
+        BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+        markerOptions.icon(bitmapDescriptor);
+        markerOptions.position(lng);
+        baiduMap.addOverlay(markerOptions);
+    }
 
     private void setDate() {
         date = new Date();
@@ -416,9 +490,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                 tvAddress.setText("定位中...");
                 getMyLocation();
                 break;
-            case R.id.btn_login://登录
-                login();
-                break;
+
             case R.id.btn_kq_commit://考勤提交
                 kaoqiCommit();
                 break;
@@ -445,41 +517,22 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-    private void login() {
-        if ("".equals(etUserName.getText().toString())) {
-            MyToast.showToast(getApplicationContext(), "姓名不能为空");
-            return;
-        }
-        if ("".equals(etUsrNum.getText().toString())) {
-            MyToast.showToast(getApplicationContext(), "工号不能为空");
-            return;
-        }
-        MyToast.showToast(getApplicationContext(), "登陆成功");
-        isLogin = true;
-    }
-
-    private boolean isLogin;
-
     /**
      * 考勤提交
      */
     private void kaoqiCommit() {
-        if (isLogin) {
-            if ("".equals(tvAddress.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "需重新定位");
-                return;
-            }
-            if ("".equals(etKqContent.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "考勤备注不能为空");
-                return;
-            }
 
-            MyToast.showToast(getApplicationContext(), "考勤提交成功");
-
-        } else {
-            MyToast.showToast(getApplicationContext(), "请先登录");
+        if ("".equals(tvAddress.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "需重新定位");
             return;
         }
+        if ("".equals(etKqContent.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "考勤备注不能为空");
+            return;
+        }
+
+        MyToast.showToast(getApplicationContext(), "考勤提交成功");
+
 
     }
 
@@ -487,36 +540,33 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
      * 请假提交
      */
     private void qingjiaCommit() {
-        if (isLogin) {
-            if ("".equals(tvQjType.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "请选择请假类型");
-                return;
-            }
-            if ("".equals(tvQjLeader.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "请选择审批领导");
-                return;
-            }
-            if ("".equals(tvQjStartTime.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "请选择请假开始时间");
-                return;
-            }
-            if ("".equals(tvQjEndTime.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "请选择请假结束时间");
-                return;
-            }
-            if ("".equals(tvAddress.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "需重新定位");
-                return;
-            }
-            if ("".equals(etQjContent.getText().toString())) {
-                MyToast.showToast(getApplicationContext(), "请假详情不能为空");
-                return;
-            }
-            MyToast.showToast(getApplicationContext(), "请假提交成功");
-        } else {
-            MyToast.showToast(getApplicationContext(), "请先登录");
 
+        if ("".equals(tvQjType.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "请选择请假类型");
+            return;
         }
+        if ("".equals(tvQjLeader.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "请选择审批领导");
+            return;
+        }
+        if ("".equals(tvQjStartTime.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "请选择请假开始时间");
+            return;
+        }
+        if ("".equals(tvQjEndTime.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "请选择请假结束时间");
+            return;
+        }
+        if ("".equals(tvAddress.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "需重新定位");
+            return;
+        }
+        if ("".equals(etQjContent.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "请假详情不能为空");
+            return;
+        }
+        MyToast.showToast(getApplicationContext(), "请假提交成功");
+
 
     }
 
@@ -614,10 +664,29 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+
     @Override
     protected void onDestroy() {
         handler.removeCallbacksAndMessages(null);
+        // 开启定位图层
+        baiduMap.setMyLocationEnabled(false);
         super.onDestroy();
+        //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
+        mapView.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //在activity执行onResume时执行mMapView. onResume ()，实现地图生命周期管理
+        mapView.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //在activity执行onPause时执行mMapView. onPause ()，实现地图生命周期管理
+        mapView.onPause();
     }
 }
 

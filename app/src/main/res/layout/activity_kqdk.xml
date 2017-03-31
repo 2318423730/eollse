@@ -152,89 +152,13 @@
                             android:text="定位中..."
                             android:textSize="@dimen/px_35" />
 
-                        <LinearLayout
+
+                        <com.baidu.mapapi.map.MapView
+                            android:id="@+id/mapView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/shape_kqda_login"
-                            android:orientation="vertical"
-                            android:paddingLeft="@dimen/px_10"
-                            android:paddingRight="@dimen/px_10">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_marginTop="@dimen/px_10"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="@dimen/px_100"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center_vertical"
-                                    android:text="姓名:"
-                                    android:textSize="@dimen/px_40" />
-
-                                <EditText
-
-                                    android:id="@+id/et_userName"
-                                    android:layout_width="0dp"
-                                    android:layout_height="@dimen/px_70"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/shape_white_solid"
-                                    android:gravity="center_vertical"
-                                    android:textSize="@dimen/px_40" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_marginTop="@dimen/px_10"
-                                android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="@dimen/px_100"
-                                    android:layout_height="match_parent"
-                                    android:gravity="center_vertical"
-                                    android:text="工号:"
-                                    android:textSize="@dimen/px_40" />
-
-                                <EditText
-                                    android:id="@+id/et_usrNum"
-                                    android:layout_width="0dp"
-                                    android:layout_height="@dimen/px_70"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/shape_white_solid"
-                                    android:gravity="center_vertical"
-                                    android:textSize="@dimen/px_40" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_marginTop="@dimen/px_10"
-                                android:layout_weight="1"
-                                android:gravity="center">
-
-                                <Button
-                                    android:id="@+id/btn_login"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/kqdk_btn_bg"
-                                    android:text="登录"
-                                    android:textSize="@dimen/px_40" />
-
-                                <Button
-                                    android:id="@+id/btn_reset"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/px_60"
-                                    android:background="@drawable/kqdk_btn_bg"
-                                    android:text="重置"
-                                    android:textSize="@dimen/px_40" />
-                            </LinearLayout>
-                        </LinearLayout>
-
+                            android:background="#fff"
+                            android:clickable="true" />
                     </LinearLayout>
 
 

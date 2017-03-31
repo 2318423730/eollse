@@ -54,7 +54,10 @@ public interface Constants {
      * 更新时间
      */
     int HANDLER_REFRESH_TIME=10;
-
+    /**
+     * 获取到定位地址
+     */
+    int HANDLER_LOCATION_GET=11;
 
     /**
      * 网络视频的联网地址
