@@ -147,7 +147,7 @@ public class JzbfActivity extends BaseActivity {
                     }
                     // 动作3:显示新的fragment
                     transaction.show(f);
-
+                    // 动作4:提交
                     transaction.commit();
                     currentShowFragment = currentWillShowFragment;
                 }
