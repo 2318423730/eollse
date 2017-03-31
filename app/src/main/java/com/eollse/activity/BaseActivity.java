@@ -10,6 +10,7 @@ import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 
 import com.eollse.app.MyApplication;
+import com.eollse.utils.MyToast;
 import com.eollse.utils.NetworkUtil;
 
 /**
@@ -27,7 +28,13 @@ public class BaseActivity extends FragmentActivity {
 
         boolean isNetWork = NetworkUtil.netWorkCheck(this);
         if (!isNetWork) {
-            showDialog();
+            if(this instanceof MainActivity) {
+                showDialog();
+            }
+//            }else{
+//                MyToast.showToast(getApplicationContext(),"亲，当前没有网络连接!!!");
+//            }
+
         }
     }
 

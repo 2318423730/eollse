@@ -132,10 +132,15 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     double latitude = msg.getData().getDouble("latitude");
                     String dizhi = msg.getData().getString("dizhi");//接受msg传递过来的参数
                     tvAddress.setText(dizhi);
+
                     //移动地图到定位到的位置
                     LatLng lng = new LatLng(latitude, longitude);
                     goLocation(lng);
 
+                    break;
+                case Constants.HANDLER_NO_NENTWORK:
+                    tvAddress.setText("定位失败");
+                    MyToast.showToast(getApplicationContext(),"网络不通导致定位失败，请检查网络是否通畅");
                     break;
             }
         }
@@ -167,6 +172,9 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
         handler.postDelayed(runnable, 998);
 
         baiduMap = mapView.getMap();
+
+        mapView.showZoomControls(false);//隐藏缩放按钮
+
         // 开启定位图层
         baiduMap.setMyLocationEnabled(true);
         //baiduMap.setIndoorEnable(true); // 打开室内图
@@ -177,8 +185,6 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
         //开启交通图
         //baiduMap.setTrafficEnabled(true);
 
-        // 开启定位图层
-        baiduMap.setMyLocationEnabled(true);
         myListener = new MyLocationListener();
         mLocationClient = new LocationClient(getApplicationContext());     //声明LocationClient类
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
@@ -250,23 +256,6 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
 
         @Override
         public void onReceiveLocation(BDLocation location) {
-            if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
-
-            } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
-
-            } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
-
-            } else if (location.getLocType() == BDLocation.TypeServerError) {
-
-                //服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因
-                MyToast.showToast(getApplicationContext(), "服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
-            } else if (location.getLocType() == BDLocation.TypeNetWorkException) {
-                //网络不同导致定位失败，请检查网络是否通畅
-                MyToast.showToast(getApplicationContext(), "请检查网络");
-            } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
-                //无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机
-                MyToast.showToast(getApplicationContext(), "无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机");
-            }
 
 
             try {
@@ -280,21 +269,9 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     double longitude = location.getLongitude();
                     //纬度
                     double latitude = location.getLatitude();
-
-
-                    if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
-                        Log.e("MyTAG", "GPS定位结果   经度:" + longitude + "  纬度:" + latitude);
-                    } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
-                        Log.e("MyTAG", "网络定位结果   经度:" + longitude + "  纬度:" + latitude);
-                    } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
-                        Log.e("MyTAG", "离线定位结果   经度:" + longitude + "  纬度:" + latitude);
-                    } else if (location.getLocType() == BDLocation.TypeNetWorkException) {//网络不通导致定位失败，请检查网络是否通畅
-                        Log.e("MyTAG", "网络不通导致定位失败，请检查网络是否通畅");
-                    }
-
-
-                    //String s = location.getLocationDescribe();
                     String dizhi = location.getAddrStr();
+                    //String s = location.getLocationDescribe();
+
                     // Address address = location.getAddress();
 
                     //Toast.makeText(LocationActivity.this, "精度="+a+"  纬度="+b, Toast.LENGTH_SHORT).show();
@@ -302,6 +279,20 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     // Log.e("MyTAG", "LocationDescribe=" + s);
                     // Log.e("MyTAG", "城市=" + address.city);
                     Log.e("MyTAG", "经度=" + longitude + "  纬度=" + latitude);
+                    if (location.getLocType() == BDLocation.TypeGpsLocation) {// GPS定位结果
+                        //Log.e("MyTAG", "GPS定位结果   经度:" + longitude + "  纬度:" + latitude);
+                    } else if (location.getLocType() == BDLocation.TypeNetWorkLocation) {// 网络定位结果
+                        //Log.e("MyTAG", "网络定位结果   经度:" + longitude + "  纬度:" + latitude);
+                    } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
+                        //Log.e("MyTAG", "离线定位结果   经度:" + longitude + "  纬度:" + latitude);
+                    } else if (location.getLocType() == BDLocation.TypeNetWorkException) {//网络不通导致定位失败，请检查网络是否通畅
+                        //Log.e("MyTAG", "网络不通导致定位失败，请检查网络是否通畅");
+                        handler.sendEmptyMessage(Constants.HANDLER_NO_NENTWORK);
+                        return;
+                    }
+
+
+
 
 //                    if (!(dizhi == null)) {
 //                       // Log.e("MyTAG", "定位成功!!!");
@@ -313,6 +304,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
                     if(dizhi==null){
                         dizhi="定位失败!!!";
                     }
+
                     Message message = Message.obtain();
                     Bundle bundle = new Bundle();
                     //往Bundle中存放数据
@@ -327,7 +319,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
             } catch (Exception e) {
                 // TODO: handle exception
                 e.printStackTrace();
-                Log.e("MyTAG", "" + e);
+                //Log.e("MyTAG", "" + e);
             }
         }
 
@@ -370,6 +362,7 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     //移动位置，并且添加marker
     public void goLocation(LatLng lng) {
         // TODO Auto-generated method stub
+
         float zoom = 19;//值越大,地图范围越小
         MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLngZoom(lng, zoom);
         baiduMap.animateMapStatus(mapStatusUpdate);
@@ -668,8 +661,9 @@ public class KqdkActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onDestroy() {
         handler.removeCallbacksAndMessages(null);
-        // 开启定位图层
+        // 关闭定位图层
         baiduMap.setMyLocationEnabled(false);
+        mLocationClient.stop();   //添加这句就行了
         super.onDestroy();
         //在activity执行onDestroy时执行mMapView.onDestroy()，实现地图生命周期管理
         mapView.onDestroy();

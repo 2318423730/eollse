@@ -60,9 +60,16 @@ public interface Constants {
     int HANDLER_LOCATION_GET=11;
 
     /**
+     * 没有网络
+     */
+    int HANDLER_NO_NENTWORK=12;
+
+    /**
      * 网络视频的联网地址
      */
     public static  final  String NET_VIDEO_URL = "http://api.m.mtime.cn/PageSubArea/TrailerList.api";
+
+
     /**
      * 新闻链接
      */
