@@ -12,9 +12,11 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.eollse.R;
@@ -64,7 +66,7 @@ public class JzbfActivity extends BaseActivity {
     @BindView(R.id.tv_login)
     TextView tvLogin;
     @BindView(R.id.rl_login)
-    LinearLayout rlLogin;
+    RelativeLayout rlLogin;
     @BindView(R.id.et_userName)
     EditText etUserName;
     @BindView(R.id.et_password)
@@ -73,6 +75,8 @@ public class JzbfActivity extends BaseActivity {
     CheckBox checkbox;
     @BindView(R.id.btn_login)
     Button btnLogin;
+    @BindView(R.id.iv_cancle)
+    ImageView ivCancle;
 
 
     private List<Fragment> fragmentList;
@@ -155,6 +159,14 @@ public class JzbfActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 check = isChecked;
+            }
+        });
+        ivCancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                etUserName.setText("");
+                etPassword.setText("");
+                rlLogin.setVisibility(View.GONE);
             }
         });
     }
