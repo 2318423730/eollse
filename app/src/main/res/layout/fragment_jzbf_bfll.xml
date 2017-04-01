@@ -2,16 +2,86 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/px_1290"
         android:layout_height="match_parent"
-        android:padding="@dimen/px_20">
-        <TextView
-
+        android:orientation="vertical">
+        <RadioGroup
+            android:id="@+id/rg_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="帮扶力量"></TextView>
+            android:layout_height="@dimen/px_150"
+            android:padding="@dimen/px_20"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="总工会"
+                android:button="@null"
+                android:background="@drawable/selector_jzbf_bfll"
+                android:checked="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px_40"
+                android:paddingRight="@dimen/px_40"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                />
+
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="团区委"
+                android:button="@null"
+                android:background="@drawable/selector_jzbf_bfll"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px_40"
+                android:paddingRight="@dimen/px_40"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="区妇联"
+                android:button="@null"
+                android:background="@drawable/selector_jzbf_bfll"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px_40"
+                android:paddingRight="@dimen/px_40"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+            <RadioButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="其他部门"
+                android:button="@null"
+                android:background="@drawable/selector_jzbf_bfll"
+                android:gravity="center"
+                android:paddingLeft="@dimen/px_40"
+                android:paddingRight="@dimen/px_40"
+                android:drawableLeft="@mipmap/ic_launcher"
+                android:textSize="16sp"
+                android:textColor="@color/black"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

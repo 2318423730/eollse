@@ -31,7 +31,7 @@ public class BfzcAdapter extends MyBaseAdapter {
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();
-        viewHolder.tv_info.setText(list.get(position));
+        viewHolder.tv_info.setText(".\t"+list.get(position));
         return convertView;
     }
     class ViewHolder{

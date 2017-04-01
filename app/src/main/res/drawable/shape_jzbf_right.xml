@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- 填充 (背景色)-->
-    <solid android:color="@color/gray" />
-    <!-- 圆角-->
-    <corners android:radius="10dp"/>
-    <!-- 描边 (边框)-->
-    <!--<stroke android:width="0.1dp" android:color="#000000"/>-->
+    <!--&lt;!&ndash; 填充 (背景色)&ndash;&gt;-->
+    <!--<solid android:color="@color/gray" />-->
+    <!--&lt;!&ndash; 圆角&ndash;&gt;-->
+    <!--<corners android:radius="10dp"/>-->
+    <!--&lt;!&ndash; 描边 (边框)&ndash;&gt;-->
+    <!--&lt;!&ndash;<stroke android:width="0.1dp" android:color="#000000"/>&ndash;&gt;-->
 </shape>
