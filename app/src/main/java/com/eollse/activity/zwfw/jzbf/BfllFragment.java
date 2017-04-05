@@ -33,7 +33,7 @@ public class BfllFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_jzbf_bfll, null);
 
         unbinder = ButterKnife.bind(this, view);
-
+        rgTitle.check(R.id.rb_zgh);
         setLiseners();
         return view;
     }

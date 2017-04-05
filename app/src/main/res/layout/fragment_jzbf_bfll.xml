@@ -17,13 +17,14 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/rb_zgh"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="总工会"
                 android:button="@null"
                 android:background="@drawable/selector_jzbf_bfll"
-                android:checked="true"
+
                 android:gravity="center"
                 android:paddingLeft="@dimen/px_40"
                 android:paddingRight="@dimen/px_40"
@@ -33,6 +34,7 @@
                 />
 
             <RadioButton
+                android:id="@+id/tqw"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -46,6 +48,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
             <RadioButton
+                android:id="@+id/qfl"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -59,6 +62,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/black"/>
             <RadioButton
+                android:id="@+id/qtbm"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -76,11 +80,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/px_20"
+            android:layout_marginRight="@dimen/px_20">
             <TextView
                 android:id="@+id/tv_info"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                />
         </LinearLayout>
     </LinearLayout>
 

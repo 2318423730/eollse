@@ -28,13 +28,16 @@ public class BfzcAdapter extends MyBaseAdapter {
             convertView=getLayoutInflater().inflate(R.layout.item_jzbf_bfzc,null);
             viewHolder=new ViewHolder();
             viewHolder.tv_info= (TextView) convertView.findViewById(R.id.tv_info);
+            viewHolder.tv_time= (TextView) convertView.findViewById(R.id.tv_time);
             convertView.setTag(viewHolder);
         }
         viewHolder= (ViewHolder) convertView.getTag();
         viewHolder.tv_info.setText(".\t"+list.get(position));
+        viewHolder.tv_time.setText("2017-4-1");
         return convertView;
     }
     class ViewHolder{
         TextView tv_info;
+        TextView tv_time;
     }
 }
