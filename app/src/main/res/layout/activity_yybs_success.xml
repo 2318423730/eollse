@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/right_background"
+    tools:context="com.eollse.activity.zwfw.yybs.YybsSuccessActivity">
+
+    <com.eollse.utils.MyLeftLinearLayout
+        android:id="@+id/ll_myLeftLinearLayout"
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left">
+
+    </com.eollse.utils.MyLeftLinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include layout="@layout/top"></include>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/white"
+            android:layout_margin="@dimen/px_20">
+            <LinearLayout
+                android:layout_width="@dimen/px_500"
+                android:layout_height="@dimen/px_700"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_white_solid_corners_storke">
+
+                    <ImageView
+                        android:id="@+id/iv_success"
+                        android:layout_width="@dimen/px_300"
+                        android:layout_height="@dimen/px_300"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/px_60"
+                        android:src="@drawable/sjxx_success" />
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/iv_success"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/px_40"
+                        android:text="您已成功提交信息"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/px_40"
+                        android:text="我们将在2-5个工作日内给您回复"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btn_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/px_100"
+                    android:layout_marginTop="@dimen/px_40"
+                    android:background="@drawable/sjxx_yes"
+                    android:text="确定"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

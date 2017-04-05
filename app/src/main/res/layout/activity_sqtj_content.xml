@@ -10,7 +10,8 @@
     <com.eollse.utils.MyLeftLinearLayout
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left">
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -18,7 +19,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/info_bg"
+
         android:orientation="vertical">
 
 
@@ -32,32 +33,34 @@
 
             <include layout="@layout/top"></include>
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/outer_bg"></include>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="@dimen/px_10"
+                        android:layout_marginBottom="@dimen/px_40"
                         android:layout_marginLeft="@dimen/px_40"
                         android:layout_marginRight="@dimen/px_40"
                         android:layout_marginTop="@dimen/px_10"
 
-                        android:background="@drawable/shape_info_background"
+                        android:background="@drawable/info_bg"
                         android:orientation="vertical"
                         android:paddingLeft="@dimen/px_20"
                         android:paddingRight="@dimen/px_20">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
+                            android:layout_height="@dimen/px_60"
                             android:layout_marginTop="@dimen/px_20"
                             android:orientation="horizontal">
 
@@ -72,8 +75,8 @@
                                     android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="姓  名:"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_40" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
 
                                 <EditText
                                     android:id="@+id/et_name"
@@ -85,43 +88,62 @@
                                     android:hint="请输入姓名"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
-                                    android:textColor="@color/white"
-                                    android:textColorHint="@color/white"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="@dimen/px_30"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="*"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_50"
+                                android:layout_marginLeft="@dimen/px_30"
+                                android:layout_marginRight="@dimen/px_20"
                                 android:layout_weight="1"
-                                android:gravity="center_vertical">
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
 
                                 <TextView
                                     android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="电  话:"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_40" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
 
                                 <EditText
                                     android:id="@+id/et_phone"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
+                                    android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:hint="请输入电话"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
-                                    android:textColor="@color/white"
-                                    android:textColorHint="@color/white"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="*"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp" />
                             </LinearLayout>
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
+                            android:layout_height="@dimen/px_60"
                             android:layout_marginTop="@dimen/px_20"
                             android:orientation="horizontal">
 
@@ -136,21 +158,30 @@
                                     android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="验证码:"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_40" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
 
                                 <EditText
                                     android:id="@+id/et_code"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
+                                    android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:hint="请输验证码"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
-                                    android:textColor="@color/white"
-                                    android:textColorHint="@color/white"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textColor="@color/black"
+                                    android:textColorHint="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="@dimen/px_30"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp" />
                             </LinearLayout>
 
 
@@ -167,56 +198,43 @@
                                     android:id="@+id/rb_code"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_weight="1"
+                                    android:layout_marginBottom="@dimen/px_5"
 
+                                    android:layout_marginTop="@dimen/px_5"
+                                    android:layout_weight="1"
                                     android:background="@drawable/selector_sqtjcontent_btn_bg"
                                     android:button="@null"
                                     android:checked="true"
                                     android:gravity="center"
                                     android:text="短信验证"
-                                    android:layout_marginTop="@dimen/px_10"
-                                    android:layout_marginBottom="@dimen/px_10"
                                     android:textColor="@drawable/selector_sqtjcontent_btn_text"
-                                    android:textSize="@dimen/px_30" />
+
+                                    android:textSize="16sp" />
 
                                 <RadioButton
                                     android:id="@+id/rb_noCode"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
-                                    android:layout_marginLeft="@dimen/px_50"
+                                    android:layout_marginBottom="@dimen/px_5"
+                                    android:layout_marginLeft="@dimen/px_100"
+                                    android:layout_marginTop="@dimen/px_5"
                                     android:layout_weight="1"
                                     android:background="@drawable/selector_sqtjcontent_btn_bg"
                                     android:button="@null"
                                     android:checked="false"
                                     android:gravity="center"
                                     android:text="不验证"
-                                    android:layout_marginTop="@dimen/px_10"
-                                    android:layout_marginBottom="@dimen/px_10"
                                     android:textColor="@drawable/selector_sqtjcontent_btn_text"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textSize="16sp" />
                             </RadioGroup>
 
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_120"
-                            android:layout_marginTop="@dimen/px_20"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-
-                                android:text="@string/sqtj_content_yz"
-                                android:textColor="@color/red"
-                                android:textSize="@dimen/px_30" />
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
+                            android:layout_height="@dimen/px_60"
                             android:layout_marginTop="@dimen/px_20"
                             android:orientation="horizontal">
 
@@ -231,21 +249,30 @@
                                     android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="类  型:"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_40" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_type"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
+                                    android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:drawableRight="@drawable/to_bottom"
                                     android:gravity="center_vertical"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="@dimen/px_30"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="*"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -259,28 +286,37 @@
                                     android:layout_width="@dimen/px_150"
                                     android:layout_height="wrap_content"
                                     android:text="部  门:"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_40" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
 
                                 <TextView
                                     android:id="@+id/tv_dept"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="0dp"
                                     android:layout_height="@dimen/px_70"
                                     android:layout_marginLeft="@dimen/px_30"
+                                    android:layout_weight="1"
                                     android:background="@drawable/shape_yjtjcontent_input_background"
                                     android:drawableRight="@drawable/to_bottom"
                                     android:gravity="center_vertical"
                                     android:paddingLeft="@dimen/px_30"
                                     android:paddingRight="@dimen/px_30"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/px_30" />
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+                                <TextView
+                                    android:layout_width="@dimen/px_30"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="*"
+                                    android:textColor="@color/red"
+                                    android:textSize="16sp" />
                             </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_100"
+                            android:layout_height="@dimen/px_60"
                             android:layout_marginTop="@dimen/px_20"
                             android:gravity="center_vertical"
                             android:orientation="horizontal">
@@ -289,26 +325,36 @@
                                 android:layout_width="@dimen/px_150"
                                 android:layout_height="wrap_content"
                                 android:text="标  题:"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/px_40" />
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
 
                             <EditText
                                 android:id="@+id/et_title"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="@dimen/px_70"
                                 android:layout_marginLeft="@dimen/px_30"
+                                android:layout_weight="1"
                                 android:background="@drawable/shape_yjtjcontent_input_background"
                                 android:hint="请输入意见标题"
                                 android:paddingLeft="@dimen/px_30"
                                 android:paddingRight="@dimen/px_30"
-                                android:textColor="@color/white"
-                                android:textColorHint="@color/white"
-                                android:textSize="@dimen/px_30" />
+
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="*"
+                                android:textColor="@color/red"
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_600">
+                            android:layout_height="@dimen/px_350">
 
                             <TextView
                                 android:id="@+id/tv_content"
@@ -316,8 +362,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/px_20"
                                 android:text="内  容:"
-                                android:textColor="@color/white"
-                                android:textSize="@dimen/px_40" />
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
 
                             <EditText
                                 android:id="@+id/et_content"
@@ -326,6 +372,7 @@
                                 android:layout_marginBottom="@dimen/px_20"
                                 android:layout_marginLeft="@dimen/px_30"
                                 android:layout_marginTop="@dimen/px_20"
+                                android:layout_toLeftOf="@+id/tv_p"
                                 android:layout_toRightOf="@+id/tv_content"
                                 android:background="@drawable/shape_yjtjcontent_input_background"
                                 android:gravity="clip_horizontal"
@@ -333,66 +380,108 @@
                                 android:inputType="textMultiLine"
                                 android:maxLines="20"
                                 android:paddingLeft="@dimen/px_30"
+
                                 android:paddingRight="@dimen/px_30"
                                 android:text=""
                                 android:textColor="@color/white"
-                                android:textColorHint="@color/white"
-                                android:textSize="@dimen/px_30" />
-                        </RelativeLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/px_150">
+                                android:textColorHint="@color/black"
+                                android:textSize="16sp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:gravity="center_vertical"
-                                android:text="@string/sqtj_content_gs"
+                                android:id="@+id/tv_p"
+                                android:layout_width="@dimen/px_30"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="@dimen/px_20"
+                                android:text="*"
                                 android:textColor="@color/red"
-                                android:textSize="@dimen/px_30" />
-                        </LinearLayout>
+                                android:textSize="16sp" />
+                        </RelativeLayout>
 
-                        <RadioGroup
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/px_70"
-                            android:orientation="horizontal"
-                            android:paddingLeft="@dimen/px_400"
-                            android:paddingRight="@dimen/px_400">
+                            android:layout_marginTop="@dimen/px_10">
 
-                            <RadioButton
-                                android:id="@+id/rb_dwgs"
-                                android:layout_width="0dp"
+                            <RadioGroup
+                                android:id="@+id/rg_gs"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:background="@drawable/selector_sqtjcontent_btn_bg"
-                                android:button="@null"
-                                android:checked="true"
+                                android:layout_centerInParent="true"
                                 android:gravity="center"
-                                android:text="对外公示"
-                                android:textColor="@drawable/selector_sqtjcontent_btn_text"
-                                android:textSize="@dimen/px_30" />
+                                android:orientation="horizontal">
 
-                            <RadioButton
-                                android:id="@+id/rb_bdwgs"
-                                android:layout_width="0dp"
+                                <RadioButton
+                                    android:id="@+id/rb_dwgs"
+                                    android:layout_width="@dimen/px_300"
+                                    android:layout_height="match_parent"
+
+                                    android:background="@drawable/selector_sqtjcontent_btn_bg"
+                                    android:button="@null"
+                                    android:checked="true"
+                                    android:gravity="center"
+                                    android:text="对外公示"
+                                    android:textColor="@drawable/selector_sqtjcontent_btn_text"
+                                    android:textSize="16sp" />
+
+                                <RadioButton
+                                    android:id="@+id/rb_bdwgs"
+                                    android:layout_width="@dimen/px_300"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/px_50"
+
+                                    android:background="@drawable/selector_sqtjcontent_btn_bg"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:gravity="center"
+                                    android:text="不对外公示"
+                                    android:textColor="@drawable/selector_sqtjcontent_btn_text"
+                                    android:textSize="16sp" />
+
+                            </RadioGroup>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/px_50"
-                                android:layout_weight="1"
-                                android:background="@drawable/selector_sqtjcontent_btn_bg"
-                                android:button="@null"
-                                android:checked="false"
-                                android:gravity="center"
-                                android:text="不对外公示"
-                                android:textColor="@drawable/selector_sqtjcontent_btn_text"
-                                android:textSize="@dimen/px_30" />
-                        </RadioGroup>
+                                android:layout_toRightOf="@+id/rg_gs"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="@dimen/px_50">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="注:带"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:gravity="center"
+                                    android:text="*"
+                                    android:textColor="@color/red"
+                                    android:textSize="14sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+
+                                    android:gravity="center"
+                                    android:text="为必填"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/px_70"
-                            android:layout_marginBottom="@dimen/px_30"
-                            android:layout_marginTop="@dimen/px_30"
+                            android:layout_marginBottom="@dimen/px_20"
+                            android:layout_marginTop="@dimen/px_20"
                             android:gravity="center_vertical"
                             android:paddingLeft="@dimen/px_300"
                             android:paddingRight="@dimen/px_300">
@@ -410,10 +499,11 @@
 
                         </LinearLayout>
                     </LinearLayout>
+                </RelativeLayout>
 
 
-                </LinearLayout>
-            </ScrollView>
+            </LinearLayout>
+
 
         </LinearLayout>
 

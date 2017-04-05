@@ -10,7 +10,8 @@
     <com.eollse.utils.MyLeftLinearLayout
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left">
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -19,7 +20,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
 
-        android:background="@drawable/info_bg"
+
 
         android:orientation="vertical">
 
@@ -84,12 +85,12 @@
 
                     </ListView>
 
-                    <ImageView
-                        android:id="@+id/iv_more"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/px_10"
-                        android:src="@drawable/yybs_more" />
+                    <!--<ImageView-->
+                        <!--android:id="@+id/iv_more"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="@dimen/px_10"-->
+                        <!--android:src="@drawable/yybs_more" />-->
                 </LinearLayout>
 
                 <ScrollView
@@ -111,7 +112,10 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/px_60"
-                            android:layout_margin="@dimen/px_10">
+                            android:layout_marginBottom="@dimen/px_10"
+                            android:layout_marginTop="@dimen/px_10"
+                            android:layout_marginRight="@dimen/px_20"
+                            android:layout_marginLeft="@dimen/px_20">
 
                             <ImageView
                                 android:id="@+id/iv_previousMonth"

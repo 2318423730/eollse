@@ -63,9 +63,9 @@ public class HorizontalListViewAdapter extends BaseAdapter {
             holder=(ViewHolder)convertView.getTag();
         }
         if(position == selectIndex){
-            convertView.setSelected(true);
+            holder.mTitle.setSelected(true);
         }else{
-            convertView.setSelected(false);
+            holder.mTitle.setSelected(false);
         }
 
         holder.mTitle.setText(deptName);

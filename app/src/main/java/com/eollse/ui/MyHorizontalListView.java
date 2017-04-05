@@ -147,7 +147,7 @@ public class MyHorizontalListView extends AdapterView<ListAdapter> {
 //            positionX =maxWidth;
 //        }
 //        scrollTo(positionX );
-
+//
 //
 //        if (position >= 0)
 //        {

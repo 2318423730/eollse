@@ -242,9 +242,15 @@ public class ZcxxActivity extends BaseActivity {
             public void onClick(View view) {
                 //int a = myHorizontalListView.getFirstVisiblePosition();
                 //int b = myHorizontalListView.getLastVisiblePosition();
-                //Log.e("MyTAG", "a=" + a + "   b=" + b + "   a-b=" + (b - a));
+
                 //myHorizontalListView.setSelection(b - 1);
-                myHorizontalListView.scrollTo(1000);
+                if (t == 3) {
+                    t = 1;
+
+                }else{
+                    myHorizontalListView.scrollTo(900 * t);
+                    t++;
+                }
 
 
             }
@@ -314,6 +320,7 @@ public class ZcxxActivity extends BaseActivity {
         });
     }
 
+    private int t = 1;
 
     private void setAdapter() {
 

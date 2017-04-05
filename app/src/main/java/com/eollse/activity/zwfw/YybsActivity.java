@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
+import com.eollse.activity.zwfw.yybs.YybsSuccessActivity;
 import com.eollse.adapter.YybsTypeAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.Constants;
@@ -79,8 +80,8 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
     EditText etCode;
     @BindView(R.id.btn_commit)
     Button btnCommit;
-    @BindView(R.id.iv_more)
-    ImageView ivMore;
+//    @BindView(R.id.iv_more)
+//    ImageView ivMore;
     @BindView(R.id.ll_myLeftLinearLayout)
     MyLeftLinearLayout llMyLeftLinearLayout;
 
@@ -265,7 +266,7 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
 
     }
 
-    @OnClick({R.id.iv_previousMonth, R.id.iv_pnextMonth, R.id.iv_more, R.id.btn_commit, R.id.btn_code})
+    @OnClick({R.id.iv_previousMonth, R.id.iv_pnextMonth, R.id.btn_commit, R.id.btn_code})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_previousMonth://上个月
@@ -274,9 +275,9 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
             case R.id.iv_pnextMonth://下个月
                 popupwindowCalendar.nextMonth();
                 break;
-            case R.id.iv_more:
-                moveListView();
-                break;
+//            case R.id.iv_more:
+//                moveListView();
+//                break;
             case R.id.btn_commit:
                 commit();
                 break;
@@ -316,18 +317,20 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
             MyToast.showToast(getApplicationContext(), "电话不能为空");
             return;
         }
-        MyToast.showToast(getApplicationContext(), "预约成功");
+        //MyToast.showToast(getApplicationContext(), "预约成功");
+        Intent intent=new Intent(YybsActivity.this, YybsSuccessActivity.class);
+        startActivity(intent);
     }
 
-    private void moveListView() {
-        int i = lvType.getLastVisiblePosition();
-        if (i < typeList.size()) {
-            lvType.smoothScrollToPosition(i * 2 - 1);
-        } else {
-            lvType.smoothScrollToPosition(typeList.size());
-        }
-
-    }
+//    private void moveListView() {
+//        int i = lvType.getLastVisiblePosition();
+//        if (i < typeList.size()) {
+//            lvType.smoothScrollToPosition(i * 2 - 1);
+//        } else {
+//            lvType.smoothScrollToPosition(typeList.size());
+//        }
+//
+//    }
 
 
 }

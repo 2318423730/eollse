@@ -11,7 +11,9 @@
     <com.eollse.utils.MyLeftLinearLayout
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left"
+       >
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -19,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/info_bg"
+
         android:orientation="vertical">
 
         <LinearLayout
@@ -30,111 +32,100 @@
 
             <include layout="@layout/top"></include>
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="@dimen/px_20"
-                android:layout_marginLeft="@dimen/px_40"
-                android:layout_marginRight="@dimen/px_40"
-                android:layout_marginTop="@dimen/px_10"
                 android:layout_weight="1"
+                android:background="@drawable/outer_bg">
 
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:id="@+id/ll_toptitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_100"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/news_list_head_bg" />
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:id="@+id/iv_left"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/news_list_left" />
-
-                        <ImageView
-                            android:id="@+id/iv_right"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:src="@drawable/news_list_right" />
-                        <!--<HorizontalScrollView-->
-                        <!--android:id="@+id/horizontalScrollView"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:paddingLeft="@dimen/px_20"-->
-                        <!--android:paddingRight="@dimen/px_20"-->
-                        <!--android:scrollbars="none"-->
-                        <!--android:layout_toLeftOf="@+id/iv_right"-->
-                        <!--android:layout_toRightOf="@+id/iv_left">-->
-
-                        <!--<RadioGroup-->
-                        <!--android:id="@+id/rg_top"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:orientation="horizontal">-->
-
-                        <!--</RadioGroup>-->
-                        <!--</HorizontalScrollView>-->
-
-                        <com.eollse.ui.MyHorizontalListView
-                            android:id="@+id/myHorizontalListView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_toLeftOf="@+id/iv_right"
-                            android:layout_toRightOf="@+id/iv_left">
-
-                        </com.eollse.ui.MyHorizontalListView>
-                    </RelativeLayout>
-
-
-                </RelativeLayout>
-
+                <include layout="@layout/outer_bg"></include>
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@+id/ll_toptitle">
+                    android:layout_marginBottom="@dimen/px_20"
 
-                    <ImageView
+                    android:layout_marginLeft="@dimen/px_40"
+                    android:layout_marginRight="@dimen/px_40"
+                    android:layout_marginTop="@dimen/px_10"
+                    android:layout_weight="1"
+                    android:background="@drawable/info_bg"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:id="@+id/ll_toptitle"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/news_list_con_bg" />
+                        android:layout_height="@dimen/px_100"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                    <com.cjj.MaterialRefreshLayout
-                        android:id="@+id/materialRefreshLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingLeft="@dimen/px_20"
-                        android:paddingRight="@dimen/px_20"
-                        app:isLoadMore="false"
-                        app:overlay="false"
-                        app:wave_show="false">
-
-                        <ListView
-                            android:id="@+id/lv_news"
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:scrollbars="none">
+                            android:scaleType="fitXY"
+                            android:src="@drawable/news_list_head_bg" />
 
-                        </ListView>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
 
-                    </com.cjj.MaterialRefreshLayout>
+                            <ImageView
+                                android:id="@+id/iv_left"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/news_list_left" />
+
+                            <ImageView
+                                android:id="@+id/iv_right"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:src="@drawable/news_list_right" />
+
+                            <com.eollse.ui.MyHorizontalListView
+                                android:id="@+id/myHorizontalListView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toLeftOf="@+id/iv_right"
+                                android:layout_toRightOf="@+id/iv_left">
+
+                            </com.eollse.ui.MyHorizontalListView>
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/ll_toptitle">
+
+
+                        <com.cjj.MaterialRefreshLayout
+                            android:id="@+id/materialRefreshLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/px_20"
+                            android:paddingRight="@dimen/px_20"
+                            app:isLoadMore="false"
+                            app:overlay="false"
+                            app:wave_show="false">
+
+                            <ListView
+                                android:id="@+id/lv_news"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scrollbars="none">
+
+                            </ListView>
+
+                        </com.cjj.MaterialRefreshLayout>
+                    </RelativeLayout>
+
                 </RelativeLayout>
-
             </RelativeLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -145,8 +136,8 @@
 
                 <TextView
                     android:id="@+id/tv_previous"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/px_250"
+                    android:layout_height="@dimen/px_80"
                     android:background="@drawable/btn_prev"
                     android:gravity="center"
                     android:text="上一页"
@@ -164,7 +155,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="第"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -172,7 +163,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -180,7 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="页/共"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -188,7 +179,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="10"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -196,7 +187,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="页(共"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -204,7 +195,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="n"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
                     <TextView
@@ -212,20 +203,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="条)"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_next"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
+                    android:layout_width="@dimen/px_250"
+                    android:layout_height="@dimen/px_80"
                     android:background="@drawable/btn_next"
                     android:gravity="center"
                     android:text="下一页"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_40" />
+                    android:textSize="@dimen/px_40"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
             </RelativeLayout>
         </LinearLayout>
 

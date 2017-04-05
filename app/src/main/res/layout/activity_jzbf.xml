@@ -15,7 +15,8 @@
         <com.eollse.utils.MyLeftLinearLayout
             android:id="@+id/ll_myLeftLinearLayout"
             android:layout_width="@dimen/px_150"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/zcxx_left">
 
         </com.eollse.utils.MyLeftLinearLayout>
 
@@ -23,108 +24,138 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/info_bg"
             android:orientation="vertical">
 
             <include layout="@layout/top"></include>
 
-            <LinearLayout
-                android:id="@+id/ll_content"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="@dimen/px_20"
-                android:layout_marginLeft="@dimen/px_40"
-                android:layout_marginRight="@dimen/px_40"
-                android:layout_weight="1"
-                android:background="@drawable/shape_white_solid_corners"
-                android:orientation="horizontal">
+                android:layout_weight="1">
+
+               <include layout="@layout/outer_bg"></include>
+
+
 
                 <LinearLayout
-                    android:id="@+id/ll_left"
-                    android:layout_width="@dimen/px_400"
+                    android:id="@+id/ll_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="@dimen/px_40"
+                    android:layout_marginLeft="@dimen/px_40"
+                    android:layout_marginRight="@dimen/px_40"
+                    android:layout_marginTop="@dimen/px_20"
+                    android:background="@drawable/info_bg"
+                    android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:id="@+id/rg_title"
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/ll_left"
+                        android:layout_width="@dimen/px_400"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/rb_bfzc"
+                        <RadioGroup
+                            android:id="@+id/rg_title"
                             android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:button="@null"
-                            android:checked="true"
-                            android:gravity="center"
-                            android:text="帮扶政策"
-                            android:textColor="@drawable/selector_jzbf_text"
-                            android:textSize="22sp" />
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/black"></View>
+                            <RadioButton
+                                android:id="@+id/rb_bfzc"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="@dimen/px_20"
+                                android:layout_marginLeft="@dimen/px_60"
+                                android:layout_marginRight="@dimen/px_60"
+                                android:layout_marginTop="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_jzbf_lefttitle_background"
+                                android:button="@null"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:text="帮扶政策"
+                                android:textColor="@drawable/selector_jzbf_text"
+                                android:textSize="22sp" />
 
-                        <RadioButton
-                            android:id="@+id/rb_bfll"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:button="@null"
-                            android:gravity="center"
-                            android:text="帮扶力量"
-                            android:textColor="@drawable/selector_jzbf_text"
-                            android:textSize="22sp" />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/black"></View>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/black"></View>
+                            <RadioButton
+                                android:id="@+id/rb_bfll"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="@dimen/px_20"
+                                android:layout_marginLeft="@dimen/px_60"
+                                android:layout_marginRight="@dimen/px_60"
+                                android:layout_marginTop="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_jzbf_lefttitle_background"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="帮扶力量"
+                                android:textColor="@drawable/selector_jzbf_text"
+                                android:textSize="22sp" />
 
-                        <RadioButton
-                            android:id="@+id/rb_bfdx"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:button="@null"
-                            android:gravity="center"
-                            android:text="帮扶对象"
-                            android:textColor="@drawable/selector_jzbf_text"
-                            android:textSize="22sp" />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/black"></View>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="@color/black"></View>
+                            <RadioButton
+                                android:id="@+id/rb_bfdx"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="@dimen/px_20"
+                                android:layout_marginLeft="@dimen/px_60"
+                                android:layout_marginRight="@dimen/px_60"
+                                android:layout_marginTop="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_jzbf_lefttitle_background"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="帮扶对象"
+                                android:textColor="@drawable/selector_jzbf_text"
+                                android:textSize="22sp" />
 
-                        <RadioButton
-                            android:id="@+id/rb_bfhd"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:button="@null"
-                            android:gravity="center"
-                            android:text="帮扶活动"
-                            android:textColor="@drawable/selector_jzbf_text"
-                            android:textSize="22sp" />
-                    </RadioGroup>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/black"></View>
+
+                            <RadioButton
+                                android:id="@+id/rb_bfhd"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginBottom="@dimen/px_20"
+                                android:layout_marginLeft="@dimen/px_60"
+                                android:layout_marginRight="@dimen/px_60"
+                                android:layout_marginTop="@dimen/px_20"
+                                android:layout_weight="1"
+                                android:background="@drawable/selector_jzbf_lefttitle_background"
+                                android:button="@null"
+                                android:gravity="center"
+                                android:text="帮扶活动"
+                                android:textColor="@drawable/selector_jzbf_text"
+                                android:textSize="22sp" />
+                        </RadioGroup>
 
 
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fragment_container"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+
+                        android:orientation="vertical">
+
+                    </FrameLayout>
                 </LinearLayout>
+            </RelativeLayout>
 
-                <FrameLayout
-                    android:id="@+id/fragment_container"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-
-                    android:orientation="vertical">
-
-                </FrameLayout>
-            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"

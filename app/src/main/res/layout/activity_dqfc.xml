@@ -10,7 +10,8 @@
     <com.eollse.utils.MyLeftLinearLayout
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left">
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -19,33 +20,39 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
 
-        android:background="@drawable/info_bg"
+
 
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/shape_white_solid"
-            android:layout_marginLeft="@dimen/px_40"
-            android:layout_marginRight="@dimen/px_40"
-            android:layout_marginTop="@dimen/px_20"
-            android:layout_marginBottom="@dimen/px_40">
-
-
-            <GridView
-                android:id="@+id/gv_dqfc"
+            android:layout_height="match_parent">
+            <include layout="@layout/outer_bg"></include>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:numColumns="3"
-                android:scrollbars="none">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/info_bg"
+                android:layout_marginLeft="@dimen/px_40"
+                android:layout_marginRight="@dimen/px_40"
+                android:layout_marginTop="@dimen/px_20"
+                android:layout_marginBottom="@dimen/px_40">
 
-            </GridView>
-        </LinearLayout>
+
+                <GridView
+                    android:id="@+id/gv_dqfc"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:numColumns="3"
+                    android:scrollbars="none">
+
+                </GridView>
+            </LinearLayout>
+        </RelativeLayout>
+
+
 
     </LinearLayout>
 </LinearLayout>

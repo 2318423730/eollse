@@ -10,7 +10,8 @@
     <com.eollse.utils.MyLeftLinearLayout
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/zcxx_left">
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -18,69 +19,77 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/info_bg"
+
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="@dimen/px_20">
+            android:layout_marginBottom="@dimen/px_20"
+            android:orientation="vertical">
 
             <include layout="@layout/top"></include>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="@dimen/px_20"
-                android:layout_marginLeft="@dimen/px_40"
-                android:layout_marginRight="@dimen/px_40"
-                android:layout_marginTop="@dimen/px_10"
-                android:layout_weight="1"
-                android:background="@drawable/shape_white_solid"
-                android:orientation="vertical">
+                android:layout_weight="1">
 
+                <include layout="@layout/outer_bg"></include>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_100"
-                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/px_40"
+                    android:layout_marginLeft="@dimen/px_40"
+                    android:layout_marginRight="@dimen/px_40"
+                    android:layout_marginTop="@dimen/px_40"
+
+                    android:background="@drawable/info_bg"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px_100"
                         android:gravity="center"
-                        android:text="意见提交协议"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/px_40" />
+                        android:orientation="vertical">
 
-                    <View
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="诉求提交协议"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_40" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="@dimen/px_120"
+                            android:layout_marginRight="@dimen/px_120"
+                            android:background="@color/bule"></View>
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="@dimen/px_120"
-                        android:layout_marginRight="@dimen/px_120"
-                        android:background="#c6d8f6"></View>
+                        android:layout_height="0dp"
+                        android:layout_marginLeft="@dimen/px_100"
+                        android:layout_marginRight="@dimen/px_100"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="@dimen/px_10"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/px_30" />
+                    </LinearLayout>
 
                 </LinearLayout>
+            </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="@dimen/px_100"
-                    android:layout_marginRight="@dimen/px_100"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:id="@+id/tv_content"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/black"
-                        android:padding="@dimen/px_10"
-                        android:textSize="@dimen/px_30"/>
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,7 +109,7 @@
                     android:background="@drawable/shape_yijt_button_tongyi_background"
                     android:text="同意"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_45"/>
+                    android:textSize="@dimen/px_45" />
 
                 <Button
                     android:id="@+id/btn_butongyi"
@@ -111,7 +120,7 @@
                     android:background="@drawable/shape_yijt_button_butongyi_background"
                     android:text="不同意"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_45"/>
+                    android:textSize="@dimen/px_45" />
             </LinearLayout>
         </LinearLayout>
 

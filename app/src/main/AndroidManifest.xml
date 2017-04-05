@@ -34,6 +34,7 @@
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -75,18 +76,18 @@
             </intent-filter>
         </activity>
 
-        <!--<service-->
-        <!--android:name="com.baidu.location.f"-->
-        <!--android:enabled="true"-->
-        <!--android:process=":remote">-->
-        <!--<intent-filter>-->
-        <!--<action android:name="com.baidu.location.service_v2.2" />-->
-        <!--</intent-filter>-->
-        <!--</service>-->
+        <!-- <service -->
+        <!-- android:name="com.baidu.location.f" -->
+        <!-- android:enabled="true" -->
+        <!-- android:process=":remote"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.baidu.location.service_v2.2" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
         <activity
             android:name=".activity.UrlActivity"
@@ -170,7 +171,8 @@
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.zwfw.bszn.BsznItemActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.zwfw.yybs.YybsSuccessActivity"></activity>
     </application>
 
 </manifest>

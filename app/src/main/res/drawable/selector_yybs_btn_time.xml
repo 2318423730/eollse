@@ -5,9 +5,9 @@
             <!-- 圆角 -->
             <!--<corners android:radius="10dp"></corners>-->
             <!-- 填充 (背景色)-->
-            <solid android:color="#8A8DFA"/>
+            <solid android:color="@color/bule"/>
             <!-- 描边 (边框)-->
-            <stroke android:width="0.1dp" android:color="#000000"/>
+            <!--<stroke android:width="0.1dp" android:color="@color/bule"/>-->
         </shape>
     </item>
 
@@ -19,7 +19,7 @@
             <!-- 填充 (背景色)-->
             <solid android:color="#FFFFFF"/>
             <!-- 描边 (边框)-->
-            <stroke android:width="0.1dp" android:color="#000000"/>
+            <stroke android:width="0.1dp" android:color="@color/bule"/>
         </shape>
     </item>
 </selector>
