@@ -41,7 +41,7 @@ public class ZcxxNewsAdapter extends MyBaseAdapter {
 
         viewHolder.tv_dept.setText("["+dataBean.getDeptName()+"]");
 
-        viewHolder.tv_dept.setTextColor(getContext().getResources().getColor(R.color.yellow));
+       // viewHolder.tv_dept.setTextColor(getContext().getResources().getColor(R.color.yellow));
         viewHolder.tv_title.setText("\t"+dataBean.getTitle());
         viewHolder.tv_editDate.setText("["+dataBean.getEditDate()+"]");
         return view;

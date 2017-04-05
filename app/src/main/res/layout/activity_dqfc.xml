@@ -19,25 +19,26 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <include layout="@layout/outer_bg"></include>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/info_bg"
+                android:layout_marginBottom="@dimen/px_40"
                 android:layout_marginLeft="@dimen/px_40"
                 android:layout_marginRight="@dimen/px_40"
                 android:layout_marginTop="@dimen/px_20"
-                android:layout_marginBottom="@dimen/px_40">
+                android:background="@drawable/info_bg"
+                android:orientation="vertical">
 
 
                 <GridView
@@ -51,7 +52,6 @@
                 </GridView>
             </LinearLayout>
         </RelativeLayout>
-
 
 
     </LinearLayout>

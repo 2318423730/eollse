@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_bszn"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
@@ -12,8 +12,7 @@
         android:id="@+id/ll_myLeftLinearLayout"
         android:layout_width="@dimen/px_150"
         android:layout_height="match_parent"
-        android:background="@drawable/zcxx_left"
-       >
+        android:background="@drawable/zcxx_left">
 
     </com.eollse.utils.MyLeftLinearLayout>
 
@@ -32,26 +31,25 @@
 
             <include layout="@layout/top"></include>
 
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/outer_bg">
+                android:layout_marginBottom="@dimen/px_10"
+                android:layout_marginLeft="@dimen/px_20"
+                android:layout_marginRight="@dimen/px_20">
 
                 <include layout="@layout/outer_bg"></include>
-                <RelativeLayout
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/px_20"
-
                     android:layout_marginLeft="@dimen/px_40"
                     android:layout_marginRight="@dimen/px_40"
-                    android:layout_marginTop="@dimen/px_10"
-                    android:layout_weight="1"
+                    android:layout_marginTop="@dimen/px_20"
                     android:background="@drawable/info_bg"
                     android:orientation="vertical">
-
 
                     <RelativeLayout
                         android:id="@+id/ll_toptitle"
@@ -122,10 +120,9 @@
 
                         </com.cjj.MaterialRefreshLayout>
                     </RelativeLayout>
+                </LinearLayout>
 
-                </RelativeLayout>
             </RelativeLayout>
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -162,7 +159,7 @@
                         android:id="@+id/tv_currentPage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
@@ -178,7 +175,7 @@
                         android:id="@+id/tv_totalPage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
@@ -194,7 +191,7 @@
                         android:id="@+id/tv_totalSize"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="n"
+                        android:text="0"
                         android:textColor="@color/black"
                         android:textSize="@dimen/px_40" />
 
@@ -211,14 +208,14 @@
                     android:id="@+id/tv_next"
                     android:layout_width="@dimen/px_250"
                     android:layout_height="@dimen/px_80"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
                     android:background="@drawable/btn_next"
                     android:gravity="center"
                     android:text="下一页"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_40"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
+                    android:textSize="@dimen/px_40" />
             </RelativeLayout>
         </LinearLayout>
 

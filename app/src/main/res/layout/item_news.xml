@@ -22,7 +22,7 @@
             android:lines="1"
             android:singleLine="true"
             android:text="部门"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/px_30" />
         <TextView
             android:id="@+id/tv_title"
@@ -33,7 +33,7 @@
             android:lines="1"
             android:singleLine="true"
             android:text="新闻标题"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/px_30" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_marginLeft="@dimen/px_50"
             android:layout_marginRight="@dimen/px_5"
             android:text="2017-03-08"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/px_30" />
     </LinearLayout>
 </RelativeLayout>

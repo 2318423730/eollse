@@ -106,10 +106,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="@dimen/px_50"
                     android:layout_weight="1"
-                    android:background="@drawable/shape_yijt_button_tongyi_background"
+                    android:background="@drawable/sqtj_tongyi"
                     android:text="同意"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/px_45" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btn_butongyi"
@@ -117,10 +117,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/px_50"
                     android:layout_weight="1"
-                    android:background="@drawable/shape_yijt_button_butongyi_background"
+                    android:background="@drawable/sqtj_butongyi"
                     android:text="不同意"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/px_45" />
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
