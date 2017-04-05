@@ -132,7 +132,7 @@
                                     android:textSize="16sp" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="@dimen/px_30"
                                     android:layout_height="match_parent"
                                     android:gravity="center"
                                     android:text="*"
@@ -344,7 +344,7 @@
                                 android:textSize="16sp" />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:layout_width="@dimen/px_30"
                                 android:layout_height="match_parent"
                                 android:gravity="center"
                                 android:text="*"
@@ -495,7 +495,7 @@
                                 android:background="@drawable/shape_yijt_button_tongyi_background"
                                 android:text="提\t\t\t\t交"
                                 android:textColor="@color/white"
-                                android:textSize="@dimen/px_30" />
+                                android:textSize="16sp" />
 
                         </LinearLayout>
                     </LinearLayout>
