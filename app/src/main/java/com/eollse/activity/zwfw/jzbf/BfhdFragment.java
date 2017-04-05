@@ -4,6 +4,7 @@ package com.eollse.activity.zwfw.jzbf;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,8 +50,9 @@ public class BfhdFragment extends Fragment {
             list.add(bfhd);
         }
 
-
-
+        gvInfo.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        bfhdAdapter=new BfhdAdapter(getActivity(),list);
+        gvInfo.setAdapter(bfhdAdapter);
         return view;
     }
 
