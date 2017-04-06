@@ -161,7 +161,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.zwfw.ZwfwActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".activity.zwfw.dqfc.FfclActivity"
             android:screenOrientation="landscape" />

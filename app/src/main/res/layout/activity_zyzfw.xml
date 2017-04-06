@@ -18,137 +18,141 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-        android:background="@drawable/info_bg"
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/px_40"
-            android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            android:background="#4056f8"
-            android:orientation="vertical">
+            android:background="@drawable/info">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/px_40"
+                android:layout_marginLeft="@dimen/px_30"
+                android:layout_marginRight="@dimen/px_30"
+                android:layout_marginTop="@dimen/px_30"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_80"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/px_10"
-                    android:paddingLeft="@dimen/px_40"
-                    android:paddingTop="@dimen/px_10">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px_80"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/px_10"
+                        android:paddingLeft="@dimen/px_40"
+                        android:paddingTop="@dimen/px_10">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_title1"
+                                android:layout_width="@dimen/px_200"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_zyzfw"
+                                android:gravity="center"
+                                android:text="志愿资讯"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_more1"
+                                android:layout_width="@dimen/px_200"
+                                android:layout_height="match_parent"
+
+                                android:layout_alignParentRight="true"
+                                android:gravity="center"
+                                android:text=">>更多"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginRight="@dimen/px_50"></View>
+                    </LinearLayout>
+
+                    <com.eollse.ui.MyHorizontalListView
+                        android:id="@+id/lv_zyzx"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/tv_title1"
-                            android:layout_width="@dimen/px_200"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/shape_zyzfw"
-                            android:gravity="center"
-                            android:text="志愿资讯"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tv_more1"
-                            android:layout_width="@dimen/px_200"
-                            android:layout_height="match_parent"
-
-                            android:layout_alignParentRight="true"
-                            android:gravity="center"
-                            android:text=">>更多"
-                            android:textColor="#83f7f8"
-                            android:textSize="18sp" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-
-                        android:layout_marginRight="@dimen/px_50"
-                        android:background="#83f7f8"></View>
+                    </com.eollse.ui.MyHorizontalListView>
                 </LinearLayout>
-
-                <com.eollse.ui.MyHorizontalListView
-                    android:id="@+id/lv_zyzx"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                </com.eollse.ui.MyHorizontalListView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/px_80"
-                    android:orientation="vertical"
-                    android:paddingBottom="@dimen/px_10"
-                    android:paddingLeft="@dimen/px_40"
-                    android:paddingTop="@dimen/px_10">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                    <RelativeLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px_80"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/px_10"
+                        android:paddingLeft="@dimen/px_40"
+                        android:paddingTop="@dimen/px_10">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/tv_title2"
+                                android:layout_width="@dimen/px_200"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/shape_zyzfw"
+                                android:gravity="center"
+                                android:text="志愿活动"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/tv_more2"
+                                android:layout_width="@dimen/px_200"
+                                android:layout_height="match_parent"
+
+                                android:layout_alignParentRight="true"
+                                android:gravity="center"
+                                android:text=">>更多"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+
+                            android:layout_marginRight="@dimen/px_40"
+                            android:background="#83f7f8"></View>
+                    </LinearLayout>
+
+                    <com.eollse.ui.MyHorizontalListView
+                        android:id="@+id/lv_zyhd"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/tv_title2"
-                            android:layout_width="@dimen/px_200"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/shape_zyzfw"
-                            android:gravity="center"
-                            android:text="志愿活动"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:id="@+id/tv_more2"
-                            android:layout_width="@dimen/px_200"
-                            android:layout_height="match_parent"
-
-                            android:layout_alignParentRight="true"
-                            android:gravity="center"
-                            android:text=">>更多"
-                            android:textColor="#83f7f8"
-                            android:textSize="18sp" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-
-                        android:layout_marginRight="@dimen/px_40"
-                        android:background="#83f7f8"></View>
+                    </com.eollse.ui.MyHorizontalListView>
                 </LinearLayout>
 
-                <com.eollse.ui.MyHorizontalListView
-                    android:id="@+id/lv_zyhd"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1">
-
-                </com.eollse.ui.MyHorizontalListView>
             </LinearLayout>
+        </RelativeLayout>
 
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

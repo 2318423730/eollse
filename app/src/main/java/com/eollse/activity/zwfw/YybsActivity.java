@@ -176,6 +176,8 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
                 finish();
             }
         });
+
+
         //监听所选中的日期
         popupwindowCalendar.setOnCalendarClickListener(new KCalendar.OnCalendarClickListener() {
             @Override
@@ -225,6 +227,8 @@ public class YybsActivity extends BaseActivity implements CompoundButton.OnCheck
                 etUserName.setText("");
                 etPhone.setText("");
                 etCode.setText("");
+                yybsTypeAdapter.setSelectIndex(position);
+                yybsTypeAdapter.notifyDataSetChanged();
             }
         });
     }

@@ -18,9 +18,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-        android:background="@drawable/info_bg"
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
@@ -47,10 +44,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/shape_bsznitem_title2_bg"
                 android:divider="@color/black"
                 android:dividerHeight="0dp"
                 android:padding="@dimen/px_5"
-                android:background="@drawable/shape_bsznitem_title2_bg"
                 android:scrollbars="none"></ListView>
 
             <RelativeLayout

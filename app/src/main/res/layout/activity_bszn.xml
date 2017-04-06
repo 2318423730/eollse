@@ -31,64 +31,69 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-        android:background="@drawable/info_bg"
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            android:orientation="vertical">
+            android:layout_marginLeft="@dimen/px_40"
+            android:background="@drawable/info">
 
-            <RadioGroup
-                android:id="@+id/rg_top"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/px_100"
-                android:orientation="horizontal">
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/px_30"
+                android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/rb_geren"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                <RadioGroup
+                    android:id="@+id/rg_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/px_100"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_geren"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_bszn_top_textbackground"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="个人"
+                        android:textColor="@drawable/selector_bxzn_top_text"
+                        android:textSize="@dimen/px_50" />
+
+                    <RadioButton
+                        android:id="@+id/rb_qiye"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/selector_bszn_top_textbackground"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="企业"
+                        android:textColor="@drawable/selector_bxzn_top_text"
+
+                        android:textSize="@dimen/px_50" />
+                </RadioGroup>
+
+                <GridView
+                    android:id="@+id/gv_bszn"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/selector_bszn_top_textbackground"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center"
-                    android:text="个人"
-                    android:textColor="@drawable/selector_bxzn_top_text"
-                    android:textSize="@dimen/px_50" />
+                    android:numColumns="4"
+                    android:scrollbars="none">
 
-                <RadioButton
-                    android:id="@+id/rb_qiye"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/selector_bszn_top_textbackground"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="企业"
-                    android:textColor="@drawable/selector_bxzn_top_text"
+                </GridView>
+            </LinearLayout>
+        </RelativeLayout>
 
-                    android:textSize="@dimen/px_50" />
-            </RadioGroup>
-
-            <GridView
-                android:id="@+id/gv_bszn"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:numColumns="4"
-                android:scrollbars="none">
-
-            </GridView>
-        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

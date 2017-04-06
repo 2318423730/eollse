@@ -25,9 +25,13 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/px_10"
+            android:layout_marginLeft="@dimen/px_20"
+            android:layout_marginRight="@dimen/px_20"
+            android:background="@drawable/info">
 
-            <include layout="@layout/outer_bg"></include>
+
 
 
             <LinearLayout
@@ -36,8 +40,7 @@
                 android:layout_marginBottom="@dimen/px_40"
                 android:layout_marginLeft="@dimen/px_40"
                 android:layout_marginRight="@dimen/px_40"
-                android:layout_marginTop="@dimen/px_20"
-                android:background="@drawable/info_bg"
+                android:layout_marginTop="@dimen/px_40"
                 android:orientation="vertical">
 
 

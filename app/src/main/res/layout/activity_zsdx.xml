@@ -18,9 +18,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-
-        android:background="@drawable/info_bg"
-
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
@@ -31,8 +28,8 @@
             android:layout_marginBottom="@dimen/px_40"
             android:layout_marginLeft="@dimen/px_40"
             android:layout_marginRight="@dimen/px_40"
-            android:orientation="horizontal"
-            android:background="#6f9de3">
+            android:background="#6f9de3"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/ll_left"
@@ -105,12 +102,12 @@
                     android:id="@+id/gv_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:numColumns="2"
-                    android:scrollbars="none"
-                    android:verticalSpacing="@dimen/px_80"
-                    android:paddingTop="@dimen/px_20"
                     android:paddingBottom="@dimen/px_20"
-                    android:gravity="center">
+                    android:paddingTop="@dimen/px_20"
+                    android:scrollbars="none"
+                    android:verticalSpacing="@dimen/px_80">
 
                 </GridView>
             </LinearLayout>

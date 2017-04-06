@@ -33,19 +33,15 @@
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-               <include layout="@layout/outer_bg"></include>
-
-
 
                 <LinearLayout
                     android:id="@+id/ll_content"
+                    android:background="@drawable/info"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/px_40"
-                    android:layout_marginLeft="@dimen/px_40"
-                    android:layout_marginRight="@dimen/px_40"
-                    android:layout_marginTop="@dimen/px_20"
-                    android:background="@drawable/info_bg"
+                    android:layout_marginLeft="@dimen/px_20"
+                    android:layout_marginRight="@dimen/px_20"
+                    android:padding="@dimen/px_30"
                     android:orientation="horizontal">
 
                     <LinearLayout

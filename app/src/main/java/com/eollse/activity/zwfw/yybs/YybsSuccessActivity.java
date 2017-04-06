@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
-import com.eollse.activity.zwfw.dqfc.ZyzfwActivity;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.MyLeftLinearLayout;
 
@@ -39,7 +38,7 @@ public class YybsSuccessActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_yybs_success);
+        setContentView(R.layout.activity_commit_success);
         ButterKnife.bind(this);
         tvTitle.setText("预约办事");
 
