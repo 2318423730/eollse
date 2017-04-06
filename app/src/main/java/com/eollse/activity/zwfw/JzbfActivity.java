@@ -59,8 +59,8 @@ public class JzbfActivity extends BaseActivity {
     FrameLayout fragmentContainer;
     @BindView(R.id.rg_title)
     RadioGroup rgTitle;
-    @BindView(R.id.tv_login)
-    TextView tvLogin;
+//    @BindView(R.id.tv_login)
+//    TextView tvLogin;
 
     @BindView(R.id.ll_content)
     LinearLayout llContent;
@@ -145,7 +145,7 @@ public class JzbfActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.tv_login})
+    @OnClick({R.id.tv_backHome, R.id.tv_back})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.tv_backHome:
@@ -157,32 +157,22 @@ public class JzbfActivity extends BaseActivity {
             case R.id.tv_back:
                 finish();
                 break;
-            case R.id.tv_login://展开登录窗口
-                createDialog();
-                break;
+//            case R.id.tv_login://展开登录窗口
+//                createDialog();
+//                break;
 
         }
     }
 
-    private void createDialog() {
-        // TODO Auto-generated method stub
-        //		builder=new AlertDialog.Builder(AddressActivity.this);
-        //		dialog=builder.create();
-        //		dialog.show();
-        //		Window window = dialog.getWindow();
-        //		View view=LayoutInflater.from(this).inflate(R.layout.dialog_address_add, null);
-        //		window.setBackgroundDrawable(new ColorDrawable(0x00000000));
-        //		dialog.getWindow().setContentView(view);
-
-
-
-        dialog=new JzbfDialog(this);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setCancelable(false);
-        dialog.show();
-        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow( this.getWindow().getDecorView().getWindowToken(), 0);
-    }
-
-    private JzbfDialog dialog;
+//    private void createDialog() {
+//
+//        dialog=new JzbfDialog(this);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setCancelable(false);
+//        dialog.show();
+//        InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
+//        inputMethodManager.hideSoftInputFromWindow( this.getWindow().getDecorView().getWindowToken(), 0);
+//    }
+//
+//    private JzbfDialog dialog;
 }
