@@ -3,6 +3,7 @@ package com.eollse.activity.zwfw.pasq;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.zwfw.zcxx.ZcxxActivity;
+import com.eollse.adapter.pasq.LdrkLeftAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.MyLeftLinearLayout;
 
@@ -52,7 +54,7 @@ public class LdrkActivity extends BaseActivity {
     @BindView(R.id.ll_login)
     LinearLayout llLogin;
 
-    private ArrayAdapter<String> arrayAdapter;
+    private LdrkLeftAdapter leftAdapter;
     private List<String> monthList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +66,21 @@ public class LdrkActivity extends BaseActivity {
         monthList.add("2017-4");
         monthList.add("2017-5");
         monthList.add("2017-6");
-        arrayAdapter=new ArrayAdapter<String>(LdrkActivity.this,android.R.layout.simple_list_item_1,monthList);
-        lvLeftInfo.setAdapter(arrayAdapter);
+        //arrayAdapter=new ArrayAdapter<String>(LdrkActivity.this,R.layout.item_ldrk_month,monthList);
+        leftAdapter=new LdrkLeftAdapter(LdrkActivity.this,monthList);
+        lvLeftInfo.setAdapter(leftAdapter);
+
+        setLsiteners();
+    }
+
+    private void setLsiteners() {
+        lvLeftInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                leftAdapter.setSelectIndex(position);
+                leftAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.btn_login, R.id.btn_reset})
