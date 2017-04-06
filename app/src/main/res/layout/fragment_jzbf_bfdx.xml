@@ -50,7 +50,7 @@
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
                                 android:text="群体特点"
-                                android:background="@color/gray"
+                                android:background="@drawable/bfdx_text_bg"
                                 android:padding="@dimen/px_5"/>
                             <TextView
                                 android:id="@+id/tv_lnqt_fwxq"
@@ -59,7 +59,7 @@
                                 android:layout_weight="1"
                                 android:text="服务需求"
                                 android:layout_marginTop="@dimen/px_10"
-                                android:background="@color/gray"
+                                android:background="@drawable/bfdx_text_bg"
                                 android:padding="@dimen/px_5"/>
                             <TextView
                                 android:id="@+id/tv_lnqt_tsqt"
@@ -68,7 +68,7 @@
                                 android:layout_weight="1"
                                 android:text="特殊群体"
                                 android:layout_marginTop="@dimen/px_10"
-                                android:background="@color/gray"
+                                android:background="@drawable/bfdx_text_bg"
                                 android:padding="@dimen/px_5"/>
                         </LinearLayout>
                     </RelativeLayout>
@@ -104,14 +104,16 @@
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:padding="@dimen/px_20">
+
                         <TextView
                             android:id="@+id/tv_znqt_qttd"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="群体特点"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
+
                         <TextView
                             android:id="@+id/tv_znqt_fwxq"
                             android:layout_width="match_parent"
@@ -119,7 +121,7 @@
                             android:layout_weight="1"
                             android:text="服务需求"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_znqt_tsqt"
@@ -128,7 +130,7 @@
                             android:layout_weight="1"
                             android:text="特殊群体"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                     </LinearLayout>
                 </RelativeLayout>
@@ -177,7 +179,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="群体特点"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_qnqt_fwxq"
@@ -186,7 +188,7 @@
                             android:layout_weight="1"
                             android:text="服务需求"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_qnqt_tsqt"
@@ -195,7 +197,7 @@
                             android:layout_weight="1"
                             android:text="特殊群体"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                     </LinearLayout>
                 </RelativeLayout>
@@ -236,7 +238,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="群体特点"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_snqt_fwxq"
@@ -245,7 +247,7 @@
                             android:layout_weight="1"
                             android:text="服务需求"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_snqt_tsqt"
@@ -254,7 +256,7 @@
                             android:layout_weight="1"
                             android:text="特殊群体"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                     </LinearLayout>
                 </RelativeLayout>
@@ -300,7 +302,7 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:text="群体特点"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_qtqt_fwxq"
@@ -309,7 +311,7 @@
                             android:layout_weight="1"
                             android:text="服务需求"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                         <TextView
                             android:id="@+id/tv_qtqt_tsqt"
@@ -318,7 +320,7 @@
                             android:layout_weight="1"
                             android:text="特殊群体"
                             android:layout_marginTop="@dimen/px_10"
-                            android:background="@color/gray"
+                            android:background="@drawable/bfdx_text_bg"
                             android:padding="@dimen/px_5"/>
                     </LinearLayout>
                 </RelativeLayout>
@@ -328,7 +330,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@drawable/bfll_login_bg">
                     <RelativeLayout
                         android:layout_width="@dimen/px_250"
                         android:layout_height="match_parent">
@@ -373,11 +376,14 @@
                                 android:id="@+id/btn_login"
                                 android:layout_width="@dimen/px_150"
                                 android:layout_height="match_parent"
+                                android:background="@drawable/bfll_btn_login"
                                 android:text="登录"/>
                             <Button
                                 android:id="@+id/btn_reset"
                                 android:layout_width="@dimen/px_150"
                                 android:layout_height="match_parent"
+                                android:background="@drawable/bfll_btn_login_reset"
+                                android:layout_marginLeft="@dimen/px_30"
                                 android:text="重置"/>
                         </LinearLayout>
                     </LinearLayout>
