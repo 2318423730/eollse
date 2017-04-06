@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_pasq"
+    android:id="@+id/ll_yuan"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
     tools:context="com.eollse.activity.zwfw.PasqActivity">
 
+
+    <com.eollse.utils.MyLeftLinearLayout
+        android:id="@+id/ll_myLeftLinearLayout"
+        android:layout_width="@dimen/px_150"
+        android:layout_height="match_parent">
+
+    </com.eollse.utils.MyLeftLinearLayout>
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@drawable/info_bg"
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
@@ -19,19 +26,268 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="@dimen/px_50">
+            android:layout_weight="1">
 
-            <WebView
-                android:id="@+id/webView"
+
+            <LinearLayout
+                android:id="@+id/ll_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:scrollbars="none">
+                android:layout_marginLeft="@dimen/px_20"
+                android:layout_marginRight="@dimen/px_20"
+                android:background="@drawable/info"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/px_30"
+                android:paddingLeft="@dimen/px_22"
+                android:paddingRight="@dimen/px_25"
+                android:paddingTop="@dimen/px_25">
 
-            </WebView>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_infoTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/px_100">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="治安紧急联络人 电话  地址"
+                            android:textColor="@color/red"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/ll_infoTop"
+                        android:layout_marginLeft="@dimen/px_5"
+                        android:layout_marginRight="@dimen/px_5"
+                        android:background="@color/black">
+
+                    </View>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/view_line"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/px_5">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:background="@drawable/pasq_left_bg"
+                            android:orientation="vertical"
+                            android:padding="@dimen/px_10">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/px_60"
+                                android:gravity="center"
+                                android:text="治安通报"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+
+                            <ListView
+                                android:id="@+id/lv_info"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/px_10"
+                                android:scrollbars="none">
+
+                            </ListView>
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/px_2"
+                            android:layout_marginRight="@dimen/px_2"
+                            android:background="@color/black"></View>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="5"
+                            android:orientation="vertical"
+                            android:padding="@dimen/px_10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_marginLeft="@dimen/px_40"
+                                android:layout_marginRight="@dimen/px_40"
+                                android:layout_weight="5"
+                                android:background="@color/bule"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/px_100">
+
+                                    <ImageView
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginLeft="@dimen/px_30"
+                                        android:src="@drawable/pasq_righttitle_icon" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerInParent="true"
+                                        android:text="黄泥磅社区警务室"
+                                        android:textColor="@color/white"
+                                        android:textSize="20sp" />
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginBottom="@dimen/px_20"
+                                        android:layout_marginLeft="@dimen/px_20"
+                                        android:layout_marginRight="@dimen/px_20"
+                                        android:background="@color/white"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:id="@+id/iv_head"
+                                            android:layout_width="80dp"
+                                            android:layout_height="80dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_gravity="center_vertical"
+                                            android:src="@drawable/pasq_right_head" />
+
+
+
+                                        <ImageView
+                                            android:id="@+id/iv_img"
+                                            android:layout_width="80dp"
+                                            android:layout_height="150dp"
+                                            android:layout_centerVertical="true"
+                                            android:layout_alignParentRight="true"
+                                            android:src="@drawable/pasq_right_police" />
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="@dimen/px_10"
+                                            android:layout_marginRight="@dimen/px_10"
+                                            android:layout_toRightOf="@+id/iv_head"
+                                            android:layout_toLeftOf="@+id/iv_img"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:id="@+id/tv_right_title"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="@dimen/px_100"
+                                                android:gravity="center"
+                                                android:text="您身边的社区民警"
+                                                android:textColor="@color/bule"
+                                                android:textSize="20sp" />
+
+                                            <ListView
+                                                android:id="@+id/lv_right_info"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_below="@+id/tv_right_title"
+                                                android:scrollbars="none"
+                                                android:dividerHeight="0dp"
+                                                android:divider="@color/black">
+
+                                            </ListView>
+
+                                        </RelativeLayout>
+                                    </RelativeLayout>
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3"
+                                android:gravity="center">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_sqjk"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:src="@drawable/pasq_sqjk" />
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="社区监控" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_ldrkgl"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginLeft="@dimen/px_100"
+                                    android:layout_marginRight="@dimen/px_100"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:src="@drawable/pasq_ldrkgl" />
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="流动人口管理" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_lwbj"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:src="@drawable/pasq_sqjk" />
+
+                                    <TextView
+                                        android:layout_width="100dp"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:text="联网报警" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
         </RelativeLayout>
 
 
     </LinearLayout>
-</RelativeLayout>
+
+
+</LinearLayout>
+

@@ -134,7 +134,8 @@
         <activity
             android:name=".activity.zwfw.dqfc.ZyzfwActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.zwfw.dqfc.ZsdxActivity" />
+        <activity android:name=".activity.zwfw.dqfc.ZsdxActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".activity.zwfw.dqfc.SjxxActivity"
             android:screenOrientation="landscape"
@@ -161,8 +162,8 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".activity.zwfw.ZwfwActivity"
-            android:screenOrientation="landscape"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".activity.zwfw.dqfc.FfclActivity"
             android:screenOrientation="landscape" />
@@ -173,7 +174,9 @@
         <activity
             android:name=".activity.zwfw.bszn.BsznItemActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.zwfw.yybs.YybsSuccessActivity"></activity>
+        <activity
+            android:name=".activity.zwfw.yybs.YybsSuccessActivity"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
