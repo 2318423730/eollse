@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
+import com.eollse.activity.zwfw.pasq.LdrkActivity;
 import com.eollse.adapter.PasqAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.MyLeftLinearLayout;
@@ -118,13 +119,13 @@ public class PasqActivity extends BaseActivity {
 
     @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.ll_sqjk, R.id.ll_ldrkgl, R.id.ll_lwbj})
     public void onViewClicked(View view) {
+        Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.tv_backHome:
-                Intent intent = new Intent(PasqActivity.this, MainActivity.class);
+                intent.setClass(PasqActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
                 MyApplication.clearAllActivitiesWithOutMainActivity();
- ;
                 break;
             case R.id.tv_back:
                 finish();
@@ -133,7 +134,8 @@ public class PasqActivity extends BaseActivity {
 
                 break;
             case R.id.ll_ldrkgl:
-
+                intent.setClass(PasqActivity.this, LdrkActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_lwbj:
 
