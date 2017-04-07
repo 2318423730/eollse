@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_bszn"
     android:layout_width="match_parent"
@@ -43,6 +44,13 @@
                     android:layout_marginTop="@dimen/px_30"
                     android:layout_weight="3">
 
+                    <com.cjj.MaterialRefreshLayout
+                        android:id="@+id/materialRefreshLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:isLoadMore="false"
+                        app:overlay="false"
+                        app:wave_show="false">
                     <GridView
 
                         android:id="@+id/gv_info"
@@ -52,6 +60,7 @@
                         android:scrollbars="none">
 
                     </GridView>
+                    </com.cjj.MaterialRefreshLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -76,6 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/px_10"
+                        android:layout_marginRight="@dimen/px_25"
                         android:layout_weight="1"
                         android:divider="@android:color/transparent"
                         android:dividerHeight="0dp"

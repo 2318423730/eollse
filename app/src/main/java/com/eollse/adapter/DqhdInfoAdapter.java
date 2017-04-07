@@ -28,7 +28,7 @@ import static android.R.attr.bitmap;
  */
 
 public class DqhdInfoAdapter extends MyBaseAdapter {
-    private List<Dqhd> list;
+    private List<Dqhd.DataBean> list;
     private BitmapFactory.Options options;
     private int size = 1;
     private SimpleTarget<Bitmap> target;
@@ -68,7 +68,7 @@ public class DqhdInfoAdapter extends MyBaseAdapter {
                 finalViewHolder.iv_icon.setImageBitmap(resource);
             }
         };
-        Glide.with(getContext()).load(list.get(i).getIconId()).asBitmap().override(380,380).into(target);
+        Glide.with(getContext()).load(list.get(i).getCoverImg()).asBitmap().override(400,300).into(target);
 
 
         return view;

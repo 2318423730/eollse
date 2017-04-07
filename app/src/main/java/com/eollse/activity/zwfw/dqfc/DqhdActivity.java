@@ -2,23 +2,30 @@ package com.eollse.activity.zwfw.dqfc;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.UrlActivity;
-import com.eollse.activity.zwfw.DqfcActivity;
 import com.eollse.adapter.DqhdInfoAdapter;
 import com.eollse.adapter.DqhdUrlAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.entity.Dqhd;
 import com.eollse.entity.DqhdHref;
+import com.eollse.utils.Constants;
+import com.eollse.utils.HttpCallBack;
 import com.eollse.utils.MyLeftLinearLayout;
+import com.eollse.utils.MyToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,14 +51,29 @@ public class DqhdActivity extends BaseActivity {
     ListView lvHref;
     @BindView(R.id.ll_myLeftLinearLayout)
     MyLeftLinearLayout llMyLeftLinearLayout;
+    @BindView(R.id.materialRefreshLayout)
+    MaterialRefreshLayout materialRefreshLayout;
 
 
-    private String[] title;
-    private int[] img;
-    private List<Dqhd> dqhdList = new ArrayList<>();
+    private List<Dqhd.DataBean> dqhdList = new ArrayList<>();
     private List<DqhdHref> dqhdHrefsList = new ArrayList<>();
     private DqhdInfoAdapter dqhdInfoAdapter;
     private DqhdUrlAdapter dqhdUrlAdapter;
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case Constants.HANDLER_INFO_RECEIVED:
+                    setInfoAdapter();
+                    break;
+                case Constants.HANDLER_NET_ERROR:
+                    MyToast.showToast(getApplicationContext(), "网络不给力");
+                    //Log.e("MyTAG","网络不给力");
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,34 +82,32 @@ public class DqhdActivity extends BaseActivity {
         ButterKnife.bind(this);
         tvTitle.setText("党群活动");
 
-        title = new String[]{"在党群活动中心开展\"两学一做\"学习交流会", "亦庄党群活动中心实地参观学习", "莅临富森美家居党群活动中心开展活动",
-                "在党群活动中心开展\"两学一做\"学习交流会", "亦庄党群活动中心实地参观学习", "莅临富森美家居党群活动中心开展活动"};
-        img = new int[]{R.drawable.dqhd_1, R.drawable.dqhd_2, R.drawable.dqhd_3,
-                R.drawable.dqhd_4, R.drawable.dqhd_5, R.drawable.dqhd_6};
-        for (int i = 0; i < title.length; i++) {
-            Dqhd dqhd = new Dqhd();
-            dqhd.setIconId(img[i]);
-            dqhd.setTitle(title[i]);
-            dqhdList.add(dqhd);
-        }
-        for (int i = 0; i < 20; i++) {
-            DqhdHref dqhdHref = new DqhdHref();
-            dqhdHref.setTitle("链接地址");
-            dqhdHref.setUrl("http://www.baidu.com");
-            dqhdHrefsList.add(dqhdHref);
-        }
 
-        setInfoAdapter();
-        setUrlAdapter();
+        getData();
         setListeners();
 
 
     }
 
-    private void setUrlAdapter() {
-        dqhdUrlAdapter = new DqhdUrlAdapter(getApplicationContext(), dqhdHrefsList);
-        lvHref.setAdapter(dqhdUrlAdapter);
+    private void getData() {
+        MyApplication.okHttpUtil.get(Constants.TEST_URL + "method=JSON", new HttpCallBack() {
+            @Override
+            public void OnSuccess(String jsonStr) {
+                Dqhd dqhd = JSON.parseObject(jsonStr, Dqhd.class);
+                dqhdList.clear();
+                dqhdList.addAll(dqhd.getData());
+                handler.sendEmptyMessage(Constants.HANDLER_INFO_RECEIVED);
+            }
+
+            @Override
+            public void OnError(String jsonStr) {
+                handler.sendEmptyMessage(Constants.HANDLER_NET_ERROR);//没有网络
+                materialRefreshLayout.finishRefresh();//用于关闭刷新
+            }
+        });
     }
+
+
 
     private void setListeners() {
         gvInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -102,10 +122,10 @@ public class DqhdActivity extends BaseActivity {
         lvHref.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(DqhdActivity.this, UrlActivity.class);
-                intent.putExtra("url", dqhdHrefsList.get(position).getUrl());
-                intent.putExtra("title", "党群活动");
-                startActivity(intent);
+//                Intent intent = new Intent(DqhdActivity.this, UrlActivity.class);
+//                intent.putExtra("url", dqhdHrefsList.get(position).getUrl());
+//                intent.putExtra("title", "党群活动");
+//                startActivity(intent);
             }
         });
         llMyLeftLinearLayout.setBackZwfwActivity(this);
@@ -126,11 +146,40 @@ public class DqhdActivity extends BaseActivity {
                 finish();
             }
         });
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                dqhdList.clear();
+                getData();
+            }
+        });
     }
 
     private void setInfoAdapter() {
-        dqhdInfoAdapter = new DqhdInfoAdapter(getApplicationContext(), dqhdList);
-        gvInfo.setAdapter(dqhdInfoAdapter);
+        if (dqhdInfoAdapter == null) {
+            dqhdInfoAdapter = new DqhdInfoAdapter(DqhdActivity.this, dqhdList);
+            gvInfo.setAdapter(dqhdInfoAdapter);
+        } else {
+            dqhdInfoAdapter.notifyDataSetChanged();
+            if (dqhdList.size() > 0) {
+                gvInfo.setSelection(0);
+            }
+        }
+
+        for (int i = 0; i < dqhdList.size(); i++) {
+            DqhdHref dqhdHref = new DqhdHref();
+            dqhdHref.setTitle(dqhdList.get(i).getTitle());
+            dqhdHref.setUrl("http://www.baidu.com");
+            dqhdHrefsList.add(dqhdHref);
+        }
+        setUrlAdapter();
+
+        materialRefreshLayout.finishRefresh();//用于关闭刷新
+    }
+
+    private void setUrlAdapter() {
+        dqhdUrlAdapter = new DqhdUrlAdapter(getApplicationContext(), dqhdHrefsList);
+        lvHref.setAdapter(dqhdUrlAdapter);
     }
 
     @OnClick({R.id.tv_backHome, R.id.tv_back})
