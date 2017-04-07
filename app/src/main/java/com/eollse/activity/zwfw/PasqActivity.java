@@ -13,7 +13,7 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.zwfw.pasq.LdrkActivity;
-import com.eollse.adapter.PasqAdapter;
+import com.eollse.adapter.pasq.PasqLeftAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.MyLeftLinearLayout;
 
@@ -53,9 +53,10 @@ public class PasqActivity extends BaseActivity {
     LinearLayout llLwbj;
     @BindView(R.id.lv_right_info)
     ListView lvRightInfo;
-    private PasqAdapter pasqAdapter;
-    private SimpleAdapter simpleAdapter;
 
+    private SimpleAdapter simpleAdapter;
+    private PasqLeftAdapter pasqLeftAdapter;
+    private List<String> infoList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +111,13 @@ public class PasqActivity extends BaseActivity {
         data.add(mapBjPhone);
         simpleAdapter=new SimpleAdapter(PasqActivity.this,data,R.layout.item_pasq_right_info,new String[]{"info"},new int[]{R.id.tv_info});
         lvRightInfo.setAdapter(simpleAdapter);
+
+
+        infoList.add("一季度治安情况通报");
+        infoList.add("三分钟教你如何防盗防火防诈骗");
+        infoList.add("关于近期社区盗窃频发的文件");
+        pasqLeftAdapter=new PasqLeftAdapter(PasqActivity.this,infoList);
+        lvInfo.setAdapter(pasqLeftAdapter);
     }
 
     private void setListeners() {

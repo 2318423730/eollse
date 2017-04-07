@@ -90,7 +90,7 @@
                                 android:gravity="center"
                                 android:text="治安通报"
                                 android:textColor="@color/black"
-                                android:textSize="18sp" />
+                                android:textSize="20sp" />
 
                             <ListView
                                 android:id="@+id/lv_info"

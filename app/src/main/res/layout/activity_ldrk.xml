@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/right_background"
-    tools:context="com.eollse.activity.zwfw.PasqActivity">
+    tools:context="com.eollse.activity.zwfw.pasq.LdrkActivity">
 
 
     <com.eollse.utils.MyLeftLinearLayout
@@ -73,12 +73,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
-                        <ImageView
+
+                        <lecho.lib.hellocharts.view.LineChartView
+                            android:id="@+id/line_chart"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:src="@drawable/ldrk_month3"
-                            android:scaleType="fitXY"/>
+                            android:background="@drawable/ldrk_title_bg"/>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/px_150"
