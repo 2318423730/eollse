@@ -28,7 +28,7 @@ public class DqfcAdapter extends MyBaseAdapter {
         Dqfc dqfc=list.get(position);
         ViewHolder viewHolder;
         if(convertView==null){
-            convertView=getLayoutInflater().inflate(R.layout.item_zwfw,null);
+            convertView=getLayoutInflater().inflate(R.layout.item_dqfc,null);
             viewHolder=new ViewHolder();
 
             viewHolder.iv= (ImageView) convertView.findViewById(R.id.iv_icon);

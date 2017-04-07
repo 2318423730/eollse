@@ -37,12 +37,12 @@ public class FfclActivity extends BaseActivity {
     TextView tvBack;
     @BindView(R.id.lv_left)
     ListView lvLeft;
-    @BindView(R.id.iv_indictor1)
-    ImageView ivIndictor1;
-    @BindView(R.id.iv_indictor2)
-    ImageView ivIndictor2;
-    @BindView(R.id.iv_indictor3)
-    ImageView ivIndictor3;
+//    @BindView(R.id.iv_indictor1)
+//    ImageView ivIndictor1;
+//    @BindView(R.id.iv_indictor2)
+//    ImageView ivIndictor2;
+//    @BindView(R.id.iv_indictor3)
+//    ImageView ivIndictor3;
     @BindView(R.id.rb_new)
     RadioButton rbNew;
     @BindView(R.id.rb_lvfa)
@@ -90,20 +90,20 @@ public class FfclActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ffclAdapter.setSelectIndex(position);
                 ffclAdapter.notifyDataSetChanged();
-                if (position == list.size()-1) {//选中倒数第一条
-                    ivIndictor1.setVisibility(View.GONE);
-                    ivIndictor2.setVisibility(View.GONE);
-                    ivIndictor3.setVisibility(View.VISIBLE);
-                } else if (position==list.size()-2) {//选中倒数第二条
-                    ivIndictor1.setVisibility(View.GONE);
-                    ivIndictor2.setVisibility(View.VISIBLE);
-                    ivIndictor3.setVisibility(View.GONE);
-                } else {//否则，把选中的条目设置成可视的第一条
-                    lvLeft.setSelectionFromTop(position, position - lvLeft.getFirstVisiblePosition());
-                    ivIndictor1.setVisibility(View.VISIBLE);
-                    ivIndictor2.setVisibility(View.GONE);
-                    ivIndictor3.setVisibility(View.GONE);
-                }
+//                if (position == list.size()-1) {//选中倒数第一条
+//                    ivIndictor1.setVisibility(View.GONE);
+//                    ivIndictor2.setVisibility(View.GONE);
+//                    ivIndictor3.setVisibility(View.VISIBLE);
+//                } else if (position==list.size()-2) {//选中倒数第二条
+//                    ivIndictor1.setVisibility(View.GONE);
+//                    ivIndictor2.setVisibility(View.VISIBLE);
+//                    ivIndictor3.setVisibility(View.GONE);
+//                } else {//否则，把选中的条目设置成可视的第一条
+//                    lvLeft.setSelectionFromTop(position, position - lvLeft.getFirstVisiblePosition());
+//                    ivIndictor1.setVisibility(View.VISIBLE);
+//                    ivIndictor2.setVisibility(View.GONE);
+//                    ivIndictor3.setVisibility(View.GONE);
+//                }
             }
         });
     }

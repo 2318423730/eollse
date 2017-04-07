@@ -90,7 +90,7 @@ public class DqhdActivity extends BaseActivity {
     }
 
     private void getData() {
-        MyApplication.okHttpUtil.get(Constants.TEST_URL + "method=JSON", new HttpCallBack() {
+        MyApplication.okHttpUtil.get(Constants.TEST_URL + "method=Activities", new HttpCallBack() {
             @Override
             public void OnSuccess(String jsonStr) {
                 Dqhd dqhd = JSON.parseObject(jsonStr, Dqhd.class);

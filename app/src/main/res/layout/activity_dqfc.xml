@@ -50,7 +50,9 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:numColumns="3"
-                    android:scrollbars="none">
+                    android:scrollbars="none"
+                    android:horizontalSpacing="@dimen/px_100"
+                    android:verticalSpacing="@dimen/px_20">
 
                 </GridView>
             </LinearLayout>

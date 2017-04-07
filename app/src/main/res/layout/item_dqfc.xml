@@ -7,19 +7,19 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/px_400"
+        android:layout_height="@dimen/px_420"
         android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="@dimen/px_200"
-            android:layout_height="@dimen/px_200"
+            android:layout_width="@dimen/px_300"
+            android:layout_height="@dimen/px_300"
             android:gravity="center">
             <ImageView
                 android:id="@+id/iv_icon"
-                android:layout_width="@dimen/px_150"
-                android:layout_height="@dimen/px_150"
-                android:scaleType="centerCrop"
+                android:layout_width="@dimen/px_250"
+                android:layout_height="@dimen/px_250"
+                android:scaleType="fitCenter"
                 android:src="@mipmap/ic_launcher" />
         </LinearLayout>
 
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/px_60"
             android:layout_marginTop="@dimen/px_10"
-            android:text="名称"
+            android:text="政策信息"
             android:textColor="@color/black"
             android:textSize="@dimen/px_35"
             android:gravity="center"/>
