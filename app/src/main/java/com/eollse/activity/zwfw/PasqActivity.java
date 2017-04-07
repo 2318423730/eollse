@@ -13,6 +13,7 @@ import com.eollse.R;
 import com.eollse.activity.BaseActivity;
 import com.eollse.activity.MainActivity;
 import com.eollse.activity.zwfw.pasq.LdrkActivity;
+import com.eollse.activity.zwfw.pasq.SqjkActivity;
 import com.eollse.adapter.pasq.PasqLeftAdapter;
 import com.eollse.app.MyApplication;
 import com.eollse.utils.MyLeftLinearLayout;
@@ -139,7 +140,8 @@ public class PasqActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.ll_sqjk:
-
+                intent.setClass(PasqActivity.this, SqjkActivity.class);
+                startActivity(intent);
                 break;
             case R.id.ll_ldrkgl:
                 intent.setClass(PasqActivity.this, LdrkActivity.class);

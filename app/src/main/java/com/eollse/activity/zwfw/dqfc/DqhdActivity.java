@@ -69,7 +69,7 @@ public class DqhdActivity extends BaseActivity {
                     break;
                 case Constants.HANDLER_NET_ERROR:
                     MyToast.showToast(getApplicationContext(), "网络不给力");
-                    //Log.e("MyTAG","网络不给力");
+
                     break;
             }
         }
@@ -150,6 +150,7 @@ public class DqhdActivity extends BaseActivity {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
                 dqhdList.clear();
+                dqhdHrefsList.clear();
                 getData();
             }
         });

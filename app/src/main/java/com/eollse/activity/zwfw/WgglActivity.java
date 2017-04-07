@@ -53,12 +53,10 @@ public class WgglActivity extends BaseActivity {
         setContentView(R.layout.activity_wggl);
         ButterKnife.bind(this);
 
-        img = new int[]{R.drawable.wggl_ltjd, R.drawable.wggl_jcsj, R.drawable.wggl_tjfx,
-                R.drawable.wggl_gzgl, R.drawable.wggl_rkgl, R.drawable.wggl_txl,
-                R.drawable.wggl_wgryxx, R.drawable.wggl_kqdk};
-        title = new String[]{"龙塔街道", "基础数据", "统计分析",
-                "工作管理", "人口管理", "通讯录",
-                "网格人员信息", "考勤打卡"};
+        img = new int[]{R.drawable.wggl_ltjd, R.drawable.wggl_kqdk, R.drawable.wggl_wgryxx, R.drawable.wggl_tjfx,
+                R.drawable.wggl_gzgl, R.drawable.wggl_txl, R.drawable.wggl_rkgl, R.drawable.wggl_jcsj};
+        title = new String[]{"龙塔街道", "考勤打卡", "网格人员信息", "统计分析",
+                "工作管理", "通讯录", "人口管理", "基础数据",};
 
 
         tvTitle.setText("网格管理");
@@ -96,13 +94,13 @@ public class WgglActivity extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent();
-                if (position != img.length - 1) {
-                    return;
-                }
-                if (position == img.length - 1) {
+                if (position == 1) {//跳转到考勤打卡
                     intent.setClass(WgglActivity.this, KqdkActivity.class);
+                    startActivity(intent);
+                }else{
+
                 }
-                startActivity(intent);
+
             }
         });
     }

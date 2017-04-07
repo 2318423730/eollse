@@ -74,15 +74,19 @@ public class LdrkActivity extends BaseActivity {
     private List<String> monthList = new ArrayList<>();
 
     Calendar aCalendar = Calendar.getInstance(Locale.CHINA);
-    int day=aCalendar.getActualMaximum(Calendar.DATE);
+    int day = aCalendar.getActualMaximum(Calendar.DATE);
 
-    private Random random;
-    String[] date3 = {"3月1日", "3月3日", "3月5日", "3月7日", "3月9日", "3月11日", "3月13日", "3月15日", "3月17日", "3月19日", "3月21日", "3月23日", "3月25日", "3月27日", "3月29日","3月31日"};//X轴的标注
-    String[] date4 = {"4月1日", "4月3日", "4月5日", "4月7日", "4月9日", "4月11日", "4月13日", "4月15日", "4月17日", "4月19日", "4月21日", "4月23日", "4月25日", "4月27日", "4月29日","4月30日"};//X轴的标注
-    String[] date5 = {"5月1日", "5月3日", "5月5日", "5月7日", "5月9日", "5月11日", "5月13日", "5月15日", "5月17日", "5月19日", "5月21日", "5月23日", "5月25日", "5月27日", "5月29日", "5月31日"};//X轴的标注
-    List<Integer> listNum = new ArrayList<>();//图表的数据点
+
+    private String[] date3 = {"3月1日", "3月3日", "3月5日", "3月7日", "3月9日", "3月11日", "3月13日", "3月15日", "3月17日", "3月19日", "3月21日", "3月23日", "3月25日", "3月27日", "3月29日", "3月31日"};//X轴的标注
+    private String[] date4 = {"4月1日", "4月3日", "4月5日", "4月7日", "4月9日", "4月11日", "4月13日", "4月15日", "4月17日", "4月19日", "4月21日", "4月23日", "4月25日", "4月27日", "4月29日", "4月30日"};//X轴的标注
+    private String[] date5 = {"5月1日", "5月3日", "5月5日", "5月7日", "5月9日", "5月11日", "5月13日", "5月15日", "5月17日", "5月19日", "5月21日", "5月23日", "5月25日", "5月27日", "5月29日", "5月31日"};//X轴的标注
+    private int[] dataY3 = {11, 42, 26, 50, 21, 28, 43, 23, 56, 45, 33, 51, 34, 32, 46, 28};
+    private int[] dataY4 = {43, 26, 50, 21, 40, 43, 23, 56, 45, 33, 51, 34, 32, 11, 28, 46};
+    private int[] dataY5 = {42, 26, 56, 45, 40, 43, 59, 46, 28, 33, 51, 34, 32, 11, 33, 51};
+
     private List<PointValue> mPointValues = new ArrayList<PointValue>();
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,10 +108,9 @@ public class LdrkActivity extends BaseActivity {
         //设置图表数据
 
         getAxisXLables(3);//获取x轴的标注
-        getAxisPoints();//获取坐标点
+        getAxisPoints(3);//获取坐标点
         initLineChart();//初始化
 
-       // Log.e("MyTAG","天数="+day);
     }
 
     private void setLsiteners() {
@@ -116,16 +119,16 @@ public class LdrkActivity extends BaseActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 leftAdapter.setSelectIndex(position);
                 leftAdapter.notifyDataSetChanged();
-                int month=3;
-                if(position==0){
-                    month=3;
-                }else if(position==1){
-                    month=4;
-                }else if(position==2){
-                    month=5;
+                int month = 3;
+                if (position == 0) {
+                    month = 3;
+                } else if (position == 1) {
+                    month = 4;
+                } else if (position == 2) {
+                    month = 5;
                 }
                 getAxisXLables(month);
-                getAxisPoints();//获取坐标点
+                getAxisPoints(month);//获取坐标点
                 initLineChart();//初始化
             }
         });
@@ -136,15 +139,15 @@ public class LdrkActivity extends BaseActivity {
      */
     private void getAxisXLables(int month) {
         mAxisXValues.clear();
-        if(month==3){
+        if (month == 3) {
             for (int i = 0; i < date3.length; i++) {
                 mAxisXValues.add(new AxisValue(i).setLabel(date3[i]));
             }
-        }else if(month==4){
+        } else if (month == 4) {
             for (int i = 0; i < date4.length; i++) {
                 mAxisXValues.add(new AxisValue(i).setLabel(date4[i]));
             }
-        }else if(month==5){
+        } else if (month == 5) {
             for (int i = 0; i < date5.length; i++) {
                 mAxisXValues.add(new AxisValue(i).setLabel(date5[i]));
             }
@@ -155,23 +158,28 @@ public class LdrkActivity extends BaseActivity {
     /**
      * 图表的每个点的显示
      */
-    private void getAxisPoints() {
+    private void getAxisPoints(int month) {
         mPointValues.clear();
 
-        int max=50;
-        int min=10;
-        random=new Random();
-        for(int i=0;i<16;i++){
-            int s = random.nextInt(max)%(max-min+1) + min;
-            listNum.add(s);
+        if (month == 3) {
+            for (int i = 0; i < dataY3.length; i++) {
+                mPointValues.add(new PointValue(i, dataY3[i]));
+            }
+        } else if (month == 4) {
+            for (int i = 0; i < dataY4.length; i++) {
+                mPointValues.add(new PointValue(i, dataY4[i]));
+            }
+        } else if (month == 5) {
+            for (int i = 0; i < dataY5.length; i++) {
+                mPointValues.add(new PointValue(i, dataY5[i]));
+            }
         }
 
-        for (int i = 0; i < listNum.size(); i++) {
-            mPointValues.add(new PointValue(i, listNum.get(i)));
-        }
+
     }
 
-    private void initLineChart(){
+
+    private void initLineChart() {
         Line line = new Line(mPointValues).setColor(Color.BLUE);  //折线的颜色（蓝色）
         List<Line> lines = new ArrayList<Line>();
         line.setShape(ValueShape.CIRCLE);//折线图上每个数据点的形状  这里是圆形 （有三种 ：ValueShape.SQUARE  ValueShape.CIRCLE  ValueShape.DIAMOND）
@@ -217,9 +225,10 @@ public class LdrkActivity extends BaseActivity {
          */
         Viewport v = new Viewport(lineChart.getMaximumViewport());
         v.left = 0;
-        v.right= 7;
+        v.right = 7;
         lineChart.setCurrentViewport(v);
     }
+
     @OnClick({R.id.tv_backHome, R.id.tv_back, R.id.btn_login, R.id.btn_reset})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -244,19 +253,19 @@ public class LdrkActivity extends BaseActivity {
     }
 
     private void login() {
-        if("".equals(etSqName.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"社区名不能为空");
+        if ("".equals(etSqName.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "社区名不能为空");
             return;
         }
-        if("".equals(etUserName.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"账号不能为空");
+        if ("".equals(etUserName.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "账号不能为空");
             return;
         }
-        if("".equals(etPassword.getText().toString())){
-            MyToast.showToast(getApplicationContext(),"密码不能为空");
+        if ("".equals(etPassword.getText().toString())) {
+            MyToast.showToast(getApplicationContext(), "密码不能为空");
             return;
         }
 
-        MyToast.showToast(getApplicationContext(),"登录成功!!!");
+        MyToast.showToast(getApplicationContext(), "登录成功!!!");
     }
 }

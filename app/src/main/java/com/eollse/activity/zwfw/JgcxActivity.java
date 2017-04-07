@@ -29,6 +29,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 /**
  * 结果查询
  */
@@ -93,7 +94,6 @@ public class JgcxActivity extends BaseActivity implements View.OnClickListener {
         ButterKnife.bind(this);
 
         tvTitle.setText("结果查询");
-
 
         lvInfo.setAdapter(adapter);
 

@@ -56,7 +56,7 @@ public class DqfcActivity extends BaseActivity {
         tvTitle.setText("党群风采");
 
 
-        img = new int[]{R.drawable.dqfc_dqhd, R.drawable.dqfc_zyfw, R.drawable.dqfc_zsdx,
+        img = new int[]{R.drawable.dqfc_dqhd, R.drawable.dqfc_zyzfw, R.drawable.dqfc_zsdx,
                 R.drawable.dqfc_sjxx, R.drawable.dqfc_sdxf, R.drawable.dqfc_ffcl};
         title = new String[]{"党群活动", "志愿者服务", "掌上党校",
                 "书记信箱", "时代先锋", "反腐倡廉",};

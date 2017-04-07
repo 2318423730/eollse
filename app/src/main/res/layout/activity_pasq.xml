@@ -55,7 +55,7 @@
                             android:gravity="center"
                             android:text="治安紧急联络人 电话  地址"
                             android:textColor="@color/red"
-                            android:textSize="16sp" />
+                            android:textSize="20sp" />
                     </LinearLayout>
 
                     <View
@@ -73,8 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@+id/view_line"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/px_5">
+                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -142,7 +141,7 @@
                                         android:layout_centerInParent="true"
                                         android:text="黄泥磅社区警务室"
                                         android:textColor="@color/white"
-                                        android:textSize="20sp" />
+                                        android:textSize="22sp" />
                                 </RelativeLayout>
 
                                 <RelativeLayout
@@ -192,7 +191,7 @@
                                                 android:gravity="center"
                                                 android:text="您身边的社区民警"
                                                 android:textColor="@color/bule"
-                                                android:textSize="20sp" />
+                                                android:textSize="22sp" />
 
                                             <ListView
                                                 android:id="@+id/lv_right_info"
@@ -232,7 +231,9 @@
                                         android:layout_width="100dp"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="社区监控" />
+                                        android:text="社区监控"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/black"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -253,7 +254,9 @@
                                         android:layout_width="100dp"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="流动人口管理" />
+                                        android:text="流动人口管理"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/black"/>
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -272,7 +275,9 @@
                                         android:layout_width="100dp"
                                         android:layout_height="wrap_content"
                                         android:gravity="center"
-                                        android:text="联网报警" />
+                                        android:text="联网报警"
+                                        android:textSize="16sp"
+                                        android:textColor="@color/black"/>
                                 </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>

@@ -5,13 +5,12 @@
     android:id="@+id/activity_jgcx"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/info_bg"
+    android:background="@drawable/right_background"
     tools:context="com.eollse.activity.zwfw.JgcxActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/info_bg"
         android:orientation="vertical">
 
         <include layout="@layout/top"></include>
@@ -22,7 +21,12 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/px_40"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:background="@drawable/info"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/px_30"
+            android:paddingLeft="@dimen/px_20"
+            android:paddingRight="@dimen/px_20"
+            android:paddingTop="@dimen/px_20">
 
 
             <LinearLayout
@@ -47,20 +51,19 @@
                         android:layout_height="wrap_content"
                         android:text="姓名："
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40" />
+                        android:textSize="18sp" />
 
 
                     <EditText
                         android:id="@+id/et_userName"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/px_60"
                         android:background="@drawable/jgcx_input_search"
-                        android:hint="请输入姓名"
                         android:paddingLeft="@dimen/px_30"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/transparent"
-                        android:textSize="@dimen/px_40" />
+
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
@@ -76,34 +79,32 @@
                         android:layout_height="wrap_content"
                         android:text="手机号码："
                         android:textColor="@color/white"
-                        android:textSize="@dimen/px_40" />
+                        android:textSize="18sp" />
 
                     <EditText
                         android:id="@+id/et_mobile"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/px_60"
                         android:background="@drawable/jgcx_input_search"
-                        android:hint="请输入手机号码"
                         android:maxLength="11"
                         android:numeric="integer"
                         android:paddingLeft="20dp"
                         android:singleLine="true"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/transparent"
-                        android:textSize="@dimen/px_40" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/tv_search"
-                    android:layout_width="@dimen/px_300"
-                    android:layout_height="@dimen/px_90"
+                    android:layout_width="@dimen/px_200"
+                    android:layout_height="@dimen/px_70"
                     android:layout_marginLeft="@dimen/px_40"
                     android:background="@drawable/jgcx_btn_search"
                     android:gravity="center"
                     android:text="查	询"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_40" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -120,7 +121,7 @@
                     android:gravity="center"
                     android:text="受理编号"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="100dp"
@@ -128,7 +129,7 @@
                     android:gravity="center"
                     android:text="分类性质"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp"  />
 
                 <TextView
 
@@ -138,7 +139,7 @@
                     android:gravity="center"
                     android:text="主题"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp"  />
 
                 <TextView
                     android:layout_width="150dp"
@@ -146,7 +147,7 @@
                     android:gravity="center"
                     android:text="诉求时间"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp"  />
 
                 <TextView
                     android:layout_width="150dp"
@@ -154,7 +155,7 @@
                     android:gravity="center"
                     android:text="办结时间"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp"  />
 
                 <TextView
                     android:layout_width="100dp"
@@ -162,7 +163,7 @@
                     android:gravity="center"
                     android:text="办理状态"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/px_30" />
+                    android:textSize="16sp"  />
 
             </LinearLayout>
 
@@ -176,13 +177,15 @@
 
                 <com.cjj.MaterialRefreshLayout
                     android:id="@+id/materialRefreshLayout"
-                    app:isLoadMore="false"
-                    app:overlay="false"
-                    app:wave_show="false"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:paddingBottom="@dimen/px_10"
                     android:paddingLeft="@dimen/px_20"
-                    android:paddingRight="@dimen/px_20">
+                    android:paddingRight="@dimen/px_20"
+                    android:paddingTop="@dimen/px_10"
+                    app:isLoadMore="false"
+                    app:overlay="false"
+                    app:wave_show="false">
 
                     <ListView
                         android:id="@+id/lv_info"
@@ -212,16 +215,17 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/px_100"
+                android:layout_height="@dimen/px_80"
                 android:layout_marginLeft="@dimen/px_40"
                 android:layout_marginRight="@dimen/px_40"
-                android:layout_marginTop="@dimen/px_20"
+                android:layout_marginTop="@dimen/px_10"
                 android:gravity="center_vertical">
 
                 <TextView
                     android:id="@+id/tv_previous"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/px_200"
+                    android:layout_height="@dimen/px_70"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/btn_prev"
                     android:gravity="center"
                     android:text="上一页"
@@ -293,9 +297,10 @@
 
                 <TextView
                     android:id="@+id/tv_next"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="@dimen/px_200"
+                    android:layout_height="@dimen/px_70"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:background="@drawable/btn_next"
                     android:gravity="center"
                     android:text="下一页"

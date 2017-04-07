@@ -178,7 +178,8 @@
         <activity
             android:name=".activity.zwfw.yybs.YybsSuccessActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.zwfw.pasq.LdrkActivity"></activity>
+        <activity android:name=".activity.zwfw.pasq.LdrkActivity" />
+        <activity android:name=".activity.zwfw.pasq.SqjkActivity"></activity>
     </application>
 
 </manifest>
